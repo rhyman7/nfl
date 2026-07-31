@@ -1,0 +1,5182 @@
+{
+  "generatedAt": "2026-07-31T23:12:18.707828+00:00",
+  "teams": {
+    "Arizona Cardinals": {
+      "team": "Arizona Cardinals",
+      "record": {
+        "w": 3,
+        "l": 13,
+        "t": 0,
+        "sos": 2.8,
+        "srs": -4.4,
+        "osrs": -1.5,
+        "dsrs": -3.0
+      },
+      "offense": {
+        "ppg": 20.9,
+        "rushYdsG": 94.0,
+        "rushYdsGRank": 29,
+        "rushTdG": 0.56,
+        "passYdsG": 232.3,
+        "passYdsGRank": 7,
+        "passTdG": 1.69,
+        "int": 0.63
+      },
+      "defense": {
+        "papg": 28.2,
+        "rushYdsG": 125.9,
+        "rushYdsGRank": 25,
+        "rushTdG": 1.19,
+        "passYdsG": 229.4,
+        "passYdsGRank": 24,
+        "passTdG": 1.69,
+        "int": 0.63
+      },
+      "passing": [
+        {
+          "player": "Jacoby Brissett",
+          "ydsG": 240.2,
+          "td": 1.62,
+          "int": 0.54
+        },
+        {
+          "player": "Kedon Slovis",
+          "ydsG": -1.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Michael Carter",
+          "ydsG": 26.3,
+          "td": 0.08,
+          "ya": 3.7,
+          "ag": 7.1
+        },
+        {
+          "player": "Emari Demercado",
+          "ydsG": 23.6,
+          "td": 0.0,
+          "ya": 6.7,
+          "ag": 3.5
+        },
+        {
+          "player": "Corey Kiner",
+          "ydsG": 15.0,
+          "td": 0.0,
+          "ya": 5.0,
+          "ag": 3.0
+        },
+        {
+          "player": "Jacoby Brissett",
+          "ydsG": 11.5,
+          "td": 0.08,
+          "ya": 4.3,
+          "ag": 2.7
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Trey McBride",
+          "ydsG": 73.4,
+          "td": 0.69,
+          "yr": 9.9,
+          "rec": 7.44
+        },
+        {
+          "player": "Michael Wilson",
+          "ydsG": 56.7,
+          "td": 0.38,
+          "yr": 12.4,
+          "rec": 4.56
+        },
+        {
+          "player": "Michael Carter",
+          "ydsG": 20.5,
+          "td": 0.0,
+          "yr": 8.2,
+          "rec": 2.5
+        },
+        {
+          "player": "Elijah Higgins",
+          "ydsG": 17.1,
+          "td": 0.0,
+          "yr": 10.1,
+          "rec": 1.69
+        },
+        {
+          "player": "Jalen Brooks",
+          "ydsG": 12.8,
+          "td": 0.0,
+          "yr": 17.0,
+          "rec": 0.75
+        },
+        {
+          "player": "Xavier Weaver",
+          "ydsG": 7.4,
+          "td": 0.0,
+          "yr": 9.6,
+          "rec": 0.78
+        },
+        {
+          "player": "Emari Demercado",
+          "ydsG": 6.1,
+          "td": 0.08,
+          "yr": 6.1,
+          "rec": 1.0
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 29,
+          "yds": 112.9,
+          "td": 1.06
+        },
+        "recRb": {
+          "rank": 24,
+          "yds": 36.1,
+          "td": 0.31
+        },
+        "te": {
+          "rank": 27,
+          "yds": 64.9,
+          "td": 0.5
+        },
+        "wr": {
+          "rank": 17,
+          "yds": 139.3,
+          "td": 0.81
+        }
+      }
+    },
+    "Atlanta Falcons": {
+      "team": "Atlanta Falcons",
+      "record": {
+        "w": 7,
+        "l": 9,
+        "t": 0,
+        "sos": 0.4,
+        "srs": -2.8,
+        "osrs": -2.2,
+        "dsrs": -0.6
+      },
+      "offense": {
+        "ppg": 20.9,
+        "rushYdsG": 130.6,
+        "rushYdsGRank": 5,
+        "rushTdG": 1.06,
+        "passYdsG": 210.3,
+        "passYdsGRank": 19,
+        "passTdG": 1.13,
+        "int": 0.44
+      },
+      "defense": {
+        "papg": 24.0,
+        "rushYdsG": 127.4,
+        "rushYdsGRank": 26,
+        "rushTdG": 0.69,
+        "passYdsG": 198.4,
+        "passYdsGRank": 11,
+        "passTdG": 1.63,
+        "int": 0.94
+      },
+      "passing": [
+        {
+          "player": "Kirk Cousins",
+          "ydsG": 171.2,
+          "td": 1.0,
+          "int": 0.44
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Bijan Robinson",
+          "ydsG": 90.3,
+          "td": 0.44,
+          "ya": 5.3,
+          "ag": 17.0
+        },
+        {
+          "player": "Tyler Allgeier",
+          "ydsG": 31.1,
+          "td": 0.5,
+          "ya": 3.7,
+          "ag": 8.5
+        },
+        {
+          "player": "Nathan Carter",
+          "ydsG": 10.0,
+          "td": 0.0,
+          "ya": 6.7,
+          "ag": 1.5
+        },
+        {
+          "player": "Kirk Cousins",
+          "ydsG": 0.8,
+          "td": 0.11,
+          "ya": 0.6,
+          "ag": 1.2
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Drake London",
+          "ydsG": 76.5,
+          "td": 0.55,
+          "yr": 13.1,
+          "rec": 5.82
+        },
+        {
+          "player": "Kyle Pitts",
+          "ydsG": 54.4,
+          "td": 0.31,
+          "yr": 10.6,
+          "rec": 5.13
+        },
+        {
+          "player": "Bijan Robinson",
+          "ydsG": 50.6,
+          "td": 0.25,
+          "yr": 10.7,
+          "rec": 4.75
+        },
+        {
+          "player": "Darnell Mooney",
+          "ydsG": 30.2,
+          "td": 0.07,
+          "yr": 14.6,
+          "rec": 2.07
+        },
+        {
+          "player": "Casey Washington",
+          "ydsG": 13.4,
+          "td": 0.0,
+          "yr": 15.7,
+          "rec": 0.86
+        },
+        {
+          "player": "David Sills V",
+          "ydsG": 11.3,
+          "td": 0.13,
+          "yr": 10.6,
+          "rec": 1.06
+        },
+        {
+          "player": "Tyler Allgeier",
+          "ydsG": 5.8,
+          "td": 0.0,
+          "yr": 7.2,
+          "rec": 0.81
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 23,
+          "yds": 103.3,
+          "td": 0.56
+        },
+        "recRb": {
+          "rank": 14,
+          "yds": 29.8,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 8,
+          "yds": 45.2,
+          "td": 0.19
+        },
+        "wr": {
+          "rank": 20,
+          "yds": 144.7,
+          "td": 1.19
+        }
+      }
+    },
+    "Baltimore Ravens": {
+      "team": "Baltimore Ravens",
+      "record": {
+        "w": 8,
+        "l": 8,
+        "t": 0,
+        "sos": -0.4,
+        "srs": 1.3,
+        "osrs": 1.6,
+        "dsrs": -0.3
+      },
+      "offense": {
+        "ppg": 25.0,
+        "rushYdsG": 157.8,
+        "rushYdsGRank": 1,
+        "rushTdG": 1.44,
+        "passYdsG": 172.7,
+        "passYdsGRank": 28,
+        "passTdG": 1.25,
+        "int": 0.63
+      },
+      "defense": {
+        "papg": 23.3,
+        "rushYdsG": 107.1,
+        "rushYdsGRank": 11,
+        "rushTdG": 1.0,
+        "passYdsG": 245.3,
+        "passYdsGRank": 30,
+        "passTdG": 1.38,
+        "int": 0.69
+      },
+      "passing": [
+        {
+          "player": "Lamar Jackson",
+          "ydsG": 192.6,
+          "td": 1.5,
+          "int": 0.5
+        },
+        {
+          "player": "Tyler Huntley",
+          "ydsG": 85.2,
+          "td": 0.4,
+          "int": 0.0
+        },
+        {
+          "player": "Cooper Rush",
+          "ydsG": 75.8,
+          "td": 0.0,
+          "int": 1.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Derrick Henry",
+          "ydsG": 91.8,
+          "td": 1.0,
+          "ya": 5.1,
+          "ag": 17.9
+        },
+        {
+          "player": "Tyler Huntley",
+          "ydsG": 30.2,
+          "td": 0.0,
+          "ya": 6.3,
+          "ag": 4.8
+        },
+        {
+          "player": "Lamar Jackson",
+          "ydsG": 28.3,
+          "td": 0.17,
+          "ya": 5.4,
+          "ag": 5.3
+        },
+        {
+          "player": "Keaton Mitchell",
+          "ydsG": 28.3,
+          "td": 0.08,
+          "ya": 5.9,
+          "ag": 4.8
+        },
+        {
+          "player": "Zay Flowers",
+          "ydsG": 3.9,
+          "td": 0.06,
+          "ya": 6.2,
+          "ag": 0.6
+        },
+        {
+          "player": "Mark Andrews",
+          "ydsG": 3.0,
+          "td": 0.06,
+          "ya": 4.8,
+          "ag": 0.6
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Zay Flowers",
+          "ydsG": 67.1,
+          "td": 0.19,
+          "yr": 13.1,
+          "rec": 5.13
+        },
+        {
+          "player": "Mark Andrews",
+          "ydsG": 25.5,
+          "td": 0.31,
+          "yr": 8.9,
+          "rec": 2.88
+        },
+        {
+          "player": "Isaiah Likely",
+          "ydsG": 21.2,
+          "td": 0.08,
+          "yr": 11.0,
+          "rec": 1.92
+        },
+        {
+          "player": "DeAndre Hopkins",
+          "ydsG": 20.6,
+          "td": 0.13,
+          "yr": 15.0,
+          "rec": 1.38
+        },
+        {
+          "player": "Rashod Bateman",
+          "ydsG": 17.2,
+          "td": 0.15,
+          "yr": 11.8,
+          "rec": 1.46
+        },
+        {
+          "player": "Derrick Henry",
+          "ydsG": 9.4,
+          "td": 0.0,
+          "yr": 10.0,
+          "rec": 0.94
+        },
+        {
+          "player": "Charlie Kolar",
+          "ydsG": 8.9,
+          "td": 0.13,
+          "yr": 14.2,
+          "rec": 0.63
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 7,
+          "yds": 82.5,
+          "td": 0.69
+        },
+        "recRb": {
+          "rank": 29,
+          "yds": 39.9,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 10,
+          "yds": 46.1,
+          "td": 0.25
+        },
+        "wr": {
+          "rank": 30,
+          "yds": 169.3,
+          "td": 0.94
+        }
+      }
+    },
+    "Buffalo Bills": {
+      "team": "Buffalo Bills",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": -1.4,
+        "srs": 4.2,
+        "osrs": 5.0,
+        "dsrs": -0.8
+      },
+      "offense": {
+        "ppg": 27.9,
+        "rushYdsG": 156.4,
+        "rushYdsGRank": 2,
+        "rushTdG": 1.81,
+        "passYdsG": 214.0,
+        "passYdsGRank": 18,
+        "passTdG": 1.56,
+        "int": 0.63
+      },
+      "defense": {
+        "papg": 22.3,
+        "rushYdsG": 140.4,
+        "rushYdsGRank": 29,
+        "rushTdG": 1.5,
+        "passYdsG": 163.4,
+        "passYdsGRank": 1,
+        "passTdG": 1.13,
+        "int": 0.81
+      },
+      "passing": [
+        {
+          "player": "Josh Allen",
+          "ydsG": 229.3,
+          "td": 1.56,
+          "int": 0.63
+        },
+        {
+          "player": "Mitchell Trubisky",
+          "ydsG": 18.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "James Cook",
+          "ydsG": 100.4,
+          "td": 0.75,
+          "ya": 5.2,
+          "ag": 19.2
+        },
+        {
+          "player": "Josh Allen",
+          "ydsG": 36.2,
+          "td": 0.88,
+          "ya": 5.2,
+          "ag": 7.0
+        },
+        {
+          "player": "Ty Johnson",
+          "ydsG": 10.3,
+          "td": 0.13,
+          "ya": 4.4,
+          "ag": 2.3
+        },
+        {
+          "player": "Ray Davis",
+          "ydsG": 7.8,
+          "td": 0.0,
+          "ya": 3.4,
+          "ag": 2.3
+        },
+        {
+          "player": "Mitchell Trubisky",
+          "ydsG": 0.3,
+          "td": 0.0,
+          "ya": 0.3,
+          "ag": 1.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Dalton Kincaid",
+          "ydsG": 47.5,
+          "td": 0.45,
+          "yr": 14.5,
+          "rec": 3.27
+        },
+        {
+          "player": "Khalil Shakir",
+          "ydsG": 44.9,
+          "td": 0.25,
+          "yr": 10.0,
+          "rec": 4.5
+        },
+        {
+          "player": "Keon Coleman",
+          "ydsG": 29.6,
+          "td": 0.33,
+          "yr": 9.9,
+          "rec": 3.0
+        },
+        {
+          "player": "Josh Palmer",
+          "ydsG": 27.5,
+          "td": 0.0,
+          "yr": 14.4,
+          "rec": 1.91
+        },
+        {
+          "player": "Dawson Knox",
+          "ydsG": 24.6,
+          "td": 0.19,
+          "yr": 11.6,
+          "rec": 2.13
+        },
+        {
+          "player": "Brandin Cooks",
+          "ydsG": 22.8,
+          "td": 0.0,
+          "yr": 22.8,
+          "rec": 1.0
+        },
+        {
+          "player": "James Cook",
+          "ydsG": 18.2,
+          "td": 0.13,
+          "yr": 8.8,
+          "rec": 2.06
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 28,
+          "yds": 110.6,
+          "td": 1.13
+        },
+        "recRb": {
+          "rank": 7,
+          "yds": 26.2,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 2,
+          "yds": 31.5,
+          "td": 0.25
+        },
+        "wr": {
+          "rank": 4,
+          "yds": 119.4,
+          "td": 0.75
+        }
+      }
+    },
+    "Carolina Panthers": {
+      "team": "Carolina Panthers",
+      "record": {
+        "w": 8,
+        "l": 8,
+        "t": 0,
+        "sos": 0.5,
+        "srs": -3.7,
+        "osrs": -4.9,
+        "dsrs": 1.2
+      },
+      "offense": {
+        "ppg": 18.6,
+        "rushYdsG": 122.4,
+        "rushYdsGRank": 11,
+        "rushTdG": 0.56,
+        "passYdsG": 173.9,
+        "passYdsGRank": 26,
+        "passTdG": 1.38,
+        "int": 0.69
+      },
+      "defense": {
+        "papg": 22.8,
+        "rushYdsG": 122.3,
+        "rushYdsGRank": 19,
+        "rushTdG": 1.25,
+        "passYdsG": 204.3,
+        "passYdsGRank": 14,
+        "passTdG": 1.19,
+        "int": 0.88
+      },
+      "passing": [
+        {
+          "player": "Bryce Young",
+          "ydsG": 183.0,
+          "td": 1.4,
+          "int": 0.67
+        },
+        {
+          "player": "Andy Dalton",
+          "ydsG": 73.3,
+          "td": 0.25,
+          "int": 0.25
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Rico Dowdle",
+          "ydsG": 66.6,
+          "td": 0.38,
+          "ya": 4.7,
+          "ag": 14.3
+        },
+        {
+          "player": "Chuba Hubbard",
+          "ydsG": 35.8,
+          "td": 0.07,
+          "ya": 3.9,
+          "ag": 9.2
+        },
+        {
+          "player": "Bryce Young",
+          "ydsG": 14.5,
+          "td": 0.13,
+          "ya": 4.2,
+          "ag": 3.5
+        },
+        {
+          "player": "Trevor Etienne",
+          "ydsG": 5.9,
+          "td": 0.0,
+          "ya": 4.7,
+          "ag": 1.3
+        },
+        {
+          "player": "Jimmy Horn",
+          "ydsG": 5.8,
+          "td": 0.0,
+          "ya": 8.6,
+          "ag": 0.7
+        },
+        {
+          "player": "Andy Dalton",
+          "ydsG": -0.5,
+          "td": 0.0,
+          "ya": -0.4,
+          "ag": 1.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Tetairoa McMillan",
+          "ydsG": 58.1,
+          "td": 0.44,
+          "yr": 14.1,
+          "rec": 4.13
+        },
+        {
+          "player": "Jalen Coker",
+          "ydsG": 34.7,
+          "td": 0.2,
+          "yr": 12.9,
+          "rec": 2.7
+        },
+        {
+          "player": "Xavier Legette",
+          "ydsG": 24.4,
+          "td": 0.21,
+          "yr": 10.7,
+          "rec": 2.29
+        },
+        {
+          "player": "Rico Dowdle",
+          "ydsG": 17.3,
+          "td": 0.06,
+          "yr": 7.5,
+          "rec": 2.31
+        },
+        {
+          "player": "Chuba Hubbard",
+          "ydsG": 15.4,
+          "td": 0.21,
+          "yr": 7.7,
+          "rec": 2.0
+        },
+        {
+          "player": "Hunter Renfrow",
+          "ydsG": 14.8,
+          "td": 0.33,
+          "yr": 5.9,
+          "rec": 2.5
+        },
+        {
+          "player": "Ja'Tavion Sanders",
+          "ydsG": 14.6,
+          "td": 0.08,
+          "yr": 6.6,
+          "rec": 2.23
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 27,
+          "yds": 106.5,
+          "td": 1.0
+        },
+        "recRb": {
+          "rank": 13,
+          "yds": 28.5,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 20,
+          "yds": 57.8,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 10,
+          "yds": 129.6,
+          "td": 0.69
+        }
+      }
+    },
+    "Chicago Bears": {
+      "team": "Chicago Bears",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": -1.4,
+        "srs": 0.5,
+        "osrs": 3.0,
+        "dsrs": -2.5
+      },
+      "offense": {
+        "ppg": 26.6,
+        "rushYdsG": 149.4,
+        "rushYdsGRank": 3,
+        "rushTdG": 1.19,
+        "passYdsG": 226.3,
+        "passYdsGRank": 11,
+        "passTdG": 1.63,
+        "int": 0.38
+      },
+      "defense": {
+        "papg": 24.8,
+        "rushYdsG": 135.3,
+        "rushYdsGRank": 28,
+        "rushTdG": 0.94,
+        "passYdsG": 222.0,
+        "passYdsGRank": 21,
+        "passTdG": 1.94,
+        "int": 1.38
+      },
+      "passing": [
+        {
+          "player": "Caleb Williams",
+          "ydsG": 233.1,
+          "td": 1.56,
+          "int": 0.38
+        },
+        {
+          "player": "Tyson Bagent",
+          "ydsG": 15.7,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "D'Andre Swift",
+          "ydsG": 69.8,
+          "td": 0.6,
+          "ya": 4.9,
+          "ag": 14.2
+        },
+        {
+          "player": "Kyle Monangai",
+          "ydsG": 48.1,
+          "td": 0.31,
+          "ya": 4.7,
+          "ag": 10.2
+        },
+        {
+          "player": "Caleb Williams",
+          "ydsG": 24.2,
+          "td": 0.19,
+          "ya": 5.1,
+          "ag": 4.8
+        },
+        {
+          "player": "D.J. Moore",
+          "ydsG": 4.9,
+          "td": 0.06,
+          "ya": 5.3,
+          "ag": 0.9
+        },
+        {
+          "player": "Luther Burden",
+          "ydsG": 1.9,
+          "td": 0.0,
+          "ya": 5.4,
+          "ag": 0.4
+        },
+        {
+          "player": "Olamide Zaccheaus",
+          "ydsG": 1.7,
+          "td": 0.0,
+          "ya": 6.3,
+          "ag": 0.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Rome Odunze",
+          "ydsG": 55.1,
+          "td": 0.5,
+          "yr": 15.0,
+          "rec": 3.67
+        },
+        {
+          "player": "Luther Burden",
+          "ydsG": 44.1,
+          "td": 0.14,
+          "yr": 14.0,
+          "rec": 3.14
+        },
+        {
+          "player": "D.J. Moore",
+          "ydsG": 41.9,
+          "td": 0.38,
+          "yr": 13.7,
+          "rec": 3.06
+        },
+        {
+          "player": "Colston Loveland",
+          "ydsG": 41.5,
+          "td": 0.33,
+          "yr": 13.0,
+          "rec": 3.2
+        },
+        {
+          "player": "Cole Kmet",
+          "ydsG": 22.1,
+          "td": 0.13,
+          "yr": 11.8,
+          "rec": 1.87
+        },
+        {
+          "player": "Olamide Zaccheaus",
+          "ydsG": 20.9,
+          "td": 0.13,
+          "yr": 8.0,
+          "rec": 2.6
+        },
+        {
+          "player": "D'Andre Swift",
+          "ydsG": 19.4,
+          "td": 0.07,
+          "yr": 8.8,
+          "rec": 2.2
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 22,
+          "yds": 103.1,
+          "td": 0.56
+        },
+        "recRb": {
+          "rank": 8,
+          "yds": 26.5,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 19,
+          "yds": 54.6,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 21,
+          "yds": 149.6,
+          "td": 1.25
+        }
+      }
+    },
+    "Cincinnati Bengals": {
+      "team": "Cincinnati Bengals",
+      "record": {
+        "w": 6,
+        "l": 10,
+        "t": 0,
+        "sos": -0.1,
+        "srs": -4.8,
+        "osrs": 1.4,
+        "dsrs": -6.2
+      },
+      "offense": {
+        "ppg": 24.8,
+        "rushYdsG": 90.6,
+        "rushYdsGRank": 31,
+        "rushTdG": 0.69,
+        "passYdsG": 236.4,
+        "passYdsGRank": 6,
+        "passTdG": 2.06,
+        "int": 1.0
+      },
+      "defense": {
+        "papg": 29.5,
+        "rushYdsG": 148.9,
+        "rushYdsGRank": 32,
+        "rushTdG": 1.13,
+        "passYdsG": 243.3,
+        "passYdsGRank": 27,
+        "passTdG": 2.06,
+        "int": 0.81
+      },
+      "passing": [
+        {
+          "player": "Joe Burrow",
+          "ydsG": 224.7,
+          "td": 2.0,
+          "int": 0.57
+        },
+        {
+          "player": "Joe Flacco",
+          "ydsG": 208.0,
+          "td": 1.63,
+          "int": 0.5
+        },
+        {
+          "player": "Jake Browning",
+          "ydsG": 154.2,
+          "td": 1.2,
+          "int": 1.6
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Chase Brown",
+          "ydsG": 59.2,
+          "td": 0.38,
+          "ya": 4.3,
+          "ag": 13.7
+        },
+        {
+          "player": "Samaje Perine",
+          "ydsG": 24.3,
+          "td": 0.21,
+          "ya": 4.5,
+          "ag": 5.4
+        },
+        {
+          "player": "Jake Browning",
+          "ydsG": 7.8,
+          "td": 0.2,
+          "ya": 4.3,
+          "ag": 1.8
+        },
+        {
+          "player": "Joe Burrow",
+          "ydsG": 3.4,
+          "td": 0.0,
+          "ya": 2.0,
+          "ag": 1.7
+        },
+        {
+          "player": "Tahj Brooks",
+          "ydsG": 3.0,
+          "td": 0.0,
+          "ya": 2.8,
+          "ag": 1.1
+        },
+        {
+          "player": "Joe Flacco",
+          "ydsG": 2.5,
+          "td": 0.13,
+          "ya": 1.4,
+          "ag": 1.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Ja'Marr Chase",
+          "ydsG": 87.7,
+          "td": 0.47,
+          "yr": 11.2,
+          "rec": 7.8
+        },
+        {
+          "player": "Tee Higgins",
+          "ydsG": 55.6,
+          "td": 0.71,
+          "yr": 14.7,
+          "rec": 3.79
+        },
+        {
+          "player": "Andrei Iosivas",
+          "ydsG": 26.6,
+          "td": 0.13,
+          "yr": 13.7,
+          "rec": 1.94
+        },
+        {
+          "player": "Chase Brown",
+          "ydsG": 26.2,
+          "td": 0.25,
+          "yr": 6.4,
+          "rec": 4.06
+        },
+        {
+          "player": "Mike Gesicki",
+          "ydsG": 24.5,
+          "td": 0.17,
+          "yr": 11.3,
+          "rec": 2.17
+        },
+        {
+          "player": "Noah Fant",
+          "ydsG": 20.2,
+          "td": 0.21,
+          "yr": 8.6,
+          "rec": 2.36
+        },
+        {
+          "player": "Tanner Hudson",
+          "ydsG": 12.0,
+          "td": 0.14,
+          "yr": 8.8,
+          "rec": 1.36
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 32,
+          "yds": 122.9,
+          "td": 0.81
+        },
+        "recRb": {
+          "rank": 31,
+          "yds": 43.6,
+          "td": 0.44
+        },
+        "te": {
+          "rank": 32,
+          "yds": 89.9,
+          "td": 1.0
+        },
+        "wr": {
+          "rank": 3,
+          "yds": 119.2,
+          "td": 0.56
+        }
+      }
+    },
+    "Cleveland Browns": {
+      "team": "Cleveland Browns",
+      "record": {
+        "w": 4,
+        "l": 12,
+        "t": 0,
+        "sos": -1.3,
+        "srs": -7.6,
+        "osrs": -8.2,
+        "dsrs": 0.5
+      },
+      "offense": {
+        "ppg": 16.2,
+        "rushYdsG": 95.7,
+        "rushYdsGRank": 27,
+        "rushTdG": 0.63,
+        "passYdsG": 170.3,
+        "passYdsGRank": 29,
+        "passTdG": 1.0,
+        "int": 1.13
+      },
+      "defense": {
+        "papg": 22.6,
+        "rushYdsG": 114.8,
+        "rushYdsGRank": 14,
+        "rushTdG": 0.88,
+        "passYdsG": 163.8,
+        "passYdsGRank": 2,
+        "passTdG": 1.38,
+        "int": 0.63
+      },
+      "passing": [
+        {
+          "player": "Shedeur Sanders",
+          "ydsG": 184.1,
+          "td": 1.0,
+          "int": 1.43
+        },
+        {
+          "player": "Dillon Gabriel",
+          "ydsG": 93.7,
+          "td": 0.7,
+          "int": 0.2
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Raheim Sanders",
+          "ydsG": 22.0,
+          "td": 0.33,
+          "ya": 3.0,
+          "ag": 7.3
+        },
+        {
+          "player": "Shedeur Sanders",
+          "ydsG": 20.4,
+          "td": 0.14,
+          "ya": 7.9,
+          "ag": 2.6
+        },
+        {
+          "player": "Dylan Sampson",
+          "ydsG": 10.2,
+          "td": 0.0,
+          "ya": 2.6,
+          "ag": 3.9
+        },
+        {
+          "player": "Malachi Corley",
+          "ydsG": 9.1,
+          "td": 0.0,
+          "ya": 10.9,
+          "ag": 0.8
+        },
+        {
+          "player": "Dillon Gabriel",
+          "ydsG": 8.6,
+          "td": 0.0,
+          "ya": 6.1,
+          "ag": 1.4
+        },
+        {
+          "player": "Jerome Ford",
+          "ydsG": 5.6,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 1.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Jerry Jeudy",
+          "ydsG": 36.6,
+          "td": 0.13,
+          "yr": 12.2,
+          "rec": 3.0
+        },
+        {
+          "player": "Isaiah Bond",
+          "ydsG": 21.7,
+          "td": 0.0,
+          "yr": 19.1,
+          "rec": 1.13
+        },
+        {
+          "player": "Cedric Tillman",
+          "ydsG": 20.6,
+          "td": 0.17,
+          "yr": 12.4,
+          "rec": 1.67
+        },
+        {
+          "player": "Dylan Sampson",
+          "ydsG": 18.5,
+          "td": 0.14,
+          "yr": 8.4,
+          "rec": 2.21
+        },
+        {
+          "player": "Jamari Thrash",
+          "ydsG": 11.9,
+          "td": 0.0,
+          "yr": 10.7,
+          "rec": 1.11
+        },
+        {
+          "player": "Gage Larvadain",
+          "ydsG": 5.9,
+          "td": 0.0,
+          "yr": 10.1,
+          "rec": 0.58
+        },
+        {
+          "player": "Malachi Corley",
+          "ydsG": 4.9,
+          "td": 0.0,
+          "yr": 6.6,
+          "rec": 0.75
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 17,
+          "yds": 95.3,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 10,
+          "yds": 27.7,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 17,
+          "yds": 53.3,
+          "td": 0.31
+        },
+        "wr": {
+          "rank": 1,
+          "yds": 105.6,
+          "td": 0.94
+        }
+      }
+    },
+    "Dallas Cowboys": {
+      "team": "Dallas Cowboys",
+      "record": {
+        "w": 7,
+        "l": 8,
+        "t": 1,
+        "sos": -1.8,
+        "srs": -3.3,
+        "osrs": 5.1,
+        "dsrs": -8.3
+      },
+      "offense": {
+        "ppg": 28.4,
+        "rushYdsG": 124.6,
+        "rushYdsGRank": 9,
+        "rushTdG": 1.0,
+        "passYdsG": 274.0,
+        "passYdsGRank": 1,
+        "passTdG": 1.94,
+        "int": 0.69
+      },
+      "defense": {
+        "papg": 29.8,
+        "rushYdsG": 123.3,
+        "rushYdsGRank": 21,
+        "rushTdG": 1.44,
+        "passYdsG": 253.6,
+        "passYdsGRank": 32,
+        "passTdG": 2.06,
+        "int": 0.38
+      },
+      "passing": [
+        {
+          "player": "Dak Prescott",
+          "ydsG": 280.1,
+          "td": 1.88,
+          "int": 0.63
+        },
+        {
+          "player": "Joe Milton",
+          "ydsG": 36.7,
+          "td": 0.33,
+          "int": 0.33
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jaydon Blue",
+          "ydsG": 16.3,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 5.5
+        },
+        {
+          "player": "Dak Prescott",
+          "ydsG": 11.1,
+          "td": 0.13,
+          "ya": 3.5,
+          "ag": 3.2
+        },
+        {
+          "player": "KaVontae Turpin",
+          "ydsG": 5.9,
+          "td": 0.0,
+          "ya": 5.1,
+          "ag": 1.1
+        },
+        {
+          "player": "Hunter Luepke",
+          "ydsG": 3.7,
+          "td": 0.0,
+          "ya": 4.2,
+          "ag": 0.9
+        },
+        {
+          "player": "Ryan Flournoy",
+          "ydsG": 1.7,
+          "td": 0.0,
+          "ya": 6.3,
+          "ag": 0.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "George Pickens",
+          "ydsG": 88.8,
+          "td": 0.56,
+          "yr": 15.4,
+          "rec": 5.75
+        },
+        {
+          "player": "CeeDee Lamb",
+          "ydsG": 82.5,
+          "td": 0.23,
+          "yr": 14.5,
+          "rec": 5.69
+        },
+        {
+          "player": "Jake Ferguson",
+          "ydsG": 37.2,
+          "td": 0.5,
+          "yr": 7.3,
+          "rec": 5.06
+        },
+        {
+          "player": "KaVontae Turpin",
+          "ydsG": 28.3,
+          "td": 0.14,
+          "yr": 15.2,
+          "rec": 1.86
+        },
+        {
+          "player": "Ryan Flournoy",
+          "ydsG": 27.1,
+          "td": 0.27,
+          "yr": 11.6,
+          "rec": 2.33
+        },
+        {
+          "player": "Jalen Tolbert",
+          "ydsG": 16.9,
+          "td": 0.08,
+          "yr": 11.3,
+          "rec": 1.5
+        },
+        {
+          "player": "Luke Schoonmaker",
+          "ydsG": 7.5,
+          "td": 0.0,
+          "yr": 9.2,
+          "rec": 0.81
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 14,
+          "yds": 93.1,
+          "td": 0.94
+        },
+        "recRb": {
+          "rank": 30,
+          "yds": 42.4,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 15,
+          "yds": 52.6,
+          "td": 0.25
+        },
+        "wr": {
+          "rank": 32,
+          "yds": 173.2,
+          "td": 1.63
+        }
+      }
+    },
+    "Denver Broncos": {
+      "team": "Denver Broncos",
+      "record": {
+        "w": 13,
+        "l": 3,
+        "t": 0,
+        "sos": -1.7,
+        "srs": 2.9,
+        "osrs": 0.1,
+        "dsrs": 2.8
+      },
+      "offense": {
+        "ppg": 23.9,
+        "rushYdsG": 118.9,
+        "rushYdsGRank": 19,
+        "rushTdG": 1.13,
+        "passYdsG": 230.2,
+        "passYdsGRank": 9,
+        "passTdG": 1.56,
+        "int": 0.69
+      },
+      "defense": {
+        "papg": 19.3,
+        "rushYdsG": 89.7,
+        "rushYdsGRank": 2,
+        "rushTdG": 0.69,
+        "passYdsG": 192.4,
+        "passYdsGRank": 8,
+        "passTdG": 1.13,
+        "int": 0.56
+      },
+      "passing": [
+        {
+          "player": "Bo Nix",
+          "ydsG": 236.9,
+          "td": 1.56,
+          "int": 0.69
+        }
+      ],
+      "rushing": [
+        {
+          "player": "RJ Harvey",
+          "ydsG": 32.0,
+          "td": 0.44,
+          "ya": 3.9,
+          "ag": 8.2
+        },
+        {
+          "player": "Jaleel McLaughlin",
+          "ydsG": 20.9,
+          "td": 0.14,
+          "ya": 4.7,
+          "ag": 4.4
+        },
+        {
+          "player": "Bo Nix",
+          "ydsG": 19.2,
+          "td": 0.31,
+          "ya": 4.1,
+          "ag": 4.7
+        },
+        {
+          "player": "Marvin Mims",
+          "ydsG": 5.6,
+          "td": 0.07,
+          "ya": 6.5,
+          "ag": 0.9
+        },
+        {
+          "player": "Adam Prentice",
+          "ydsG": 2.8,
+          "td": 0.0,
+          "ya": 4.4,
+          "ag": 0.6
+        },
+        {
+          "player": "Tyler Badie",
+          "ydsG": 1.7,
+          "td": 0.0,
+          "ya": 4.2,
+          "ag": 0.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Courtland Sutton",
+          "ydsG": 63.3,
+          "td": 0.44,
+          "yr": 13.9,
+          "rec": 4.56
+        },
+        {
+          "player": "Troy Franklin",
+          "ydsG": 44.3,
+          "td": 0.38,
+          "yr": 10.9,
+          "rec": 4.06
+        },
+        {
+          "player": "Evan Engram",
+          "ydsG": 27.7,
+          "td": 0.07,
+          "yr": 8.9,
+          "rec": 3.13
+        },
+        {
+          "player": "Pat Bryant",
+          "ydsG": 24.8,
+          "td": 0.07,
+          "yr": 12.9,
+          "rec": 1.93
+        },
+        {
+          "player": "Marvin Mims",
+          "ydsG": 22.3,
+          "td": 0.07,
+          "yr": 8.9,
+          "rec": 2.5
+        },
+        {
+          "player": "RJ Harvey",
+          "ydsG": 21.9,
+          "td": 0.31,
+          "yr": 7.6,
+          "rec": 2.88
+        },
+        {
+          "player": "Lil'Jordan Humphrey",
+          "ydsG": 16.8,
+          "td": 0.17,
+          "yr": 11.2,
+          "rec": 1.5
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 2,
+          "yds": 73.5,
+          "td": 0.5
+        },
+        "recRb": {
+          "rank": 2,
+          "yds": 22.6,
+          "td": 0.38
+        },
+        "te": {
+          "rank": 24,
+          "yds": 61.3,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 13,
+          "yds": 133.1,
+          "td": 0.38
+        }
+      }
+    },
+    "Detroit Lions": {
+      "team": "Detroit Lions",
+      "record": {
+        "w": 8,
+        "l": 8,
+        "t": 0,
+        "sos": -0.2,
+        "srs": 3.8,
+        "osrs": 5.6,
+        "dsrs": -1.8
+      },
+      "offense": {
+        "ppg": 28.9,
+        "rushYdsG": 119.9,
+        "rushYdsGRank": 15,
+        "rushTdG": 1.31,
+        "passYdsG": 249.5,
+        "passYdsGRank": 5,
+        "passTdG": 2.13,
+        "int": 0.44
+      },
+      "defense": {
+        "papg": 24.8,
+        "rushYdsG": 117.6,
+        "rushYdsGRank": 16,
+        "rushTdG": 1.0,
+        "passYdsG": 218.1,
+        "passYdsGRank": 19,
+        "passTdG": 1.81,
+        "int": 0.75
+      },
+      "passing": [
+        {
+          "player": "Jared Goff",
+          "ydsG": 264.6,
+          "td": 2.06,
+          "int": 0.44
+        },
+        {
+          "player": "Kyle Allen",
+          "ydsG": 0.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jahmyr Gibbs",
+          "ydsG": 71.4,
+          "td": 0.81,
+          "ya": 5.1,
+          "ag": 14.0
+        },
+        {
+          "player": "David Montgomery",
+          "ydsG": 42.1,
+          "td": 0.5,
+          "ya": 4.5,
+          "ag": 9.4
+        },
+        {
+          "player": "Jared Goff",
+          "ydsG": 2.8,
+          "td": 0.0,
+          "ya": 2.4,
+          "ag": 1.2
+        },
+        {
+          "player": "Jameson Williams",
+          "ydsG": 0.8,
+          "td": 0.0,
+          "ya": 2.0,
+          "ag": 0.4
+        },
+        {
+          "player": "Amon-Ra St. Brown",
+          "ydsG": 0.6,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 0.2
+        },
+        {
+          "player": "Kyle Allen",
+          "ydsG": -1.0,
+          "td": 0.0,
+          "ya": -1.0,
+          "ag": 1.0
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Amon-Ra St. Brown",
+          "ydsG": 78.9,
+          "td": 0.69,
+          "yr": 11.9,
+          "rec": 6.63
+        },
+        {
+          "player": "Jameson Williams",
+          "ydsG": 65.2,
+          "td": 0.44,
+          "yr": 17.7,
+          "rec": 3.69
+        },
+        {
+          "player": "Jahmyr Gibbs",
+          "ydsG": 36.4,
+          "td": 0.25,
+          "yr": 7.9,
+          "rec": 4.63
+        },
+        {
+          "player": "Kalif Raymond",
+          "ydsG": 16.9,
+          "td": 0.07,
+          "yr": 11.3,
+          "rec": 1.5
+        },
+        {
+          "player": "Isaac TeSlaa",
+          "ydsG": 13.8,
+          "td": 0.38,
+          "yr": 14.7,
+          "rec": 0.94
+        },
+        {
+          "player": "David Montgomery",
+          "ydsG": 11.2,
+          "td": 0.0,
+          "yr": 7.8,
+          "rec": 1.44
+        },
+        {
+          "player": "Anthony Firkser",
+          "ydsG": 8.5,
+          "td": 0.0,
+          "yr": 8.5,
+          "rec": 1.0
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 13,
+          "yds": 91.3,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 5,
+          "yds": 24.7,
+          "td": 0.06
+        },
+        "te": {
+          "rank": 14,
+          "yds": 51.6,
+          "td": 0.44
+        },
+        "wr": {
+          "rank": 26,
+          "yds": 160.1,
+          "td": 1.25
+        }
+      }
+    },
+    "Green Bay Packers": {
+      "team": "Green Bay Packers",
+      "record": {
+        "w": 9,
+        "l": 6,
+        "t": 1,
+        "sos": -1.2,
+        "srs": 1.6,
+        "osrs": -0.2,
+        "dsrs": 1.8
+      },
+      "offense": {
+        "ppg": 24.3,
+        "rushYdsG": 119.3,
+        "rushYdsGRank": 17,
+        "rushTdG": 1.13,
+        "passYdsG": 226.5,
+        "passYdsGRank": 10,
+        "passTdG": 1.63,
+        "int": 0.44
+      },
+      "defense": {
+        "papg": 21.5,
+        "rushYdsG": 116.5,
+        "rushYdsGRank": 15,
+        "rushTdG": 0.88,
+        "passYdsG": 192.1,
+        "passYdsGRank": 7,
+        "passTdG": 1.5,
+        "int": 0.44
+      },
+      "passing": [
+        {
+          "player": "Jordan Love",
+          "ydsG": 225.4,
+          "td": 1.53,
+          "int": 0.4
+        },
+        {
+          "player": "Malik Willis",
+          "ydsG": 105.5,
+          "td": 0.75,
+          "int": 0.0
+        },
+        {
+          "player": "Clayton Tune",
+          "ydsG": 8.0,
+          "td": 0.0,
+          "int": 1.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Josh Jacobs",
+          "ydsG": 61.9,
+          "td": 0.87,
+          "ya": 4.0,
+          "ag": 15.6
+        },
+        {
+          "player": "Malik Willis",
+          "ydsG": 30.8,
+          "td": 0.5,
+          "ya": 5.6,
+          "ag": 5.5
+        },
+        {
+          "player": "Emanuel Wilson",
+          "ydsG": 28.3,
+          "td": 0.19,
+          "ya": 4.2,
+          "ag": 6.7
+        },
+        {
+          "player": "Jordan Love",
+          "ydsG": 13.3,
+          "td": 0.0,
+          "ya": 4.2,
+          "ag": 3.1
+        },
+        {
+          "player": "Jayden Reed",
+          "ydsG": 4.7,
+          "td": 0.0,
+          "ya": 9.3,
+          "ag": 0.5
+        },
+        {
+          "player": "Matthew Golden",
+          "ydsG": 3.8,
+          "td": 0.0,
+          "ya": 4.9,
+          "ag": 0.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Christian Watson",
+          "ydsG": 61.1,
+          "td": 0.6,
+          "yr": 17.5,
+          "rec": 3.5
+        },
+        {
+          "player": "Romeo Doubs",
+          "ydsG": 45.3,
+          "td": 0.38,
+          "yr": 13.2,
+          "rec": 3.44
+        },
+        {
+          "player": "Jayden Reed",
+          "ydsG": 34.5,
+          "td": 0.17,
+          "yr": 10.9,
+          "rec": 3.17
+        },
+        {
+          "player": "Matthew Golden",
+          "ydsG": 27.2,
+          "td": 0.0,
+          "yr": 12.6,
+          "rec": 2.15
+        },
+        {
+          "player": "Dontayvion Wicks",
+          "ydsG": 23.7,
+          "td": 0.14,
+          "yr": 11.1,
+          "rec": 2.14
+        },
+        {
+          "player": "Josh Jacobs",
+          "ydsG": 18.8,
+          "td": 0.07,
+          "yr": 7.8,
+          "rec": 2.4
+        },
+        {
+          "player": "Luke Musgrave",
+          "ydsG": 15.8,
+          "td": 0.0,
+          "yr": 10.5,
+          "rec": 1.5
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 19,
+          "yds": 98.8,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 9,
+          "yds": 27.0,
+          "td": 0.0
+        },
+        "te": {
+          "rank": 6,
+          "yds": 43.9,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 14,
+          "yds": 133.6,
+          "td": 1.13
+        }
+      }
+    },
+    "Houston Texans": {
+      "team": "Houston Texans",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": 2.1,
+        "srs": 8.4,
+        "osrs": 0.3,
+        "dsrs": 8.1
+      },
+      "offense": {
+        "ppg": 22.9,
+        "rushYdsG": 107.4,
+        "rushYdsGRank": 24,
+        "rushTdG": 0.5,
+        "passYdsG": 218.9,
+        "passYdsGRank": 16,
+        "passTdG": 1.44,
+        "int": 0.56
+      },
+      "defense": {
+        "papg": 16.6,
+        "rushYdsG": 94.8,
+        "rushYdsGRank": 4,
+        "rushTdG": 0.75,
+        "passYdsG": 177.6,
+        "passYdsGRank": 4,
+        "passTdG": 1.13,
+        "int": 1.13
+      },
+      "passing": [
+        {
+          "player": "C.J. Stroud",
+          "ydsG": 220.9,
+          "td": 1.38,
+          "int": 0.62
+        },
+        {
+          "player": "Davis Mills",
+          "ydsG": 175.8,
+          "td": 1.0,
+          "int": 0.2
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jawhar Jordan",
+          "ydsG": 63.3,
+          "td": 0.0,
+          "ya": 5.0,
+          "ag": 12.7
+        },
+        {
+          "player": "Woody Marks",
+          "ydsG": 43.7,
+          "td": 0.13,
+          "ya": 3.5,
+          "ag": 12.4
+        },
+        {
+          "player": "Nick Chubb",
+          "ydsG": 33.7,
+          "td": 0.2,
+          "ya": 4.1,
+          "ag": 8.1
+        },
+        {
+          "player": "C.J. Stroud",
+          "ydsG": 15.7,
+          "td": 0.0,
+          "ya": 4.4,
+          "ag": 3.5
+        },
+        {
+          "player": "Davis Mills",
+          "ydsG": 9.6,
+          "td": 0.2,
+          "ya": 4.0,
+          "ag": 2.4
+        },
+        {
+          "player": "Dameon Pierce",
+          "ydsG": 6.5,
+          "td": 0.0,
+          "ya": 2.6,
+          "ag": 2.5
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Nico Collins",
+          "ydsG": 74.5,
+          "td": 0.4,
+          "yr": 15.7,
+          "rec": 4.73
+        },
+        {
+          "player": "Dalton Schultz",
+          "ydsG": 44.0,
+          "td": 0.19,
+          "yr": 9.0,
+          "rec": 4.88
+        },
+        {
+          "player": "Jayden Higgins",
+          "ydsG": 31.4,
+          "td": 0.31,
+          "yr": 12.9,
+          "rec": 2.44
+        },
+        {
+          "player": "Xavier Hutchinson",
+          "ydsG": 21.5,
+          "td": 0.19,
+          "yr": 11.5,
+          "rec": 1.88
+        },
+        {
+          "player": "Christian Kirk",
+          "ydsG": 20.2,
+          "td": 0.08,
+          "yr": 9.0,
+          "rec": 2.25
+        },
+        {
+          "player": "Jaylin Noel",
+          "ydsG": 17.4,
+          "td": 0.13,
+          "yr": 11.2,
+          "rec": 1.56
+        },
+        {
+          "player": "Justin Watson",
+          "ydsG": 15.0,
+          "td": 0.0,
+          "yr": 10.0,
+          "rec": 1.5
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 3,
+          "yds": 74.4,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 17,
+          "yds": 31.5,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 9,
+          "yds": 45.4,
+          "td": 0.5
+        },
+        "wr": {
+          "rank": 8,
+          "yds": 123.7,
+          "td": 0.5
+        }
+      }
+    },
+    "Indianapolis Colts": {
+      "team": "Indianapolis Colts",
+      "record": {
+        "w": 8,
+        "l": 8,
+        "t": 0,
+        "sos": 1.3,
+        "srs": 5.2,
+        "osrs": 5.2,
+        "dsrs": 0.0
+      },
+      "offense": {
+        "ppg": 27.3,
+        "rushYdsG": 120.7,
+        "rushYdsGRank": 14,
+        "rushTdG": 1.63,
+        "passYdsG": 224.7,
+        "passYdsGRank": 12,
+        "passTdG": 1.44,
+        "int": 0.81
+      },
+      "defense": {
+        "papg": 23.4,
+        "rushYdsG": 99.9,
+        "rushYdsGRank": 5,
+        "rushTdG": 0.94,
+        "passYdsG": 250.6,
+        "passYdsGRank": 31,
+        "passTdG": 1.44,
+        "int": 0.88
+      },
+      "passing": [
+        {
+          "player": "Philip Rivers",
+          "ydsG": 181.3,
+          "td": 1.33,
+          "int": 1.0
+        },
+        {
+          "player": "Riley Leonard",
+          "ydsG": 36.3,
+          "td": 0.0,
+          "int": 0.5
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jonathan Taylor",
+          "ydsG": 97.4,
+          "td": 1.13,
+          "ya": 5.0,
+          "ag": 19.3
+        },
+        {
+          "player": "DJ Giddens",
+          "ydsG": 8.3,
+          "td": 0.0,
+          "ya": 3.7,
+          "ag": 2.3
+        },
+        {
+          "player": "Ameer Abdullah",
+          "ydsG": 4.9,
+          "td": 0.08,
+          "ya": 4.5,
+          "ag": 1.1
+        },
+        {
+          "player": "Ashton Dulin",
+          "ydsG": 4.0,
+          "td": 0.0,
+          "ya": 14.7,
+          "ag": 0.3
+        },
+        {
+          "player": "Tyler Goodson",
+          "ydsG": 2.1,
+          "td": 0.0,
+          "ya": 2.6,
+          "ag": 0.8
+        },
+        {
+          "player": "Riley Leonard",
+          "ydsG": 1.5,
+          "td": 0.25,
+          "ya": 2.0,
+          "ag": 0.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Alec Pierce",
+          "ydsG": 62.2,
+          "td": 0.29,
+          "yr": 20.3,
+          "rec": 3.07
+        },
+        {
+          "player": "Tyler Warren",
+          "ydsG": 49.4,
+          "td": 0.25,
+          "yr": 11.1,
+          "rec": 4.44
+        },
+        {
+          "player": "Michael Pittman Jr.",
+          "ydsG": 48.3,
+          "td": 0.44,
+          "yr": 9.9,
+          "rec": 4.88
+        },
+        {
+          "player": "Josh Downs",
+          "ydsG": 33.7,
+          "td": 0.27,
+          "yr": 9.4,
+          "rec": 3.6
+        },
+        {
+          "player": "Jonathan Taylor",
+          "ydsG": 22.8,
+          "td": 0.13,
+          "yr": 8.3,
+          "rec": 2.75
+        },
+        {
+          "player": "Ashton Dulin",
+          "ydsG": 9.6,
+          "td": 0.0,
+          "yr": 21.2,
+          "rec": 0.45
+        },
+        {
+          "player": "Ameer Abdullah",
+          "ydsG": 6.3,
+          "td": 0.0,
+          "yr": 5.4,
+          "rec": 1.17
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 9,
+          "yds": 84.9,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 6,
+          "yds": 25.6,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 31,
+          "yds": 69.0,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 31,
+          "yds": 171.5,
+          "td": 0.88
+        }
+      }
+    },
+    "Jacksonville Jaguars": {
+      "team": "Jacksonville Jaguars",
+      "record": {
+        "w": 12,
+        "l": 4,
+        "t": 0,
+        "sos": 1.4,
+        "srs": 7.9,
+        "osrs": 4.8,
+        "dsrs": 3.1
+      },
+      "offense": {
+        "ppg": 27.1,
+        "rushYdsG": 118.3,
+        "rushYdsGRank": 20,
+        "rushTdG": 1.31,
+        "passYdsG": 220.3,
+        "passYdsGRank": 14,
+        "passTdG": 1.63,
+        "int": 0.75
+      },
+      "defense": {
+        "papg": 20.6,
+        "rushYdsG": 86.1,
+        "rushYdsGRank": 1,
+        "rushTdG": 0.75,
+        "passYdsG": 224.4,
+        "passYdsGRank": 22,
+        "passTdG": 1.56,
+        "int": 1.31
+      },
+      "passing": [
+        {
+          "player": "Trevor Lawrence",
+          "ydsG": 234.5,
+          "td": 1.63,
+          "int": 0.75
+        },
+        {
+          "player": "Nick Mullens",
+          "ydsG": 0.8,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Travis Etienne",
+          "ydsG": 67.2,
+          "td": 0.44,
+          "ya": 4.4,
+          "ag": 15.4
+        },
+        {
+          "player": "Trevor Lawrence",
+          "ydsG": 21.8,
+          "td": 0.56,
+          "ya": 4.4,
+          "ag": 5.0
+        },
+        {
+          "player": "Bhayshul Tuten",
+          "ydsG": 20.3,
+          "td": 0.29,
+          "ya": 3.6,
+          "ag": 5.6
+        },
+        {
+          "player": "LeQuint Allen",
+          "ydsG": 5.9,
+          "td": 0.0,
+          "ya": 4.1,
+          "ag": 1.4
+        },
+        {
+          "player": "Dyami Brown",
+          "ydsG": 2.3,
+          "td": 0.0,
+          "ya": 5.0,
+          "ag": 0.5
+        },
+        {
+          "player": "Brian Thomas",
+          "ydsG": 1.6,
+          "td": 0.08,
+          "ya": 7.0,
+          "ag": 0.2
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Jakobi Meyers",
+          "ydsG": 54.9,
+          "td": 0.38,
+          "yr": 11.9,
+          "rec": 4.63
+        },
+        {
+          "player": "Parker Washington",
+          "ydsG": 50.7,
+          "td": 0.27,
+          "yr": 14.3,
+          "rec": 3.53
+        },
+        {
+          "player": "Brian Thomas",
+          "ydsG": 50.6,
+          "td": 0.15,
+          "yr": 14.6,
+          "rec": 3.46
+        },
+        {
+          "player": "Brenton Strange",
+          "ydsG": 44.4,
+          "td": 0.18,
+          "yr": 12.2,
+          "rec": 3.64
+        },
+        {
+          "player": "Travis Etienne",
+          "ydsG": 17.9,
+          "td": 0.38,
+          "yr": 8.2,
+          "rec": 2.19
+        },
+        {
+          "player": "Dyami Brown",
+          "ydsG": 16.8,
+          "td": 0.08,
+          "yr": 11.5,
+          "rec": 1.46
+        },
+        {
+          "player": "Tim Patrick",
+          "ydsG": 12.2,
+          "td": 0.2,
+          "yr": 13.1,
+          "rec": 0.93
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 1,
+          "yds": 68.1,
+          "td": 0.5
+        },
+        "recRb": {
+          "rank": 23,
+          "yds": 35.0,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 26,
+          "yds": 61.8,
+          "td": 0.5
+        },
+        "wr": {
+          "rank": 18,
+          "yds": 141.3,
+          "td": 0.88
+        }
+      }
+    },
+    "Kansas City Chiefs": {
+      "team": "Kansas City Chiefs",
+      "record": {
+        "w": 6,
+        "l": 10,
+        "t": 0,
+        "sos": 0.5,
+        "srs": 2.7,
+        "osrs": -1.4,
+        "dsrs": 4.1
+      },
+      "offense": {
+        "ppg": 21.9,
+        "rushYdsG": 108.0,
+        "rushYdsGRank": 23,
+        "rushTdG": 0.94,
+        "passYdsG": 222.2,
+        "passYdsGRank": 13,
+        "passTdG": 1.44,
+        "int": 0.75
+      },
+      "defense": {
+        "papg": 19.6,
+        "rushYdsG": 104.9,
+        "rushYdsGRank": 10,
+        "rushTdG": 0.88,
+        "passYdsG": 202.7,
+        "passYdsGRank": 13,
+        "passTdG": 1.13,
+        "int": 0.56
+      },
+      "passing": [
+        {
+          "player": "Chris Oladokun",
+          "ydsG": 88.5,
+          "td": 0.5,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Kareem Hunt",
+          "ydsG": 37.3,
+          "td": 0.5,
+          "ya": 3.8,
+          "ag": 9.9
+        },
+        {
+          "player": "Isiah Pacheco",
+          "ydsG": 35.5,
+          "td": 0.08,
+          "ya": 3.9,
+          "ag": 9.1
+        },
+        {
+          "player": "Chris Oladokun",
+          "ydsG": 9.0,
+          "td": 0.0,
+          "ya": 4.5,
+          "ag": 2.0
+        },
+        {
+          "player": "Clyde Edwards-Helaire",
+          "ydsG": 6.5,
+          "td": 0.0,
+          "ya": 1.9,
+          "ag": 3.5
+        },
+        {
+          "player": "Xavier Worthy",
+          "ydsG": 6.2,
+          "td": 0.0,
+          "ya": 7.9,
+          "ag": 0.8
+        },
+        {
+          "player": "Brashard Smith",
+          "ydsG": 5.9,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 2.0
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Travis Kelce",
+          "ydsG": 52.4,
+          "td": 0.31,
+          "yr": 11.5,
+          "rec": 4.56
+        },
+        {
+          "player": "Xavier Worthy",
+          "ydsG": 38.0,
+          "td": 0.07,
+          "yr": 12.7,
+          "rec": 3.0
+        },
+        {
+          "player": "Marquise Brown",
+          "ydsG": 34.9,
+          "td": 0.33,
+          "yr": 11.4,
+          "rec": 3.07
+        },
+        {
+          "player": "JuJu Smith-Schuster",
+          "ydsG": 20.8,
+          "td": 0.06,
+          "yr": 10.7,
+          "rec": 1.94
+        },
+        {
+          "player": "Brashard Smith",
+          "ydsG": 10.6,
+          "td": 0.06,
+          "yr": 7.4,
+          "rec": 1.44
+        },
+        {
+          "player": "Noah Gray",
+          "ydsG": 9.9,
+          "td": 0.0,
+          "yr": 8.2,
+          "rec": 1.2
+        },
+        {
+          "player": "Isiah Pacheco",
+          "ydsG": 7.8,
+          "td": 0.08,
+          "yr": 5.3,
+          "rec": 1.46
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 8,
+          "yds": 82.7,
+          "td": 0.5
+        },
+        "recRb": {
+          "rank": 15,
+          "yds": 30.2,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 12,
+          "yds": 47.6,
+          "td": 0.25
+        },
+        "wr": {
+          "rank": 11,
+          "yds": 129.6,
+          "td": 0.63
+        }
+      }
+    },
+    "Las Vegas Raiders": {
+      "team": "Las Vegas Raiders",
+      "record": {
+        "w": 2,
+        "l": 14,
+        "t": 0,
+        "sos": 0.8,
+        "srs": -11.3,
+        "osrs": -8.4,
+        "dsrs": -2.9
+      },
+      "offense": {
+        "ppg": 14.2,
+        "rushYdsG": 74.9,
+        "rushYdsGRank": 32,
+        "rushTdG": 0.31,
+        "passYdsG": 172.8,
+        "passYdsGRank": 27,
+        "passTdG": 1.25,
+        "int": 1.13
+      },
+      "defense": {
+        "papg": 26.3,
+        "rushYdsG": 118.9,
+        "rushYdsGRank": 18,
+        "rushTdG": 1.38,
+        "passYdsG": 208.3,
+        "passYdsGRank": 15,
+        "passTdG": 1.44,
+        "int": 0.5
+      },
+      "passing": [
+        {
+          "player": "Kenny Pickett",
+          "ydsG": 37.0,
+          "td": 0.2,
+          "int": 0.2
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Ashton Jeanty",
+          "ydsG": 55.5,
+          "td": 0.31,
+          "ya": 3.7,
+          "ag": 15.0
+        },
+        {
+          "player": "Raheem Mostert",
+          "ydsG": 8.7,
+          "td": 0.0,
+          "ya": 4.7,
+          "ag": 1.8
+        },
+        {
+          "player": "Geno Smith",
+          "ydsG": 7.3,
+          "td": 0.0,
+          "ya": 2.7,
+          "ag": 2.7
+        },
+        {
+          "player": "Zamir White",
+          "ydsG": 5.4,
+          "td": 0.0,
+          "ya": 2.5,
+          "ag": 2.2
+        },
+        {
+          "player": "Tre Tucker",
+          "ydsG": 2.9,
+          "td": 0.0,
+          "ya": 4.7,
+          "ag": 0.6
+        },
+        {
+          "player": "Kenny Pickett",
+          "ydsG": 2.6,
+          "td": 0.0,
+          "ya": 3.3,
+          "ag": 0.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Tre Tucker",
+          "ydsG": 41.6,
+          "td": 0.31,
+          "yr": 12.1,
+          "rec": 3.44
+        },
+        {
+          "player": "Albert Okwuegbunam",
+          "ydsG": 36.0,
+          "td": 0.0,
+          "yr": 7.2,
+          "rec": 5.0
+        },
+        {
+          "player": "Tyler Lockett",
+          "ydsG": 24.0,
+          "td": 0.11,
+          "yr": 10.3,
+          "rec": 2.33
+        },
+        {
+          "player": "Michael Mayer",
+          "ydsG": 23.4,
+          "td": 0.08,
+          "yr": 8.8,
+          "rec": 2.67
+        },
+        {
+          "player": "Ashton Jeanty",
+          "ydsG": 21.2,
+          "td": 0.31,
+          "yr": 6.5,
+          "rec": 3.25
+        },
+        {
+          "player": "Jack Bech",
+          "ydsG": 14.9,
+          "td": 0.0,
+          "yr": 11.2,
+          "rec": 1.33
+        },
+        {
+          "player": "Shedrick Jackson",
+          "ydsG": 11.3,
+          "td": 0.25,
+          "yr": 15.0,
+          "rec": 0.75
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 20,
+          "yds": 100.2,
+          "td": 1.0
+        },
+        "recRb": {
+          "rank": 11,
+          "yds": 28.2,
+          "td": 0.06
+        },
+        "te": {
+          "rank": 3,
+          "yds": 38.4,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 23,
+          "yds": 151.4,
+          "td": 1.0
+        }
+      }
+    },
+    "Los Angeles Chargers": {
+      "team": "Los Angeles Chargers",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": -1.2,
+        "srs": 1.5,
+        "osrs": -0.2,
+        "dsrs": 1.7
+      },
+      "offense": {
+        "ppg": 22.8,
+        "rushYdsG": 122.1,
+        "rushYdsGRank": 12,
+        "rushTdG": 0.63,
+        "passYdsG": 219.0,
+        "passYdsGRank": 15,
+        "passTdG": 1.63,
+        "int": 0.81
+      },
+      "defense": {
+        "papg": 20.1,
+        "rushYdsG": 104.7,
+        "rushYdsGRank": 9,
+        "rushTdG": 1.0,
+        "passYdsG": 183.4,
+        "passYdsGRank": 6,
+        "passTdG": 1.0,
+        "int": 1.19
+      },
+      "passing": [
+        {
+          "player": "Justin Herbert",
+          "ydsG": 232.9,
+          "td": 1.63,
+          "int": 0.81
+        },
+        {
+          "player": "Trey Lance",
+          "ydsG": 30.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Kimani Vidal",
+          "ydsG": 52.6,
+          "td": 0.25,
+          "ya": 4.2,
+          "ag": 12.7
+        },
+        {
+          "player": "Justin Herbert",
+          "ydsG": 31.1,
+          "td": 0.13,
+          "ya": 6.0,
+          "ag": 5.2
+        },
+        {
+          "player": "Jaret Patterson",
+          "ydsG": 26.0,
+          "td": 0.2,
+          "ya": 3.9,
+          "ag": 6.6
+        },
+        {
+          "player": "Najee Harris",
+          "ydsG": 20.3,
+          "td": 0.0,
+          "ya": 4.1,
+          "ag": 5.0
+        },
+        {
+          "player": "Trey Lance",
+          "ydsG": 5.3,
+          "td": 0.0,
+          "ya": 2.0,
+          "ag": 2.7
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Quentin Johnston",
+          "ydsG": 52.5,
+          "td": 0.57,
+          "yr": 14.4,
+          "rec": 3.64
+        },
+        {
+          "player": "Ladd McConkey",
+          "ydsG": 49.3,
+          "td": 0.38,
+          "yr": 12.0,
+          "rec": 4.13
+        },
+        {
+          "player": "Keenan Allen",
+          "ydsG": 46.3,
+          "td": 0.25,
+          "yr": 10.0,
+          "rec": 4.63
+        },
+        {
+          "player": "Oronde Gadsden II",
+          "ydsG": 45.8,
+          "td": 0.21,
+          "yr": 13.6,
+          "rec": 3.36
+        },
+        {
+          "player": "Tre Harris",
+          "ydsG": 18.5,
+          "td": 0.06,
+          "yr": 10.6,
+          "rec": 1.75
+        },
+        {
+          "player": "Kimani Vidal",
+          "ydsG": 11.5,
+          "td": 0.08,
+          "yr": 9.2,
+          "rec": 1.25
+        },
+        {
+          "player": "Will Dissly",
+          "ydsG": 11.4,
+          "td": 0.0,
+          "yr": 9.1,
+          "rec": 1.25
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 10,
+          "yds": 86.1,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 3,
+          "yds": 23.8,
+          "td": 0.0
+        },
+        "te": {
+          "rank": 5,
+          "yds": 42.0,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 12,
+          "yds": 132.6,
+          "td": 0.63
+        }
+      }
+    },
+    "Los Angeles Rams": {
+      "team": "Los Angeles Rams",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": 2.9,
+        "srs": 12.6,
+        "osrs": 8.3,
+        "dsrs": 4.3
+      },
+      "offense": {
+        "ppg": 30.1,
+        "rushYdsG": 125.6,
+        "rushYdsGRank": 8,
+        "rushTdG": 1.06,
+        "passYdsG": 269.1,
+        "passYdsGRank": 2,
+        "passTdG": 2.63,
+        "int": 0.5
+      },
+      "defense": {
+        "papg": 20.4,
+        "rushYdsG": 112.8,
+        "rushYdsGRank": 13,
+        "rushTdG": 0.5,
+        "passYdsG": 215.4,
+        "passYdsGRank": 17,
+        "passTdG": 1.5,
+        "int": 0.94
+      },
+      "passing": [
+        {
+          "player": "Matthew Stafford",
+          "ydsG": 278.0,
+          "td": 2.63,
+          "int": 0.5
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Kyren Williams",
+          "ydsG": 74.5,
+          "td": 0.63,
+          "ya": 4.8,
+          "ag": 15.4
+        },
+        {
+          "player": "Blake Corum",
+          "ydsG": 42.9,
+          "td": 0.38,
+          "ya": 5.2,
+          "ag": 8.3
+        },
+        {
+          "player": "Puka Nacua",
+          "ydsG": 5.4,
+          "td": 0.07,
+          "ya": 10.1,
+          "ag": 0.5
+        },
+        {
+          "player": "Ronnie Rivers",
+          "ydsG": 4.6,
+          "td": 0.0,
+          "ya": 5.1,
+          "ag": 0.9
+        },
+        {
+          "player": "Jordan Whittington",
+          "ydsG": 0.8,
+          "td": 0.0,
+          "ya": 4.0,
+          "ag": 0.2
+        },
+        {
+          "player": "Matthew Stafford",
+          "ydsG": -0.1,
+          "td": 0.0,
+          "ya": -0.1,
+          "ag": 1.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Puka Nacua",
+          "ydsG": 109.3,
+          "td": 0.6,
+          "yr": 13.8,
+          "rec": 7.93
+        },
+        {
+          "player": "Davante Adams",
+          "ydsG": 56.4,
+          "td": 1.0,
+          "yr": 13.2,
+          "rec": 4.29
+        },
+        {
+          "player": "Colby Parkinson",
+          "ydsG": 26.6,
+          "td": 0.43,
+          "yr": 9.5,
+          "rec": 2.79
+        },
+        {
+          "player": "Tyler Higbee",
+          "ydsG": 21.1,
+          "td": 0.22,
+          "yr": 9.5,
+          "rec": 2.22
+        },
+        {
+          "player": "Xavier Smith",
+          "ydsG": 19.8,
+          "td": 0.0,
+          "yr": 17.5,
+          "rec": 1.13
+        },
+        {
+          "player": "Tutu Atwell",
+          "ydsG": 19.2,
+          "td": 0.11,
+          "yr": 34.6,
+          "rec": 0.56
+        },
+        {
+          "player": "Terrance Ferguson",
+          "ydsG": 16.5,
+          "td": 0.21,
+          "yr": 21.0,
+          "rec": 0.79
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 12,
+          "yds": 90.3,
+          "td": 0.38
+        },
+        "recRb": {
+          "rank": 25,
+          "yds": 36.6,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 4,
+          "yds": 41.7,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 24,
+          "yds": 154.0,
+          "td": 0.94
+        }
+      }
+    },
+    "Miami Dolphins": {
+      "team": "Miami Dolphins",
+      "record": {
+        "w": 7,
+        "l": 9,
+        "t": 0,
+        "sos": -2.4,
+        "srs": -5.4,
+        "osrs": -3.5,
+        "dsrs": -1.9
+      },
+      "offense": {
+        "ppg": 21.1,
+        "rushYdsG": 123.8,
+        "rushYdsGRank": 10,
+        "rushTdG": 0.88,
+        "passYdsG": 184.4,
+        "passYdsGRank": 25,
+        "passTdG": 1.38,
+        "int": 1.06
+      },
+      "defense": {
+        "papg": 24.1,
+        "rushYdsG": 125.5,
+        "rushYdsGRank": 24,
+        "rushTdG": 0.88,
+        "passYdsG": 216.5,
+        "passYdsGRank": 18,
+        "passTdG": 1.75,
+        "int": 0.56
+      },
+      "passing": [
+        {
+          "player": "Tua Tagovailoa",
+          "ydsG": 190.0,
+          "td": 1.43,
+          "int": 1.07
+        },
+        {
+          "player": "Quinn Ewers",
+          "ydsG": 161.7,
+          "td": 0.67,
+          "int": 0.67
+        },
+        {
+          "player": "Zach Wilson",
+          "ydsG": 10.7,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "De'Von Achane",
+          "ydsG": 84.4,
+          "td": 0.5,
+          "ya": 5.7,
+          "ag": 14.9
+        },
+        {
+          "player": "Jaylen Wright",
+          "ydsG": 29.4,
+          "td": 0.22,
+          "ya": 4.6,
+          "ag": 6.3
+        },
+        {
+          "player": "Ollie Gordon",
+          "ydsG": 11.9,
+          "td": 0.19,
+          "ya": 3.1,
+          "ag": 3.8
+        },
+        {
+          "player": "Malik Washington",
+          "ydsG": 5.5,
+          "td": 0.06,
+          "ya": 5.9,
+          "ag": 0.9
+        },
+        {
+          "player": "Quinn Ewers",
+          "ydsG": 3.3,
+          "td": 0.0,
+          "ya": 1.4,
+          "ag": 2.3
+        },
+        {
+          "player": "Tua Tagovailoa",
+          "ydsG": 3.1,
+          "td": 0.0,
+          "ya": 2.2,
+          "ag": 1.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Jaylen Waddle",
+          "ydsG": 56.9,
+          "td": 0.38,
+          "yr": 14.2,
+          "rec": 4.0
+        },
+        {
+          "player": "Theo Wease",
+          "ydsG": 47.5,
+          "td": 0.5,
+          "yr": 31.7,
+          "rec": 1.5
+        },
+        {
+          "player": "Greg Dulcich",
+          "ydsG": 33.8,
+          "td": 0.11,
+          "yr": 13.2,
+          "rec": 2.56
+        },
+        {
+          "player": "Darren Waller",
+          "ydsG": 31.4,
+          "td": 0.67,
+          "yr": 11.8,
+          "rec": 2.67
+        },
+        {
+          "player": "De'Von Achane",
+          "ydsG": 30.5,
+          "td": 0.25,
+          "yr": 7.3,
+          "rec": 4.19
+        },
+        {
+          "player": "Malik Washington",
+          "ydsG": 19.4,
+          "td": 0.13,
+          "yr": 7.2,
+          "rec": 2.69
+        },
+        {
+          "player": "Julian Hill",
+          "ydsG": 10.2,
+          "td": 0.0,
+          "yr": 9.4,
+          "rec": 1.08
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 21,
+          "yds": 101.6,
+          "td": 0.5
+        },
+        "recRb": {
+          "rank": 26,
+          "yds": 37.4,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 29,
+          "yds": 67.1,
+          "td": 0.5
+        },
+        "wr": {
+          "rank": 9,
+          "yds": 127.1,
+          "td": 1.06
+        }
+      }
+    },
+    "Minnesota Vikings": {
+      "team": "Minnesota Vikings",
+      "record": {
+        "w": 8,
+        "l": 8,
+        "t": 0,
+        "sos": 0.2,
+        "srs": 0.0,
+        "osrs": -3.6,
+        "dsrs": 3.6
+      },
+      "offense": {
+        "ppg": 20.5,
+        "rushYdsG": 106.5,
+        "rushYdsGRank": 25,
+        "rushTdG": 0.88,
+        "passYdsG": 163.0,
+        "passYdsGRank": 31,
+        "passTdG": 1.13,
+        "int": 1.31
+      },
+      "defense": {
+        "papg": 20.6,
+        "rushYdsG": 123.9,
+        "rushYdsGRank": 22,
+        "rushTdG": 0.81,
+        "passYdsG": 168.8,
+        "passYdsGRank": 3,
+        "passTdG": 0.94,
+        "int": 0.5
+      },
+      "passing": [
+        {
+          "player": "J.J. McCarthy",
+          "ydsG": 161.1,
+          "td": 1.22,
+          "int": 1.33
+        },
+        {
+          "player": "Max Brosmer",
+          "ydsG": 45.2,
+          "td": 0.0,
+          "int": 0.67
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jordan Mason",
+          "ydsG": 44.3,
+          "td": 0.4,
+          "ya": 4.6,
+          "ag": 9.7
+        },
+        {
+          "player": "J.J. McCarthy",
+          "ydsG": 19.3,
+          "td": 0.44,
+          "ya": 5.0,
+          "ag": 3.9
+        },
+        {
+          "player": "Ty Chandler",
+          "ydsG": 12.0,
+          "td": 0.0,
+          "ya": 3.4,
+          "ag": 3.5
+        },
+        {
+          "player": "Carson Wentz",
+          "ydsG": 11.4,
+          "td": 0.0,
+          "ya": 5.2,
+          "ag": 2.2
+        },
+        {
+          "player": "Zavier Scott",
+          "ydsG": 7.0,
+          "td": 0.0,
+          "ya": 3.6,
+          "ag": 1.9
+        },
+        {
+          "player": "Cam Akers",
+          "ydsG": 6.3,
+          "td": 0.0,
+          "ya": 3.8,
+          "ag": 1.7
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Justin Jefferson",
+          "ydsG": 59.2,
+          "td": 0.13,
+          "yr": 12.5,
+          "rec": 4.75
+        },
+        {
+          "player": "Jordan Addison",
+          "ydsG": 46.3,
+          "td": 0.23,
+          "yr": 14.7,
+          "rec": 3.15
+        },
+        {
+          "player": "Jalen Nailor",
+          "ydsG": 24.7,
+          "td": 0.25,
+          "yr": 15.2,
+          "rec": 1.63
+        },
+        {
+          "player": "Josh Oliver",
+          "ydsG": 9.4,
+          "td": 0.29,
+          "yr": 10.1,
+          "rec": 0.93
+        },
+        {
+          "player": "Zavier Scott",
+          "ydsG": 6.0,
+          "td": 0.07,
+          "yr": 6.9,
+          "rec": 0.87
+        },
+        {
+          "player": "Jordan Mason",
+          "ydsG": 3.4,
+          "td": 0.0,
+          "yr": 3.6,
+          "rec": 0.93
+        },
+        {
+          "player": "Tai Felton",
+          "ydsG": 1.6,
+          "td": 0.0,
+          "yr": 8.3,
+          "rec": 0.19
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 25,
+          "yds": 105.1,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 1,
+          "yds": 20.4,
+          "td": 0.0
+        },
+        "te": {
+          "rank": 7,
+          "yds": 44.5,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 6,
+          "yds": 121.8,
+          "td": 0.56
+        }
+      }
+    },
+    "New England Patriots": {
+      "team": "New England Patriots",
+      "record": {
+        "w": 13,
+        "l": 3,
+        "t": 0,
+        "sos": -4.2,
+        "srs": 4.6,
+        "osrs": 3.1,
+        "dsrs": 1.6
+      },
+      "offense": {
+        "ppg": 28.3,
+        "rushYdsG": 121.8,
+        "rushYdsGRank": 13,
+        "rushTdG": 1.13,
+        "passYdsG": 252.8,
+        "passYdsGRank": 3,
+        "passTdG": 1.88,
+        "int": 0.5
+      },
+      "defense": {
+        "papg": 19.4,
+        "rushYdsG": 104.1,
+        "rushYdsGRank": 7,
+        "rushTdG": 0.69,
+        "passYdsG": 198.3,
+        "passYdsGRank": 10,
+        "passTdG": 1.5,
+        "int": 0.56
+      },
+      "passing": [
+        {
+          "player": "Drake Maye",
+          "ydsG": 262.7,
+          "td": 1.88,
+          "int": 0.5
+        },
+        {
+          "player": "Joshua Dobbs",
+          "ydsG": 14.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "TreVeyon Henderson",
+          "ydsG": 53.6,
+          "td": 0.44,
+          "ya": 5.1,
+          "ag": 10.4
+        },
+        {
+          "player": "Rhamondre Stevenson",
+          "ydsG": 36.3,
+          "td": 0.38,
+          "ya": 3.8,
+          "ag": 9.5
+        },
+        {
+          "player": "Drake Maye",
+          "ydsG": 25.6,
+          "td": 0.25,
+          "ya": 4.2,
+          "ag": 6.1
+        },
+        {
+          "player": "Terrell Jennings",
+          "ydsG": 10.4,
+          "td": 0.14,
+          "ya": 3.2,
+          "ag": 3.3
+        },
+        {
+          "player": "DeMario Douglas",
+          "ydsG": 1.3,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 0.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Stefon Diggs",
+          "ydsG": 60.6,
+          "td": 0.25,
+          "yr": 11.8,
+          "rec": 5.13
+        },
+        {
+          "player": "Hunter Henry",
+          "ydsG": 44.5,
+          "td": 0.44,
+          "yr": 12.9,
+          "rec": 3.44
+        },
+        {
+          "player": "Kayshon Boutte",
+          "ydsG": 40.5,
+          "td": 0.46,
+          "yr": 17.0,
+          "rec": 2.38
+        },
+        {
+          "player": "Mack Hollins",
+          "ydsG": 36.7,
+          "td": 0.13,
+          "yr": 12.0,
+          "rec": 3.07
+        },
+        {
+          "player": "DeMario Douglas",
+          "ydsG": 26.1,
+          "td": 0.19,
+          "yr": 14.4,
+          "rec": 1.81
+        },
+        {
+          "player": "Rhamondre Stevenson",
+          "ydsG": 24.8,
+          "td": 0.08,
+          "yr": 10.8,
+          "rec": 2.31
+        },
+        {
+          "player": "Austin Hooper",
+          "ydsG": 17.2,
+          "td": 0.13,
+          "yr": 12.9,
+          "rec": 1.33
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 5,
+          "yds": 79.9,
+          "td": 0.5
+        },
+        "recRb": {
+          "rank": 16,
+          "yds": 31.4,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 22,
+          "yds": 58.3,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 5,
+          "yds": 121.1,
+          "td": 1.0
+        }
+      }
+    },
+    "New Orleans Saints": {
+      "team": "New Orleans Saints",
+      "record": {
+        "w": 6,
+        "l": 10,
+        "t": 0,
+        "sos": -0.3,
+        "srs": -5.0,
+        "osrs": -5.8,
+        "dsrs": 0.8
+      },
+      "offense": {
+        "ppg": 18.1,
+        "rushYdsG": 93.4,
+        "rushYdsGRank": 30,
+        "rushTdG": 0.5,
+        "passYdsG": 218.5,
+        "passYdsGRank": 17,
+        "passTdG": 1.13,
+        "int": 0.69
+      },
+      "defense": {
+        "papg": 22.8,
+        "rushYdsG": 125.1,
+        "rushYdsGRank": 23,
+        "rushTdG": 0.75,
+        "passYdsG": 180.4,
+        "passYdsGRank": 5,
+        "passTdG": 1.5,
+        "int": 0.56
+      },
+      "passing": [
+        {
+          "player": "Tyler Shough",
+          "ydsG": 212.5,
+          "td": 0.9,
+          "int": 0.5
+        },
+        {
+          "player": "Spencer Rattler",
+          "ydsG": 176.2,
+          "td": 0.89,
+          "int": 0.56
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Audric Estime",
+          "ydsG": 22.5,
+          "td": 0.17,
+          "ya": 5.4,
+          "ag": 4.2
+        },
+        {
+          "player": "Devin Neal",
+          "ydsG": 20.6,
+          "td": 0.2,
+          "ya": 3.6,
+          "ag": 5.7
+        },
+        {
+          "player": "Spencer Rattler",
+          "ydsG": 18.6,
+          "td": 0.0,
+          "ya": 5.4,
+          "ag": 3.4
+        },
+        {
+          "player": "Tyler Shough",
+          "ydsG": 15.2,
+          "td": 0.2,
+          "ya": 3.6,
+          "ag": 4.2
+        },
+        {
+          "player": "Taysom Hill",
+          "ydsG": 9.5,
+          "td": 0.08,
+          "ya": 2.2,
+          "ag": 4.3
+        },
+        {
+          "player": "Evan Hull",
+          "ydsG": 7.4,
+          "td": 0.0,
+          "ya": 2.2,
+          "ag": 3.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Juwan Johnson",
+          "ydsG": 51.8,
+          "td": 0.19,
+          "yr": 11.2,
+          "rec": 4.63
+        },
+        {
+          "player": "Devaughn Vele",
+          "ydsG": 22.5,
+          "td": 0.15,
+          "yr": 11.7,
+          "rec": 1.92
+        },
+        {
+          "player": "Kevin Austin",
+          "ydsG": 14.7,
+          "td": 0.14,
+          "yr": 11.4,
+          "rec": 1.29
+        },
+        {
+          "player": "Devin Neal",
+          "ydsG": 10.4,
+          "td": 0.0,
+          "yr": 6.1,
+          "rec": 1.7
+        },
+        {
+          "player": "Audric Estime",
+          "ydsG": 10.0,
+          "td": 0.0,
+          "yr": 8.6,
+          "rec": 1.17
+        },
+        {
+          "player": "Dante Pettis",
+          "ydsG": 9.6,
+          "td": 0.0,
+          "yr": 16.8,
+          "rec": 0.57
+        },
+        {
+          "player": "Taysom Hill",
+          "ydsG": 4.9,
+          "td": 0.0,
+          "yr": 7.4,
+          "rec": 0.67
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 26,
+          "yds": 106.1,
+          "td": 0.69
+        },
+        "recRb": {
+          "rank": 4,
+          "yds": 24.3,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 13,
+          "yds": 50.7,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 7,
+          "yds": 122.3,
+          "td": 0.94
+        }
+      }
+    },
+    "New York Giants": {
+      "team": "New York Giants",
+      "record": {
+        "w": 3,
+        "l": 13,
+        "t": 0,
+        "sos": 0.1,
+        "srs": -4.6,
+        "osrs": -1.1,
+        "dsrs": -3.5
+      },
+      "offense": {
+        "ppg": 21.7,
+        "rushYdsG": 127.1,
+        "rushYdsGRank": 6,
+        "rushTdG": 1.31,
+        "passYdsG": 203.4,
+        "passYdsGRank": 21,
+        "passTdG": 1.19,
+        "int": 0.63
+      },
+      "defense": {
+        "papg": 26.4,
+        "rushYdsG": 145.4,
+        "rushYdsGRank": 30,
+        "rushTdG": 1.19,
+        "passYdsG": 218.7,
+        "passYdsGRank": 20,
+        "passTdG": 1.56,
+        "int": 0.5
+      },
+      "passing": [
+        {
+          "player": "Jameis Winston",
+          "ydsG": 189.0,
+          "td": 0.67,
+          "int": 0.67
+        },
+        {
+          "player": "Jaxson Dart",
+          "ydsG": 157.1,
+          "td": 1.0,
+          "int": 0.38
+        },
+        {
+          "player": "Russell Wilson",
+          "ydsG": 138.5,
+          "td": 0.5,
+          "int": 0.5
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Tyrone Tracy Jr.",
+          "ydsG": 45.5,
+          "td": 0.14,
+          "ya": 4.0,
+          "ag": 11.3
+        },
+        {
+          "player": "Jaxson Dart",
+          "ydsG": 35.0,
+          "td": 0.69,
+          "ya": 5.6,
+          "ag": 6.2
+        },
+        {
+          "player": "Devin Singletary",
+          "ydsG": 25.7,
+          "td": 0.25,
+          "ya": 3.7,
+          "ag": 6.9
+        },
+        {
+          "player": "Russell Wilson",
+          "ydsG": 17.7,
+          "td": 0.0,
+          "ya": 5.9,
+          "ag": 3.0
+        },
+        {
+          "player": "Jameis Winston",
+          "ydsG": 7.7,
+          "td": 0.33,
+          "ya": 3.3,
+          "ag": 2.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Darius Slayton",
+          "ydsG": 38.8,
+          "td": 0.08,
+          "yr": 15.3,
+          "rec": 2.54
+        },
+        {
+          "player": "Isaiah Hodgins",
+          "ydsG": 19.2,
+          "td": 0.17,
+          "yr": 11.5,
+          "rec": 1.67
+        },
+        {
+          "player": "Tyrone Tracy Jr.",
+          "ydsG": 16.6,
+          "td": 0.07,
+          "yr": 8.3,
+          "rec": 2.0
+        },
+        {
+          "player": "Daniel Bellinger",
+          "ydsG": 16.5,
+          "td": 0.07,
+          "yr": 14.6,
+          "rec": 1.13
+        },
+        {
+          "player": "Jameis Winston",
+          "ydsG": 11.0,
+          "td": 0.33,
+          "yr": 33.0,
+          "rec": 0.33
+        },
+        {
+          "player": "Devin Singletary",
+          "ydsG": 9.4,
+          "td": 0.0,
+          "yr": 8.4,
+          "rec": 1.13
+        },
+        {
+          "player": "Jalin Hyatt",
+          "ydsG": 4.4,
+          "td": 0.0,
+          "yr": 7.0,
+          "rec": 0.63
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 31,
+          "yds": 118.1,
+          "td": 0.81
+        },
+        "recRb": {
+          "rank": 18,
+          "yds": 31.6,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 11,
+          "yds": 47.5,
+          "td": 0.31
+        },
+        "wr": {
+          "rank": 25,
+          "yds": 156.2,
+          "td": 1.0
+        }
+      }
+    },
+    "New York Jets": {
+      "team": "New York Jets",
+      "record": {
+        "w": 3,
+        "l": 13,
+        "t": 0,
+        "sos": -1.0,
+        "srs": -12.0,
+        "osrs": -5.6,
+        "dsrs": -6.4
+      },
+      "offense": {
+        "ppg": 18.3,
+        "rushYdsG": 126.7,
+        "rushYdsGRank": 7,
+        "rushTdG": 0.69,
+        "passYdsG": 145.8,
+        "passYdsGRank": 32,
+        "passTdG": 0.88,
+        "int": 0.81
+      },
+      "defense": {
+        "papg": 29.3,
+        "rushYdsG": 135.0,
+        "rushYdsGRank": 27,
+        "rushTdG": 1.19,
+        "passYdsG": 213.4,
+        "passYdsGRank": 16,
+        "passTdG": 2.0,
+        "int": 0.0
+      },
+      "passing": [
+        {
+          "player": "Brady Cook",
+          "ydsG": 169.8,
+          "td": 0.25,
+          "int": 1.75
+        },
+        {
+          "player": "Tyrod Taylor",
+          "ydsG": 129.8,
+          "td": 0.83,
+          "int": 0.83
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Breece Hall",
+          "ydsG": 66.6,
+          "td": 0.25,
+          "ya": 4.4,
+          "ag": 15.2
+        },
+        {
+          "player": "Tyrod Taylor",
+          "ydsG": 23.8,
+          "td": 0.17,
+          "ya": 5.3,
+          "ag": 4.5
+        },
+        {
+          "player": "Braelon Allen",
+          "ydsG": 19.0,
+          "td": 0.25,
+          "ya": 4.2,
+          "ag": 4.5
+        },
+        {
+          "player": "Brady Cook",
+          "ydsG": 10.5,
+          "td": 0.0,
+          "ya": 4.2,
+          "ag": 2.5
+        },
+        {
+          "player": "Kene Nwangwu",
+          "ydsG": 2.8,
+          "td": 0.0,
+          "ya": 5.2,
+          "ag": 0.5
+        },
+        {
+          "player": "Isaiah Williams",
+          "ydsG": 2.4,
+          "td": 0.0,
+          "ya": 11.3,
+          "ag": 0.2
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Adonai Mitchell",
+          "ydsG": 43.0,
+          "td": 0.29,
+          "yr": 12.5,
+          "rec": 3.43
+        },
+        {
+          "player": "John Metchie",
+          "ydsG": 29.5,
+          "td": 0.25,
+          "yr": 9.1,
+          "rec": 3.25
+        },
+        {
+          "player": "Breece Hall",
+          "ydsG": 21.9,
+          "td": 0.06,
+          "yr": 9.7,
+          "rec": 2.25
+        },
+        {
+          "player": "Tyler Johnson",
+          "ydsG": 16.4,
+          "td": 0.08,
+          "yr": 16.4,
+          "rec": 1.0
+        },
+        {
+          "player": "Isaiah Williams",
+          "ydsG": 12.1,
+          "td": 0.0,
+          "yr": 8.0,
+          "rec": 1.5
+        },
+        {
+          "player": "Isaiah Davis",
+          "ydsG": 11.6,
+          "td": 0.0,
+          "yr": 8.9,
+          "rec": 1.31
+        },
+        {
+          "player": "Jeremy Ruckert",
+          "ydsG": 11.2,
+          "td": 0.06,
+          "yr": 7.8,
+          "rec": 1.44
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 24,
+          "yds": 104.2,
+          "td": 1.0
+        },
+        "recRb": {
+          "rank": 20,
+          "yds": 32.6,
+          "td": 0.56
+        },
+        "te": {
+          "rank": 16,
+          "yds": 52.9,
+          "td": 0.56
+        },
+        "wr": {
+          "rank": 16,
+          "yds": 138.9,
+          "td": 0.88
+        }
+      }
+    },
+    "Philadelphia Eagles": {
+      "team": "Philadelphia Eagles",
+      "record": {
+        "w": 11,
+        "l": 5,
+        "t": 0,
+        "sos": -0.1,
+        "srs": 3.7,
+        "osrs": -1.7,
+        "dsrs": 5.4
+      },
+      "offense": {
+        "ppg": 22.6,
+        "rushYdsG": 119.3,
+        "rushYdsGRank": 18,
+        "rushTdG": 1.0,
+        "passYdsG": 192.3,
+        "passYdsGRank": 23,
+        "passTdG": 1.56,
+        "int": 0.38
+      },
+      "defense": {
+        "papg": 18.8,
+        "rushYdsG": 123.3,
+        "rushYdsGRank": 20,
+        "rushTdG": 1.13,
+        "passYdsG": 193.4,
+        "passYdsGRank": 9,
+        "passTdG": 0.81,
+        "int": 0.69
+      },
+      "passing": [
+        {
+          "player": "Jalen Hurts",
+          "ydsG": 201.5,
+          "td": 1.56,
+          "int": 0.38
+        },
+        {
+          "player": "Tanner McKee",
+          "ydsG": 11.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Saquon Barkley",
+          "ydsG": 71.3,
+          "td": 0.44,
+          "ya": 4.1,
+          "ag": 17.5
+        },
+        {
+          "player": "Jalen Hurts",
+          "ydsG": 26.3,
+          "td": 0.5,
+          "ya": 4.0,
+          "ag": 6.6
+        },
+        {
+          "player": "Tank Bigsby",
+          "ydsG": 17.9,
+          "td": 0.07,
+          "ya": 6.4,
+          "ag": 2.8
+        },
+        {
+          "player": "AJ Dillon",
+          "ydsG": 10.0,
+          "td": 0.0,
+          "ya": 5.0,
+          "ag": 2.0
+        },
+        {
+          "player": "Will Shipley",
+          "ydsG": 3.4,
+          "td": 0.0,
+          "ya": 3.6,
+          "ag": 0.9
+        },
+        {
+          "player": "Tanner McKee",
+          "ydsG": 1.7,
+          "td": 0.0,
+          "ya": 0.8,
+          "ag": 2.0
+        }
+      ],
+      "receiving": [
+        {
+          "player": "A.J. Brown",
+          "ydsG": 66.9,
+          "td": 0.47,
+          "yr": 12.9,
+          "rec": 5.2
+        },
+        {
+          "player": "DeVonta Smith",
+          "ydsG": 59.8,
+          "td": 0.25,
+          "yr": 12.9,
+          "rec": 4.63
+        },
+        {
+          "player": "Saquon Barkley",
+          "ydsG": 17.1,
+          "td": 0.13,
+          "yr": 7.4,
+          "rec": 2.31
+        },
+        {
+          "player": "Jahan Dotson",
+          "ydsG": 13.9,
+          "td": 0.06,
+          "yr": 14.8,
+          "rec": 0.94
+        },
+        {
+          "player": "Darius Cooper",
+          "ydsG": 4.9,
+          "td": 0.0,
+          "yr": 9.8,
+          "rec": 0.5
+        },
+        {
+          "player": "Grant Calcaterra",
+          "ydsG": 3.9,
+          "td": 0.0,
+          "yr": 7.9,
+          "rec": 0.5
+        },
+        {
+          "player": "Will Shipley",
+          "ydsG": 3.2,
+          "td": 0.0,
+          "yr": 6.4,
+          "rec": 0.5
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 18,
+          "yds": 96.6,
+          "td": 0.75
+        },
+        "recRb": {
+          "rank": 28,
+          "yds": 38.3,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 1,
+          "yds": 30.7,
+          "td": 0.19
+        },
+        "wr": {
+          "rank": 15,
+          "yds": 138.3,
+          "td": 0.38
+        }
+      }
+    },
+    "Pittsburgh Steelers": {
+      "team": "Pittsburgh Steelers",
+      "record": {
+        "w": 9,
+        "l": 7,
+        "t": 0,
+        "sos": -0.5,
+        "srs": 0.0,
+        "osrs": -0.7,
+        "dsrs": 0.8
+      },
+      "offense": {
+        "ppg": 23.2,
+        "rushYdsG": 103.5,
+        "rushYdsGRank": 26,
+        "rushTdG": 0.88,
+        "passYdsG": 196.9,
+        "passYdsGRank": 22,
+        "passTdG": 1.56,
+        "int": 0.56
+      },
+      "defense": {
+        "papg": 22.7,
+        "rushYdsG": 111.6,
+        "rushYdsGRank": 12,
+        "rushTdG": 0.63,
+        "passYdsG": 245.3,
+        "passYdsGRank": 29,
+        "passTdG": 1.69,
+        "int": 0.88
+      },
+      "passing": [
+        {
+          "player": "Aaron Rodgers",
+          "ydsG": 201.9,
+          "td": 1.53,
+          "int": 0.47
+        },
+        {
+          "player": "Mason Rudolph",
+          "ydsG": 62.0,
+          "td": 0.4,
+          "int": 0.4
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jaylen Warren",
+          "ydsG": 59.5,
+          "td": 0.4,
+          "ya": 4.5,
+          "ag": 13.1
+        },
+        {
+          "player": "Kenneth Gainwell",
+          "ydsG": 32.9,
+          "td": 0.25,
+          "ya": 4.8,
+          "ag": 6.8
+        },
+        {
+          "player": "Kaleb Johnson",
+          "ydsG": 6.9,
+          "td": 0.0,
+          "ya": 2.5,
+          "ag": 2.8
+        },
+        {
+          "player": "Jonnu Smith",
+          "ydsG": 4.3,
+          "td": 0.06,
+          "ya": 8.5,
+          "ag": 0.5
+        },
+        {
+          "player": "Aaron Rodgers",
+          "ydsG": 2.7,
+          "td": 0.07,
+          "ya": 2.1,
+          "ag": 1.3
+        },
+        {
+          "player": "Connor Heyward",
+          "ydsG": 2.6,
+          "td": 0.06,
+          "ya": 3.4,
+          "ag": 0.8
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Pat Freiermuth",
+          "ydsG": 27.2,
+          "td": 0.25,
+          "yr": 11.4,
+          "rec": 2.38
+        },
+        {
+          "player": "Kenneth Gainwell",
+          "ydsG": 26.4,
+          "td": 0.19,
+          "yr": 6.5,
+          "rec": 4.06
+        },
+        {
+          "player": "Calvin Austin III",
+          "ydsG": 24.4,
+          "td": 0.15,
+          "yr": 11.3,
+          "rec": 2.15
+        },
+        {
+          "player": "Darnell Washington",
+          "ydsG": 22.8,
+          "td": 0.06,
+          "yr": 11.7,
+          "rec": 1.94
+        },
+        {
+          "player": "Jaylen Warren",
+          "ydsG": 20.0,
+          "td": 0.13,
+          "yr": 8.6,
+          "rec": 2.33
+        },
+        {
+          "player": "Adam Thielen",
+          "ydsG": 18.5,
+          "td": 0.0,
+          "yr": 9.3,
+          "rec": 2.0
+        },
+        {
+          "player": "Jonnu Smith",
+          "ydsG": 13.8,
+          "td": 0.13,
+          "yr": 5.9,
+          "rec": 2.31
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 16,
+          "yds": 94.4,
+          "td": 0.31
+        },
+        "recRb": {
+          "rank": 21,
+          "yds": 32.9,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 30,
+          "yds": 67.2,
+          "td": 0.69
+        },
+        "wr": {
+          "rank": 27,
+          "yds": 162.4,
+          "td": 0.88
+        }
+      }
+    },
+    "San Francisco 49ers": {
+      "team": "San Francisco 49ers",
+      "record": {
+        "w": 12,
+        "l": 4,
+        "t": 0,
+        "sos": 1.4,
+        "srs": 6.1,
+        "osrs": 4.7,
+        "dsrs": 1.5
+      },
+      "offense": {
+        "ppg": 27.1,
+        "rushYdsG": 110.3,
+        "rushYdsGRank": 22,
+        "rushTdG": 0.94,
+        "passYdsG": 252.3,
+        "passYdsGRank": 4,
+        "passTdG": 2.06,
+        "int": 0.94
+      },
+      "defense": {
+        "papg": 22.4,
+        "rushYdsG": 103.3,
+        "rushYdsGRank": 6,
+        "rushTdG": 0.75,
+        "passYdsG": 235.6,
+        "passYdsGRank": 25,
+        "passTdG": 1.81,
+        "int": 0.38
+      },
+      "passing": [
+        {
+          "player": "Brock Purdy",
+          "ydsG": 255.0,
+          "td": 2.5,
+          "int": 1.13
+        },
+        {
+          "player": "Mac Jones",
+          "ydsG": 195.5,
+          "td": 1.18,
+          "int": 0.55
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Christian McCaffrey",
+          "ydsG": 73.7,
+          "td": 0.63,
+          "ya": 3.9,
+          "ag": 18.9
+        },
+        {
+          "player": "Brian Robinson Jr.",
+          "ydsG": 24.4,
+          "td": 0.13,
+          "ya": 4.3,
+          "ag": 5.6
+        },
+        {
+          "player": "Brock Purdy",
+          "ydsG": 15.8,
+          "td": 0.38,
+          "ya": 4.1,
+          "ag": 3.9
+        },
+        {
+          "player": "Mac Jones",
+          "ydsG": 5.5,
+          "td": 0.0,
+          "ya": 1.7,
+          "ag": 3.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "George Kittle",
+          "ydsG": 59.9,
+          "td": 0.7,
+          "yr": 11.5,
+          "rec": 5.2
+        },
+        {
+          "player": "Ricky Pearsall",
+          "ydsG": 58.7,
+          "td": 0.0,
+          "yr": 14.7,
+          "rec": 4.0
+        },
+        {
+          "player": "Christian McCaffrey",
+          "ydsG": 55.6,
+          "td": 0.44,
+          "yr": 9.3,
+          "rec": 6.0
+        },
+        {
+          "player": "Jauan Jennings",
+          "ydsG": 43.4,
+          "td": 0.64,
+          "yr": 11.9,
+          "rec": 3.64
+        },
+        {
+          "player": "Kendrick Bourne",
+          "ydsG": 36.7,
+          "td": 0.0,
+          "yr": 14.9,
+          "rec": 2.47
+        },
+        {
+          "player": "Demarcus Robinson",
+          "ydsG": 19.4,
+          "td": 0.08,
+          "yr": 13.3,
+          "rec": 1.46
+        },
+        {
+          "player": "Jake Tonges",
+          "ydsG": 18.3,
+          "td": 0.31,
+          "yr": 8.6,
+          "rec": 2.13
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 11,
+          "yds": 88.2,
+          "td": 0.69
+        },
+        "recRb": {
+          "rank": 22,
+          "yds": 34.3,
+          "td": 0.19
+        },
+        "te": {
+          "rank": 23,
+          "yds": 59.0,
+          "td": 0.63
+        },
+        "wr": {
+          "rank": 22,
+          "yds": 151.2,
+          "td": 0.94
+        }
+      }
+    },
+    "Seattle Seahawks": {
+      "team": "Seattle Seahawks",
+      "record": {
+        "w": 13,
+        "l": 3,
+        "t": 0,
+        "sos": 1.1,
+        "srs": 12.4,
+        "osrs": 6.9,
+        "dsrs": 5.5
+      },
+      "offense": {
+        "ppg": 29.4,
+        "rushYdsG": 119.8,
+        "rushYdsGRank": 16,
+        "rushTdG": 1.13,
+        "passYdsG": 231.0,
+        "passYdsGRank": 8,
+        "passTdG": 1.56,
+        "int": 0.94
+      },
+      "defense": {
+        "papg": 18.1,
+        "rushYdsG": 94.4,
+        "rushYdsGRank": 3,
+        "rushTdG": 0.56,
+        "passYdsG": 198.6,
+        "passYdsGRank": 12,
+        "passTdG": 1.25,
+        "int": 1.06
+      },
+      "passing": [
+        {
+          "player": "Sam Darnold",
+          "ydsG": 240.6,
+          "td": 1.56,
+          "int": 0.88
+        },
+        {
+          "player": "Drew Lock",
+          "ydsG": 3.0,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Kenneth Walker III",
+          "ydsG": 58.1,
+          "td": 0.31,
+          "ya": 4.5,
+          "ag": 12.8
+        },
+        {
+          "player": "Zach Charbonnet",
+          "ydsG": 43.7,
+          "td": 0.73,
+          "ya": 3.9,
+          "ag": 11.1
+        },
+        {
+          "player": "Jacardia Wright",
+          "ydsG": 20.0,
+          "td": 0.0,
+          "ya": 4.0,
+          "ag": 5.0
+        },
+        {
+          "player": "Rashid Shaheed",
+          "ydsG": 8.0,
+          "td": 0.0,
+          "ya": 9.1,
+          "ag": 0.9
+        },
+        {
+          "player": "Sam Darnold",
+          "ydsG": 5.4,
+          "td": 0.0,
+          "ya": 3.0,
+          "ag": 1.8
+        },
+        {
+          "player": "Jaxon Smith-Njigba",
+          "ydsG": 2.3,
+          "td": 0.0,
+          "ya": 5.1,
+          "ag": 0.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Jaxon Smith-Njigba",
+          "ydsG": 106.8,
+          "td": 0.63,
+          "yr": 15.1,
+          "rec": 7.06
+        },
+        {
+          "player": "Cooper Kupp",
+          "ydsG": 37.6,
+          "td": 0.13,
+          "yr": 12.5,
+          "rec": 3.0
+        },
+        {
+          "player": "AJ Barner",
+          "ydsG": 31.6,
+          "td": 0.38,
+          "yr": 10.1,
+          "rec": 3.13
+        },
+        {
+          "player": "Rashid Shaheed",
+          "ydsG": 23.3,
+          "td": 0.0,
+          "yr": 13.3,
+          "rec": 1.75
+        },
+        {
+          "player": "Tory Horton",
+          "ydsG": 20.1,
+          "td": 0.63,
+          "yr": 12.4,
+          "rec": 1.63
+        },
+        {
+          "player": "Kenneth Walker III",
+          "ydsG": 15.4,
+          "td": 0.0,
+          "yr": 9.1,
+          "rec": 1.69
+        },
+        {
+          "player": "Elijah Arroyo",
+          "ydsG": 13.8,
+          "td": 0.08,
+          "yr": 11.9,
+          "rec": 1.15
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 4,
+          "yds": 75.4,
+          "td": 0.31
+        },
+        "recRb": {
+          "rank": 27,
+          "yds": 37.6,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 28,
+          "yds": 65.7,
+          "td": 0.38
+        },
+        "wr": {
+          "rank": 2,
+          "yds": 115.0,
+          "td": 0.75
+        }
+      }
+    },
+    "Tampa Bay Buccaneers": {
+      "team": "Tampa Bay Buccaneers",
+      "record": {
+        "w": 7,
+        "l": 9,
+        "t": 0,
+        "sos": 1.1,
+        "srs": -0.9,
+        "osrs": 0.5,
+        "dsrs": -1.4
+      },
+      "offense": {
+        "ppg": 22.8,
+        "rushYdsG": 112.9,
+        "rushYdsGRank": 21,
+        "rushTdG": 0.81,
+        "passYdsG": 206.4,
+        "passYdsGRank": 20,
+        "passTdG": 1.56,
+        "int": 0.63
+      },
+      "defense": {
+        "papg": 24.8,
+        "rushYdsG": 104.1,
+        "rushYdsGRank": 8,
+        "rushTdG": 1.0,
+        "passYdsG": 236.4,
+        "passYdsGRank": 26,
+        "passTdG": 1.75,
+        "int": 0.75
+      },
+      "passing": [
+        {
+          "player": "Baker Mayfield",
+          "ydsG": 218.1,
+          "td": 1.56,
+          "int": 0.63
+        },
+        {
+          "player": "Teddy Bridgewater",
+          "ydsG": 15.5,
+          "td": 0.0,
+          "int": 0.0
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Bucky Irving",
+          "ydsG": 55.9,
+          "td": 0.11,
+          "ya": 3.4,
+          "ag": 16.3
+        },
+        {
+          "player": "Rachaad White",
+          "ydsG": 34.3,
+          "td": 0.25,
+          "ya": 4.4,
+          "ag": 7.8
+        },
+        {
+          "player": "Baker Mayfield",
+          "ydsG": 21.9,
+          "td": 0.06,
+          "ya": 6.9,
+          "ag": 3.2
+        },
+        {
+          "player": "Sean Tucker",
+          "ydsG": 20.3,
+          "td": 0.44,
+          "ya": 4.0,
+          "ag": 5.1
+        },
+        {
+          "player": "Josh Williams",
+          "ydsG": 3.7,
+          "td": 0.0,
+          "ya": 2.8,
+          "ag": 1.3
+        },
+        {
+          "player": "Sterling Shepard",
+          "ydsG": 1.5,
+          "td": 0.0,
+          "ya": 4.8,
+          "ag": 0.3
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Emeka Egbuka",
+          "ydsG": 58.1,
+          "td": 0.38,
+          "yr": 15.0,
+          "rec": 3.88
+        },
+        {
+          "player": "Jalen McMillan",
+          "ydsG": 55.7,
+          "td": 0.0,
+          "yr": 15.2,
+          "rec": 3.67
+        },
+        {
+          "player": "Mike Evans",
+          "ydsG": 47.7,
+          "td": 0.43,
+          "yr": 11.9,
+          "rec": 4.0
+        },
+        {
+          "player": "Chris Godwin",
+          "ydsG": 44.0,
+          "td": 0.25,
+          "yr": 11.0,
+          "rec": 4.0
+        },
+        {
+          "player": "Cade Otton",
+          "ydsG": 31.9,
+          "td": 0.0,
+          "yr": 9.2,
+          "rec": 3.47
+        },
+        {
+          "player": "Bucky Irving",
+          "ydsG": 29.3,
+          "td": 0.33,
+          "yr": 9.1,
+          "rec": 3.22
+        },
+        {
+          "player": "Sterling Shepard",
+          "ydsG": 28.5,
+          "td": 0.08,
+          "yr": 9.5,
+          "rec": 3.0
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 6,
+          "yds": 82.5,
+          "td": 0.63
+        },
+        "recRb": {
+          "rank": 32,
+          "yds": 52.1,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 21,
+          "yds": 57.9,
+          "td": 0.69
+        },
+        "wr": {
+          "rank": 19,
+          "yds": 144.6,
+          "td": 0.81
+        }
+      }
+    },
+    "Tennessee Titans": {
+      "team": "Tennessee Titans",
+      "record": {
+        "w": 3,
+        "l": 13,
+        "t": 0,
+        "sos": 2.9,
+        "srs": -7.1,
+        "osrs": -3.7,
+        "dsrs": -3.3
+      },
+      "offense": {
+        "ppg": 17.3,
+        "rushYdsG": 94.5,
+        "rushYdsGRank": 28,
+        "rushTdG": 0.5,
+        "passYdsG": 169.2,
+        "passYdsGRank": 30,
+        "passTdG": 0.94,
+        "int": 0.44
+      },
+      "defense": {
+        "papg": 27.3,
+        "rushYdsG": 117.8,
+        "rushYdsGRank": 17,
+        "rushTdG": 1.25,
+        "passYdsG": 229.0,
+        "passYdsGRank": 23,
+        "passTdG": 1.69,
+        "int": 0.38
+      },
+      "passing": [
+        {
+          "player": "Cam Ward",
+          "ydsG": 194.8,
+          "td": 0.94,
+          "int": 0.44
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Tony Pollard",
+          "ydsG": 64.6,
+          "td": 0.31,
+          "ya": 4.5,
+          "ag": 14.3
+        },
+        {
+          "player": "Tyjae Spears",
+          "ydsG": 22.1,
+          "td": 0.17,
+          "ya": 3.8,
+          "ag": 5.8
+        },
+        {
+          "player": "Cam Ward",
+          "ydsG": 9.3,
+          "td": 0.06,
+          "ya": 4.0,
+          "ag": 2.3
+        },
+        {
+          "player": "Julius Chestnut",
+          "ydsG": 2.5,
+          "td": 0.0,
+          "ya": 3.6,
+          "ag": 0.7
+        },
+        {
+          "player": "Chimere Dike",
+          "ydsG": 1.1,
+          "td": 0.0,
+          "ya": 1.6,
+          "ag": 0.7
+        },
+        {
+          "player": "Kalel Mullings",
+          "ydsG": 0.9,
+          "td": 0.0,
+          "ya": 2.3,
+          "ag": 0.4
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Chigoziem Okonkwo",
+          "ydsG": 34.9,
+          "td": 0.13,
+          "yr": 10.3,
+          "rec": 3.38
+        },
+        {
+          "player": "Elic Ayomanor",
+          "ydsG": 31.0,
+          "td": 0.27,
+          "yr": 12.2,
+          "rec": 2.53
+        },
+        {
+          "player": "Chimere Dike",
+          "ydsG": 24.8,
+          "td": 0.25,
+          "yr": 8.8,
+          "rec": 2.81
+        },
+        {
+          "player": "Gunnar Helm",
+          "ydsG": 22.3,
+          "td": 0.13,
+          "yr": 8.1,
+          "rec": 2.75
+        },
+        {
+          "player": "Van Jefferson",
+          "ydsG": 21.9,
+          "td": 0.06,
+          "yr": 12.1,
+          "rec": 1.81
+        },
+        {
+          "player": "Tyjae Spears",
+          "ydsG": 21.3,
+          "td": 0.0,
+          "yr": 6.7,
+          "rec": 3.17
+        },
+        {
+          "player": "Xavier Restrepo",
+          "ydsG": 20.5,
+          "td": 0.0,
+          "yr": 13.7,
+          "rec": 1.5
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 15,
+          "yds": 93.6,
+          "td": 1.0
+        },
+        "recRb": {
+          "rank": 12,
+          "yds": 28.3,
+          "td": 0.13
+        },
+        "te": {
+          "rank": 18,
+          "yds": 54.6,
+          "td": 0.44
+        },
+        "wr": {
+          "rank": 29,
+          "yds": 163.9,
+          "td": 1.06
+        }
+      }
+    },
+    "Washington Commanders": {
+      "team": "Washington Commanders",
+      "record": {
+        "w": 4,
+        "l": 12,
+        "t": 0,
+        "sos": -0.4,
+        "srs": -6.7,
+        "osrs": -3.0,
+        "dsrs": -3.7
+      },
+      "offense": {
+        "ppg": 20.8,
+        "rushYdsG": 134.2,
+        "rushYdsGRank": 4,
+        "rushTdG": 1.13,
+        "passYdsG": 187.4,
+        "passYdsGRank": 24,
+        "passTdG": 1.13,
+        "int": 0.69
+      },
+      "defense": {
+        "papg": 27.1,
+        "rushYdsG": 145.7,
+        "rushYdsGRank": 31,
+        "rushTdG": 1.06,
+        "passYdsG": 243.4,
+        "passYdsGRank": 28,
+        "passTdG": 2.0,
+        "int": 0.44
+      },
+      "passing": [
+        {
+          "player": "Josh Johnson",
+          "ydsG": 60.3,
+          "td": 0.0,
+          "int": 0.25
+        }
+      ],
+      "rushing": [
+        {
+          "player": "Jacory Croskey-Merritt",
+          "ydsG": 48.5,
+          "td": 0.5,
+          "ya": 4.8,
+          "ag": 10.1
+        },
+        {
+          "player": "Chris Rodriguez",
+          "ydsG": 36.3,
+          "td": 0.42,
+          "ya": 4.5,
+          "ag": 8.0
+        },
+        {
+          "player": "Marcus Mariota",
+          "ydsG": 27.0,
+          "td": 0.09,
+          "ya": 5.9,
+          "ag": 4.5
+        },
+        {
+          "player": "Jeremy McNichols",
+          "ydsG": 13.6,
+          "td": 0.06,
+          "ya": 5.1,
+          "ag": 2.7
+        },
+        {
+          "player": "Deebo Samuel",
+          "ydsG": 4.9,
+          "td": 0.07,
+          "ya": 4.9,
+          "ag": 1.0
+        }
+      ],
+      "receiving": [
+        {
+          "player": "Terry McLaurin",
+          "ydsG": 58.3,
+          "td": 0.33,
+          "yr": 15.4,
+          "rec": 3.78
+        },
+        {
+          "player": "Deebo Samuel",
+          "ydsG": 47.1,
+          "td": 0.33,
+          "yr": 10.1,
+          "rec": 4.67
+        },
+        {
+          "player": "Luke McCaffrey",
+          "ydsG": 22.6,
+          "td": 0.33,
+          "yr": 18.5,
+          "rec": 1.22
+        },
+        {
+          "player": "Robbie Chosen",
+          "ydsG": 17.7,
+          "td": 0.0,
+          "yr": 10.6,
+          "rec": 1.67
+        },
+        {
+          "player": "Treylon Burks",
+          "ydsG": 16.9,
+          "td": 0.14,
+          "yr": 14.8,
+          "rec": 1.14
+        },
+        {
+          "player": "Chris Moore",
+          "ydsG": 15.9,
+          "td": 0.08,
+          "yr": 18.8,
+          "rec": 0.85
+        },
+        {
+          "player": "Jaylin Lane",
+          "ydsG": 15.0,
+          "td": 0.0,
+          "yr": 14.1,
+          "rec": 1.07
+        }
+      ],
+      "defVsPosition": {
+        "rb": {
+          "rank": 30,
+          "yds": 118.1,
+          "td": 0.94
+        },
+        "recRb": {
+          "rank": 19,
+          "yds": 32.5,
+          "td": 0.25
+        },
+        "te": {
+          "rank": 25,
+          "yds": 61.8,
+          "td": 0.69
+        },
+        "wr": {
+          "rank": 28,
+          "yds": 163.8,
+          "td": 1.06
+        }
+      }
+    }
+  },
+  "teamNames": [
+    "Arizona Cardinals",
+    "Atlanta Falcons",
+    "Baltimore Ravens",
+    "Buffalo Bills",
+    "Carolina Panthers",
+    "Chicago Bears",
+    "Cincinnati Bengals",
+    "Cleveland Browns",
+    "Dallas Cowboys",
+    "Denver Broncos",
+    "Detroit Lions",
+    "Green Bay Packers",
+    "Houston Texans",
+    "Indianapolis Colts",
+    "Jacksonville Jaguars",
+    "Kansas City Chiefs",
+    "Las Vegas Raiders",
+    "Los Angeles Chargers",
+    "Los Angeles Rams",
+    "Miami Dolphins",
+    "Minnesota Vikings",
+    "New England Patriots",
+    "New Orleans Saints",
+    "New York Giants",
+    "New York Jets",
+    "Philadelphia Eagles",
+    "Pittsburgh Steelers",
+    "San Francisco 49ers",
+    "Seattle Seahawks",
+    "Tampa Bay Buccaneers",
+    "Tennessee Titans",
+    "Washington Commanders"
+  ],
+  "leagueAverage": {
+    "rushTdG": 1.0,
+    "passTdG": 1.5,
+    "ppg": 23.2
+  },
+  "gaugeRanges": {
+    "offRushYdsG": {
+      "min": 0,
+      "max": 165
+    },
+    "offPassYdsG": {
+      "min": 0,
+      "max": 285
+    },
+    "defRushYdsG": {
+      "min": 0,
+      "max": 155
+    },
+    "defPassYdsG": {
+      "min": 0,
+      "max": 260
+    }
+  }
+}
