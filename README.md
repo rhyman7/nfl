@@ -1,12 +1,34 @@
 # NFL Matchup Dashboard
 
-A static site that shows a side-by-side offense/defense breakdown for any two
-NFL teams — record, SRS/OSRS/DSRS, rush/pass yards-per-game gauges with
-league rank, points per game, top skill-position players, and how each
-team's defense performs against RBs, receiving-RBs, TEs, and WRs.
+A static GitHub Pages site with three pages:
 
-No backend, no scraping — it reads a single `data/data.json` file that's
-generated from the same weekly Excel workbooks you've been using.
+- **This Week's Matchups** (`index.html`) — every game in the current week with
+  kickoff time, records, points per game, spread and total. Click a game to open it.
+- **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, line and
+  projected QBs, a head-to-head table (each offense against the other defense,
+  with league ranks and edges), then both teams' full stat cards.
+- **Team vs Team** (`compare.html`) — the original dashboard: pick any two teams
+  and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
+
+All pages read one file, `data/data.json`, and share `common.js` and `style.css`.
+
+## Weekly update (current)
+
+A Claude scheduled task runs every Wednesday morning during the season. It
+downloads the current season's nflverse data, gets standings/SRS from
+Pro-Football-Reference, runs:
+
+```bash
+python scripts/build_from_nflverse.py --season 2026 --src <download folder>
+```
+
+and pushes the new `data/data.json`. Besides team and player stats, the file
+holds `schedule` (the current week's games and byes), `season` and `throughWeek`.
+
+## Legacy Excel pipeline
+
+The sections below describe the original Excel-based workflow. It's no longer
+used but still works if you ever want to go back to it.
 
 ## One-time setup
 
