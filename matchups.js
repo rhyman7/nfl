@@ -142,7 +142,9 @@ function gameExtra(g, L) {
     const bits = [`${w.temp}°`, w.pop != null ? `${w.pop}% rain` : null, w.wind != null ? `${w.wind} mph` : null].filter(Boolean);
     wx = `<span class="game-wx" title="${escapeHtml("Forecast at kickoff: " + w.text)}">${w.icon} ${escapeHtml(bits.join(" · "))}</span>`;
   }
-  return wx ? `<div class="game-extra">${wx}</div>` : "";
+  const it = impliedTotals(g);
+  const imp = it ? `<span class="game-implied" title="Implied team totals from the spread and O/U">Implied ${escapeHtml(abbrOf(g.away))} ${it.away} · ${escapeHtml(abbrOf(g.home))} ${it.home}</span>` : "";
+  return wx || imp ? `<div class="game-extra">${wx}${imp}</div>` : "";
 }
 
 function byeNote(byes) {

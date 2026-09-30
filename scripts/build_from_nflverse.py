@@ -8,12 +8,20 @@ Inputs (downloaded each week into a working folder, not committed):
     games.csv                       raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv
     standings.json                  list of {Tm, W, L, T, SoS, SRS, OSRS, DSRS} from
                                     pro-football-reference.com/years/<season>/ (optional)
+    play_by_play_<season>.csv.gz    github.com/nflverse/nflverse-data releases (pbp) -- EPA and
+                                    success rate (optional; left out if missing)
+    injuries_<season>.csv           github.com/nflverse/nflverse-data releases (injuries) -- injury
+                                    tags (optional; left out if missing)
 
 Usage:
     python scripts/build_from_nflverse.py --season 2026 --src <folder> [--out data/data.json]
 
-Only the given season's regular-season games are used. Nothing from earlier
-seasons is read or carried over.
+Only the given season's regular-season games are used, with one exception: referee
+tendencies (over/under record, points per game) use the given season plus the three
+before it, because a single season gives each crew only a handful of games. The site
+labels them that way. The Wednesday line for this week's games (lineOpen) is kept from
+the file already at --out when it covers the same week, so line movement is measured
+from the first update of the week.
 """
 import argparse
 import json
@@ -144,8 +152,9 @@ def main():
     args = ap.parse_args()
     src, season = Path(args.src), args.season
 
-    games = pd.read_csv(src / "games.csv")
-    games = games[(games.season == season) & (games.game_type == "REG")].copy()
+    all_games = pd.read_csv(src / "games.csv")
+    games = all_games[(all_games.season == season) & (all_games.game_type == "REG")].copy()
+    notes = []
     done = games.dropna(subset=["home_score", "away_score"])
     if done.empty:
         sys.exit("No completed regular-season games for this season yet.")
@@ -218,6 +227,73 @@ def main():
         "te": vs_pos(["TE"], "receiving_yards", "receiving_tds"),
         "wr": vs_pos(["WR"], "receiving_yards", "receiving_tds"),
     }
+
+    # ---- efficiency from play-by-play: EPA per play and success rate (pass and run plays) ----
+    eff = {}
+    pfile = src / f"play_by_play_{season}.csv.gz"
+    if pfile.exists():
+        pbp = pd.read_csv(pfile, low_memory=False,
+                          usecols=["season_type", "week", "posteam", "defteam", "pass", "rush", "epa", "success"])
+        pbp = pbp[(pbp.season_type == "REG") & (pbp.week <= through_week) & ((pbp["pass"] == 1) | (pbp["rush"] == 1))
+                  & pbp.epa.notna() & pbp.posteam.notna()]
+
+        def side(col):
+            gb = pbp.groupby(col)
+            out = pd.DataFrame({
+                "epa": gb.epa.mean(), "sr": gb.success.mean() * 100, "plays": gb.size(),
+                "passEpa": pbp[pbp["pass"] == 1].groupby(col).epa.mean(),
+                "rushEpa": pbp[pbp["rush"] == 1].groupby(col).epa.mean(),
+            })
+            return out
+
+        o_eff, d_eff = side("posteam"), side("defteam")
+        o_eff["epaRank"], o_eff["srRank"] = rank(o_eff.epa, False), rank(o_eff.sr, False)
+        d_eff["epaRank"], d_eff["srRank"] = rank(d_eff.epa, True), rank(d_eff.sr, True)
+        r3 = lambda x: None if pd.isna(x) else round(float(x), 3)
+        for t in o_eff.index:
+            eff[t] = {k: {"epa": r3(df.epa[t]), "sr": r1(df.sr[t]), "passEpa": r3(df.passEpa[t]),
+                          "rushEpa": r3(df.rushEpa[t]), "plays": int(df.plays[t]),
+                          "epaRank": int(df.epaRank[t]), "srRank": int(df.srRank[t])}
+                      for k, df in (("off", o_eff), ("def", d_eff))}
+    else:
+        notes.append(f"no {pfile.name}; EPA and success rate left out")
+
+    # ---- injury report: latest report for the schedule week (or the latest before it) ----
+    injuries, injury_week = {}, None
+    ifile = src / f"injuries_{season}.csv"
+    remaining_weeks = [int(w) for w, ok in week_done.items() if not ok]
+    sched_week_guess = min(remaining_weeks) if remaining_weeks else through_week
+    if ifile.exists():
+        inj = pd.read_csv(ifile)
+        inj = inj[(inj.season == season) & (inj.season_type == "REG") & (inj.week <= sched_week_guess)]
+        if not inj.empty:
+            injury_week = int(inj.week.max())
+            REPORT = {"Out": "O", "Doubtful": "D", "Questionable": "Q"}
+            for _, r in inj[inj.week == injury_week].iterrows():
+                rep = None if pd.isna(r.report_status) else str(r.report_status)
+                prac = "" if pd.isna(r.practice_status) else str(r.practice_status)
+                tag = REPORT.get(rep) or ("DNP" if prac.startswith("Did Not") else "LP" if prac.startswith("Limited") else None)
+                if not tag:
+                    continue
+                what = next((str(x) for x in (r.report_primary_injury, r.practice_primary_injury) if not pd.isna(x)), "")
+                injuries[(r.team, r.gsis_id)] = {"s": tag, "note": " · ".join(x for x in (what, rep or prac) if x)}
+    else:
+        notes.append(f"no {ifile.name}; injury tags left out")
+
+    # ---- referees: over/under record and scoring over this season and the three before ----
+    ref_games = all_games[(all_games.season.between(season - 3, season)) & (all_games.game_type == "REG")
+                          & all_games.referee.notna() & all_games.home_score.notna()].copy()
+    ref_games["pts"] = ref_games.home_score + ref_games.away_score
+    referees = {}
+    for name, grp in ref_games.groupby("referee"):
+        lined = grp[grp.total_line.notna()]
+        referees[str(name)] = {
+            "g": int(len(grp)), "ppg": r1(grp.pts.mean()),
+            "o": int((lined.pts > lined.total_line).sum()), "u": int((lined.pts < lined.total_line).sum()),
+            "p": int((lined.pts == lined.total_line).sum()),
+            "homeWinPct": r1(100 * (grp.home_score > grp.away_score).mean()),
+            "cur": int((grp.season == season).sum()),
+        }
 
     # ---- betting trends: record against the spread and over/under, from nflverse closing lines ----
     # spread_line is positive when the home team is favored; a team's own line is negative when favored.
@@ -317,11 +393,13 @@ def main():
         top = sorted(rows, key=lambda r: r["ydsG"], reverse=True)[:n]
         for r in top:
             r["pos"] = pos[r["player"]]
+            if (team, ids[r["player"]]) in injuries:
+                r["inj"] = injuries[(team, ids[r["player"]])]
             r["log"] = add_log(team, ids[r["player"]])
         return top
 
     # ---- standings / ratings from PFR (optional) ----
-    ratings, notes = {}, []
+    ratings = {}
     sfile = src / "standings.json"
     if sfile.exists():
         for row in json.loads(sfile.read_text()):
@@ -362,6 +440,7 @@ def main():
             "defVsPosition": {k: {"rank": int(v["rank"][abbr]), "yds": r1(v.yds[abbr]), "td": r2(v.td[abbr])}
                               for k, v in dvp.items()},
             "betting": bet.get(abbr),
+            "eff": eff.get(abbr),
         }
 
     # ---- this week's schedule: the first week that isn't finished ----
@@ -386,8 +465,21 @@ def main():
             "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
             "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
             "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
+            "referee": txt(g.referee), "awayRest": None if pd.isna(g.away_rest) else int(g.away_rest),
+            "homeRest": None if pd.isna(g.home_rest) else int(g.home_rest),
             **schedule_extras(g),
         })
+    # Line movement baseline: the line from this week's first update, kept across rebuilds of the same week.
+    prev_open = {}
+    try:
+        prev = json.loads(Path(args.out).read_text())
+        if prev.get("season") == season and prev.get("schedule", {}).get("week") == sched_week:
+            prev_open = {x["id"]: x.get("lineOpen") for x in prev["schedule"]["games"] if x.get("lineOpen")}
+    except (OSError, ValueError, KeyError):
+        pass
+    for x in schedule_games:
+        x["lineOpen"] = prev_open.get(x["id"]) or {"spread": x["spread"], "total": x["total"],
+                                                    "at": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
     playing = {x for g in schedule_games for x in (g["away"], g["home"])}
     for g in schedule_games:
         if not g["city"]:
@@ -404,6 +496,9 @@ def main():
         "teams": teams_out,
         "teamNames": sorted(teams_out),
         "gameLogs": game_logs,
+        "injuryWeek": injury_week,
+        "referees": referees,
+        "refereeSeasons": f"{season - 3}–{season}",
         "leagueAverage": {"rushTdG": r1(o.rushTdG.mean()), "passTdG": r1(o.passTdG.mean()), "ppg": r1(o.ppg.mean())},
         "gaugeRanges": {"offRushYdsG": gauge_range(o.rushYdsG), "offPassYdsG": gauge_range(o.passYdsG),
                         "defRushYdsG": gauge_range(d.rushYdsG), "defPassYdsG": gauge_range(d.passYdsG)},

@@ -19,6 +19,11 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
   one matchup per landscape page, and brings up the print dialog. Each team card still
   has its own Print button (one team per portrait page).
+- **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
+  implied team totals, line move since the week's first update, net EPA edge, referee
+  and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
+  yds, WR/TE/RB rec yds) listing players whose opponent allows more than the league
+  average at their position, with a matchup factor and an adjusted average.
 - **Team vs Team** (`compare.html`) — the original dashboard: pick any two teams
   and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
 - **Ratings Explained** (`ratings.html`) — plain-language definitions of SoS, OSRS,
@@ -40,6 +45,26 @@ receptions, TDs, combos, fantasy points), type a line, and it shows how many gam
 went over, the average, the last 3 results, each game marked O/U, and what next week's
 opponent allows for that stat (from the defense and defense-vs-position numbers).
 Each player row carries `pos` for this.
+
+**Injury tags.** Player names carry a tag from the nflverse injury report for the
+current week (O, D, Q, or DNP/LP from practice); hover it for the injury. The report
+fills in Wednesday–Friday, which is why there's a Friday refresh.
+
+**Player search.** The search box in the top bar finds any player in the team tables
+and opens his game log and prop check.
+
+**Implied totals and line movement.** The matchup header, slate cards and Weekly Edges
+show implied team totals from the current spread and O/U. `lineOpen` on each schedule
+game is the line from the week's first update; the build keeps it when it reruns for the
+same week, and the pages show how far the line has moved since.
+
+**EPA and success rate.** Head to Head adds EPA per play and success rate for each
+offense and defense, from nflverse play-by-play (`eff` on each team).
+
+**Referee.** When nflverse has the week's referee assignment, the matchup header and
+Weekly Edges show the referee with his over/under record and points per game. These
+are the only multi-season numbers on the site (`refereeSeasons`, e.g. 2023–2026),
+because one season gives a crew just a few games.
 
 **Betting Trends.** The matchup and Team vs Team pages show each team's record against
 the spread (overall, as favorite/underdog, home/away) and over/under record, plus a
@@ -78,6 +103,11 @@ Pro-Football-Reference, runs:
 ```bash
 python scripts/build_from_nflverse.py --season 2026 --src <download folder>
 ```
+
+A second scheduled task reruns the same build Friday at about 5 PM ET to pick up the
+final injury report, referee assignments and line moves. The download folder also needs
+`play_by_play_2026.csv.gz` and `injuries_2026.csv` from the nflverse-data releases
+(`pbp` and `injuries`); without them the build leaves EPA or injury tags out.
 
 and pushes the new `data/data.json`. Besides team and player stats, the file
 holds `schedule` (the current week's games and byes), `season` and `throughWeek`.

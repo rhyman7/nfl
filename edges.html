@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Edges · NFL Matchup Dashboard</title>
+<link rel="stylesheet" href="style.css?v=202609301200">
+</head>
+<body data-page="edges">
+<header class="topbar">
+  <h1><a href="index.html" class="home-link">NFL Matchup Dashboard</a></h1>
+  <nav class="topnav no-print">
+    <a href="index.html"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="edges.html" class="active"><span class="nav-full">Weekly Edges</span><span class="nav-short">Edges</span></a>
+    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
+  </nav>
+</header>
+
+<main id="app">
+  <section class="week-head">
+    <div>
+      <h2 id="edgesTitle" class="week-title">Weekly Edges</h2>
+      <p id="edgesSub" class="week-sub"></p>
+    </div>
+  </section>
+
+  <h3 class="section-title">Game Board</h3>
+  <div id="gameBoard" class="table-block board-block"><div class="empty-note">Loading...</div></div>
+  <p class="edge-key">Implied totals come from the current spread and O/U (ESPN when available, otherwise nflverse). Line moves are measured from this week's first update. Net EPA = offense EPA/play minus defense EPA/play allowed; the gap shows which team has been better per play. Referee records cover the listed seasons.</p>
+
+  <h3 class="section-title">Prop Matchups</h3>
+  <p class="edge-key edge-intro">Players facing defenses that give up more than the league average at their position. <b>Matchup</b> = what this opponent allows per game ÷ the league average; <b>Adj</b> = the player's average × Matchup. It's a starting point for props, not a projection. Click a name for his game log and prop check.</p>
+  <div id="propBoards" class="prop-boards"></div>
+</main>
+
+<footer class="no-print">
+  <p>Stats cover the current regular season through the latest completed week. Lines: ESPN when available, otherwise nflverse.</p>
+</footer>
+
+<script src="common.js?v=202609301200"></script>
+<script src="live.js?v=202609301200"></script>
+<script src="edges.js?v=202609301200"></script>
+</body>
+</html>

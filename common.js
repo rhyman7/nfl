@@ -6,6 +6,7 @@ async function loadData() {
   const res = await fetch("data/data.json", { cache: "no-store" });
   if (!res.ok) throw new Error("HTTP " + res.status);
   DATA = await res.json();
+  try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   return DATA;
 }
 
@@ -94,6 +95,45 @@ function heroLineText(g) {
   return [spread ? `Spread: ${spread}` : null, ln.total != null ? `O/U ${ln.total}` : null].filter(Boolean).join(" · ");
 }
 
+// Implied team totals from the current spread and O/U: favorite = (total + spread) / 2.
+function impliedTotals(g) {
+  const ln = lineFor(g);
+  if (!ln || ln.total == null) return null;
+  const half = ln.pick || !ln.fav ? 0 : ln.spread / 2;
+  const fav = ln.total / 2 + half, dog = ln.total / 2 - half;
+  const away = ln.fav === "home" ? dog : fav, home = ln.fav === "home" ? fav : dog;
+  return { away: +away.toFixed(1), home: +home.toFixed(1) };
+}
+function impliedText(g) {
+  const it = impliedTotals(g);
+  return it ? `Implied: ${abbrOf(g.away)} ${it.away} · ${abbrOf(g.home)} ${it.home}` : "";
+}
+
+// Line movement since this week's first update (g.lineOpen, nflverse sign: positive = home favored).
+function spreadLabel(g, homeSpread) {
+  if (homeSpread == null) return null;
+  if (homeSpread === 0) return "PK";
+  return homeSpread > 0 ? `${abbrOf(g.home)} -${homeSpread}` : `${abbrOf(g.away)} -${-homeSpread}`;
+}
+function lineMoveText(g) {
+  const o = g.lineOpen, ln = lineFor(g);
+  if (!o || !ln || isFinal(g)) return "";
+  const cur = ln.pick ? 0 : ln.fav === "home" ? ln.spread : ln.fav === "away" ? -ln.spread : null;
+  const moved = [];
+  if (cur != null && o.spread != null && Math.abs(cur - o.spread) >= 0.5) moved.push(`spread ${spreadLabel(g, o.spread)} → ${spreadLabel(g, cur)}`);
+  if (ln.total != null && o.total != null && Math.abs(ln.total - o.total) >= 0.5) moved.push(`O/U ${o.total} → ${ln.total}`);
+  const when = o.at ? new Date(o.at + "T12:00:00").toLocaleDateString(undefined, { weekday: "short" }) : "earlier";
+  return moved.length ? `Line move since ${when}: ${moved.join(" · ")}` : `No line move since ${when}`;
+}
+
+function refText(g) {
+  const r = g.referee && DATA.referees ? DATA.referees[g.referee] : null;
+  if (!g.referee) return "";
+  if (!r) return `Referee: ${g.referee}`;
+  const n = r.o + r.u;
+  return `Referee: ${g.referee} · ${r.g} games ${DATA.refereeSeasons}: overs ${r.o}-${r.u}${r.p ? "-" + r.p : ""}${n ? ` (${Math.round((100 * r.o) / n)}%)` : ""} · ${r.ppg} pts/G`;
+}
+
 // Forecast line for the game header; blank for indoor games and once the game is over.
 function heroWxText(g) {
   if (isFinal(g) || g.indoor === true) return "";
@@ -121,7 +161,7 @@ function renderMatchupParts(g) {
       ${edgePanel(away, home)}
       ${edgePanel(home, away)}
     </div>
-    <p class="edge-key">Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense.</p>`;
+    <p class="edge-key">Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
   const cards = `<h3 class="section-title">Full Team Stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -149,6 +189,9 @@ function renderHero(g, away, home) {
       ${info.map(i => `<div class="hero-info">${escapeHtml(i)}</div>`).join("")}
       <div class="hero-info hero-wx" id="heroWx"${wxText ? "" : " hidden"}>${escapeHtml(wxText || "")}</div>
       <div class="hero-line" id="heroLine"${lineText ? "" : " hidden"}>${escapeHtml(lineText || "")}</div>
+      <div class="hero-info hero-implied" id="heroImplied"${impliedText(g) ? "" : " hidden"}>${escapeHtml(impliedText(g))}</div>
+      <div class="hero-info hero-move" id="heroMove"${lineMoveText(g) ? "" : " hidden"}>${escapeHtml(lineMoveText(g))}</div>
+      ${refText(g) ? `<div class="hero-info">${escapeHtml(refText(g))}</div>` : ""}
       ${g.divisional ? `<div class="hero-info">Division game</div>` : ""}
     </div>
     ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, "home")}
@@ -182,8 +225,16 @@ const EDGE_ROWS = [
   ["INT / G", t => t.offense.int, t => t.defense.int, false, true],
 ];
 
+const EFF_ROWS = [
+  ["EPA / play", t => t.eff.off.epa, t => t.eff.def.epa, true, false],
+  ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
+];
+function edgeRows() {
+  return Object.values(DATA.teams).every(t => t.eff) ? EDGE_ROWS.slice(0, 1).concat(EFF_ROWS, EDGE_ROWS.slice(1)) : EDGE_ROWS;
+}
+
 function edgePanel(offTeam, defTeam) {
-  const rows = EDGE_ROWS.map(([label, offGet, defGet, offHi, defHi]) => {
+  const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi]) => {
     const ov = offGet(offTeam), dv = defGet(defTeam);
     const or = leagueRank(offGet, ov, offHi), dr = leagueRank(defGet, dv, defHi);
     const diff = dr - or;
@@ -397,8 +448,8 @@ function playerTable(title, rows, cols) {
     const cells = cols.map(([, key, type]) => {
       const txt = escapeHtml(String(r[key]));
       const val = key === "player" && r.log && DATA.gameLogs && DATA.gameLogs[r.log]
-        ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>`
-        : txt;
+        ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>${injTag(r.inj)}`
+        : txt + (key === "player" ? injTag(r.inj) : "");
       return `<td class="${type === "num" ? "num" : ""}">${val}</td>`;
     }).join("");
     return `<tr>${cells}</tr>`;
@@ -469,6 +520,75 @@ window.addEventListener("afterprint", () => {
   document.body.classList.remove("print-single");
 });
 
+/* ---------------- Injury tags + player index ---------------- */
+// r.inj = { s: "O" | "D" | "Q" | "DNP" | "LP", note } from the nflverse injury report (DATA.injuryWeek).
+const INJ_LABEL = { O: "Out", D: "Doubtful", Q: "Questionable", DNP: "Did not practice", LP: "Limited practice" };
+function injTag(inj) {
+  if (!inj || !inj.s) return "";
+  const title = `Week ${DATA.injuryWeek} injury report: ${INJ_LABEL[inj.s] || inj.s}${inj.note ? " (" + inj.note + ")" : ""}`;
+  return ` <span class="inj inj-${inj.s}" title="${escapeHtml(title)}">${escapeHtml(inj.s)}</span>`;
+}
+
+let PLAYER_INDEX = null;  // log key -> { key, name, pos, team, abbr, inj, kind }
+function playerIndex() {
+  if (PLAYER_INDEX) return PLAYER_INDEX;
+  PLAYER_INDEX = {};
+  for (const t of Object.values(DATA.teams)) {
+    for (const kind of ["passing", "rushing", "receiving"]) {
+      for (const r of t[kind] || []) {
+        if (!r.log || PLAYER_INDEX[r.log]) continue;
+        PLAYER_INDEX[r.log] = { key: r.log, name: r.player, pos: r.pos || "", team: t.team, abbr: t.abbr, inj: r.inj || null, kind };
+      }
+    }
+  }
+  return PLAYER_INDEX;
+}
+
+// Search box in the top bar: type a name, pick a player, and his game log opens.
+function initPlayerSearch() {
+  const bar = document.querySelector(".topbar");
+  if (!bar || bar.querySelector(".psearch") || !DATA.gameLogs) return;
+  const wrap = document.createElement("div");
+  wrap.className = "psearch no-print";
+  wrap.innerHTML = `<input type="search" placeholder="Search players" aria-label="Search players" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="psearchList">
+    <ul class="psearch-list" id="psearchList" role="listbox" hidden></ul>`;
+  bar.appendChild(wrap);
+  const input = wrap.querySelector("input"), list = wrap.querySelector("ul");
+  let hits = [], active = -1;
+  const norm = x => x.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.'’-]/g, "");
+  const close = () => { list.hidden = true; input.setAttribute("aria-expanded", "false"); active = -1; };
+  const render = () => {
+    list.innerHTML = hits.map((p, i) => `<li role="option" data-i="${i}" class="${i === active ? "active" : ""}" aria-selected="${i === active}">
+      <span class="ps-name">${escapeHtml(p.name)}${injTag(p.inj)}</span><span class="ps-meta">${escapeHtml([p.pos, p.abbr].filter(Boolean).join(" · "))}</span></li>`).join("")
+      || `<li class="ps-empty">No players found</li>`;
+    list.hidden = false; input.setAttribute("aria-expanded", "true");
+  };
+  const pick = i => {
+    const p = hits[i];
+    if (!p) return;
+    close(); input.value = "";
+    if (window.openPlayerLog) window.openPlayerLog(p, input);
+  };
+  input.addEventListener("input", () => {
+    const q = norm(input.value.trim());
+    if (q.length < 2) { close(); return; }
+    const all = Object.values(playerIndex());
+    hits = all.filter(p => norm(p.name).split(" ").some(w => w.startsWith(q)) || norm(p.name).startsWith(q) || norm(p.name).includes(q))
+      .sort((a, b) => (norm(a.name).startsWith(q) ? 0 : 1) - (norm(b.name).startsWith(q) ? 0 : 1) || a.name.localeCompare(b.name)).slice(0, 8);
+    active = hits.length ? 0 : -1;
+    render();
+  });
+  input.addEventListener("keydown", e => {
+    if (list.hidden) return;
+    if (e.key === "ArrowDown") { active = Math.min(hits.length - 1, active + 1); render(); e.preventDefault(); }
+    else if (e.key === "ArrowUp") { active = Math.max(0, active - 1); render(); e.preventDefault(); }
+    else if (e.key === "Enter") { pick(active); e.preventDefault(); }
+    else if (e.key === "Escape") { close(); }
+  });
+  list.addEventListener("mousedown", e => { const li = e.target.closest("li[data-i]"); if (li) { e.preventDefault(); pick(+li.dataset.i); } });
+  input.addEventListener("blur", () => setTimeout(close, 100));
+}
+
 /* ---------------- Player game logs: hover tooltip + click panel ---------------- */
 // DATA.gameLogs["ABBR|player_id"] = [{ w, opp, at, res, cmp, att, pYds, pTd, int, car, rYds,
 // rTd, tgt, rec, recYds, recTd, fl, fp }], one entry per game; stats left out are 0.
@@ -491,11 +611,12 @@ function teamOfLog(key) {
   return Object.values(DATA.teams).find(t => t.abbr === abbr) || null;
 }
 
-function tooltipHtml(name, kind, log) {
+function tooltipHtml(name, kind, log, inj) {
   const cols = LOG_GROUPS[kind] || [];
   const head = `<th>Wk</th><th>Opp</th>${cols.map(([l]) => `<th class="num">${l}</th>`).join("")}<th class="num">FPts</th>`;
   const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
-  return `<div class="ptip-head"><b>${name}</b><span>${fpAvg(log)} FPts/G</span></div>
+  return `<div class="ptip-head"><b>${name}${inj ? injTag(inj) : ""}</b><span>${fpAvg(log)} FPts/G</span></div>
+    ${inj && inj.note ? `<div class="ptip-inj">Week ${DATA.injuryWeek} report: ${escapeHtml(inj.note)}</div>` : ""}
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
     <div class="ptip-foot">Click for full game log and prop check</div>`;
 }
@@ -596,6 +717,7 @@ function updateProp(card, log) {
 
 function panelHtml(name, key, log, kind) {
   const t = teamOfLog(key);
+  const pinfo = playerIndex()[key];
   const groups = ["passing", "rushing", "receiving"].filter(g => log.some(hasGroup[g]));
   if (kind && !groups.includes(kind)) groups.push(kind);
   const anyFl = log.some(e => e.fl);
@@ -610,8 +732,9 @@ function panelHtml(name, key, log, kind) {
   return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle">
     <div class="plog-top">
       <div>
-        <h3 id="plogTitle">${name}</h3>
-        <div class="plog-sub">${t ? escapeHtml(t.team) + " · " : ""}${log.length} game${log.length === 1 ? "" : "s"} · ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
+        <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
+        ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">Week ${DATA.injuryWeek} injury report: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
+        <div class="plog-sub">${pinfo && pinfo.pos ? escapeHtml(pinfo.pos) + " · " : ""}${t ? escapeHtml(t.team) + " · " : ""}${log.length} game${log.length === 1 ? "" : "s"} · ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
       </div>
       <button type="button" class="plog-close" aria-label="Close">✕</button>
     </div>
@@ -638,7 +761,8 @@ function panelHtml(name, key, log, kind) {
     const log = DATA && DATA.gameLogs && DATA.gameLogs[btn.dataset.log];
     if (!log) return;
     if (!tip) { tip = document.createElement("div"); tip.className = "ptip no-print"; document.body.appendChild(tip); }
-    tip.innerHTML = tooltipHtml(escapeHtml(btn.dataset.name), btn.dataset.kind, log);
+    const pi = playerIndex()[btn.dataset.log];
+    tip.innerHTML = tooltipHtml(escapeHtml(btn.dataset.name), btn.dataset.kind, log, pi && pi.inj);
     tip.hidden = false;
     const r = btn.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
     let left = r.left, top = r.bottom + 6;
@@ -675,6 +799,11 @@ function panelHtml(name, key, log, kind) {
     document.body.classList.add("plog-open");
     panel.querySelector(".plog-close").focus();
   }
+
+  window.openPlayerLog = (p, returnFocus) => openPanel({
+    dataset: { log: p.key, name: p.name, kind: p.kind, pos: p.pos },
+    focus: () => returnFocus && returnFocus.focus(),
+  });
 
   document.addEventListener("click", e => {
     const btn = e.target.closest(".plink");
