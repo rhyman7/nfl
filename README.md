@@ -35,6 +35,17 @@ receiving, fumbles lost, fantasy points). The logs live in `gameLogs` in
 `data/data.json`, keyed `ABBR|player_id`, and each player row carries a `log` key that
 points to its entry. Fantasy points are nflverse's `fantasy_points_ppr`.
 
+**Prop check.** The game log panel has a prop tool: pick a stat (pass/rush/rec yards,
+receptions, TDs, combos, fantasy points), type a line, and it shows how many games he
+went over, the average, the last 3 results, each game marked O/U, and what next week's
+opponent allows for that stat (from the defense and defense-vs-position numbers).
+Each player row carries `pos` for this.
+
+**Betting Trends.** The matchup and Team vs Team pages show each team's record against
+the spread (overall, as favorite/underdog, home/away) and over/under record, plus a
+game-by-game list, from nflverse's closing `spread_line` and `total_line`. The data is
+`betting` on each team in `data/data.json`. It's left out of printouts.
+
 **Live scores.** On game days the slate and matchup pages fetch live scores straight
 from ESPN's public site API in the viewer's browser (`live.js`): the slate shows
 scores, quarter/clock, possession and a "Live now" group; the matchup page adds a box

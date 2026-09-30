@@ -990,3 +990,56 @@ body.plog-open { overflow: hidden; }
   .plink { text-decoration: none; color: inherit; }
   .ptip, .plog { display: none !important; }
 }
+
+/* ---------------- Betting trends + prop tool ---------------- */
+.bet-section { margin-top: 8px; }
+.bet-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.bet-chip {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.bet-chip .lbl { color: var(--text-dim); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.tag {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+}
+.tag.W { background: rgba(34, 197, 94, 0.18); color: var(--good); }
+.tag.L { background: rgba(239, 68, 68, 0.18); color: var(--neg); }
+.tag.P { background: var(--track); color: var(--text-dim); }
+
+.prop-tool {
+  margin: 12px 18px 0;
+  padding: 12px 14px;
+  background: var(--panel-alt);
+  border-radius: 8px;
+}
+.prop-inputs { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.prop-inputs label { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
+.prop-inputs select, .prop-inputs input {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.prop-inputs input { width: 90px; }
+.prop-inputs select:focus, .prop-inputs input:focus { border-color: var(--accent); outline: none; }
+.prop-result { margin-top: 10px; font-size: 0.88rem; }
+.prop-ctx { margin-top: 6px; font-size: 0.78rem; color: var(--text-dim); }
+.plog-scroll tr.prop-over td.prop-cell { color: var(--good); }
+.plog-scroll tr.prop-under td.prop-cell { color: var(--text-dim); }

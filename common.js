@@ -123,7 +123,7 @@ function renderMatchupParts(g) {
     </div>
     <p class="edge-key">Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense.</p>`;
   const cards = `<h3 class="section-title">Full Team Stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
-  return { head: renderHero(g, away, home), edges, cards };
+  return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
 
 function renderHero(g, away, home) {
@@ -205,6 +205,43 @@ function edgePanel(offTeam, defTeam) {
       <thead><tr><th></th><th class="num">${escapeHtml(offTeam.abbr)} O</th><th class="num">${escapeHtml(defTeam.abbr)} D</th><th class="num">Edge</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
+  </div>`;
+}
+
+/* ---------------- Betting trends (ATS and over/under) ---------------- */
+// t.betting = { ats, fav, dog, home, away: {w,l,p}, ou: {o,u,p}, games: [{ w, opp, at, line, score, ats, total, ou }] }
+// line is the team's own closing spread from nflverse (negative = favored).
+
+function renderBetting(a, b) {
+  if (!a || !b || !a.betting || !b.betting) return "";
+  return `<div class="bet-section no-print">
+    <h3 class="section-title">Betting Trends</h3>
+    <div class="edge-grid">${bettingPanel(a)}${bettingPanel(b)}</div>
+    <p class="edge-key">Against the spread (ATS) and over/under records use each game's closing line from nflverse. W-L-P = wins, losses and pushes. Small samples early in the season can mislead.</p>
+  </div>`;
+}
+
+function fmtLine(x) {
+  if (x === null || x === undefined) return "—";
+  return x === 0 ? "PK" : x > 0 ? `+${x}` : `${x}`;
+}
+function wlp(r) { return `${r.w}-${r.l}${r.p ? "-" + r.p : ""}`; }
+function pct(n, d) { return d ? ` <span class="rk">${Math.round((100 * n) / d)}%</span>` : ""; }
+
+function bettingPanel(t) {
+  const b = t.betting;
+  const chip = (label, r) => `<div class="bet-chip"><span class="lbl">${label}</span><b>${wlp(r)}</b>${pct(r.w, r.w + r.l)}</div>`;
+  const ouChip = `<div class="bet-chip"><span class="lbl">O/U</span><b>${b.ou.o}-${b.ou.u}${b.ou.p ? "-" + b.ou.p : ""}</b>${pct(b.ou.o, b.ou.o + b.ou.u)}</div>`;
+  const rows = b.games.slice().reverse().map(g => `<tr>
+    <td>${g.w}</td><td>${g.at ? "@" : "vs"} ${escapeHtml(g.opp)}</td><td class="num">${fmtLine(g.line)}</td>
+    <td class="num">${escapeHtml(g.score)}</td><td class="num"><span class="tag ${g.ats}">${g.ats}</span></td>
+    <td class="num">${g.total != null ? g.total : "—"}</td><td class="num">${g.ou ? `<span class="tag ${g.ou === "O" ? "W" : g.ou === "U" ? "L" : "P"}">${g.ou}</span>` : "—"}</td></tr>`).join("");
+  return `<div class="edge-panel bet-panel">
+    <h4>${escapeHtml(t.team)}</h4>
+    <div class="bet-chips">${chip("ATS", b.ats)}${chip("Fav", b.fav)}${chip("Dog", b.dog)}${chip("Home", b.home)}${chip("Away", b.away)}${ouChip}</div>
+    ${b.games.length ? `<table class="edge-table">
+      <thead><tr><th>Wk</th><th>Opp</th><th class="num">Line</th><th class="num">Score</th><th class="num">ATS</th><th class="num">Total</th><th class="num">O/U</th></tr></thead>
+      <tbody>${rows}</tbody></table>` : `<div class="empty-note">No games with a line yet.</div>`}
   </div>`;
 }
 
@@ -360,7 +397,7 @@ function playerTable(title, rows, cols) {
     const cells = cols.map(([, key, type]) => {
       const txt = escapeHtml(String(r[key]));
       const val = key === "player" && r.log && DATA.gameLogs && DATA.gameLogs[r.log]
-        ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-name="${txt}">${txt}</button>`
+        ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>`
         : txt;
       return `<td class="${type === "num" ? "num" : ""}">${val}</td>`;
     }).join("");
@@ -460,12 +497,107 @@ function tooltipHtml(name, kind, log) {
   const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
   return `<div class="ptip-head"><b>${name}</b><span>${fpAvg(log)} FPts/G</span></div>
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
-    <div class="ptip-foot">Click for full game log</div>`;
+    <div class="ptip-foot">Click for full game log and prop check</div>`;
 }
 
-function panelHtml(name, key, log) {
+// Stats the prop tool can check, by group. get(e) returns that game's number.
+const PROP_STATS = [
+  ["pYds", "Pass Yds", "passing", e => e.pYds || 0],
+  ["pTd", "Pass TD", "passing", e => e.pTd || 0],
+  ["cmp", "Completions", "passing", e => e.cmp || 0],
+  ["att", "Pass Attempts", "passing", e => e.att || 0],
+  ["int", "Interceptions", "passing", e => e.int || 0],
+  ["rYds", "Rush Yds", "rushing", e => e.rYds || 0],
+  ["car", "Carries", "rushing", e => e.car || 0],
+  ["rTd", "Rush TD", "rushing", e => e.rTd || 0],
+  ["recYds", "Rec Yds", "receiving", e => e.recYds || 0],
+  ["rec", "Receptions", "receiving", e => e.rec || 0],
+  ["tgt", "Targets", "receiving", e => e.tgt || 0],
+  ["rrYds", "Rush + Rec Yds", "rushrec", e => (e.rYds || 0) + (e.recYds || 0)],
+  ["prYds", "Pass + Rush Yds", "passrush", e => (e.pYds || 0) + (e.rYds || 0)],
+  ["tds", "Any TD (rush/rec)", "rushrec", e => (e.rTd || 0) + (e.recTd || 0)],
+  ["fp", "Fantasy Pts (PPR)", "all", e => e.fp || 0],
+];
+const DEFAULT_PROP = { passing: "pYds", rushing: "rYds", receiving: "recYds" };
+
+function propOptions(groups) {
+  const has = g => groups.includes(g);
+  return PROP_STATS.filter(([, , grp]) => grp === "all" || has(grp)
+    || (grp === "rushrec" && has("rushing") && has("receiving"))
+    || (grp === "passrush" && has("passing") && has("rushing")));
+}
+
+// What the next opponent allows for this stat, from the team cards' data.
+function oppContext(teamAbbr, statKey, pos) {
+  const team = Object.values(DATA.teams).find(t => t.abbr === teamAbbr);
+  if (!team) return "";
+  const g = scheduleGames().find(x => x.away === team.team || x.home === team.team);
+  if (!g) return `${escapeHtml(teamAbbr)} is on a bye this week.`;
+  const isAway = g.away === team.team;
+  const opp = DATA.teams[isAway ? g.home : g.away];
+  if (!opp) return "";
+  const where = `${isAway && !g.neutral ? "@" : "vs"} ${escapeHtml(opp.abbr)}`;
+  const d = opp.defense, dv = opp.defVsPosition;
+  const P = (pos || "").toUpperCase();
+  let what;
+  if (["pYds", "pTd", "cmp", "att", "int", "prYds"].includes(statKey) || (statKey === "fp" && P === "QB"))
+    what = `${d.passYdsG} pass yds/G (#${d.passYdsGRank})`;
+  else if (["rYds", "car", "rTd"].includes(statKey))
+    what = P === "RB" || P === "FB" ? `${dv.rb.yds} rush yds/G to RBs (#${dv.rb.rank})` : `${d.rushYdsG} rush yds/G (#${d.rushYdsGRank})`;
+  else {
+    const k = P === "TE" ? "te" : P === "RB" || P === "FB" ? "recRb" : "wr";
+    const lbl = { te: "TEs", recRb: "RBs", wr: "WRs" }[k];
+    what = `${dv[k].yds} rec yds/G to ${lbl} (#${dv[k].rank})`;
+    if (statKey === "rrYds" && (P === "RB" || P === "FB")) what = `${dv.rb.yds} rush + ${dv.recRb.yds} rec yds/G to RBs (#${dv.rb.rank} / #${dv.recRb.rank})`;
+  }
+  return `Next: ${where} — ${escapeHtml(opp.abbr)} allows ${what}. Ranks out of 32; #1 = allows the fewest.`;
+}
+
+function propToolHtml(groups, kind) {
+  const opts = propOptions(groups);
+  const def = DEFAULT_PROP[kind] && opts.some(o => o[0] === DEFAULT_PROP[kind]) ? DEFAULT_PROP[kind] : opts[0][0];
+  return `<div class="prop-tool">
+    <div class="prop-inputs">
+      <label>Prop <select class="prop-stat">${opts.map(([k, l]) => `<option value="${k}"${k === def ? " selected" : ""}>${l}</option>`).join("")}</select></label>
+      <label>Line <input class="prop-line" type="number" inputmode="decimal" step="0.5" min="0"></label>
+    </div>
+    <div class="prop-result" aria-live="polite"></div>
+    <div class="prop-ctx"></div>
+  </div>`;
+}
+
+function updateProp(card, log) {
+  const key = card.querySelector(".prop-stat").value;
+  const stat = PROP_STATS.find(s => s[0] === key);
+  const lineEl = card.querySelector(".prop-line");
+  const vals = log.map(stat[3]);
+  const avg = vals.reduce((a, v) => a + v, 0) / (vals.length || 1);
+  if (lineEl.dataset.stat !== key) {  // new stat: suggest a line just under the season average
+    lineEl.value = Math.max(0.5, Math.floor(avg) + 0.5);
+    lineEl.dataset.stat = key;
+  }
+  const line = parseFloat(lineEl.value);
+  const rows = card.querySelectorAll("tbody tr");
+  let over = 0, under = 0, push = 0;
+  vals.forEach((v, i) => {
+    const r = isNaN(line) ? "" : v > line ? "O" : v < line ? "U" : "P";
+    if (r === "O") over++; else if (r === "U") under++; else if (r === "P") push++;
+    const cell = rows[i] && rows[i].querySelector(".prop-cell");
+    if (cell) cell.innerHTML = `${Number.isInteger(v) ? v : v.toFixed(1)}${r ? ` <span class="tag ${r === "O" ? "W" : r === "U" ? "L" : "P"}">${r}</span>` : ""}`;
+    if (rows[i]) { rows[i].classList.toggle("prop-over", r === "O"); rows[i].classList.toggle("prop-under", r === "U"); }
+  });
+  card.querySelector(".prop-head").textContent = stat[1];
+  const res = card.querySelector(".prop-result");
+  if (isNaN(line)) { res.textContent = "Enter a line to see how often he's cleared it."; return; }
+  const n = over + under;
+  const last3 = vals.slice(-3).map(v => (v > line ? "O" : v < line ? "U" : "P")).join(" ");
+  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""} · Avg ${avg.toFixed(1)} · Last ${Math.min(3, vals.length)}: ${last3}`;
+}
+
+function panelHtml(name, key, log, kind) {
   const t = teamOfLog(key);
   const groups = ["passing", "rushing", "receiving"].filter(g => log.some(hasGroup[g]));
+  if (kind && !groups.includes(kind)) groups.push(kind);
   const anyFl = log.some(e => e.fl);
   const gh = groups.map(g => `<th colspan="${LOG_GROUPS[g].length}" class="grp">${GROUP_LABEL[g]}</th>`).join("");
   const sub = groups.map(g => LOG_GROUPS[g].map(([l], i) => `<th class="num${i === 0 ? " gstart" : ""}">${l}</th>`).join("")).join("");
@@ -473,7 +605,7 @@ function panelHtml(name, key, log) {
     <td>${e.w}</td><td>${escapeHtml(oppText(e))}</td><td class="res ${e.res && e.res[0] === "W" ? "pos" : e.res && e.res[0] === "L" ? "neg" : ""}">${escapeHtml(e.res || "")}</td>
     ${groups.map(g => LOG_GROUPS[g].map(([, f], i) => `<td class="num${i === 0 ? " gstart" : ""}">${f(e)}</td>`).join("")).join("")}
     ${anyFl ? `<td class="num gstart">${e.fl || 0}</td>` : ""}
-    <td class="num fp gstart">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
+    <td class="num fp gstart">${(e.fp || 0).toFixed(1)}</td><td class="num prop-cell gstart"></td></tr>`).join("");
   const total = log.reduce((a, e) => a + (e.fp || 0), 0);
   return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle">
     <div class="plog-top">
@@ -486,12 +618,13 @@ function panelHtml(name, key, log) {
     <div class="plog-scroll">
       <table>
         <thead>
-          <tr><th colspan="3"></th>${gh}${anyFl ? `<th></th>` : ""}<th></th></tr>
-          <tr><th>Wk</th><th>Opp</th><th>Result</th>${sub}${anyFl ? `<th class="num gstart" title="Fumbles lost">FL</th>` : ""}<th class="num gstart">FPts</th></tr>
+          <tr><th colspan="3"></th>${gh}${anyFl ? `<th></th>` : ""}<th></th><th class="grp">Prop</th></tr>
+          <tr><th>Wk</th><th>Opp</th><th>Result</th>${sub}${anyFl ? `<th class="num gstart" title="Fumbles lost">FL</th>` : ""}<th class="num gstart">FPts</th><th class="num gstart prop-head"></th></tr>
         </thead>
         <tbody>${body}</tbody>
       </table>
     </div>
+    ${propToolHtml(groups, kind)}
     <div class="plog-note">Fantasy points use full-PPR scoring. Games played for ${t ? escapeHtml(t.abbr) : "this team"} only.</div>
   </div>`;
 }
@@ -531,7 +664,13 @@ function panelHtml(name, key, log) {
       document.body.appendChild(panel);
     }
     lastFocus = btn;
-    panel.innerHTML = panelHtml(escapeHtml(btn.dataset.name), btn.dataset.log, log);
+    panel.innerHTML = panelHtml(escapeHtml(btn.dataset.name), btn.dataset.log, log, btn.dataset.kind);
+    const card = panel.querySelector(".plog-card");
+    const ctx = card.querySelector(".prop-ctx");
+    const refresh = () => { updateProp(card, log); ctx.textContent = ""; ctx.innerHTML = oppContext(btn.dataset.log.split("|")[0], card.querySelector(".prop-stat").value, btn.dataset.pos); };
+    card.querySelector(".prop-stat").addEventListener("change", refresh);
+    card.querySelector(".prop-line").addEventListener("input", () => updateProp(card, log));
+    refresh();
     panel.hidden = false;
     document.body.classList.add("plog-open");
     panel.querySelector(".plog-close").focus();

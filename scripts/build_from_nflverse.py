@@ -219,6 +219,40 @@ def main():
         "wr": vs_pos(["WR"], "receiving_yards", "receiving_tds"),
     }
 
+    # ---- betting trends: record against the spread and over/under, from nflverse closing lines ----
+    # spread_line is positive when the home team is favored; a team's own line is negative when favored.
+    def tally():
+        return {"w": 0, "l": 0, "p": 0}
+
+    bet = {t: {"ats": tally(), "fav": tally(), "dog": tally(), "home": tally(), "away": tally(),
+               "ou": {"o": 0, "u": 0, "p": 0}, "games": []} for t in games.home_team.unique()}
+    for _, g in done.sort_values(["week", "gameday"]).iterrows():
+        if pd.isna(g.spread_line):
+            continue
+        for side, other in (("home", "away"), ("away", "home")):
+            team = g[f"{side}_team"]
+            us, them = int(g[f"{side}_score"]), int(g[f"{other}_score"])
+            line = -float(g.spread_line) if side == "home" else float(g.spread_line)
+            cover = us - them + line
+            res = "W" if cover > 0 else "L" if cover < 0 else "P"
+            b = bet[team]
+            key = {"W": "w", "L": "l", "P": "p"}[res]
+            b["ats"][key] += 1
+            if line < 0:
+                b["fav"][key] += 1
+            elif line > 0:
+                b["dog"][key] += 1
+            if str(g.location) != "Neutral":
+                b[side][key] += 1
+            entry = {"w": int(g.week), "opp": g[f"{other}_team"], "at": side == "away" and str(g.location) != "Neutral",
+                     "line": line, "score": f"{us}-{them}", "ats": res}
+            if not pd.isna(g.total_line):
+                pts = us + them
+                ou = "O" if pts > g.total_line else "U" if pts < g.total_line else "P"
+                b["ou"][ou.lower()] += 1
+                entry.update({"total": float(g.total_line), "ou": ou})
+            b["games"].append(entry)
+
     # ---- game results by (week, team): home/away and final score, for game logs ----
     results = {}
     for _, g in done.iterrows():
@@ -259,6 +293,7 @@ def main():
     def players(team, kind):
         sub = ps[ps.team == team]
         ids = sub.groupby("player_display_name").player_id.first()
+        pos = sub.groupby("player_display_name").position.agg(lambda x: x.mode().iat[0] if x.notna().any() else "")
         if kind == "passing":
             sub = sub[sub.attempts > 0]
             agg = sub.groupby("player_display_name").agg(g=("week", "nunique"), yds=("passing_yards", "sum"),
@@ -281,6 +316,7 @@ def main():
             n = 7
         top = sorted(rows, key=lambda r: r["ydsG"], reverse=True)[:n]
         for r in top:
+            r["pos"] = pos[r["player"]]
             r["log"] = add_log(team, ids[r["player"]])
         return top
 
@@ -325,6 +361,7 @@ def main():
             "receiving": players(abbr, "receiving"),
             "defVsPosition": {k: {"rank": int(v["rank"][abbr]), "yds": r1(v.yds[abbr]), "td": r2(v.td[abbr])}
                               for k, v in dvp.items()},
+            "betting": bet.get(abbr),
         }
 
     # ---- this week's schedule: the first week that isn't finished ----

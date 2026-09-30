@@ -431,7 +431,8 @@
           "ydsG": 217.3,
           "td": 1.33,
           "int": 0.33,
-          "log": "ARI|00-0033119"
+          "log": "ARI|00-0033119",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -441,7 +442,8 @@
           "td": 0.33,
           "ya": 3.9,
           "ag": 13.7,
-          "log": "ARI|00-0041027"
+          "log": "ARI|00-0041027",
+          "pos": "RB"
         },
         {
           "player": "Bam Knight",
@@ -449,7 +451,8 @@
           "td": 0.0,
           "ya": 12.0,
           "ag": 2.0,
-          "log": "ARI|00-0037157"
+          "log": "ARI|00-0037157",
+          "pos": "RB"
         },
         {
           "player": "Tyler Allgeier",
@@ -457,7 +460,8 @@
           "td": 0.0,
           "ya": 2.9,
           "ag": 8.0,
-          "log": "ARI|00-0037263"
+          "log": "ARI|00-0037263",
+          "pos": "RB"
         },
         {
           "player": "Jacoby Brissett",
@@ -465,7 +469,8 @@
           "td": 0.33,
           "ya": 2.3,
           "ag": 3.7,
-          "log": "ARI|00-0033119"
+          "log": "ARI|00-0033119",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -475,7 +480,8 @@
           "td": 0.67,
           "yr": 8.1,
           "rec": 8.67,
-          "log": "ARI|00-0037744"
+          "log": "ARI|00-0037744",
+          "pos": "TE"
         },
         {
           "player": "Michael Wilson",
@@ -483,7 +489,8 @@
           "td": 0.33,
           "yr": 9.1,
           "rec": 6.0,
-          "log": "ARI|00-0038559"
+          "log": "ARI|00-0038559",
+          "pos": "WR"
         },
         {
           "player": "Kendrick Bourne",
@@ -491,7 +498,8 @@
           "td": 0.0,
           "yr": 9.0,
           "rec": 4.0,
-          "log": "ARI|00-0033307"
+          "log": "ARI|00-0033307",
+          "pos": "WR"
         },
         {
           "player": "Marvin Harrison Jr.",
@@ -499,7 +507,8 @@
           "td": 0.0,
           "yr": 18.2,
           "rec": 1.33,
-          "log": "ARI|00-0039849"
+          "log": "ARI|00-0039849",
+          "pos": "WR"
         },
         {
           "player": "Elijah Higgins",
@@ -507,7 +516,8 @@
           "td": 0.0,
           "yr": 6.7,
           "rec": 3.0,
-          "log": "ARI|00-0039041"
+          "log": "ARI|00-0039041",
+          "pos": "TE"
         },
         {
           "player": "Jeremiyah Love",
@@ -515,7 +525,8 @@
           "td": 0.33,
           "yr": 4.4,
           "rec": 3.33,
-          "log": "ARI|00-0041027"
+          "log": "ARI|00-0041027",
+          "pos": "RB"
         },
         {
           "player": "Tyler Allgeier",
@@ -523,7 +534,8 @@
           "td": 0.0,
           "yr": 3.5,
           "rec": 2.67,
-          "log": "ARI|00-0037263"
+          "log": "ARI|00-0037263",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -547,6 +559,70 @@
           "yds": 167.7,
           "td": 2.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "LAC",
+            "at": true,
+            "line": 8.5,
+            "score": "26-14",
+            "ats": "W",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "SEA",
+            "at": false,
+            "line": 3.5,
+            "score": "7-31",
+            "ats": "L",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "SF",
+            "at": true,
+            "line": 7.5,
+            "score": "30-36",
+            "ats": "W",
+            "total": 48.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Atlanta Falcons": {
@@ -587,21 +663,24 @@
           "ydsG": 256.0,
           "td": 1.0,
           "int": 1.0,
-          "log": "ATL|00-0039917"
+          "log": "ATL|00-0039917",
+          "pos": "QB"
         },
         {
           "player": "Cooper Rush",
           "ydsG": 114.5,
           "td": 0.5,
           "int": 2.0,
-          "log": "ATL|00-0033662"
+          "log": "ATL|00-0033662",
+          "pos": "QB"
         },
         {
           "player": "Jack Strand",
           "ydsG": 59.0,
           "td": 0.0,
           "int": 1.0,
-          "log": "ATL|00-0041194"
+          "log": "ATL|00-0041194",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -611,7 +690,8 @@
           "td": 0.67,
           "ya": 5.3,
           "ag": 22.0,
-          "log": "ATL|00-0038542"
+          "log": "ATL|00-0038542",
+          "pos": "RB"
         },
         {
           "player": "Brian Robinson",
@@ -619,7 +699,8 @@
           "td": 0.33,
           "ya": 4.4,
           "ag": 10.0,
-          "log": "ATL|00-0037746"
+          "log": "ATL|00-0037746",
+          "pos": "RB"
         },
         {
           "player": "Cooper Rush",
@@ -627,7 +708,8 @@
           "td": 0.0,
           "ya": 10.0,
           "ag": 2.0,
-          "log": "ATL|00-0033662"
+          "log": "ATL|00-0033662",
+          "pos": "QB"
         },
         {
           "player": "Jack Strand",
@@ -635,7 +717,8 @@
           "td": 0.0,
           "ya": 8.0,
           "ag": 2.0,
-          "log": "ATL|00-0041194"
+          "log": "ATL|00-0041194",
+          "pos": "QB"
         },
         {
           "player": "Drake London",
@@ -643,7 +726,8 @@
           "td": 0.0,
           "ya": 2.0,
           "ag": 1.0,
-          "log": "ATL|00-0037238"
+          "log": "ATL|00-0037238",
+          "pos": "WR"
         },
         {
           "player": "Michael Penix Jr.",
@@ -651,7 +735,8 @@
           "td": 0.0,
           "ya": -1.0,
           "ag": 2.0,
-          "log": "ATL|00-0039917"
+          "log": "ATL|00-0039917",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -661,7 +746,8 @@
           "td": 0.0,
           "yr": 18.3,
           "rec": 5.0,
-          "log": "ATL|00-0037238"
+          "log": "ATL|00-0037238",
+          "pos": "WR"
         },
         {
           "player": "Bijan Robinson",
@@ -669,7 +755,8 @@
           "td": 0.33,
           "yr": 9.1,
           "rec": 4.33,
-          "log": "ATL|00-0038542"
+          "log": "ATL|00-0038542",
+          "pos": "RB"
         },
         {
           "player": "Brian Robinson",
@@ -677,7 +764,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 2.0,
-          "log": "ATL|00-0037746"
+          "log": "ATL|00-0037746",
+          "pos": "RB"
         },
         {
           "player": "Austin Hooper",
@@ -685,7 +773,8 @@
           "td": 0.5,
           "yr": 7.8,
           "rec": 2.0,
-          "log": "ATL|00-0032392"
+          "log": "ATL|00-0032392",
+          "pos": "TE"
         },
         {
           "player": "Jahan Dotson",
@@ -693,7 +782,8 @@
           "td": 0.0,
           "yr": 10.2,
           "rec": 1.33,
-          "log": "ATL|00-0037741"
+          "log": "ATL|00-0037741",
+          "pos": "WR"
         },
         {
           "player": "Zachariah Branch",
@@ -701,7 +791,8 @@
           "td": 0.0,
           "yr": 7.0,
           "rec": 1.5,
-          "log": "ATL|00-0041044"
+          "log": "ATL|00-0041044",
+          "pos": "WR"
         },
         {
           "player": "Kyle Pitts",
@@ -709,7 +800,8 @@
           "td": 0.0,
           "yr": 10.0,
           "rec": 0.67,
-          "log": "ATL|00-0036970"
+          "log": "ATL|00-0036970",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -733,6 +825,70 @@
           "yds": 201.3,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 2,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 2,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "PIT",
+            "at": true,
+            "line": 6.5,
+            "score": "13-20",
+            "ats": "L",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "CAR",
+            "at": false,
+            "line": 2.5,
+            "score": "3-34",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "GB",
+            "at": true,
+            "line": 4.5,
+            "score": "35-14",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Baltimore Ravens": {
@@ -773,7 +929,8 @@
           "ydsG": 248.3,
           "td": 1.33,
           "int": 0.33,
-          "log": "BAL|00-0034796"
+          "log": "BAL|00-0034796",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -783,7 +940,8 @@
           "td": 2.0,
           "ya": 4.6,
           "ag": 22.0,
-          "log": "BAL|00-0032764"
+          "log": "BAL|00-0032764",
+          "pos": "RB"
         },
         {
           "player": "Lamar Jackson",
@@ -791,7 +949,8 @@
           "td": 0.33,
           "ya": 7.3,
           "ag": 5.7,
-          "log": "BAL|00-0034796"
+          "log": "BAL|00-0034796",
+          "pos": "QB"
         },
         {
           "player": "Zay Flowers",
@@ -799,7 +958,8 @@
           "td": 0.0,
           "ya": 20.0,
           "ag": 1.0,
-          "log": "BAL|00-0039064"
+          "log": "BAL|00-0039064",
+          "pos": "WR"
         },
         {
           "player": "Justice Hill",
@@ -807,7 +967,8 @@
           "td": 0.0,
           "ya": 4.4,
           "ag": 4.3,
-          "log": "BAL|00-0034975"
+          "log": "BAL|00-0034975",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -817,7 +978,8 @@
           "td": 0.5,
           "yr": 23.4,
           "rec": 5.0,
-          "log": "BAL|00-0039064"
+          "log": "BAL|00-0039064",
+          "pos": "WR"
         },
         {
           "player": "Rashod Bateman",
@@ -825,7 +987,8 @@
           "td": 0.33,
           "yr": 13.9,
           "rec": 3.0,
-          "log": "BAL|00-0036550"
+          "log": "BAL|00-0036550",
+          "pos": "WR"
         },
         {
           "player": "Mark Andrews",
@@ -833,7 +996,8 @@
           "td": 0.0,
           "yr": 9.4,
           "rec": 4.33,
-          "log": "BAL|00-0034753"
+          "log": "BAL|00-0034753",
+          "pos": "TE"
         },
         {
           "player": "Devontez Walker",
@@ -841,7 +1005,8 @@
           "td": 0.0,
           "yr": 47.0,
           "rec": 0.5,
-          "log": "BAL|00-0039792"
+          "log": "BAL|00-0039792",
+          "pos": "WR"
         },
         {
           "player": "Chris Moore",
@@ -849,7 +1014,8 @@
           "td": 0.33,
           "yr": 21.0,
           "rec": 1.0,
-          "log": "BAL|00-0032398"
+          "log": "BAL|00-0032398",
+          "pos": "WR"
         },
         {
           "player": "Matthew Hibner",
@@ -857,7 +1023,8 @@
           "td": 0.5,
           "yr": 12.0,
           "rec": 1.5,
-          "log": "BAL|00-0040879"
+          "log": "BAL|00-0040879",
+          "pos": "TE"
         },
         {
           "player": "LaJohntay Wester",
@@ -865,7 +1032,8 @@
           "td": 0.0,
           "yr": 9.7,
           "rec": 1.5,
-          "log": "BAL|00-0040075"
+          "log": "BAL|00-0040075",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -889,6 +1057,70 @@
           "yds": 173.3,
           "td": 0.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "IND",
+            "at": true,
+            "line": -3.0,
+            "score": "41-23",
+            "ats": "W",
+            "total": 48.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "NO",
+            "at": false,
+            "line": -8.5,
+            "score": "17-24",
+            "ats": "L",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "DAL",
+            "at": false,
+            "line": -3.0,
+            "score": "34-31",
+            "ats": "P",
+            "total": 53.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Buffalo Bills": {
@@ -929,7 +1161,8 @@
           "ydsG": 262.0,
           "td": 1.67,
           "int": 0.67,
-          "log": "BUF|00-0034857"
+          "log": "BUF|00-0034857",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -939,7 +1172,8 @@
           "td": 0.67,
           "ya": 6.0,
           "ag": 19.3,
-          "log": "BUF|00-0037248"
+          "log": "BUF|00-0037248",
+          "pos": "RB"
         },
         {
           "player": "Josh Allen",
@@ -947,7 +1181,8 @@
           "td": 2.0,
           "ya": 4.1,
           "ag": 9.3,
-          "log": "BUF|00-0034857"
+          "log": "BUF|00-0034857",
+          "pos": "QB"
         },
         {
           "player": "Frank Gore Jr.",
@@ -955,7 +1190,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "BUF|00-0039471"
+          "log": "BUF|00-0039471",
+          "pos": "RB"
         },
         {
           "player": "Ray Davis",
@@ -963,7 +1199,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "BUF|00-0039875"
+          "log": "BUF|00-0039875",
+          "pos": "RB"
         },
         {
           "player": "Dawson Knox",
@@ -971,7 +1208,8 @@
           "td": 0.0,
           "ya": 0.0,
           "ag": 1.0,
-          "log": "BUF|00-0035689"
+          "log": "BUF|00-0035689",
+          "pos": "TE"
         },
         {
           "player": "DJ Moore",
@@ -979,7 +1217,8 @@
           "td": 0.0,
           "ya": -1.0,
           "ag": 1.0,
-          "log": "BUF|00-0034827"
+          "log": "BUF|00-0034827",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -989,7 +1228,8 @@
           "td": 0.33,
           "yr": 18.8,
           "rec": 4.67,
-          "log": "BUF|00-0038933"
+          "log": "BUF|00-0038933",
+          "pos": "TE"
         },
         {
           "player": "DJ Moore",
@@ -997,7 +1237,8 @@
           "td": 0.5,
           "yr": 15.2,
           "rec": 5.5,
-          "log": "BUF|00-0034827"
+          "log": "BUF|00-0034827",
+          "pos": "WR"
         },
         {
           "player": "Ty Johnson",
@@ -1005,7 +1246,8 @@
           "td": 0.0,
           "yr": 12.5,
           "rec": 4.0,
-          "log": "BUF|00-0035537"
+          "log": "BUF|00-0035537",
+          "pos": "RB"
         },
         {
           "player": "Josh Palmer",
@@ -1013,7 +1255,8 @@
           "td": 1.0,
           "yr": 38.5,
           "rec": 1.0,
-          "log": "BUF|00-0036988"
+          "log": "BUF|00-0036988",
+          "pos": "WR"
         },
         {
           "player": "Keon Coleman",
@@ -1021,7 +1264,8 @@
           "td": 0.0,
           "yr": 12.6,
           "rec": 2.67,
-          "log": "BUF|00-0039901"
+          "log": "BUF|00-0039901",
+          "pos": "WR"
         },
         {
           "player": "Khalil Shakir",
@@ -1029,7 +1273,8 @@
           "td": 0.0,
           "yr": 11.8,
           "rec": 2.67,
-          "log": "BUF|00-0037261"
+          "log": "BUF|00-0037261",
+          "pos": "WR"
         },
         {
           "player": "Dawson Knox",
@@ -1037,7 +1282,8 @@
           "td": 0.33,
           "yr": 4.2,
           "rec": 1.33,
-          "log": "BUF|00-0035689"
+          "log": "BUF|00-0035689",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -1061,6 +1307,70 @@
           "yds": 192.0,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 3,
+          "l": 0,
+          "p": 0
+        },
+        "fav": {
+          "w": 3,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "HOU",
+            "at": true,
+            "line": -1.5,
+            "score": "36-31",
+            "ats": "W",
+            "total": 44.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "DET",
+            "at": false,
+            "line": -5.5,
+            "score": "41-31",
+            "ats": "W",
+            "total": 54.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "LAC",
+            "at": false,
+            "line": -7.0,
+            "score": "24-16",
+            "ats": "W",
+            "total": 50.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Carolina Panthers": {
@@ -1101,14 +1411,16 @@
           "ydsG": 313.0,
           "td": 2.33,
           "int": 0.67,
-          "log": "CAR|00-0039150"
+          "log": "CAR|00-0039150",
+          "pos": "QB"
         },
         {
           "player": "Kenny Pickett",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "CAR|00-0038102"
+          "log": "CAR|00-0038102",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1118,7 +1430,8 @@
           "td": 0.33,
           "ya": 4.5,
           "ag": 13.7,
-          "log": "CAR|00-0036555"
+          "log": "CAR|00-0036555",
+          "pos": "RB"
         },
         {
           "player": "Jonathon Brooks",
@@ -1126,7 +1439,8 @@
           "td": 0.0,
           "ya": 3.3,
           "ag": 4.5,
-          "log": "CAR|00-0039344"
+          "log": "CAR|00-0039344",
+          "pos": "RB"
         },
         {
           "player": "AJ Dillon",
@@ -1134,7 +1448,8 @@
           "td": 0.0,
           "ya": 3.4,
           "ag": 4.0,
-          "log": "CAR|00-0036265"
+          "log": "CAR|00-0036265",
+          "pos": "RB"
         },
         {
           "player": "Kenny Pickett",
@@ -1142,7 +1457,8 @@
           "td": 0.0,
           "ya": 10.0,
           "ag": 1.0,
-          "log": "CAR|00-0038102"
+          "log": "CAR|00-0038102",
+          "pos": "QB"
         },
         {
           "player": "Bryce Young",
@@ -1150,7 +1466,8 @@
           "td": 0.5,
           "ya": 5.3,
           "ag": 1.5,
-          "log": "CAR|00-0039150"
+          "log": "CAR|00-0039150",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -1160,7 +1477,8 @@
           "td": 0.0,
           "yr": 20.8,
           "rec": 4.0,
-          "log": "CAR|00-0038840"
+          "log": "CAR|00-0038840",
+          "pos": "WR"
         },
         {
           "player": "Jalen Coker",
@@ -1168,7 +1486,8 @@
           "td": 0.67,
           "yr": 12.3,
           "rec": 6.0,
-          "log": "CAR|00-0039491"
+          "log": "CAR|00-0039491",
+          "pos": "WR"
         },
         {
           "player": "Tetairoa McMillan",
@@ -1176,7 +1495,8 @@
           "td": 0.0,
           "yr": 16.1,
           "rec": 4.0,
-          "log": "CAR|00-0040124"
+          "log": "CAR|00-0040124",
+          "pos": "WR"
         },
         {
           "player": "Darren Waller",
@@ -1184,7 +1504,8 @@
           "td": 0.67,
           "yr": 11.2,
           "rec": 3.33,
-          "log": "CAR|00-0031610"
+          "log": "CAR|00-0031610",
+          "pos": "TE"
         },
         {
           "player": "Xavier Legette",
@@ -1192,7 +1513,8 @@
           "td": 0.0,
           "yr": 32.0,
           "rec": 1.0,
-          "log": "CAR|00-0039342"
+          "log": "CAR|00-0039342",
+          "pos": "WR"
         },
         {
           "player": "Chuba Hubbard",
@@ -1200,7 +1522,8 @@
           "td": 0.67,
           "yr": 8.6,
           "rec": 3.0,
-          "log": "CAR|00-0036555"
+          "log": "CAR|00-0036555",
+          "pos": "RB"
         },
         {
           "player": "Tommy Tremble",
@@ -1208,7 +1531,8 @@
           "td": 0.0,
           "yr": 10.0,
           "rec": 2.33,
-          "log": "CAR|00-0037005"
+          "log": "CAR|00-0037005",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -1232,6 +1556,70 @@
           "yds": 111.7,
           "td": 0.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 2,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "CHI",
+            "at": false,
+            "line": 3.0,
+            "score": "37-59",
+            "ats": "L",
+            "total": 47.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "ATL",
+            "at": true,
+            "line": -2.5,
+            "score": "34-3",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "CLE",
+            "at": true,
+            "line": -2.5,
+            "score": "18-21",
+            "ats": "L",
+            "total": 41.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Chicago Bears": {
@@ -1272,21 +1660,24 @@
           "ydsG": 247.0,
           "td": 2.0,
           "int": 0.0,
-          "log": "CHI|00-0028986"
+          "log": "CHI|00-0028986",
+          "pos": "QB"
         },
         {
           "player": "Caleb Williams",
           "ydsG": 203.5,
           "td": 1.0,
           "int": 0.5,
-          "log": "CHI|00-0039918"
+          "log": "CHI|00-0039918",
+          "pos": "QB"
         },
         {
           "player": "Tyson Bagent",
           "ydsG": 54.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "CHI|00-0038416"
+          "log": "CHI|00-0038416",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1296,7 +1687,8 @@
           "td": 1.0,
           "ya": 4.7,
           "ag": 18.0,
-          "log": "CHI|00-0036275"
+          "log": "CHI|00-0036275",
+          "pos": "RB"
         },
         {
           "player": "Kyle Monangai",
@@ -1304,7 +1696,8 @@
           "td": 0.33,
           "ya": 5.9,
           "ag": 10.0,
-          "log": "CHI|00-0040236"
+          "log": "CHI|00-0040236",
+          "pos": "RB"
         },
         {
           "player": "Caleb Williams",
@@ -1312,7 +1705,8 @@
           "td": 1.0,
           "ya": 7.1,
           "ag": 7.5,
-          "log": "CHI|00-0039918"
+          "log": "CHI|00-0039918",
+          "pos": "QB"
         },
         {
           "player": "Case Keenum",
@@ -1320,7 +1714,8 @@
           "td": 1.0,
           "ya": 1.5,
           "ag": 4.0,
-          "log": "CHI|00-0028986"
+          "log": "CHI|00-0028986",
+          "pos": "QB"
         },
         {
           "player": "Luther Burden III",
@@ -1328,7 +1723,8 @@
           "td": 0.0,
           "ya": 4.5,
           "ag": 1.0,
-          "log": "CHI|00-0040735"
+          "log": "CHI|00-0040735",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -1338,7 +1734,8 @@
           "td": 0.33,
           "yr": 11.3,
           "rec": 6.33,
-          "log": "CHI|00-0032464"
+          "log": "CHI|00-0032464",
+          "pos": "WR"
         },
         {
           "player": "Luther Burden III",
@@ -1346,7 +1743,8 @@
           "td": 0.33,
           "yr": 10.4,
           "rec": 5.0,
-          "log": "CHI|00-0040735"
+          "log": "CHI|00-0040735",
+          "pos": "WR"
         },
         {
           "player": "Rome Odunze",
@@ -1354,7 +1752,8 @@
           "td": 0.0,
           "yr": 17.4,
           "rec": 2.67,
-          "log": "CHI|00-0039919"
+          "log": "CHI|00-0039919",
+          "pos": "WR"
         },
         {
           "player": "D'Andre Swift",
@@ -1362,7 +1761,8 @@
           "td": 0.0,
           "yr": 8.5,
           "rec": 2.67,
-          "log": "CHI|00-0036275"
+          "log": "CHI|00-0036275",
+          "pos": "RB"
         },
         {
           "player": "Kyle Monangai",
@@ -1370,7 +1770,8 @@
           "td": 0.0,
           "yr": 8.8,
           "rec": 2.0,
-          "log": "CHI|00-0040236"
+          "log": "CHI|00-0040236",
+          "pos": "RB"
         },
         {
           "player": "Sam Roush",
@@ -1378,7 +1779,8 @@
           "td": 0.0,
           "yr": 12.5,
           "rec": 1.0,
-          "log": "CHI|00-0041558"
+          "log": "CHI|00-0041558",
+          "pos": "TE"
         },
         {
           "player": "Cole Kmet",
@@ -1386,7 +1788,8 @@
           "td": 0.33,
           "yr": 17.5,
           "rec": 0.67,
-          "log": "CHI|00-0036290"
+          "log": "CHI|00-0036290",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -1410,6 +1813,70 @@
           "yds": 138.3,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "CAR",
+            "at": true,
+            "line": -3.0,
+            "score": "59-37",
+            "ats": "W",
+            "total": 47.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "MIN",
+            "at": false,
+            "line": -4.5,
+            "score": "3-9",
+            "ats": "L",
+            "total": 46.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "PHI",
+            "at": false,
+            "line": 3.5,
+            "score": "27-7",
+            "ats": "W",
+            "total": 42.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Cincinnati Bengals": {
@@ -1450,7 +1917,8 @@
           "ydsG": 247.7,
           "td": 2.0,
           "int": 0.33,
-          "log": "CIN|00-0036442"
+          "log": "CIN|00-0036442",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1460,7 +1928,8 @@
           "td": 0.33,
           "ya": 4.0,
           "ag": 16.3,
-          "log": "CIN|00-0038597"
+          "log": "CIN|00-0038597",
+          "pos": "RB"
         },
         {
           "player": "Samaje Perine",
@@ -1468,7 +1937,8 @@
           "td": 0.0,
           "ya": 3.5,
           "ag": 3.3,
-          "log": "CIN|00-0033526"
+          "log": "CIN|00-0033526",
+          "pos": "RB"
         },
         {
           "player": "Joe Burrow",
@@ -1476,7 +1946,8 @@
           "td": 0.0,
           "ya": 4.0,
           "ag": 2.7,
-          "log": "CIN|00-0036442"
+          "log": "CIN|00-0036442",
+          "pos": "QB"
         },
         {
           "player": "Dohnte Meyers",
@@ -1484,7 +1955,8 @@
           "td": 0.0,
           "ya": 10.0,
           "ag": 1.0,
-          "log": "CIN|00-0040785"
+          "log": "CIN|00-0040785",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -1494,7 +1966,8 @@
           "td": 0.33,
           "yr": 17.4,
           "rec": 4.67,
-          "log": "CIN|00-0036410"
+          "log": "CIN|00-0036410",
+          "pos": "WR"
         },
         {
           "player": "Ja'Marr Chase",
@@ -1502,7 +1975,8 @@
           "td": 1.0,
           "yr": 10.3,
           "rec": 6.0,
-          "log": "CIN|00-0036900"
+          "log": "CIN|00-0036900",
+          "pos": "WR"
         },
         {
           "player": "Mike Gesicki",
@@ -1510,7 +1984,8 @@
           "td": 1.0,
           "yr": 14.4,
           "rec": 4.0,
-          "log": "CIN|00-0034829"
+          "log": "CIN|00-0034829",
+          "pos": "TE"
         },
         {
           "player": "Samaje Perine",
@@ -1518,7 +1993,8 @@
           "td": 0.0,
           "yr": 10.2,
           "rec": 1.67,
-          "log": "CIN|00-0033526"
+          "log": "CIN|00-0033526",
+          "pos": "RB"
         },
         {
           "player": "Dohnte Meyers",
@@ -1526,7 +2002,8 @@
           "td": 0.0,
           "yr": 11.8,
           "rec": 1.33,
-          "log": "CIN|00-0040785"
+          "log": "CIN|00-0040785",
+          "pos": "WR"
         },
         {
           "player": "Chase Brown",
@@ -1534,7 +2011,8 @@
           "td": 0.0,
           "yr": 3.2,
           "rec": 3.33,
-          "log": "CIN|00-0038597"
+          "log": "CIN|00-0038597",
+          "pos": "RB"
         },
         {
           "player": "Andrei Iosivas",
@@ -1542,7 +2020,8 @@
           "td": 0.0,
           "yr": 6.3,
           "rec": 1.5,
-          "log": "CIN|00-0038619"
+          "log": "CIN|00-0038619",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -1566,6 +2045,70 @@
           "yds": 140.3,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "TB",
+            "at": false,
+            "line": -3.5,
+            "score": "33-27",
+            "ats": "W",
+            "total": 50.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "HOU",
+            "at": true,
+            "line": 3.0,
+            "score": "20-6",
+            "ats": "W",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "PIT",
+            "at": true,
+            "line": -3.5,
+            "score": "27-30",
+            "ats": "L",
+            "total": 42.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Cleveland Browns": {
@@ -1606,14 +2149,16 @@
           "ydsG": 195.7,
           "td": 1.67,
           "int": 0.33,
-          "log": "CLE|00-0033537"
+          "log": "CLE|00-0033537",
+          "pos": "QB"
         },
         {
           "player": "Shedeur Sanders",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "CLE|00-0040668"
+          "log": "CLE|00-0040668",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1623,7 +2168,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 14.0,
-          "log": "CLE|00-0040784"
+          "log": "CLE|00-0040784",
+          "pos": "RB"
         },
         {
           "player": "Deshaun Watson",
@@ -1631,7 +2177,8 @@
           "td": 0.0,
           "ya": 4.4,
           "ag": 8.0,
-          "log": "CLE|00-0033537"
+          "log": "CLE|00-0033537",
+          "pos": "QB"
         },
         {
           "player": "Raheim Sanders",
@@ -1639,7 +2186,8 @@
           "td": 0.0,
           "ya": 5.5,
           "ag": 1.3,
-          "log": "CLE|00-0040466"
+          "log": "CLE|00-0040466",
+          "pos": "RB"
         },
         {
           "player": "KC Concepcion",
@@ -1647,7 +2195,8 @@
           "td": 0.0,
           "ya": 2.2,
           "ag": 2.0,
-          "log": "CLE|00-0041547"
+          "log": "CLE|00-0041547",
+          "pos": "WR"
         },
         {
           "player": "Jaleel McLaughlin",
@@ -1655,7 +2204,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "CLE|00-0038794"
+          "log": "CLE|00-0038794",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -1665,7 +2215,8 @@
           "td": 0.67,
           "yr": 21.7,
           "rec": 3.0,
-          "log": "CLE|00-0041037"
+          "log": "CLE|00-0041037",
+          "pos": "WR"
         },
         {
           "player": "Harold Fannin Jr.",
@@ -1673,7 +2224,8 @@
           "td": 0.67,
           "yr": 9.0,
           "rec": 4.67,
-          "log": "CLE|00-0040663"
+          "log": "CLE|00-0040663",
+          "pos": "TE"
         },
         {
           "player": "KC Concepcion",
@@ -1681,7 +2233,8 @@
           "td": 0.0,
           "yr": 6.7,
           "rec": 4.0,
-          "log": "CLE|00-0041547"
+          "log": "CLE|00-0041547",
+          "pos": "WR"
         },
         {
           "player": "Raheim Sanders",
@@ -1689,7 +2242,8 @@
           "td": 0.0,
           "yr": 8.2,
           "rec": 2.67,
-          "log": "CLE|00-0040466"
+          "log": "CLE|00-0040466",
+          "pos": "RB"
         },
         {
           "player": "Quinshon Judkins",
@@ -1697,7 +2251,8 @@
           "td": 0.0,
           "yr": 5.9,
           "rec": 3.0,
-          "log": "CLE|00-0040784"
+          "log": "CLE|00-0040784",
+          "pos": "RB"
         },
         {
           "player": "Blake Whiteheart",
@@ -1705,7 +2260,8 @@
           "td": 0.5,
           "yr": 15.5,
           "rec": 1.0,
-          "log": "CLE|00-0038710"
+          "log": "CLE|00-0038710",
+          "pos": "TE"
         },
         {
           "player": "Jerry Jeudy",
@@ -1713,7 +2269,8 @@
           "td": 0.0,
           "yr": 13.0,
           "rec": 1.0,
-          "log": "CLE|00-0036407"
+          "log": "CLE|00-0036407",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -1737,6 +2294,70 @@
           "yds": 152.7,
           "td": 1.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "JAX",
+            "at": true,
+            "line": 8.5,
+            "score": "10-34",
+            "ats": "L",
+            "total": 40.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "TB",
+            "at": true,
+            "line": 8.5,
+            "score": "23-19",
+            "ats": "W",
+            "total": 41.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "CAR",
+            "at": false,
+            "line": 2.5,
+            "score": "21-18",
+            "ats": "W",
+            "total": 41.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Dallas Cowboys": {
@@ -1777,7 +2398,8 @@
           "ydsG": 243.3,
           "td": 2.33,
           "int": 0.33,
-          "log": "DAL|00-0033077"
+          "log": "DAL|00-0033077",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1787,7 +2409,8 @@
           "td": 0.67,
           "ya": 3.9,
           "ag": 14.3,
-          "log": "DAL|00-0036997"
+          "log": "DAL|00-0036997",
+          "pos": "RB"
         },
         {
           "player": "Tyler Goodson",
@@ -1795,7 +2418,8 @@
           "td": 0.0,
           "ya": 3.7,
           "ag": 6.0,
-          "log": "DAL|00-0037120"
+          "log": "DAL|00-0037120",
+          "pos": "RB"
         },
         {
           "player": "Dak Prescott",
@@ -1803,7 +2427,8 @@
           "td": 0.0,
           "ya": 5.9,
           "ag": 3.3,
-          "log": "DAL|00-0033077"
+          "log": "DAL|00-0033077",
+          "pos": "QB"
         },
         {
           "player": "Emari Demercado",
@@ -1811,7 +2436,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 2.5,
-          "log": "DAL|00-0038705"
+          "log": "DAL|00-0038705",
+          "pos": "RB"
         },
         {
           "player": "KaVontae Turpin",
@@ -1819,7 +2445,8 @@
           "td": 0.5,
           "ya": 5.0,
           "ag": 1.0,
-          "log": "DAL|00-0037801"
+          "log": "DAL|00-0037801",
+          "pos": "WR"
         },
         {
           "player": "Hunter Luepke",
@@ -1827,7 +2454,8 @@
           "td": 0.0,
           "ya": 4.0,
           "ag": 1.0,
-          "log": "DAL|00-0038738"
+          "log": "DAL|00-0038738",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -1837,7 +2465,8 @@
           "td": 1.0,
           "yr": 15.4,
           "rec": 6.67,
-          "log": "DAL|00-0036358"
+          "log": "DAL|00-0036358",
+          "pos": "WR"
         },
         {
           "player": "George Pickens",
@@ -1845,7 +2474,8 @@
           "td": 0.0,
           "yr": 9.4,
           "rec": 5.33,
-          "log": "DAL|00-0037247"
+          "log": "DAL|00-0037247",
+          "pos": "WR"
         },
         {
           "player": "Jake Ferguson",
@@ -1853,7 +2483,8 @@
           "td": 1.0,
           "yr": 8.0,
           "rec": 3.0,
-          "log": "DAL|00-0038041"
+          "log": "DAL|00-0038041",
+          "pos": "TE"
         },
         {
           "player": "Ryan Flournoy",
@@ -1861,7 +2492,8 @@
           "td": 0.0,
           "yr": 7.4,
           "rec": 3.0,
-          "log": "DAL|00-0039410"
+          "log": "DAL|00-0039410",
+          "pos": "WR"
         },
         {
           "player": "Javonte Williams",
@@ -1869,7 +2501,8 @@
           "td": 0.33,
           "yr": 5.6,
           "rec": 3.33,
-          "log": "DAL|00-0036997"
+          "log": "DAL|00-0036997",
+          "pos": "RB"
         },
         {
           "player": "Brevyn Spann-Ford",
@@ -1877,7 +2510,8 @@
           "td": 0.0,
           "yr": 11.0,
           "rec": 1.5,
-          "log": "DAL|00-0039530"
+          "log": "DAL|00-0039530",
+          "pos": "TE"
         },
         {
           "player": "Luke Schoonmaker",
@@ -1885,7 +2519,8 @@
           "td": 0.0,
           "yr": 10.5,
           "rec": 1.0,
-          "log": "DAL|00-0038547"
+          "log": "DAL|00-0038547",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -1909,6 +2544,70 @@
           "yds": 129.3,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 1
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 3,
+          "u": 0,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "NYG",
+            "at": true,
+            "line": -3.0,
+            "score": "20-28",
+            "ats": "L",
+            "total": 47.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "WAS",
+            "at": false,
+            "line": -3.5,
+            "score": "37-20",
+            "ats": "W",
+            "total": 51.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "BAL",
+            "at": false,
+            "line": 3.0,
+            "score": "31-34",
+            "ats": "P",
+            "total": 53.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Denver Broncos": {
@@ -1949,7 +2648,8 @@
           "ydsG": 201.7,
           "td": 1.33,
           "int": 1.0,
-          "log": "DEN|00-0039732"
+          "log": "DEN|00-0039732",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -1959,7 +2659,8 @@
           "td": 0.0,
           "ya": 3.5,
           "ag": 11.7,
-          "log": "DEN|00-0036158"
+          "log": "DEN|00-0036158",
+          "pos": "RB"
         },
         {
           "player": "Jonah Coleman",
@@ -1967,7 +2668,8 @@
           "td": 1.0,
           "ya": 3.9,
           "ag": 10.0,
-          "log": "DEN|00-0041496"
+          "log": "DEN|00-0041496",
+          "pos": "RB"
         },
         {
           "player": "Pat Bryant",
@@ -1975,7 +2677,8 @@
           "td": 0.0,
           "ya": 16.0,
           "ag": 1.0,
-          "log": "DEN|00-0040134"
+          "log": "DEN|00-0040134",
+          "pos": "WR"
         },
         {
           "player": "Jaylen Waddle",
@@ -1983,7 +2686,8 @@
           "td": 0.0,
           "ya": 14.0,
           "ag": 1.0,
-          "log": "DEN|00-0036613"
+          "log": "DEN|00-0036613",
+          "pos": "WR"
         },
         {
           "player": "RJ Harvey",
@@ -1991,7 +2695,8 @@
           "td": 0.0,
           "ya": 4.8,
           "ag": 2.5,
-          "log": "DEN|00-0040730"
+          "log": "DEN|00-0040730",
+          "pos": "RB"
         },
         {
           "player": "Nate Adkins",
@@ -1999,7 +2704,8 @@
           "td": 0.0,
           "ya": 6.0,
           "ag": 1.0,
-          "log": "DEN|00-0038783"
+          "log": "DEN|00-0038783",
+          "pos": "TE"
         }
       ],
       "receiving": [
@@ -2009,7 +2715,8 @@
           "td": 0.0,
           "yr": 13.6,
           "rec": 3.67,
-          "log": "DEN|00-0036613"
+          "log": "DEN|00-0036613",
+          "pos": "WR"
         },
         {
           "player": "RJ Harvey",
@@ -2017,7 +2724,8 @@
           "td": 0.0,
           "yr": 6.4,
           "rec": 5.0,
-          "log": "DEN|00-0040730"
+          "log": "DEN|00-0040730",
+          "pos": "RB"
         },
         {
           "player": "Pat Bryant",
@@ -2025,7 +2733,8 @@
           "td": 0.33,
           "yr": 14.3,
           "rec": 2.0,
-          "log": "DEN|00-0040134"
+          "log": "DEN|00-0040134",
+          "pos": "WR"
         },
         {
           "player": "Courtland Sutton",
@@ -2033,7 +2742,8 @@
           "td": 0.0,
           "yr": 10.2,
           "rec": 2.67,
-          "log": "DEN|00-0034348"
+          "log": "DEN|00-0034348",
+          "pos": "WR"
         },
         {
           "player": "Evan Engram",
@@ -2041,7 +2751,8 @@
           "td": 0.33,
           "yr": 12.0,
           "rec": 1.67,
-          "log": "DEN|00-0033881"
+          "log": "DEN|00-0033881",
+          "pos": "TE"
         },
         {
           "player": "Nate Adkins",
@@ -2049,7 +2760,8 @@
           "td": 1.0,
           "yr": 10.0,
           "rec": 2.0,
-          "log": "DEN|00-0038783"
+          "log": "DEN|00-0038783",
+          "pos": "TE"
         },
         {
           "player": "Tyler Badie",
@@ -2057,7 +2769,8 @@
           "td": 0.0,
           "yr": 13.3,
           "rec": 1.5,
-          "log": "DEN|00-0037085"
+          "log": "DEN|00-0037085",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -2081,6 +2794,70 @@
           "yds": 144.3,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "KC",
+            "at": true,
+            "line": 2.5,
+            "score": "10-31",
+            "ats": "L",
+            "total": 42.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "JAX",
+            "at": false,
+            "line": -2.5,
+            "score": "20-13",
+            "ats": "W",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "LA",
+            "at": false,
+            "line": -1.5,
+            "score": "30-26",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Detroit Lions": {
@@ -2121,7 +2898,8 @@
           "ydsG": 267.3,
           "td": 2.67,
           "int": 0.0,
-          "log": "DET|00-0033106"
+          "log": "DET|00-0033106",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -2131,7 +2909,8 @@
           "td": 1.33,
           "ya": 4.7,
           "ag": 21.7,
-          "log": "DET|00-0039139"
+          "log": "DET|00-0039139",
+          "pos": "RB"
         },
         {
           "player": "Sione Vaki",
@@ -2139,7 +2918,8 @@
           "td": 0.0,
           "ya": 4.4,
           "ag": 3.0,
-          "log": "DET|00-0039364"
+          "log": "DET|00-0039364",
+          "pos": "RB"
         },
         {
           "player": "Jared Goff",
@@ -2147,7 +2927,8 @@
           "td": 0.0,
           "ya": 1.7,
           "ag": 3.0,
-          "log": "DET|00-0033106"
+          "log": "DET|00-0033106",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -2157,7 +2938,8 @@
           "td": 1.67,
           "yr": 9.9,
           "rec": 7.67,
-          "log": "DET|00-0036963"
+          "log": "DET|00-0036963",
+          "pos": "WR"
         },
         {
           "player": "Jahmyr Gibbs",
@@ -2165,7 +2947,8 @@
           "td": 0.67,
           "yr": 8.7,
           "rec": 6.0,
-          "log": "DET|00-0039139"
+          "log": "DET|00-0039139",
+          "pos": "RB"
         },
         {
           "player": "Sam LaPorta",
@@ -2173,7 +2956,8 @@
           "td": 0.33,
           "yr": 10.3,
           "rec": 4.67,
-          "log": "DET|00-0039065"
+          "log": "DET|00-0039065",
+          "pos": "TE"
         },
         {
           "player": "Jameson Williams",
@@ -2181,7 +2965,8 @@
           "td": 0.0,
           "yr": 12.7,
           "rec": 3.33,
-          "log": "DET|00-0037240"
+          "log": "DET|00-0037240",
+          "pos": "WR"
         },
         {
           "player": "Isaac TeSlaa",
@@ -2189,7 +2974,8 @@
           "td": 0.0,
           "yr": 18.4,
           "rec": 1.67,
-          "log": "DET|00-0040669"
+          "log": "DET|00-0040669",
+          "pos": "WR"
         },
         {
           "player": "Sione Vaki",
@@ -2197,7 +2983,8 @@
           "td": 0.0,
           "yr": 11.7,
           "rec": 1.0,
-          "log": "DET|00-0039364"
+          "log": "DET|00-0039364",
+          "pos": "RB"
         },
         {
           "player": "Jackson Meeks",
@@ -2205,7 +2992,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 1.0,
-          "log": "DET|00-0040390"
+          "log": "DET|00-0040390",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -2229,6 +3017,70 @@
           "yds": 189.3,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 2,
+          "p": 1
+        },
+        "fav": {
+          "w": 0,
+          "l": 1,
+          "p": 1
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 1
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 3,
+          "u": 0,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "NO",
+            "at": false,
+            "line": -7.0,
+            "score": "31-30",
+            "ats": "L",
+            "total": 49.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "BUF",
+            "at": true,
+            "line": 5.5,
+            "score": "31-41",
+            "ats": "L",
+            "total": 54.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "NYJ",
+            "at": false,
+            "line": -7.0,
+            "score": "31-24",
+            "ats": "P",
+            "total": 49.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Green Bay Packers": {
@@ -2269,7 +3121,8 @@
           "ydsG": 281.3,
           "td": 2.0,
           "int": 0.67,
-          "log": "GB|00-0036264"
+          "log": "GB|00-0036264",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -2279,7 +3132,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 7.7,
-          "log": "GB|00-0039811"
+          "log": "GB|00-0039811",
+          "pos": "RB"
         },
         {
           "player": "Chris Brooks",
@@ -2287,7 +3141,8 @@
           "td": 0.0,
           "ya": 3.6,
           "ag": 5.5,
-          "log": "GB|00-0038685"
+          "log": "GB|00-0038685",
+          "pos": "RB"
         },
         {
           "player": "Kaleb Johnson",
@@ -2295,7 +3150,8 @@
           "td": 0.0,
           "ya": 3.2,
           "ag": 6.0,
-          "log": "GB|00-0040142"
+          "log": "GB|00-0040142",
+          "pos": "RB"
         },
         {
           "player": "Jordan Love",
@@ -2303,7 +3159,8 @@
           "td": 0.0,
           "ya": 0.0,
           "ag": 1.0,
-          "log": "GB|00-0036264"
+          "log": "GB|00-0036264",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -2313,7 +3170,8 @@
           "td": 1.33,
           "yr": 16.7,
           "rec": 5.67,
-          "log": "GB|00-0038124"
+          "log": "GB|00-0038124",
+          "pos": "WR"
         },
         {
           "player": "Matthew Golden",
@@ -2321,7 +3179,8 @@
           "td": 0.33,
           "yr": 16.9,
           "rec": 5.0,
-          "log": "GB|00-0040667"
+          "log": "GB|00-0040667",
+          "pos": "WR"
         },
         {
           "player": "Tucker Kraft",
@@ -2329,7 +3188,8 @@
           "td": 0.0,
           "yr": 11.8,
           "rec": 3.0,
-          "log": "GB|00-0038996"
+          "log": "GB|00-0038996",
+          "pos": "TE"
         },
         {
           "player": "Jonnu Smith",
@@ -2337,7 +3197,8 @@
           "td": 0.0,
           "yr": 16.5,
           "rec": 2.0,
-          "log": "GB|00-0033858"
+          "log": "GB|00-0033858",
+          "pos": "TE"
         },
         {
           "player": "J. Michael Sturdivant",
@@ -2345,7 +3206,8 @@
           "td": 0.0,
           "yr": 7.3,
           "rec": 3.0,
-          "log": "GB|00-0040948"
+          "log": "GB|00-0040948",
+          "pos": "WR"
         },
         {
           "player": "Skyy Moore",
@@ -2353,7 +3215,8 @@
           "td": 0.0,
           "yr": 7.4,
           "rec": 1.67,
-          "log": "GB|00-0038090"
+          "log": "GB|00-0038090",
+          "pos": "WR"
         },
         {
           "player": "Jayden Reed",
@@ -2361,7 +3224,8 @@
           "td": 0.0,
           "yr": 6.0,
           "rec": 2.0,
-          "log": "GB|00-0039146"
+          "log": "GB|00-0039146",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -2385,6 +3249,70 @@
           "yds": 155.7,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "MIN",
+            "at": true,
+            "line": 1.5,
+            "score": "22-39",
+            "ats": "L",
+            "total": 46.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "NYJ",
+            "at": true,
+            "line": -3.5,
+            "score": "20-17",
+            "ats": "L",
+            "total": 44.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "ATL",
+            "at": false,
+            "line": -4.5,
+            "score": "14-35",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Houston Texans": {
@@ -2425,14 +3353,16 @@
           "ydsG": 264.7,
           "td": 1.0,
           "int": 0.0,
-          "log": "HOU|00-0039163"
+          "log": "HOU|00-0039163",
+          "pos": "QB"
         },
         {
           "player": "Kai Kroeger",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "HOU|00-0040654"
+          "log": "HOU|00-0040654",
+          "pos": "P"
         }
       ],
       "rushing": [
@@ -2442,7 +3372,8 @@
           "td": 0.67,
           "ya": 2.8,
           "ag": 12.3,
-          "log": "HOU|00-0035685"
+          "log": "HOU|00-0035685",
+          "pos": "RB"
         },
         {
           "player": "Woody Marks",
@@ -2450,7 +3381,8 @@
           "td": 0.33,
           "ya": 3.0,
           "ag": 7.3,
-          "log": "HOU|00-0040583"
+          "log": "HOU|00-0040583",
+          "pos": "RB"
         },
         {
           "player": "C.J. Stroud",
@@ -2458,7 +3390,8 @@
           "td": 0.0,
           "ya": 7.7,
           "ag": 2.3,
-          "log": "HOU|00-0039163"
+          "log": "HOU|00-0039163",
+          "pos": "QB"
         },
         {
           "player": "Jaylin Noel",
@@ -2466,7 +3399,8 @@
           "td": 0.0,
           "ya": 10.5,
           "ag": 1.0,
-          "log": "HOU|00-0040138"
+          "log": "HOU|00-0040138",
+          "pos": "WR"
         },
         {
           "player": "Nico Collins",
@@ -2474,7 +3408,8 @@
           "td": 0.0,
           "ya": 7.0,
           "ag": 1.0,
-          "log": "HOU|00-0036554"
+          "log": "HOU|00-0036554",
+          "pos": "WR"
         },
         {
           "player": "Xavier Hutchinson",
@@ -2482,7 +3417,8 @@
           "td": 0.0,
           "ya": 2.0,
           "ag": 2.0,
-          "log": "HOU|00-0038618"
+          "log": "HOU|00-0038618",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -2492,7 +3428,8 @@
           "td": 1.0,
           "yr": 10.7,
           "rec": 7.0,
-          "log": "HOU|00-0036554"
+          "log": "HOU|00-0036554",
+          "pos": "WR"
         },
         {
           "player": "Dalton Schultz",
@@ -2500,7 +3437,8 @@
           "td": 0.0,
           "yr": 10.8,
           "rec": 6.33,
-          "log": "HOU|00-0034383"
+          "log": "HOU|00-0034383",
+          "pos": "TE"
         },
         {
           "player": "Xavier Hutchinson",
@@ -2508,7 +3446,8 @@
           "td": 0.0,
           "yr": 13.3,
           "rec": 3.0,
-          "log": "HOU|00-0038618"
+          "log": "HOU|00-0038618",
+          "pos": "WR"
         },
         {
           "player": "Jaylin Noel",
@@ -2516,7 +3455,8 @@
           "td": 0.0,
           "yr": 20.2,
           "rec": 1.67,
-          "log": "HOU|00-0040138"
+          "log": "HOU|00-0040138",
+          "pos": "WR"
         },
         {
           "player": "Kayshon Boutte",
@@ -2524,7 +3464,8 @@
           "td": 0.0,
           "yr": 13.2,
           "rec": 2.0,
-          "log": "HOU|00-0038608"
+          "log": "HOU|00-0038608",
+          "pos": "WR"
         },
         {
           "player": "Jared Wayne",
@@ -2532,7 +3473,8 @@
           "td": 0.0,
           "yr": 16.2,
           "rec": 1.33,
-          "log": "HOU|00-0038728"
+          "log": "HOU|00-0038728",
+          "pos": "WR"
         },
         {
           "player": "Foster Moreau",
@@ -2540,7 +3482,8 @@
           "td": 0.33,
           "yr": 9.3,
           "rec": 2.0,
-          "log": "HOU|00-0034981"
+          "log": "HOU|00-0034981",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -2564,6 +3507,70 @@
           "yds": 176.3,
           "td": 1.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "BUF",
+            "at": false,
+            "line": 1.5,
+            "score": "31-36",
+            "ats": "L",
+            "total": 44.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "CIN",
+            "at": false,
+            "line": -3.0,
+            "score": "6-20",
+            "ats": "L",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "IND",
+            "at": true,
+            "line": -1.5,
+            "score": "17-19",
+            "ats": "L",
+            "total": 41.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Indianapolis Colts": {
@@ -2604,7 +3611,8 @@
           "ydsG": 203.7,
           "td": 1.0,
           "int": 1.0,
-          "log": "IND|00-0035710"
+          "log": "IND|00-0035710",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -2614,7 +3622,8 @@
           "td": 1.33,
           "ya": 3.9,
           "ag": 22.0,
-          "log": "IND|00-0036223"
+          "log": "IND|00-0036223",
+          "pos": "RB"
         },
         {
           "player": "Deion Burks",
@@ -2622,7 +3631,8 @@
           "td": 0.0,
           "ya": 7.0,
           "ag": 2.0,
-          "log": "IND|00-0041132"
+          "log": "IND|00-0041132",
+          "pos": "WR"
         },
         {
           "player": "Seth McGowan",
@@ -2630,7 +3640,8 @@
           "td": 0.0,
           "ya": 2.3,
           "ag": 3.0,
-          "log": "IND|00-0041125"
+          "log": "IND|00-0041125",
+          "pos": "RB"
         },
         {
           "player": "Daniel Jones",
@@ -2638,7 +3649,8 @@
           "td": 0.0,
           "ya": 2.7,
           "ag": 2.3,
-          "log": "IND|00-0035710"
+          "log": "IND|00-0035710",
+          "pos": "QB"
         },
         {
           "player": "Tyler Warren",
@@ -2646,7 +3658,8 @@
           "td": 0.0,
           "ya": 2.5,
           "ag": 1.0,
-          "log": "IND|00-0040128"
+          "log": "IND|00-0040128",
+          "pos": "TE"
         }
       ],
       "receiving": [
@@ -2656,7 +3669,8 @@
           "td": 0.0,
           "yr": 13.3,
           "rec": 4.67,
-          "log": "IND|00-0038997"
+          "log": "IND|00-0038997",
+          "pos": "WR"
         },
         {
           "player": "Alec Pierce",
@@ -2664,7 +3678,8 @@
           "td": 0.0,
           "yr": 14.4,
           "rec": 2.5,
-          "log": "IND|00-0037664"
+          "log": "IND|00-0037664",
+          "pos": "WR"
         },
         {
           "player": "Keenan Allen",
@@ -2672,7 +3687,8 @@
           "td": 0.33,
           "yr": 7.7,
           "rec": 4.33,
-          "log": "IND|00-0030279"
+          "log": "IND|00-0030279",
+          "pos": "WR"
         },
         {
           "player": "Tyler Warren",
@@ -2680,7 +3696,8 @@
           "td": 0.67,
           "yr": 4.9,
           "rec": 6.0,
-          "log": "IND|00-0040128"
+          "log": "IND|00-0040128",
+          "pos": "TE"
         },
         {
           "player": "Laquon Treadwell",
@@ -2688,7 +3705,8 @@
           "td": 0.0,
           "yr": 20.2,
           "rec": 1.33,
-          "log": "IND|00-0032951"
+          "log": "IND|00-0032951",
+          "pos": "WR"
         },
         {
           "player": "Jonathan Taylor",
@@ -2696,7 +3714,8 @@
           "td": 0.0,
           "yr": 7.4,
           "rec": 3.0,
-          "log": "IND|00-0036223"
+          "log": "IND|00-0036223",
+          "pos": "RB"
         },
         {
           "player": "Mo Alie-Cox",
@@ -2704,7 +3723,8 @@
           "td": 0.0,
           "yr": 16.0,
           "rec": 1.0,
-          "log": "IND|00-0033217"
+          "log": "IND|00-0033217",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -2728,6 +3748,70 @@
           "yds": 179.3,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "BAL",
+            "at": false,
+            "line": 3.0,
+            "score": "23-41",
+            "ats": "L",
+            "total": 48.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "KC",
+            "at": true,
+            "line": 6.0,
+            "score": "30-33",
+            "ats": "W",
+            "total": 46.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "HOU",
+            "at": false,
+            "line": 1.5,
+            "score": "19-17",
+            "ats": "W",
+            "total": 41.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Jacksonville Jaguars": {
@@ -2768,7 +3852,8 @@
           "ydsG": 205.3,
           "td": 2.33,
           "int": 0.67,
-          "log": "JAX|00-0036971"
+          "log": "JAX|00-0036971",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -2778,7 +3863,8 @@
           "td": 0.67,
           "ya": 4.7,
           "ag": 14.3,
-          "log": "JAX|00-0040719"
+          "log": "JAX|00-0040719",
+          "pos": "RB"
         },
         {
           "player": "Chris Rodriguez Jr.",
@@ -2786,7 +3872,8 @@
           "td": 0.33,
           "ya": 3.6,
           "ag": 6.7,
-          "log": "JAX|00-0038611"
+          "log": "JAX|00-0038611",
+          "pos": "RB"
         },
         {
           "player": "Ameer Abdullah",
@@ -2794,7 +3881,8 @@
           "td": 0.0,
           "ya": 4.5,
           "ag": 3.3,
-          "log": "JAX|00-0032104"
+          "log": "JAX|00-0032104",
+          "pos": "RB"
         },
         {
           "player": "Trevor Lawrence",
@@ -2802,7 +3890,8 @@
           "td": 0.0,
           "ya": 4.2,
           "ag": 2.7,
-          "log": "JAX|00-0036971"
+          "log": "JAX|00-0036971",
+          "pos": "QB"
         },
         {
           "player": "Travis Hunter",
@@ -2810,7 +3899,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "JAX|00-0040718"
+          "log": "JAX|00-0040718",
+          "pos": "CB"
         },
         {
           "player": "Jakobi Meyers",
@@ -2818,7 +3908,8 @@
           "td": 0.0,
           "ya": 2.0,
           "ag": 1.0,
-          "log": "JAX|00-0034960"
+          "log": "JAX|00-0034960",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -2828,7 +3919,8 @@
           "td": 0.67,
           "yr": 14.7,
           "rec": 5.0,
-          "log": "JAX|00-0038606"
+          "log": "JAX|00-0038606",
+          "pos": "WR"
         },
         {
           "player": "Jakobi Meyers",
@@ -2836,7 +3928,8 @@
           "td": 0.67,
           "yr": 13.2,
           "rec": 3.33,
-          "log": "JAX|00-0034960"
+          "log": "JAX|00-0034960",
+          "pos": "WR"
         },
         {
           "player": "Brian Thomas Jr.",
@@ -2844,7 +3937,8 @@
           "td": 0.0,
           "yr": 12.6,
           "rec": 2.33,
-          "log": "JAX|00-0039893"
+          "log": "JAX|00-0039893",
+          "pos": "WR"
         },
         {
           "player": "Brenton Strange",
@@ -2852,7 +3946,8 @@
           "td": 0.33,
           "yr": 10.3,
           "rec": 2.33,
-          "log": "JAX|00-0038935"
+          "log": "JAX|00-0038935",
+          "pos": "TE"
         },
         {
           "player": "Josh Cameron",
@@ -2860,7 +3955,8 @@
           "td": 1.0,
           "yr": 10.7,
           "rec": 1.5,
-          "log": "JAX|00-0041100"
+          "log": "JAX|00-0041100",
+          "pos": "WR"
         },
         {
           "player": "Bhayshul Tuten",
@@ -2868,7 +3964,8 @@
           "td": 0.0,
           "yr": 7.2,
           "rec": 1.67,
-          "log": "JAX|00-0040719"
+          "log": "JAX|00-0040719",
+          "pos": "RB"
         },
         {
           "player": "Travis Hunter",
@@ -2876,7 +3973,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 1.0,
-          "log": "JAX|00-0040718"
+          "log": "JAX|00-0040718",
+          "pos": "CB"
         }
       ],
       "defVsPosition": {
@@ -2900,6 +3998,70 @@
           "yds": 175.7,
           "td": 0.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "CLE",
+            "at": false,
+            "line": -8.5,
+            "score": "34-10",
+            "ats": "W",
+            "total": 40.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "DEN",
+            "at": true,
+            "line": 2.5,
+            "score": "13-20",
+            "ats": "L",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "NE",
+            "at": false,
+            "line": -3.0,
+            "score": "35-6",
+            "ats": "W",
+            "total": 46.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Kansas City Chiefs": {
@@ -2940,7 +4102,8 @@
           "ydsG": 270.7,
           "td": 2.33,
           "int": 0.67,
-          "log": "KC|00-0033873"
+          "log": "KC|00-0033873",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -2950,7 +4113,8 @@
           "td": 0.67,
           "ya": 5.5,
           "ag": 21.7,
-          "log": "KC|00-0038134"
+          "log": "KC|00-0038134",
+          "pos": "RB"
         },
         {
           "player": "Emmett Johnson",
@@ -2958,7 +4122,8 @@
           "td": 0.0,
           "ya": 3.5,
           "ag": 5.3,
-          "log": "KC|00-0041013"
+          "log": "KC|00-0041013",
+          "pos": "RB"
         },
         {
           "player": "Patrick Mahomes",
@@ -2966,7 +4131,8 @@
           "td": 0.33,
           "ya": 4.1,
           "ag": 3.3,
-          "log": "KC|00-0033873"
+          "log": "KC|00-0033873",
+          "pos": "QB"
         },
         {
           "player": "Khyiris Tonga",
@@ -2974,7 +4140,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "KC|00-0036909"
+          "log": "KC|00-0036909",
+          "pos": "DT"
         }
       ],
       "receiving": [
@@ -2984,7 +4151,8 @@
           "td": 0.67,
           "yr": 16.5,
           "rec": 4.67,
-          "log": "KC|00-0030506"
+          "log": "KC|00-0030506",
+          "pos": "TE"
         },
         {
           "player": "Rashee Rice",
@@ -2992,7 +4160,8 @@
           "td": 0.33,
           "yr": 14.6,
           "rec": 4.33,
-          "log": "KC|00-0039067"
+          "log": "KC|00-0039067",
+          "pos": "WR"
         },
         {
           "player": "Tyquan Thornton",
@@ -3000,7 +4169,8 @@
           "td": 0.0,
           "yr": 18.0,
           "rec": 2.0,
-          "log": "KC|00-0038104"
+          "log": "KC|00-0038104",
+          "pos": "WR"
         },
         {
           "player": "Emmett Johnson",
@@ -3008,7 +4178,8 @@
           "td": 0.0,
           "yr": 16.0,
           "rec": 2.0,
-          "log": "KC|00-0041013"
+          "log": "KC|00-0041013",
+          "pos": "RB"
         },
         {
           "player": "Kenneth Walker III",
@@ -3016,7 +4187,8 @@
           "td": 0.67,
           "yr": 7.5,
           "rec": 3.67,
-          "log": "KC|00-0038134"
+          "log": "KC|00-0038134",
+          "pos": "RB"
         },
         {
           "player": "Xavier Worthy",
@@ -3024,7 +4196,8 @@
           "td": 0.33,
           "yr": 6.3,
           "rec": 3.33,
-          "log": "KC|00-0039894"
+          "log": "KC|00-0039894",
+          "pos": "WR"
         },
         {
           "player": "Noah Gray",
@@ -3032,7 +4205,8 @@
           "td": 0.0,
           "yr": 11.0,
           "rec": 1.33,
-          "log": "KC|00-0036637"
+          "log": "KC|00-0036637",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -3056,6 +4230,70 @@
           "yds": 115.0,
           "td": 0.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "DEN",
+            "at": false,
+            "line": -2.5,
+            "score": "31-10",
+            "ats": "W",
+            "total": 42.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "IND",
+            "at": false,
+            "line": -6.0,
+            "score": "33-30",
+            "ats": "L",
+            "total": 46.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "MIA",
+            "at": true,
+            "line": -10.0,
+            "score": "24-10",
+            "ats": "W",
+            "total": 45.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Los Angeles Rams": {
@@ -3096,14 +4334,16 @@
           "ydsG": 290.7,
           "td": 2.0,
           "int": 1.33,
-          "log": "LA|00-0026498"
+          "log": "LA|00-0026498",
+          "pos": "QB"
         },
         {
           "player": "Stetson Bennett",
           "ydsG": 13.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "LA|00-0039107"
+          "log": "LA|00-0039107",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -3113,7 +4353,8 @@
           "td": 0.33,
           "ya": 5.6,
           "ag": 12.7,
-          "log": "LA|00-0037840"
+          "log": "LA|00-0037840",
+          "pos": "RB"
         },
         {
           "player": "Blake Corum",
@@ -3121,7 +4362,8 @@
           "td": 0.0,
           "ya": 5.3,
           "ag": 9.3,
-          "log": "LA|00-0039738"
+          "log": "LA|00-0039738",
+          "pos": "RB"
         },
         {
           "player": "Ronnie Rivers",
@@ -3129,7 +4371,8 @@
           "td": 0.0,
           "ya": 3.8,
           "ag": 5.0,
-          "log": "LA|00-0037557"
+          "log": "LA|00-0037557",
+          "pos": "RB"
         },
         {
           "player": "Stetson Bennett",
@@ -3137,7 +4380,8 @@
           "td": 0.0,
           "ya": 9.0,
           "ag": 1.0,
-          "log": "LA|00-0039107"
+          "log": "LA|00-0039107",
+          "pos": "QB"
         },
         {
           "player": "Matthew Stafford",
@@ -3145,7 +4389,8 @@
           "td": 0.0,
           "ya": 1.4,
           "ag": 2.7,
-          "log": "LA|00-0026498"
+          "log": "LA|00-0026498",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -3155,7 +4400,8 @@
           "td": 0.67,
           "yr": 19.9,
           "rec": 6.0,
-          "log": "LA|00-0031381"
+          "log": "LA|00-0031381",
+          "pos": "WR"
         },
         {
           "player": "Puka Nacua",
@@ -3163,7 +4409,8 @@
           "td": 0.0,
           "yr": 14.8,
           "rec": 5.0,
-          "log": "LA|00-0039075"
+          "log": "LA|00-0039075",
+          "pos": "WR"
         },
         {
           "player": "Tyler Higbee",
@@ -3171,7 +4418,8 @@
           "td": 0.5,
           "yr": 7.4,
           "rec": 5.0,
-          "log": "LA|00-0033110"
+          "log": "LA|00-0033110",
+          "pos": "TE"
         },
         {
           "player": "Kyren Williams",
@@ -3179,7 +4427,8 @@
           "td": 0.33,
           "yr": 9.6,
           "rec": 3.67,
-          "log": "LA|00-0037840"
+          "log": "LA|00-0037840",
+          "pos": "RB"
         },
         {
           "player": "Konata Mumpfield",
@@ -3187,7 +4436,8 @@
           "td": 0.33,
           "yr": 21.0,
           "rec": 1.67,
-          "log": "LA|00-0040590"
+          "log": "LA|00-0040590",
+          "pos": "WR"
         },
         {
           "player": "Terrance Ferguson",
@@ -3195,7 +4445,8 @@
           "td": 0.33,
           "yr": 9.0,
           "rec": 2.33,
-          "log": "LA|00-0040737"
+          "log": "LA|00-0040737",
+          "pos": "TE"
         },
         {
           "player": "Tutu Atwell",
@@ -3203,7 +4454,8 @@
           "td": 0.0,
           "yr": 19.0,
           "rec": 1.0,
-          "log": "LA|00-0036849"
+          "log": "LA|00-0036849",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -3227,6 +4479,70 @@
           "yds": 115.7,
           "td": 1.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 2,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "SF",
+            "at": false,
+            "line": -3.5,
+            "score": "7-27",
+            "ats": "L",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "NYG",
+            "at": false,
+            "line": -6.5,
+            "score": "28-6",
+            "ats": "W",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "DEN",
+            "at": true,
+            "line": 1.5,
+            "score": "26-30",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Los Angeles Chargers": {
@@ -3267,7 +4583,8 @@
           "ydsG": 209.0,
           "td": 1.0,
           "int": 1.33,
-          "log": "LAC|00-0036355"
+          "log": "LAC|00-0036355",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -3277,7 +4594,8 @@
           "td": 0.67,
           "ya": 3.9,
           "ag": 16.7,
-          "log": "LAC|00-0040666"
+          "log": "LAC|00-0040666",
+          "pos": "RB"
         },
         {
           "player": "Keaton Mitchell",
@@ -3285,7 +4603,8 @@
           "td": 0.0,
           "ya": 5.0,
           "ag": 5.7,
-          "log": "LAC|00-0038454"
+          "log": "LAC|00-0038454",
+          "pos": "RB"
         },
         {
           "player": "Justin Herbert",
@@ -3293,7 +4612,8 @@
           "td": 0.0,
           "ya": 4.0,
           "ag": 4.0,
-          "log": "LAC|00-0036355"
+          "log": "LAC|00-0036355",
+          "pos": "QB"
         },
         {
           "player": "Quentin Johnston",
@@ -3301,7 +4621,8 @@
           "td": 0.0,
           "ya": 7.0,
           "ag": 1.0,
-          "log": "LAC|00-0038544"
+          "log": "LAC|00-0038544",
+          "pos": "WR"
         },
         {
           "player": "Kimani Vidal",
@@ -3309,7 +4630,8 @@
           "td": 0.0,
           "ya": 6.0,
           "ag": 1.0,
-          "log": "LAC|00-0039391"
+          "log": "LAC|00-0039391",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -3319,7 +4641,8 @@
           "td": 0.33,
           "yr": 15.2,
           "rec": 4.0,
-          "log": "LAC|00-0039915"
+          "log": "LAC|00-0039915",
+          "pos": "WR"
         },
         {
           "player": "Tre Harris",
@@ -3327,7 +4650,8 @@
           "td": 0.0,
           "yr": 14.9,
           "rec": 3.33,
-          "log": "LAC|00-0040727"
+          "log": "LAC|00-0040727",
+          "pos": "WR"
         },
         {
           "player": "Alec Ingold",
@@ -3335,7 +4659,8 @@
           "td": 0.0,
           "yr": 11.7,
           "rec": 3.0,
-          "log": "LAC|00-0035125"
+          "log": "LAC|00-0035125",
+          "pos": "FB"
         },
         {
           "player": "David Njoku",
@@ -3343,7 +4668,8 @@
           "td": 0.0,
           "yr": 11.2,
           "rec": 3.0,
-          "log": "LAC|00-0033885"
+          "log": "LAC|00-0033885",
+          "pos": "TE"
         },
         {
           "player": "Quentin Johnston",
@@ -3351,7 +4677,8 @@
           "td": 0.0,
           "yr": 10.7,
           "rec": 2.0,
-          "log": "LAC|00-0038544"
+          "log": "LAC|00-0038544",
+          "pos": "WR"
         },
         {
           "player": "Charlie Kolar",
@@ -3359,7 +4686,8 @@
           "td": 0.0,
           "yr": 7.0,
           "rec": 3.0,
-          "log": "LAC|00-0038046"
+          "log": "LAC|00-0038046",
+          "pos": "TE"
         },
         {
           "player": "Oronde Gadsden II",
@@ -3367,7 +4695,8 @@
           "td": 0.33,
           "yr": 12.5,
           "rec": 1.33,
-          "log": "LAC|00-0040189"
+          "log": "LAC|00-0040189",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -3391,6 +4720,70 @@
           "yds": 159.3,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 0,
+          "u": 3,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "ARI",
+            "at": false,
+            "line": -8.5,
+            "score": "14-26",
+            "ats": "L",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "LV",
+            "at": false,
+            "line": -6.5,
+            "score": "14-26",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "BUF",
+            "at": true,
+            "line": 7.0,
+            "score": "16-24",
+            "ats": "L",
+            "total": 50.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Las Vegas Raiders": {
@@ -3431,7 +4824,8 @@
           "ydsG": 220.3,
           "td": 3.0,
           "int": 1.0,
-          "log": "LV|00-0029604"
+          "log": "LV|00-0029604",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -3441,7 +4835,8 @@
           "td": 0.0,
           "ya": 3.3,
           "ag": 21.0,
-          "log": "LV|00-0040122"
+          "log": "LV|00-0040122",
+          "pos": "RB"
         },
         {
           "player": "Mike Washington Jr.",
@@ -3449,7 +4844,8 @@
           "td": 0.33,
           "ya": 6.8,
           "ag": 5.0,
-          "log": "LV|00-0040878"
+          "log": "LV|00-0040878",
+          "pos": "RB"
         },
         {
           "player": "Connor Heyward",
@@ -3457,7 +4853,8 @@
           "td": 0.0,
           "ya": 1.0,
           "ag": 1.0,
-          "log": "LV|00-0037304"
+          "log": "LV|00-0037304",
+          "pos": "FB"
         },
         {
           "player": "Kirk Cousins",
@@ -3465,7 +4862,8 @@
           "td": 0.0,
           "ya": -0.2,
           "ag": 4.0,
-          "log": "LV|00-0029604"
+          "log": "LV|00-0029604",
+          "pos": "QB"
         },
         {
           "player": "Malik Benson",
@@ -3473,7 +4871,8 @@
           "td": 0.0,
           "ya": -8.0,
           "ag": 1.0,
-          "log": "LV|00-0040894"
+          "log": "LV|00-0040894",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -3483,7 +4882,8 @@
           "td": 1.0,
           "yr": 11.6,
           "rec": 10.0,
-          "log": "LV|00-0039338"
+          "log": "LV|00-0039338",
+          "pos": "TE"
         },
         {
           "player": "Tre Tucker",
@@ -3491,7 +4891,8 @@
           "td": 0.33,
           "yr": 17.2,
           "rec": 3.67,
-          "log": "LV|00-0038563"
+          "log": "LV|00-0038563",
+          "pos": "WR"
         },
         {
           "player": "Ashton Jeanty",
@@ -3499,7 +4900,8 @@
           "td": 0.67,
           "yr": 7.5,
           "rec": 4.33,
-          "log": "LV|00-0040122"
+          "log": "LV|00-0040122",
+          "pos": "RB"
         },
         {
           "player": "Michael Mayer",
@@ -3507,7 +4909,8 @@
           "td": 0.33,
           "yr": 7.2,
           "rec": 4.0,
-          "log": "LV|00-0039066"
+          "log": "LV|00-0039066",
+          "pos": "TE"
         },
         {
           "player": "Dareke Young",
@@ -3515,7 +4918,8 @@
           "td": 0.0,
           "yr": 27.0,
           "rec": 1.0,
-          "log": "LV|00-0037093"
+          "log": "LV|00-0037093",
+          "pos": "WR"
         },
         {
           "player": "Jack Bech",
@@ -3523,7 +4927,8 @@
           "td": 0.5,
           "yr": 9.6,
           "rec": 2.5,
-          "log": "LV|00-0040729"
+          "log": "LV|00-0040729",
+          "pos": "WR"
         },
         {
           "player": "Jalen Nailor",
@@ -3531,7 +4936,8 @@
           "td": 0.0,
           "yr": 10.4,
           "rec": 1.67,
-          "log": "LV|00-0037291"
+          "log": "LV|00-0037291",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -3555,6 +4961,70 @@
           "yds": 142.0,
           "td": 0.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 3,
+          "l": 0,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "MIA",
+            "at": false,
+            "line": -3.0,
+            "score": "27-13",
+            "ats": "W",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "LAC",
+            "at": true,
+            "line": 6.5,
+            "score": "26-14",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "NO",
+            "at": true,
+            "line": 3.5,
+            "score": "35-27",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Miami Dolphins": {
@@ -3595,7 +5065,8 @@
           "ydsG": 209.0,
           "td": 0.33,
           "int": 0.67,
-          "log": "MIA|00-0038128"
+          "log": "MIA|00-0038128",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -3605,7 +5076,8 @@
           "td": 0.0,
           "ya": 3.7,
           "ag": 11.3,
-          "log": "MIA|00-0039040"
+          "log": "MIA|00-0039040",
+          "pos": "RB"
         },
         {
           "player": "Malik Willis",
@@ -3613,7 +5085,8 @@
           "td": 0.33,
           "ya": 5.9,
           "ag": 5.7,
-          "log": "MIA|00-0038128"
+          "log": "MIA|00-0038128",
+          "pos": "QB"
         },
         {
           "player": "Ollie Gordon II",
@@ -3621,7 +5094,8 @@
           "td": 0.5,
           "ya": 2.4,
           "ag": 10.0,
-          "log": "MIA|00-0040198"
+          "log": "MIA|00-0040198",
+          "pos": "RB"
         },
         {
           "player": "Jaylen Wright",
@@ -3629,7 +5103,8 @@
           "td": 0.0,
           "ya": 3.3,
           "ag": 1.5,
-          "log": "MIA|00-0039874"
+          "log": "MIA|00-0039874",
+          "pos": "RB"
         },
         {
           "player": "Malik Washington",
@@ -3637,7 +5112,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.5,
-          "log": "MIA|00-0039880"
+          "log": "MIA|00-0039880",
+          "pos": "WR"
         },
         {
           "player": "Bradley Pinion",
@@ -3645,7 +5121,8 @@
           "td": 0.0,
           "ya": 0.0,
           "ag": 1.0,
-          "log": "MIA|00-0032065"
+          "log": "MIA|00-0032065",
+          "pos": "P"
         }
       ],
       "receiving": [
@@ -3655,7 +5132,8 @@
           "td": 0.0,
           "yr": 16.1,
           "rec": 3.5,
-          "log": "MIA|00-0041523"
+          "log": "MIA|00-0041523",
+          "pos": "WR"
         },
         {
           "player": "Malik Washington",
@@ -3663,7 +5141,8 @@
           "td": 0.0,
           "yr": 12.7,
           "rec": 4.0,
-          "log": "MIA|00-0039880"
+          "log": "MIA|00-0039880",
+          "pos": "WR"
         },
         {
           "player": "Ryan Miller",
@@ -3671,7 +5150,8 @@
           "td": 0.5,
           "yr": 30.7,
           "rec": 1.5,
-          "log": "MIA|00-0038824"
+          "log": "MIA|00-0038824",
+          "pos": "WR"
         },
         {
           "player": "Chris Bell",
@@ -3679,7 +5159,8 @@
           "td": 0.0,
           "yr": 18.4,
           "rec": 1.67,
-          "log": "MIA|00-0041525"
+          "log": "MIA|00-0041525",
+          "pos": "WR"
         },
         {
           "player": "Greg Dulcich",
@@ -3687,7 +5168,8 @@
           "td": 0.0,
           "yr": 10.0,
           "rec": 3.0,
-          "log": "MIA|00-0037252"
+          "log": "MIA|00-0037252",
+          "pos": "TE"
         },
         {
           "player": "DJ Herman",
@@ -3695,7 +5177,8 @@
           "td": 0.0,
           "yr": 18.0,
           "rec": 1.0,
-          "log": "MIA|00-0041436"
+          "log": "MIA|00-0041436",
+          "pos": "RB"
         },
         {
           "player": "De'Von Achane",
@@ -3703,7 +5186,8 @@
           "td": 0.0,
           "yr": 7.0,
           "rec": 2.33,
-          "log": "MIA|00-0039040"
+          "log": "MIA|00-0039040",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -3727,6 +5211,70 @@
           "yds": 120.3,
           "td": 0.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "LV",
+            "at": true,
+            "line": 3.0,
+            "score": "13-27",
+            "ats": "L",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "SF",
+            "at": true,
+            "line": 12.5,
+            "score": "13-35",
+            "ats": "L",
+            "total": 44.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "KC",
+            "at": false,
+            "line": 10.0,
+            "score": "10-24",
+            "ats": "L",
+            "total": 45.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Minnesota Vikings": {
@@ -3767,14 +5315,16 @@
           "ydsG": 138.0,
           "td": 1.5,
           "int": 0.0,
-          "log": "MIN|00-0032950"
+          "log": "MIN|00-0032950",
+          "pos": "QB"
         },
         {
           "player": "Kyler Murray",
           "ydsG": 93.0,
           "td": 0.5,
           "int": 1.0,
-          "log": "MIN|00-0035228"
+          "log": "MIN|00-0035228",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -3784,7 +5334,8 @@
           "td": 0.33,
           "ya": 3.9,
           "ag": 17.3,
-          "log": "MIN|00-0033293"
+          "log": "MIN|00-0033293",
+          "pos": "RB"
         },
         {
           "player": "Jordan Mason",
@@ -3792,7 +5343,8 @@
           "td": 1.0,
           "ya": 3.9,
           "ag": 15.0,
-          "log": "MIN|00-0037525"
+          "log": "MIN|00-0037525",
+          "pos": "RB"
         },
         {
           "player": "Kyler Murray",
@@ -3800,7 +5352,8 @@
           "td": 0.0,
           "ya": 6.5,
           "ag": 2.0,
-          "log": "MIN|00-0035228"
+          "log": "MIN|00-0035228",
+          "pos": "QB"
         },
         {
           "player": "DeeJay Dallas",
@@ -3808,7 +5361,8 @@
           "td": 0.0,
           "ya": 3.3,
           "ag": 1.5,
-          "log": "MIN|00-0036425"
+          "log": "MIN|00-0036425",
+          "pos": "RB"
         },
         {
           "player": "Carson Wentz",
@@ -3816,7 +5370,8 @@
           "td": 0.0,
           "ya": 0.6,
           "ag": 4.0,
-          "log": "MIN|00-0032950"
+          "log": "MIN|00-0032950",
+          "pos": "QB"
         },
         {
           "player": "Demond Claiborne",
@@ -3824,7 +5379,8 @@
           "td": 0.0,
           "ya": 0.3,
           "ag": 3.0,
-          "log": "MIN|00-0041104"
+          "log": "MIN|00-0041104",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -3834,7 +5390,8 @@
           "td": 0.67,
           "yr": 13.8,
           "rec": 4.33,
-          "log": "MIN|00-0036322"
+          "log": "MIN|00-0036322",
+          "pos": "WR"
         },
         {
           "player": "Jordan Addison",
@@ -3842,7 +5399,8 @@
           "td": 0.33,
           "yr": 15.9,
           "rec": 2.33,
-          "log": "MIN|00-0038994"
+          "log": "MIN|00-0038994",
+          "pos": "WR"
         },
         {
           "player": "T.J. Hockenson",
@@ -3850,7 +5408,8 @@
           "td": 0.33,
           "yr": 8.4,
           "rec": 3.0,
-          "log": "MIN|00-0035229"
+          "log": "MIN|00-0035229",
+          "pos": "TE"
         },
         {
           "player": "Josh Oliver",
@@ -3858,7 +5417,8 @@
           "td": 0.0,
           "yr": 15.3,
           "rec": 1.5,
-          "log": "MIN|00-0035249"
+          "log": "MIN|00-0035249",
+          "pos": "TE"
         },
         {
           "player": "Aaron Jones",
@@ -3866,7 +5426,8 @@
           "td": 0.0,
           "yr": 6.8,
           "rec": 2.5,
-          "log": "MIN|00-0033293"
+          "log": "MIN|00-0033293",
+          "pos": "RB"
         },
         {
           "player": "DeeJay Dallas",
@@ -3874,7 +5435,8 @@
           "td": 0.0,
           "yr": 6.5,
           "rec": 1.0,
-          "log": "MIN|00-0036425"
+          "log": "MIN|00-0036425",
+          "pos": "RB"
         },
         {
           "player": "Demond Claiborne",
@@ -3882,7 +5444,8 @@
           "td": 0.0,
           "yr": 2.0,
           "rec": 1.0,
-          "log": "MIN|00-0041104"
+          "log": "MIN|00-0041104",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -3906,6 +5469,70 @@
           "yds": 174.0,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 3,
+          "l": 0,
+          "p": 0
+        },
+        "fav": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "GB",
+            "at": false,
+            "line": -1.5,
+            "score": "39-22",
+            "ats": "W",
+            "total": 46.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "CHI",
+            "at": true,
+            "line": 4.5,
+            "score": "9-3",
+            "ats": "W",
+            "total": 46.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "TB",
+            "at": true,
+            "line": -1.5,
+            "score": "23-16",
+            "ats": "W",
+            "total": 42.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "New England Patriots": {
@@ -3946,21 +5573,24 @@
           "ydsG": 195.0,
           "td": 0.33,
           "int": 2.0,
-          "log": "NE|00-0039851"
+          "log": "NE|00-0039851",
+          "pos": "QB"
         },
         {
           "player": "Tommy DeVito",
           "ydsG": 30.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "NE|00-0038476"
+          "log": "NE|00-0038476",
+          "pos": "QB"
         },
         {
           "player": "Efton Chism III",
           "ydsG": 16.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "NE|00-0040563"
+          "log": "NE|00-0040563",
+          "pos": "WR"
         }
       ],
       "rushing": [
@@ -3970,7 +5600,8 @@
           "td": 0.5,
           "ya": 4.1,
           "ag": 12.0,
-          "log": "NE|00-0040734"
+          "log": "NE|00-0040734",
+          "pos": "RB"
         },
         {
           "player": "Rhamondre Stevenson",
@@ -3978,7 +5609,8 @@
           "td": 0.0,
           "ya": 3.7,
           "ag": 10.3,
-          "log": "NE|00-0036875"
+          "log": "NE|00-0036875",
+          "pos": "RB"
         },
         {
           "player": "Drake Maye",
@@ -3986,7 +5618,8 @@
           "td": 0.0,
           "ya": 5.5,
           "ag": 5.0,
-          "log": "NE|00-0039851"
+          "log": "NE|00-0039851",
+          "pos": "QB"
         },
         {
           "player": "Corey Kiner",
@@ -3994,7 +5627,8 @@
           "td": 0.0,
           "ya": 2.1,
           "ag": 4.7,
-          "log": "NE|00-0040556"
+          "log": "NE|00-0040556",
+          "pos": "RB"
         },
         {
           "player": "Tommy DeVito",
@@ -4002,7 +5636,8 @@
           "td": 0.0,
           "ya": 2.0,
           "ag": 1.0,
-          "log": "NE|00-0038476"
+          "log": "NE|00-0038476",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -4012,7 +5647,8 @@
           "td": 0.0,
           "yr": 13.0,
           "rec": 4.0,
-          "log": "NE|00-0033555"
+          "log": "NE|00-0033555",
+          "pos": "WR"
         },
         {
           "player": "Romeo Doubs",
@@ -4020,7 +5656,8 @@
           "td": 0.0,
           "yr": 24.2,
           "rec": 2.0,
-          "log": "NE|00-0037816"
+          "log": "NE|00-0037816",
+          "pos": "WR"
         },
         {
           "player": "A.J. Brown",
@@ -4028,7 +5665,8 @@
           "td": 0.0,
           "yr": 8.7,
           "rec": 3.0,
-          "log": "NE|00-0035676"
+          "log": "NE|00-0035676",
+          "pos": "WR"
         },
         {
           "player": "Hunter Henry",
@@ -4036,7 +5674,8 @@
           "td": 0.0,
           "yr": 10.1,
           "rec": 2.33,
-          "log": "NE|00-0033090"
+          "log": "NE|00-0033090",
+          "pos": "TE"
         },
         {
           "player": "DeMario Douglas",
@@ -4044,7 +5683,8 @@
           "td": 0.0,
           "yr": 9.6,
           "rec": 2.33,
-          "log": "NE|00-0038621"
+          "log": "NE|00-0038621",
+          "pos": "WR"
         },
         {
           "player": "Kyle Williams",
@@ -4052,7 +5692,8 @@
           "td": 0.0,
           "yr": 22.0,
           "rec": 1.0,
-          "log": "NE|00-0040131"
+          "log": "NE|00-0040131",
+          "pos": "WR"
         },
         {
           "player": "Rhamondre Stevenson",
@@ -4060,7 +5701,8 @@
           "td": 0.0,
           "yr": 7.0,
           "rec": 3.0,
-          "log": "NE|00-0036875"
+          "log": "NE|00-0036875",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -4084,6 +5726,70 @@
           "yds": 125.7,
           "td": 1.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "fav": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 1,
+          "p": 1
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 1
+        },
+        "ou": {
+          "o": 0,
+          "u": 3,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "SEA",
+            "at": true,
+            "line": 3.0,
+            "score": "10-13",
+            "ats": "P",
+            "total": 44.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "PIT",
+            "at": false,
+            "line": -4.5,
+            "score": "20-3",
+            "ats": "W",
+            "total": 41.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "JAX",
+            "at": true,
+            "line": 3.0,
+            "score": "6-35",
+            "ats": "L",
+            "total": 46.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "New Orleans Saints": {
@@ -4124,7 +5830,8 @@
           "ydsG": 305.7,
           "td": 2.67,
           "int": 1.0,
-          "log": "NO|00-0040743"
+          "log": "NO|00-0040743",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -4134,7 +5841,8 @@
           "td": 0.0,
           "ya": 4.3,
           "ag": 10.0,
-          "log": "NO|00-0036973"
+          "log": "NO|00-0036973",
+          "pos": "RB"
         },
         {
           "player": "Alvin Kamara",
@@ -4142,7 +5850,8 @@
           "td": 0.0,
           "ya": 2.8,
           "ag": 9.0,
-          "log": "NO|00-0033906"
+          "log": "NO|00-0033906",
+          "pos": "RB"
         },
         {
           "player": "Tyler Shough",
@@ -4150,7 +5859,8 @@
           "td": 0.33,
           "ya": 4.8,
           "ag": 4.7,
-          "log": "NO|00-0040743"
+          "log": "NO|00-0040743",
+          "pos": "QB"
         },
         {
           "player": "Kendre Miller",
@@ -4158,7 +5868,8 @@
           "td": 0.5,
           "ya": 3.4,
           "ag": 6.5,
-          "log": "NO|00-0038551"
+          "log": "NO|00-0038551",
+          "pos": "RB"
         },
         {
           "player": "CJ Donaldson",
@@ -4166,7 +5877,8 @@
           "td": 0.0,
           "ya": 2.8,
           "ag": 1.3,
-          "log": "NO|00-0041326"
+          "log": "NO|00-0041326",
+          "pos": "RB"
         },
         {
           "player": "Barion Brown",
@@ -4174,7 +5886,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "NO|00-0041099"
+          "log": "NO|00-0041099",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -4184,7 +5897,8 @@
           "td": 0.33,
           "yr": 13.9,
           "rec": 9.0,
-          "log": "NO|00-0037239"
+          "log": "NO|00-0037239",
+          "pos": "WR"
         },
         {
           "player": "Juwan Johnson",
@@ -4192,7 +5906,8 @@
           "td": 1.0,
           "yr": 11.5,
           "rec": 5.0,
-          "log": "NO|00-0036040"
+          "log": "NO|00-0036040",
+          "pos": "TE"
         },
         {
           "player": "Devaughn Vele",
@@ -4200,7 +5915,8 @@
           "td": 0.33,
           "yr": 11.5,
           "rec": 5.0,
-          "log": "NO|00-0039424"
+          "log": "NO|00-0039424",
+          "pos": "WR"
         },
         {
           "player": "Noah Fant",
@@ -4208,7 +5924,8 @@
           "td": 1.5,
           "yr": 8.2,
           "rec": 4.0,
-          "log": "NO|00-0035644"
+          "log": "NO|00-0035644",
+          "pos": "TE"
         },
         {
           "player": "Travis Etienne",
@@ -4216,7 +5933,8 @@
           "td": 0.0,
           "yr": 4.6,
           "rec": 3.67,
-          "log": "NO|00-0036973"
+          "log": "NO|00-0036973",
+          "pos": "RB"
         },
         {
           "player": "Bryce Lance",
@@ -4224,7 +5942,8 @@
           "td": 0.0,
           "yr": 12.5,
           "rec": 1.33,
-          "log": "NO|00-0041067"
+          "log": "NO|00-0041067",
+          "pos": "WR"
         },
         {
           "player": "Oscar Delp",
@@ -4232,7 +5951,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 1.0,
-          "log": "NO|00-0041041"
+          "log": "NO|00-0041041",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -4256,6 +5976,70 @@
           "yds": 110.0,
           "td": 1.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "DET",
+            "at": true,
+            "line": 7.0,
+            "score": "30-31",
+            "ats": "W",
+            "total": 49.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "BAL",
+            "at": true,
+            "line": 8.5,
+            "score": "24-17",
+            "ats": "W",
+            "total": 45.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "LV",
+            "at": false,
+            "line": -3.5,
+            "score": "27-35",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "New York Giants": {
@@ -4296,14 +6080,16 @@
           "ydsG": 125.0,
           "td": 1.5,
           "int": 0.0,
-          "log": "NYG|00-0040691"
+          "log": "NYG|00-0040691",
+          "pos": "QB"
         },
         {
           "player": "Jameis Winston",
           "ydsG": 114.5,
           "td": 0.0,
           "int": 0.5,
-          "log": "NYG|00-0031503"
+          "log": "NYG|00-0031503",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -4313,7 +6099,8 @@
           "td": 0.33,
           "ya": 3.5,
           "ag": 16.7,
-          "log": "NYG|00-0040715"
+          "log": "NYG|00-0040715",
+          "pos": "RB"
         },
         {
           "player": "Jaxson Dart",
@@ -4321,7 +6108,8 @@
           "td": 0.0,
           "ya": 4.9,
           "ag": 11.0,
-          "log": "NYG|00-0040691"
+          "log": "NYG|00-0040691",
+          "pos": "QB"
         },
         {
           "player": "Najee Harris",
@@ -4329,7 +6117,8 @@
           "td": 0.0,
           "ya": 4.5,
           "ag": 6.5,
-          "log": "NYG|00-0036893"
+          "log": "NYG|00-0036893",
+          "pos": "RB"
         },
         {
           "player": "Devin Singletary",
@@ -4337,7 +6126,8 @@
           "td": 0.0,
           "ya": 2.8,
           "ag": 4.5,
-          "log": "NYG|00-0035250"
+          "log": "NYG|00-0035250",
+          "pos": "RB"
         },
         {
           "player": "Darnell Mooney",
@@ -4345,7 +6135,8 @@
           "td": 0.0,
           "ya": 9.0,
           "ag": 1.0,
-          "log": "NYG|00-0036309"
+          "log": "NYG|00-0036309",
+          "pos": "WR"
         },
         {
           "player": "Tyrone Tracy Jr.",
@@ -4353,7 +6144,8 @@
           "td": 0.0,
           "ya": 5.7,
           "ag": 1.5,
-          "log": "NYG|00-0039384"
+          "log": "NYG|00-0039384",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -4363,7 +6155,8 @@
           "td": 0.67,
           "yr": 8.3,
           "rec": 5.0,
-          "log": "NYG|00-0037838"
+          "log": "NYG|00-0037838",
+          "pos": "TE"
         },
         {
           "player": "Malik Nabers",
@@ -4371,7 +6164,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 4.0,
-          "log": "NYG|00-0039337"
+          "log": "NYG|00-0039337",
+          "pos": "WR"
         },
         {
           "player": "Darnell Mooney",
@@ -4379,7 +6173,8 @@
           "td": 0.0,
           "yr": 15.8,
           "rec": 2.0,
-          "log": "NYG|00-0036309"
+          "log": "NYG|00-0036309",
+          "pos": "WR"
         },
         {
           "player": "Cam Skattebo",
@@ -4387,7 +6182,8 @@
           "td": 0.0,
           "yr": 8.4,
           "rec": 3.5,
-          "log": "NYG|00-0040715"
+          "log": "NYG|00-0040715",
+          "pos": "RB"
         },
         {
           "player": "Malachi Fields",
@@ -4395,7 +6191,8 @@
           "td": 0.0,
           "yr": 12.3,
           "rec": 2.0,
-          "log": "NYG|00-0041042"
+          "log": "NYG|00-0041042",
+          "pos": "WR"
         },
         {
           "player": "Devin Singletary",
@@ -4403,7 +6200,8 @@
           "td": 0.5,
           "yr": 5.5,
           "rec": 2.0,
-          "log": "NYG|00-0035250"
+          "log": "NYG|00-0035250",
+          "pos": "RB"
         },
         {
           "player": "Theo Johnson",
@@ -4411,7 +6209,8 @@
           "td": 0.0,
           "yr": 9.0,
           "rec": 0.5,
-          "log": "NYG|00-0039847"
+          "log": "NYG|00-0039847",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -4435,6 +6234,70 @@
           "yds": 155.7,
           "td": 1.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "DAL",
+            "at": false,
+            "line": 3.0,
+            "score": "28-20",
+            "ats": "W",
+            "total": 47.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "LA",
+            "at": true,
+            "line": 6.5,
+            "score": "6-28",
+            "ats": "L",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "TEN",
+            "at": false,
+            "line": -2.5,
+            "score": "12-7",
+            "ats": "W",
+            "total": 37.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "New York Jets": {
@@ -4475,7 +6338,8 @@
           "ydsG": 261.0,
           "td": 1.33,
           "int": 0.0,
-          "log": "NYJ|00-0030565"
+          "log": "NYJ|00-0030565",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -4485,7 +6349,8 @@
           "td": 0.33,
           "ya": 3.2,
           "ag": 17.0,
-          "log": "NYJ|00-0038120"
+          "log": "NYJ|00-0038120",
+          "pos": "RB"
         },
         {
           "player": "Braelon Allen",
@@ -4493,7 +6358,8 @@
           "td": 0.33,
           "ya": 3.2,
           "ag": 6.3,
-          "log": "NYJ|00-0039794"
+          "log": "NYJ|00-0039794",
+          "pos": "RB"
         },
         {
           "player": "Isaiah Williams",
@@ -4501,7 +6367,8 @@
           "td": 0.0,
           "ya": 14.0,
           "ag": 1.0,
-          "log": "NYJ|00-0039451"
+          "log": "NYJ|00-0039451",
+          "pos": "WR"
         },
         {
           "player": "Geno Smith",
@@ -4509,7 +6376,8 @@
           "td": 0.0,
           "ya": 2.8,
           "ag": 4.3,
-          "log": "NYJ|00-0030565"
+          "log": "NYJ|00-0030565",
+          "pos": "QB"
         },
         {
           "player": "Kenyon Sadiq",
@@ -4517,7 +6385,8 @@
           "td": 1.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "NYJ|00-0041032"
+          "log": "NYJ|00-0041032",
+          "pos": "TE"
         }
       ],
       "receiving": [
@@ -4527,7 +6396,8 @@
           "td": 0.67,
           "yr": 11.6,
           "rec": 7.0,
-          "log": "NYJ|00-0037740"
+          "log": "NYJ|00-0037740",
+          "pos": "WR"
         },
         {
           "player": "Adonai Mitchell",
@@ -4535,7 +6405,8 @@
           "td": 0.0,
           "yr": 13.7,
           "rec": 4.5,
-          "log": "NYJ|00-0039890"
+          "log": "NYJ|00-0039890",
+          "pos": "WR"
         },
         {
           "player": "Kenyon Sadiq",
@@ -4543,7 +6414,8 @@
           "td": 0.33,
           "yr": 11.9,
           "rec": 4.0,
-          "log": "NYJ|00-0041032"
+          "log": "NYJ|00-0041032",
+          "pos": "TE"
         },
         {
           "player": "Breece Hall",
@@ -4551,7 +6423,8 @@
           "td": 0.0,
           "yr": 10.2,
           "rec": 3.33,
-          "log": "NYJ|00-0038120"
+          "log": "NYJ|00-0038120",
+          "pos": "RB"
         },
         {
           "player": "Omar Cooper Jr.",
@@ -4559,7 +6432,8 @@
           "td": 0.0,
           "yr": 30.0,
           "rec": 1.0,
-          "log": "NYJ|00-0041511"
+          "log": "NYJ|00-0041511",
+          "pos": "WR"
         },
         {
           "player": "Isaiah Williams",
@@ -4567,7 +6441,8 @@
           "td": 0.0,
           "yr": 7.8,
           "rec": 2.67,
-          "log": "NYJ|00-0039451"
+          "log": "NYJ|00-0039451",
+          "pos": "WR"
         },
         {
           "player": "Jelani Woods",
@@ -4575,7 +6450,8 @@
           "td": 0.0,
           "yr": 20.0,
           "rec": 1.0,
-          "log": "NYJ|00-0037755"
+          "log": "NYJ|00-0037755",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -4599,6 +6475,70 @@
           "yds": 115.0,
           "td": 1.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 0,
+          "p": 1
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 0,
+          "p": 1
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 0,
+          "p": 1
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "TEN",
+            "at": true,
+            "line": 1.5,
+            "score": "23-10",
+            "ats": "W",
+            "total": 39.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "GB",
+            "at": false,
+            "line": 3.5,
+            "score": "17-20",
+            "ats": "W",
+            "total": 44.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "DET",
+            "at": true,
+            "line": 7.0,
+            "score": "24-31",
+            "ats": "P",
+            "total": 49.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Philadelphia Eagles": {
@@ -4639,14 +6579,16 @@
           "ydsG": 206.7,
           "td": 1.67,
           "int": 1.0,
-          "log": "PHI|00-0036389"
+          "log": "PHI|00-0036389",
+          "pos": "QB"
         },
         {
           "player": "Andy Dalton",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 1.0,
-          "log": "PHI|00-0027973"
+          "log": "PHI|00-0027973",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -4656,7 +6598,8 @@
           "td": 0.0,
           "ya": 5.1,
           "ag": 11.3,
-          "log": "PHI|00-0034844"
+          "log": "PHI|00-0034844",
+          "pos": "RB"
         },
         {
           "player": "Jalen Hurts",
@@ -4664,7 +6607,8 @@
           "td": 0.33,
           "ya": 5.4,
           "ag": 5.3,
-          "log": "PHI|00-0036389"
+          "log": "PHI|00-0036389",
+          "pos": "QB"
         },
         {
           "player": "Tank Bigsby",
@@ -4672,7 +6616,8 @@
           "td": 0.5,
           "ya": 2.6,
           "ag": 7.0,
-          "log": "PHI|00-0038555"
+          "log": "PHI|00-0038555",
+          "pos": "RB"
         },
         {
           "player": "Will Shipley",
@@ -4680,7 +6625,8 @@
           "td": 0.0,
           "ya": 3.1,
           "ag": 4.5,
-          "log": "PHI|00-0039746"
+          "log": "PHI|00-0039746",
+          "pos": "RB"
         },
         {
           "player": "Marquise Brown",
@@ -4688,7 +6634,8 @@
           "td": 0.0,
           "ya": 6.0,
           "ag": 2.0,
-          "log": "PHI|00-0035662"
+          "log": "PHI|00-0035662",
+          "pos": "WR"
         },
         {
           "player": "Makai Lemon",
@@ -4696,7 +6643,8 @@
           "td": 0.0,
           "ya": -5.0,
           "ag": 1.0,
-          "log": "PHI|00-0040867"
+          "log": "PHI|00-0040867",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -4706,7 +6654,8 @@
           "td": 0.33,
           "yr": 12.4,
           "rec": 6.33,
-          "log": "PHI|00-0036912"
+          "log": "PHI|00-0036912",
+          "pos": "WR"
         },
         {
           "player": "Dontayvion Wicks",
@@ -4714,7 +6663,8 @@
           "td": 0.33,
           "yr": 19.9,
           "rec": 3.0,
-          "log": "PHI|00-0038393"
+          "log": "PHI|00-0038393",
+          "pos": "WR"
         },
         {
           "player": "Dallas Goedert",
@@ -4722,7 +6672,8 @@
           "td": 1.0,
           "yr": 16.2,
           "rec": 2.5,
-          "log": "PHI|00-0034351"
+          "log": "PHI|00-0034351",
+          "pos": "TE"
         },
         {
           "player": "Darius Cooper",
@@ -4730,7 +6681,8 @@
           "td": 1.0,
           "yr": 13.0,
           "rec": 2.0,
-          "log": "PHI|00-0040024"
+          "log": "PHI|00-0040024",
+          "pos": "WR"
         },
         {
           "player": "Makai Lemon",
@@ -4738,7 +6690,8 @@
           "td": 0.0,
           "yr": 5.4,
           "rec": 2.33,
-          "log": "PHI|00-0040867"
+          "log": "PHI|00-0040867",
+          "pos": "WR"
         },
         {
           "player": "Zach Ertz",
@@ -4746,7 +6699,8 @@
           "td": 0.0,
           "yr": 9.0,
           "rec": 1.0,
-          "log": "PHI|00-0030061"
+          "log": "PHI|00-0030061",
+          "pos": "TE"
         },
         {
           "player": "Will Shipley",
@@ -4754,7 +6708,8 @@
           "td": 0.0,
           "yr": 6.0,
           "rec": 1.33,
-          "log": "PHI|00-0039746"
+          "log": "PHI|00-0039746",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -4778,6 +6733,70 @@
           "yds": 157.7,
           "td": 1.33
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "WAS",
+            "at": false,
+            "line": -6.0,
+            "score": "24-22",
+            "ats": "L",
+            "total": 43.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "TEN",
+            "at": true,
+            "line": -7.0,
+            "score": "24-20",
+            "ats": "L",
+            "total": 39.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "CHI",
+            "at": true,
+            "line": -3.5,
+            "score": "7-27",
+            "ats": "L",
+            "total": 42.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Pittsburgh Steelers": {
@@ -4818,21 +6837,24 @@
           "ydsG": 233.3,
           "td": 1.33,
           "int": 0.67,
-          "log": "PIT|00-0023459"
+          "log": "PIT|00-0023459",
+          "pos": "QB"
         },
         {
           "player": "Cameron Johnston",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "PIT|00-0033729"
+          "log": "PIT|00-0033729",
+          "pos": "P"
         },
         {
           "player": "Mason Rudolph",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "PIT|00-0034771"
+          "log": "PIT|00-0034771",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -4842,7 +6864,8 @@
           "td": 0.0,
           "ya": 5.7,
           "ag": 12.7,
-          "log": "PIT|00-0037228"
+          "log": "PIT|00-0037228",
+          "pos": "RB"
         },
         {
           "player": "Rico Dowdle",
@@ -4850,7 +6873,8 @@
           "td": 0.0,
           "ya": 2.5,
           "ag": 7.5,
-          "log": "PIT|00-0036139"
+          "log": "PIT|00-0036139",
+          "pos": "RB"
         },
         {
           "player": "Travis Homer",
@@ -4858,7 +6882,8 @@
           "td": 0.0,
           "ya": 5.3,
           "ag": 1.5,
-          "log": "PIT|00-0035594"
+          "log": "PIT|00-0035594",
+          "pos": "RB"
         },
         {
           "player": "Aaron Rodgers",
@@ -4866,7 +6891,8 @@
           "td": 0.0,
           "ya": 1.7,
           "ag": 2.3,
-          "log": "PIT|00-0023459"
+          "log": "PIT|00-0023459",
+          "pos": "QB"
         },
         {
           "player": "Mason Rudolph",
@@ -4874,7 +6900,8 @@
           "td": 0.0,
           "ya": 3.0,
           "ag": 1.0,
-          "log": "PIT|00-0034771"
+          "log": "PIT|00-0034771",
+          "pos": "QB"
         },
         {
           "player": "Pat Freiermuth",
@@ -4882,7 +6909,8 @@
           "td": 0.0,
           "ya": 1.5,
           "ag": 1.0,
-          "log": "PIT|00-0036894"
+          "log": "PIT|00-0036894",
+          "pos": "TE"
         }
       ],
       "receiving": [
@@ -4892,7 +6920,8 @@
           "td": 0.33,
           "yr": 10.4,
           "rec": 3.67,
-          "log": "PIT|00-0039739"
+          "log": "PIT|00-0039739",
+          "pos": "WR"
         },
         {
           "player": "Michael Pittman",
@@ -4900,7 +6929,8 @@
           "td": 0.0,
           "yr": 14.8,
           "rec": 2.5,
-          "log": "PIT|00-0036252"
+          "log": "PIT|00-0036252",
+          "pos": "WR"
         },
         {
           "player": "Jaylen Warren",
@@ -4908,7 +6938,8 @@
           "td": 0.0,
           "yr": 11.0,
           "rec": 3.33,
-          "log": "PIT|00-0037228"
+          "log": "PIT|00-0037228",
+          "pos": "RB"
         },
         {
           "player": "Pat Freiermuth",
@@ -4916,7 +6947,8 @@
           "td": 0.33,
           "yr": 9.8,
           "rec": 3.67,
-          "log": "PIT|00-0036894"
+          "log": "PIT|00-0036894",
+          "pos": "TE"
         },
         {
           "player": "DK Metcalf",
@@ -4924,7 +6956,8 @@
           "td": 0.33,
           "yr": 8.9,
           "rec": 3.67,
-          "log": "PIT|00-0035640"
+          "log": "PIT|00-0035640",
+          "pos": "WR"
         },
         {
           "player": "Darnell Washington",
@@ -4932,7 +6965,8 @@
           "td": 0.0,
           "yr": 15.3,
           "rec": 2.0,
-          "log": "PIT|00-0038558"
+          "log": "PIT|00-0038558",
+          "pos": "TE"
         },
         {
           "player": "Germie Bernard",
@@ -4940,7 +6974,8 @@
           "td": 0.0,
           "yr": 9.8,
           "rec": 2.5,
-          "log": "PIT|00-0041489"
+          "log": "PIT|00-0041489",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -4964,6 +6999,70 @@
           "yds": 134.3,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 2,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "ATL",
+            "at": false,
+            "line": -6.5,
+            "score": "20-13",
+            "ats": "W",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "NE",
+            "at": true,
+            "line": 4.5,
+            "score": "3-20",
+            "ats": "L",
+            "total": 41.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "CIN",
+            "at": false,
+            "line": 3.5,
+            "score": "30-27",
+            "ats": "W",
+            "total": 42.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Seattle Seahawks": {
@@ -5004,21 +7103,24 @@
           "ydsG": 211.0,
           "td": 2.0,
           "int": 0.0,
-          "log": "SEA|00-0035704"
+          "log": "SEA|00-0035704",
+          "pos": "QB"
         },
         {
           "player": "Sam Darnold",
           "ydsG": 196.0,
           "td": 2.0,
           "int": 1.0,
-          "log": "SEA|00-0034869"
+          "log": "SEA|00-0034869",
+          "pos": "QB"
         },
         {
           "player": "Jaxon Smith-Njigba",
           "ydsG": 14.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "SEA|00-0038543"
+          "log": "SEA|00-0038543",
+          "pos": "WR"
         }
       ],
       "rushing": [
@@ -5028,7 +7130,8 @@
           "td": 0.0,
           "ya": 4.2,
           "ag": 9.3,
-          "log": "SEA|00-0041512"
+          "log": "SEA|00-0041512",
+          "pos": "RB"
         },
         {
           "player": "Emanuel Wilson",
@@ -5036,7 +7139,8 @@
           "td": 0.0,
           "ya": 3.4,
           "ag": 10.7,
-          "log": "SEA|00-0038797"
+          "log": "SEA|00-0038797",
+          "pos": "RB"
         },
         {
           "player": "George Holani",
@@ -5044,7 +7148,8 @@
           "td": 0.0,
           "ya": 3.5,
           "ag": 5.0,
-          "log": "SEA|00-0039299"
+          "log": "SEA|00-0039299",
+          "pos": "RB"
         },
         {
           "player": "Drew Lock",
@@ -5052,7 +7157,8 @@
           "td": 0.0,
           "ya": 6.5,
           "ag": 2.0,
-          "log": "SEA|00-0035704"
+          "log": "SEA|00-0035704",
+          "pos": "QB"
         },
         {
           "player": "Sam Darnold",
@@ -5060,7 +7166,8 @@
           "td": 0.0,
           "ya": 5.0,
           "ag": 1.0,
-          "log": "SEA|00-0034869"
+          "log": "SEA|00-0034869",
+          "pos": "QB"
         },
         {
           "player": "Rashid Shaheed",
@@ -5068,7 +7175,8 @@
           "td": 0.0,
           "ya": 4.0,
           "ag": 1.0,
-          "log": "SEA|00-0037545"
+          "log": "SEA|00-0037545",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -5078,7 +7186,8 @@
           "td": 2.0,
           "yr": 15.0,
           "rec": 9.0,
-          "log": "SEA|00-0038543"
+          "log": "SEA|00-0038543",
+          "pos": "WR"
         },
         {
           "player": "Tory Horton",
@@ -5086,7 +7195,8 @@
           "td": 0.0,
           "yr": 16.0,
           "rec": 3.0,
-          "log": "SEA|00-0040648"
+          "log": "SEA|00-0040648",
+          "pos": "WR"
         },
         {
           "player": "Cooper Kupp",
@@ -5094,7 +7204,8 @@
           "td": 0.33,
           "yr": 12.6,
           "rec": 2.67,
-          "log": "SEA|00-0033908"
+          "log": "SEA|00-0033908",
+          "pos": "WR"
         },
         {
           "player": "AJ Barner",
@@ -5102,7 +7213,8 @@
           "td": 0.0,
           "yr": 11.2,
           "rec": 2.67,
-          "log": "SEA|00-0039793"
+          "log": "SEA|00-0039793",
+          "pos": "TE"
         },
         {
           "player": "Brady Russell",
@@ -5110,7 +7222,8 @@
           "td": 0.0,
           "yr": 13.3,
           "rec": 1.5,
-          "log": "SEA|00-0038488"
+          "log": "SEA|00-0038488",
+          "pos": "RB"
         },
         {
           "player": "Rashid Shaheed",
@@ -5118,7 +7231,8 @@
           "td": 0.0,
           "yr": 8.8,
           "rec": 2.0,
-          "log": "SEA|00-0037545"
+          "log": "SEA|00-0037545",
+          "pos": "WR"
         },
         {
           "player": "Elijah Arroyo",
@@ -5126,7 +7240,8 @@
           "td": 0.0,
           "yr": 17.0,
           "rec": 1.0,
-          "log": "SEA|00-0040739"
+          "log": "SEA|00-0040739",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -5150,6 +7265,70 @@
           "yds": 95.0,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 1
+        },
+        "dog": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 0,
+          "p": 1
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "NE",
+            "at": false,
+            "line": -3.0,
+            "score": "13-10",
+            "ats": "P",
+            "total": 44.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "ARI",
+            "at": true,
+            "line": -3.5,
+            "score": "31-7",
+            "ats": "W",
+            "total": 40.5,
+            "ou": "U"
+          },
+          {
+            "w": 3,
+            "opp": "WAS",
+            "at": true,
+            "line": -8.5,
+            "score": "31-33",
+            "ats": "L",
+            "total": 40.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "San Francisco 49ers": {
@@ -5190,7 +7369,8 @@
           "ydsG": 263.0,
           "td": 3.0,
           "int": 0.33,
-          "log": "SF|00-0037834"
+          "log": "SF|00-0037834",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -5200,7 +7380,8 @@
           "td": 1.0,
           "ya": 4.7,
           "ag": 11.7,
-          "log": "SF|00-0033280"
+          "log": "SF|00-0033280",
+          "pos": "RB"
         },
         {
           "player": "Kaelon Black",
@@ -5208,7 +7389,8 @@
           "td": 0.0,
           "ya": 4.3,
           "ag": 8.3,
-          "log": "SF|00-0041052"
+          "log": "SF|00-0041052",
+          "pos": "RB"
         },
         {
           "player": "Brock Purdy",
@@ -5216,7 +7398,8 @@
           "td": 0.33,
           "ya": 9.3,
           "ag": 3.3,
-          "log": "SF|00-0037834"
+          "log": "SF|00-0037834",
+          "pos": "QB"
         },
         {
           "player": "Jordan James",
@@ -5224,7 +7407,8 @@
           "td": 0.0,
           "ya": 3.8,
           "ag": 4.0,
-          "log": "SF|00-0040177"
+          "log": "SF|00-0040177",
+          "pos": "RB"
         },
         {
           "player": "Deebo Samuel Sr.",
@@ -5232,7 +7416,8 @@
           "td": 0.0,
           "ya": 7.5,
           "ag": 1.3,
-          "log": "SF|00-0035719"
+          "log": "SF|00-0035719",
+          "pos": "WR"
         },
         {
           "player": "Mac Jones",
@@ -5240,7 +7425,8 @@
           "td": 0.0,
           "ya": -1.0,
           "ag": 2.0,
-          "log": "SF|00-0036972"
+          "log": "SF|00-0036972",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -5250,7 +7436,8 @@
           "td": 0.0,
           "yr": 30.0,
           "rec": 2.0,
-          "log": "SF|00-0040172"
+          "log": "SF|00-0040172",
+          "pos": "WR"
         },
         {
           "player": "George Kittle",
@@ -5258,7 +7445,8 @@
           "td": 1.0,
           "yr": 14.5,
           "rec": 4.0,
-          "log": "SF|00-0033288"
+          "log": "SF|00-0033288",
+          "pos": "TE"
         },
         {
           "player": "Mike Evans",
@@ -5266,7 +7454,8 @@
           "td": 0.67,
           "yr": 11.4,
           "rec": 4.0,
-          "log": "SF|00-0031408"
+          "log": "SF|00-0031408",
+          "pos": "WR"
         },
         {
           "player": "Demarcus Robinson",
@@ -5274,7 +7463,8 @@
           "td": 0.5,
           "yr": 16.8,
           "rec": 2.5,
-          "log": "SF|00-0032775"
+          "log": "SF|00-0032775",
+          "pos": "WR"
         },
         {
           "player": "Deebo Samuel Sr.",
@@ -5282,7 +7472,8 @@
           "td": 0.5,
           "yr": 8.8,
           "rec": 4.5,
-          "log": "SF|00-0035719"
+          "log": "SF|00-0035719",
+          "pos": "WR"
         },
         {
           "player": "Christian McCaffrey",
@@ -5290,7 +7481,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 4.33,
-          "log": "SF|00-0033280"
+          "log": "SF|00-0033280",
+          "pos": "RB"
         },
         {
           "player": "KhaDarel Hodge",
@@ -5298,7 +7490,8 @@
           "td": 0.0,
           "yr": 18.0,
           "rec": 1.0,
-          "log": "SF|00-0034854"
+          "log": "SF|00-0034854",
+          "pos": "WR"
         }
       ],
       "defVsPosition": {
@@ -5322,6 +7515,70 @@
           "yds": 132.7,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "LA",
+            "at": false,
+            "line": 3.5,
+            "score": "27-7",
+            "ats": "W",
+            "total": 47.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "MIA",
+            "at": false,
+            "line": -12.5,
+            "score": "35-13",
+            "ats": "W",
+            "total": 44.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "ARI",
+            "at": false,
+            "line": -7.5,
+            "score": "36-30",
+            "ats": "L",
+            "total": 48.5,
+            "ou": "O"
+          }
+        ]
       }
     },
     "Tampa Bay Buccaneers": {
@@ -5362,14 +7619,16 @@
           "ydsG": 205.0,
           "td": 0.67,
           "int": 0.67,
-          "log": "TB|00-0034855"
+          "log": "TB|00-0034855",
+          "pos": "QB"
         },
         {
           "player": "Jalon Daniels",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 1.0,
-          "log": "TB|00-0041251"
+          "log": "TB|00-0041251",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -5379,7 +7638,8 @@
           "td": 0.33,
           "ya": 4.5,
           "ag": 13.3,
-          "log": "TB|00-0039361"
+          "log": "TB|00-0039361",
+          "pos": "RB"
         },
         {
           "player": "Baker Mayfield",
@@ -5387,7 +7647,8 @@
           "td": 0.33,
           "ya": 5.9,
           "ag": 3.7,
-          "log": "TB|00-0034855"
+          "log": "TB|00-0034855",
+          "pos": "QB"
         },
         {
           "player": "Jalon Daniels",
@@ -5395,7 +7656,8 @@
           "td": 0.0,
           "ya": 9.0,
           "ag": 1.0,
-          "log": "TB|00-0041251"
+          "log": "TB|00-0041251",
+          "pos": "QB"
         },
         {
           "player": "Chris Godwin Jr.",
@@ -5403,7 +7665,8 @@
           "td": 0.0,
           "ya": 7.5,
           "ag": 1.0,
-          "log": "TB|00-0033921"
+          "log": "TB|00-0033921",
+          "pos": "WR"
         },
         {
           "player": "Kenny Gainwell",
@@ -5411,7 +7674,8 @@
           "td": 0.0,
           "ya": 2.1,
           "ag": 3.3,
-          "log": "TB|00-0036919"
+          "log": "TB|00-0036919",
+          "pos": "RB"
         },
         {
           "player": "Emeka Egbuka",
@@ -5419,7 +7683,8 @@
           "td": 0.0,
           "ya": -3.0,
           "ag": 1.0,
-          "log": "TB|00-0040129"
+          "log": "TB|00-0040129",
+          "pos": "WR"
         }
       ],
       "receiving": [
@@ -5429,7 +7694,8 @@
           "td": 0.33,
           "yr": 10.8,
           "rec": 4.33,
-          "log": "TB|00-0040129"
+          "log": "TB|00-0040129",
+          "pos": "WR"
         },
         {
           "player": "Cade Otton",
@@ -5437,7 +7703,8 @@
           "td": 0.0,
           "yr": 10.9,
           "rec": 3.67,
-          "log": "TB|00-0038129"
+          "log": "TB|00-0038129",
+          "pos": "TE"
         },
         {
           "player": "Chris Godwin Jr.",
@@ -5445,7 +7712,8 @@
           "td": 0.0,
           "yr": 11.1,
           "rec": 3.33,
-          "log": "TB|00-0033921"
+          "log": "TB|00-0033921",
+          "pos": "WR"
         },
         {
           "player": "Ted Hurst III",
@@ -5453,7 +7721,8 @@
           "td": 0.33,
           "yr": 17.2,
           "rec": 2.0,
-          "log": "TB|00-0041048"
+          "log": "TB|00-0041048",
+          "pos": "WR"
         },
         {
           "player": "Bucky Irving",
@@ -5461,7 +7730,8 @@
           "td": 0.0,
           "yr": 4.7,
           "rec": 4.33,
-          "log": "TB|00-0039361"
+          "log": "TB|00-0039361",
+          "pos": "RB"
         },
         {
           "player": "Tez Johnson",
@@ -5469,7 +7739,8 @@
           "td": 0.0,
           "yr": 28.5,
           "rec": 0.67,
-          "log": "TB|00-0040237"
+          "log": "TB|00-0040237",
+          "pos": "WR"
         },
         {
           "player": "Kenny Gainwell",
@@ -5477,7 +7748,8 @@
           "td": 0.0,
           "yr": 3.7,
           "rec": 2.0,
-          "log": "TB|00-0036919"
+          "log": "TB|00-0036919",
+          "pos": "RB"
         }
       ],
       "defVsPosition": {
@@ -5501,6 +7773,70 @@
           "yds": 119.0,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 0,
+          "l": 3,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "home": {
+          "w": 0,
+          "l": 2,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 2,
+          "u": 1,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "CIN",
+            "at": true,
+            "line": 3.5,
+            "score": "27-33",
+            "ats": "L",
+            "total": 50.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "CLE",
+            "at": false,
+            "line": -8.5,
+            "score": "19-23",
+            "ats": "L",
+            "total": 41.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "MIN",
+            "at": false,
+            "line": 1.5,
+            "score": "16-23",
+            "ats": "L",
+            "total": 42.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Tennessee Titans": {
@@ -5541,7 +7877,8 @@
           "ydsG": 168.0,
           "td": 0.67,
           "int": 0.33,
-          "log": "TEN|00-0040676"
+          "log": "TEN|00-0040676",
+          "pos": "QB"
         }
       ],
       "rushing": [
@@ -5551,7 +7888,8 @@
           "td": 0.0,
           "ya": 4.6,
           "ag": 12.7,
-          "log": "TEN|00-0035261"
+          "log": "TEN|00-0035261",
+          "pos": "RB"
         },
         {
           "player": "Tyjae Spears",
@@ -5559,7 +7897,8 @@
           "td": 0.0,
           "ya": 4.5,
           "ag": 4.3,
-          "log": "TEN|00-0039032"
+          "log": "TEN|00-0039032",
+          "pos": "RB"
         },
         {
           "player": "Cam Ward",
@@ -5567,7 +7906,8 @@
           "td": 0.67,
           "ya": 3.3,
           "ag": 3.0,
-          "log": "TEN|00-0040676"
+          "log": "TEN|00-0040676",
+          "pos": "QB"
         },
         {
           "player": "Nicholas Singleton",
@@ -5575,7 +7915,8 @@
           "td": 0.0,
           "ya": 2.5,
           "ag": 4.0,
-          "log": "TEN|00-0040886"
+          "log": "TEN|00-0040886",
+          "pos": "RB"
         }
       ],
       "receiving": [
@@ -5585,7 +7926,8 @@
           "td": 0.0,
           "yr": 9.5,
           "rec": 4.33,
-          "log": "TEN|00-0041438"
+          "log": "TEN|00-0041438",
+          "pos": "WR"
         },
         {
           "player": "Wan'Dale Robinson",
@@ -5593,7 +7935,8 @@
           "td": 0.33,
           "yr": 8.0,
           "rec": 4.33,
-          "log": "TEN|00-0038117"
+          "log": "TEN|00-0038117",
+          "pos": "WR"
         },
         {
           "player": "Elic Ayomanor",
@@ -5601,7 +7944,8 @@
           "td": 0.33,
           "yr": 22.8,
           "rec": 1.33,
-          "log": "TEN|00-0040170"
+          "log": "TEN|00-0040170",
+          "pos": "WR"
         },
         {
           "player": "Tyjae Spears",
@@ -5609,7 +7953,8 @@
           "td": 0.0,
           "yr": 10.2,
           "rec": 2.0,
-          "log": "TEN|00-0039032"
+          "log": "TEN|00-0039032",
+          "pos": "RB"
         },
         {
           "player": "Gunnar Helm",
@@ -5617,7 +7962,8 @@
           "td": 0.0,
           "yr": 6.9,
           "rec": 2.67,
-          "log": "TEN|00-0040584"
+          "log": "TEN|00-0040584",
+          "pos": "TE"
         },
         {
           "player": "Calvin Ridley",
@@ -5625,7 +7971,8 @@
           "td": 0.0,
           "yr": 17.5,
           "rec": 1.0,
-          "log": "TEN|00-0034837"
+          "log": "TEN|00-0034837",
+          "pos": "WR"
         },
         {
           "player": "Daniel Bellinger",
@@ -5633,7 +7980,8 @@
           "td": 0.0,
           "yr": 7.7,
           "rec": 1.0,
-          "log": "TEN|00-0038115"
+          "log": "TEN|00-0038115",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -5657,6 +8005,70 @@
           "yds": 157.3,
           "td": 0.67
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 1,
+          "l": 2,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "dog": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "away": {
+          "w": 0,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 1,
+          "u": 2,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "NYJ",
+            "at": false,
+            "line": -1.5,
+            "score": "10-23",
+            "ats": "L",
+            "total": 39.5,
+            "ou": "U"
+          },
+          {
+            "w": 2,
+            "opp": "PHI",
+            "at": false,
+            "line": 7.0,
+            "score": "20-24",
+            "ats": "W",
+            "total": 39.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "NYG",
+            "at": true,
+            "line": 2.5,
+            "score": "7-12",
+            "ats": "L",
+            "total": 37.5,
+            "ou": "U"
+          }
+        ]
       }
     },
     "Washington Commanders": {
@@ -5697,28 +8109,32 @@
           "ydsG": 147.0,
           "td": 2.0,
           "int": 0.0,
-          "log": "WAS|00-0032268"
+          "log": "WAS|00-0032268",
+          "pos": "QB"
         },
         {
           "player": "Jayden Daniels",
           "ydsG": 130.0,
           "td": 1.5,
           "int": 0.0,
-          "log": "WAS|00-0039910"
+          "log": "WAS|00-0039910",
+          "pos": "QB"
         },
         {
           "player": "Antonio Williams",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "WAS|00-0041040"
+          "log": "WAS|00-0041040",
+          "pos": "WR"
         },
         {
           "player": "Dyami Brown",
           "ydsG": 0.0,
           "td": 0.0,
           "int": 0.0,
-          "log": "WAS|00-0036626"
+          "log": "WAS|00-0036626",
+          "pos": "WR"
         }
       ],
       "rushing": [
@@ -5728,7 +8144,8 @@
           "td": 0.0,
           "ya": 8.3,
           "ag": 6.0,
-          "log": "WAS|00-0039910"
+          "log": "WAS|00-0039910",
+          "pos": "QB"
         },
         {
           "player": "Jacory Croskey-Merritt",
@@ -5736,7 +8153,8 @@
           "td": 0.33,
           "ya": 3.0,
           "ag": 15.7,
-          "log": "WAS|00-0040242"
+          "log": "WAS|00-0040242",
+          "pos": "RB"
         },
         {
           "player": "Rachaad White",
@@ -5744,7 +8162,8 @@
           "td": 0.0,
           "ya": 4.5,
           "ag": 7.3,
-          "log": "WAS|00-0037256"
+          "log": "WAS|00-0037256",
+          "pos": "RB"
         },
         {
           "player": "Kaytron Allen",
@@ -5752,7 +8171,8 @@
           "td": 0.0,
           "ya": 4.4,
           "ag": 4.5,
-          "log": "WAS|00-0041096"
+          "log": "WAS|00-0041096",
+          "pos": "RB"
         },
         {
           "player": "Marcus Mariota",
@@ -5760,7 +8180,8 @@
           "td": 0.0,
           "ya": 2.3,
           "ag": 3.0,
-          "log": "WAS|00-0032268"
+          "log": "WAS|00-0032268",
+          "pos": "QB"
         }
       ],
       "receiving": [
@@ -5770,7 +8191,8 @@
           "td": 0.33,
           "yr": 14.1,
           "rec": 3.33,
-          "log": "WAS|00-0035659"
+          "log": "WAS|00-0035659",
+          "pos": "WR"
         },
         {
           "player": "Stefon Diggs",
@@ -5778,7 +8200,8 @@
           "td": 1.0,
           "yr": 10.4,
           "rec": 4.33,
-          "log": "WAS|00-0031588"
+          "log": "WAS|00-0031588",
+          "pos": "WR"
         },
         {
           "player": "Antonio Williams",
@@ -5786,7 +8209,8 @@
           "td": 0.33,
           "yr": 11.4,
           "rec": 3.0,
-          "log": "WAS|00-0041040"
+          "log": "WAS|00-0041040",
+          "pos": "WR"
         },
         {
           "player": "Rachaad White",
@@ -5794,7 +8218,8 @@
           "td": 0.33,
           "yr": 5.7,
           "rec": 3.0,
-          "log": "WAS|00-0037256"
+          "log": "WAS|00-0037256",
+          "pos": "RB"
         },
         {
           "player": "Chig Okonkwo",
@@ -5802,7 +8227,8 @@
           "td": 0.0,
           "yr": 8.0,
           "rec": 2.0,
-          "log": "WAS|00-0037809"
+          "log": "WAS|00-0037809",
+          "pos": "TE"
         },
         {
           "player": "Jaylin Lane",
@@ -5810,7 +8236,8 @@
           "td": 0.0,
           "yr": 12.5,
           "rec": 1.0,
-          "log": "WAS|00-0040164"
+          "log": "WAS|00-0040164",
+          "pos": "WR"
         },
         {
           "player": "John Bates",
@@ -5818,7 +8245,8 @@
           "td": 0.0,
           "yr": 7.3,
           "rec": 1.5,
-          "log": "WAS|00-0036628"
+          "log": "WAS|00-0036628",
+          "pos": "TE"
         }
       ],
       "defVsPosition": {
@@ -5842,6 +8270,70 @@
           "yds": 191.0,
           "td": 2.0
         }
+      },
+      "betting": {
+        "ats": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "fav": {
+          "w": 0,
+          "l": 0,
+          "p": 0
+        },
+        "dog": {
+          "w": 2,
+          "l": 1,
+          "p": 0
+        },
+        "home": {
+          "w": 1,
+          "l": 0,
+          "p": 0
+        },
+        "away": {
+          "w": 1,
+          "l": 1,
+          "p": 0
+        },
+        "ou": {
+          "o": 3,
+          "u": 0,
+          "p": 0
+        },
+        "games": [
+          {
+            "w": 1,
+            "opp": "PHI",
+            "at": true,
+            "line": 6.0,
+            "score": "22-24",
+            "ats": "W",
+            "total": 43.5,
+            "ou": "O"
+          },
+          {
+            "w": 2,
+            "opp": "DAL",
+            "at": true,
+            "line": 3.5,
+            "score": "20-37",
+            "ats": "L",
+            "total": 51.5,
+            "ou": "O"
+          },
+          {
+            "w": 3,
+            "opp": "SEA",
+            "at": false,
+            "line": 8.5,
+            "score": "33-31",
+            "ats": "W",
+            "total": 40.5,
+            "ou": "O"
+          }
+        ]
       }
     }
   },

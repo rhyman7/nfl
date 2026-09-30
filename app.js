@@ -50,5 +50,6 @@ function render() {
   const t2 = team2Select.value;
   safeSet("nfl_team1", t1);
   safeSet("nfl_team2", t2);
-  teamCards.innerHTML = [t1, t2].map(name => renderTeamCard(DATA.teams[name])).join("");
+  teamCards.innerHTML = [t1, t2].map(name => renderTeamCard(DATA.teams[name])).join("")
+    + renderBetting(DATA.teams[t1], DATA.teams[t2]);
 }
