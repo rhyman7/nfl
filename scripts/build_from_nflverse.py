@@ -312,6 +312,11 @@ def main():
             **schedule_extras(g),
         })
     playing = {x for g in schedule_games for x in (g["away"], g["home"])}
+    for g in schedule_games:
+        if not g["city"]:
+            notes.append(f"{g['id']}: stadium not in STADIUMS, so no forecast; add a row for it")
+        if not g["espnId"]:
+            notes.append(f"{g['id']}: no ESPN id in games.csv; live scores will match it by team")
     byes = sorted(n for n in teams_out if n not in playing)
 
     data = {
