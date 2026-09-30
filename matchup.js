@@ -23,6 +23,7 @@ async function init() {
   const away = DATA.teams[g.away], home = DATA.teams[g.home];
   document.title = `${away.abbr} ${g.neutral ? "vs" : "@"} ${home.abbr} · NFL Matchup Dashboard`;
 
+  showPdfLink(document.getElementById("pdfBtn"), g.id);
   const parts = renderMatchupParts(g);
   gameHeader.innerHTML = parts.head;
   document.getElementById("edges").innerHTML = parts.edges;

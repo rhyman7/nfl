@@ -12,7 +12,10 @@ async function init() {
     return;
   }
 
+  // ?game=<id> prints just that game (used for the per-game PDFs)
+  const only = new URLSearchParams(location.search).get("game");
   const games = scheduleGames().filter(g => DATA.teams[g.away] && DATA.teams[g.home])
+    .filter(g => !only || g.id === only)
     .slice().sort((a, b) => gameStart(a) - gameStart(b));
   document.title = `Week ${DATA.schedule.week} matchups (${games.length}) · NFL Matchup Dashboard`;
   if (!games.length) {
@@ -37,6 +40,7 @@ async function init() {
   const btn = document.getElementById("printAllBtn");
   btn.disabled = false;
   btn.addEventListener("click", () => window.print());
+  showPdfLink(document.getElementById("pdfAllBtn"), only);
   // open the print dialog automatically once everything has laid out
   if (new URLSearchParams(location.search).get("auto") !== "0") {
     requestAnimationFrame(() => setTimeout(() => window.print(), 400));

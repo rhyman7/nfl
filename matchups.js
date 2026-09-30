@@ -74,6 +74,7 @@ function updatePrintAll(n) {
   if (!btn.dataset.wired) {
     btn.dataset.wired = "1";
     btn.addEventListener("click", () => window.open("print.html", "_blank"));
+    showPdfLink(document.getElementById("pdfAllBtn"));
   }
 }
 

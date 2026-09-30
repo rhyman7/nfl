@@ -104,6 +104,9 @@ main {
 }
 
 .print-btn:hover { border-color: var(--accent); }
+a.pdf-btn { text-decoration: none; display: inline-block; }
+a.pdf-btn[hidden] { display: none; }
+.bar-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 
 .print-btn-single {
   margin-left: auto;
@@ -503,10 +506,10 @@ footer a { color: inherit; }
   body:not(.print-single) #teamCards,
   body:not(.print-single) .m-cards {
     display: grid !important;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 28px !important;
     width: 1720px;
-    zoom: 0.575;
+    zoom: 0.55;
   }
   /* keep every column on the page: wrap long names, tighten cells */
   body:not(.print-single) .table-block { overflow: visible; }
@@ -813,7 +816,7 @@ footer a { color: inherit; }
   body.mprint:not(.print-single) .m-head,
   body.mprint:not(.print-single) .m-edges { zoom: 0.64; }
   /* wider layout at a smaller scale: same page width, shorter cards */
-  body.mprint:not(.print-single) .m-cards { width: 1880px; zoom: 0.526; }
+  body.mprint:not(.print-single) .m-cards { width: 1880px; zoom: 0.5; }
   body.mprint:not(.print-single) .matchup-header .mh-week { margin-bottom: 4px; }
   body.mprint:not(.print-single) .game-hero { padding: 6px 16px; gap: 10px; }
   body.mprint:not(.print-single) .hero-name { font-size: 1.25rem; margin: 1px 0; }

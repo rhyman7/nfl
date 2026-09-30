@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matchup · NFL Matchup Dashboard</title>
-<link rel="stylesheet" href="style.css?v=202609301200">
+<link rel="stylesheet" href="style.css?v=202609301445">
 </head>
 <body data-page="matchup" class="mprint">
 <header class="topbar">
@@ -20,7 +20,8 @@
 <main id="app">
   <div class="matchup-bar no-print">
     <a href="index.html" class="back-link">← All matchups</a>
-    <button id="printBtn" class="print-btn" type="button">🖨 Print Matchup</button>
+    <span class="bar-actions"><button id="printBtn" class="print-btn" type="button">🖨 Print Matchup</button>
+    <a id="pdfBtn" class="print-btn pdf-btn" hidden>⬇ Download PDF</a></span>
   </div>
   <section id="gameHeader" class="matchup-header m-head"></section>
   <section id="boxscore" class="boxscore no-print" hidden></section>
@@ -32,9 +33,9 @@
   <p>Stats cover the current regular season through the latest completed week. Ranks are out of 32 teams. Lines: ESPN when available, otherwise nflverse. <a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a>.</p>
 </footer>
 
-<script src="common.js?v=202609301200"></script>
-<script src="live.js?v=202609301200"></script>
-<script src="weather.js?v=202609301200"></script>
-<script src="matchup.js?v=202609301200"></script>
+<script src="common.js?v=202609301445"></script>
+<script src="live.js?v=202609301445"></script>
+<script src="weather.js?v=202609301445"></script>
+<script src="matchup.js?v=202609301445"></script>
 </body>
 </html>

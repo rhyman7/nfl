@@ -832,3 +832,32 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+// ---------- PDF downloads ----------
+// PDFs are built by .github/workflows/build-pdfs.yml (scripts/build_pdfs.py) with
+// headless Chrome whenever data.json changes. pdf/manifest.json says which week they
+// are for; a link only shows when its PDF matches the week on the page.
+let _pdfManifest;
+function pdfManifest() {
+  if (_pdfManifest === undefined) {
+    _pdfManifest = fetch("pdf/manifest.json", { cache: "no-cache" })
+      .then(r => (r.ok ? r.json() : null)).catch(() => null);
+  }
+  return _pdfManifest;
+}
+// el: an <a>. gameId: one game, or falsy for every game this week.
+async function showPdfLink(el, gameId) {
+  if (!el) return;
+  const m = await pdfManifest();
+  if (!m || !DATA || !DATA.schedule || m.week !== DATA.schedule.week || m.season !== DATA.season) return;
+  if (gameId) {
+    if (!(m.games || []).includes(gameId)) return;
+    el.href = `pdf/games/${encodeURIComponent(gameId)}.pdf?v=${encodeURIComponent(m.generatedAt)}`;
+    el.setAttribute("download", `${gameId}.pdf`);
+  } else {
+    el.href = `pdf/matchups.pdf?v=${encodeURIComponent(m.generatedAt)}`;
+    el.setAttribute("download", `NFL_${m.season}_week_${m.week}_matchups.pdf`);
+  }
+  el.title = `PDF built ${new Date(m.generatedAt).toLocaleString()}`;
+  el.hidden = false;
+}

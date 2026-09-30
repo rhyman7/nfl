@@ -19,6 +19,13 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
   one matchup per landscape page, and brings up the print dialog. Each team card still
   has its own Print button (one team per portrait page).
+- **Download PDF** — "⬇ PDF" on This Week's Matchups (every game) and "Download PDF" on
+  each matchup page (that game). The PDFs are the print layout rendered by headless
+  Chrome, so they come out the same whatever browser or printer you use.
+  `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf` and
+  `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
+  `data/data.json` or the print layout changes. The links only show when the PDFs are
+  for the week on the page. `print.html?game=<id>` prints a single game.
 - **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
   implied team totals, line move since the week's first update, net EPA edge, referee
   and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
