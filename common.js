@@ -142,7 +142,7 @@ function renderHero(g, away, home) {
   return `
   <div class="mh-week">Week ${DATA.schedule.week}</div>
   <div class="game-hero">
-    ${heroTeam(away, g.neutral ? "Team 1" : "Away", g.awayQb, final ? g.awayScore : null, "away")}
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, "away")}
     <div class="hero-mid">
       <div class="hero-live" id="heroLive" hidden></div>
       <div class="hero-at">${g.neutral ? "vs" : "@"}</div>
@@ -151,18 +151,17 @@ function renderHero(g, away, home) {
       <div class="hero-line" id="heroLine"${lineText ? "" : " hidden"}>${escapeHtml(lineText || "")}</div>
       ${g.divisional ? `<div class="hero-info">Division game</div>` : ""}
     </div>
-    ${heroTeam(home, g.neutral ? "Team 2" : "Home", g.homeQb, final ? g.homeScore : null, "home")}
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, "home")}
   </div>`;
 }
 
-function heroTeam(t, side, qb, score, sideKey) {
+function heroTeam(t, side, score, sideKey) {
   return `
     <div class="hero-team" data-side="${sideKey}">
       <div class="hero-side">${side}</div>
       <div class="hero-score" hidden></div>
       <div class="hero-name">${escapeHtml(t.team)}</div>
       <div class="hero-rec">${fmtRecord(t)}${score !== null ? ` · <b>${score}</b>` : ""}</div>
-      ${qb ? `<div class="hero-qb">QB: ${escapeHtml(qb)}</div>` : ""}
       <div class="hero-srs">SRS <span class="${t.record.srs > 0 ? "pos" : t.record.srs < 0 ? "neg" : ""}">${t.record.srs}</span></div>
     </div>`;
 }

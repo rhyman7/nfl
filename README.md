@@ -13,7 +13,7 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   domes and closed roofs). Once a game starts, the scores take that spot. Click a game
   to open it. "Print all" prints every matchup, one per landscape page.
 - **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
-  forecast, current spread and O/U, and projected QBs; a Head to Head table (each
+  forecast, current spread and O/U; a Head to Head table (each
   offense against the other defense, with league ranks and edges); then both teams'
   full stat cards. Prints on one landscape page.
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
