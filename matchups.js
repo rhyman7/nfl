@@ -32,19 +32,32 @@ async function init() {
   if (typeof startWeather === "function") startWeather(games, rerender);
 }
 
+// Games are grouped by day and kickoff hour. A group whose games all start at the same
+// time is labeled with that time (1:00 PM); one that mixes times within the hour
+// (4:05 and 4:25) is labeled with the hour (4:00 PM).
 function renderWeek(games) {
   // live games get their own group at the top
   const groups = [];
   const live = games.filter(g => (liveFor(g) || {}).state === "in");
   if (live.length) groups.push({ label: "Live now", live: true, games: live });
+  const fmtTime = d => d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
   games.filter(g => !live.includes(g))
     .slice().sort((a, b) => gameStart(a) - gameStart(b))
     .forEach(g => {
-      const label = gameStart(g).toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" });
+      const d = gameStart(g);
+      const day = d.toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" });
+      const key = day + (g.gametime ? " " + d.getHours() : "");
       let grp = groups[groups.length - 1];
-      if (!grp || grp.live || grp.label !== label) groups.push(grp = { label, games: [] });
+      if (!grp || grp.live || grp.key !== key) groups.push(grp = { key, day, timed: !!g.gametime, games: [] });
       grp.games.push(g);
     });
+  groups.filter(grp => !grp.live).forEach(grp => {
+    if (!grp.timed) { grp.label = grp.day; return; }
+    const starts = grp.games.map(gameStart);
+    const same = starts.every(s => s.getTime() === starts[0].getTime());
+    const hour = new Date(starts[0]); hour.setMinutes(0, 0, 0);
+    grp.label = `${grp.day} · ${fmtTime(same ? starts[0] : hour)}`;
+  });
 
   gameList.innerHTML = groups.map(grp => `
     <section class="day-group">
