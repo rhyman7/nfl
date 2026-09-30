@@ -4,37 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matchup · NFL Matchup Dashboard</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=202609300600">
 </head>
-<body>
+<body data-page="matchup" class="mprint">
 <header class="topbar">
-  <div class="brand">
-    <h1><a href="index.html">NFL Matchup Dashboard</a></h1>
-    <nav class="site-nav no-print">
-      <a href="index.html" class="active">This Week's Matchups</a>
-      <a href="compare.html">Team vs Team</a>
-    </nav>
-  </div>
-  <div class="topbar-meta">
-    <span id="lastUpdated">Loading...</span>
-  </div>
+  <h1><a href="index.html" class="home-link">NFL Matchup Dashboard</a></h1>
+  <nav class="topnav no-print">
+    <a href="index.html"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
+  </nav>
 </header>
 
-<main>
-  <div class="matchup-actions no-print">
+<main id="app">
+  <div class="matchup-bar no-print">
     <a href="index.html" class="back-link">← All matchups</a>
     <button id="printBtn" class="print-btn" type="button">🖨 Print Matchup</button>
   </div>
-  <section id="gameHeader"></section>
-  <section id="edges"></section>
-  <section id="teamCards"></section>
+  <section id="gameHeader" class="matchup-header m-head"></section>
+  <section id="boxscore" class="boxscore no-print" hidden></section>
+  <section id="edges" class="m-edges"></section>
+  <section id="teamCards" class="m-cards"></section>
 </main>
 
 <footer class="no-print">
-  <p>Stats cover the current regular season through the latest completed week. Ranks are out of 32 teams.</p>
+  <p>Stats cover the current regular season through the latest completed week. Ranks are out of 32 teams. Lines: ESPN when available, otherwise nflverse. <a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a>.</p>
 </footer>
 
-<script src="common.js"></script>
-<script src="matchup.js"></script>
+<script src="common.js?v=202609300600"></script>
+<script src="live.js?v=202609300600"></script>
+<script src="weather.js?v=202609300600"></script>
+<script src="matchup.js?v=202609300600"></script>
 </body>
 </html>

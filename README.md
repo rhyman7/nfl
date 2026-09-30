@@ -1,16 +1,54 @@
 # NFL Matchup Dashboard
 
-A static GitHub Pages site with three pages:
+**Live site: https://rhyman7.github.io/nfl-dashboard/**
 
-- **This Week's Matchups** (`index.html`) — every game in the current week with
-  kickoff time, records, points per game, spread and total. Click a game to open it.
-- **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, line and
-  projected QBs, a head-to-head table (each offense against the other defense,
-  with league ranks and edges), then both teams' full stat cards.
+A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://github.com/rhyman7/cfb).
+
+## Pages
+
+- **This Week's Matchups** (`index.html`) — every game in the current week grouped by
+  day, with kickoff time, records and points per game. Before kickoff, the favored
+  team's row shows the spread (e.g. -3), the other team's row shows the O/U (PK on the
+  first row for a pick'em), and a kickoff forecast sits under the teams ("Indoors" for
+  domes and closed roofs). Once a game starts, the scores take that spot. Click a game
+  to open it. "Print all" prints every matchup, one per landscape page.
+- **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
+  forecast, current spread and O/U, and projected QBs; a Head to Head table (each
+  offense against the other defense, with league ranks and edges); then both teams'
+  full stat cards. Prints on one landscape page.
+- **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
+  one matchup per landscape page, and brings up the print dialog. Each team card still
+  has its own Print button (one team per portrait page).
 - **Team vs Team** (`compare.html`) — the original dashboard: pick any two teams
   and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
+- **Ratings Explained** (`ratings.html`) — plain-language definitions of SoS, OSRS,
+  DSRS and SRS and how to use them in a matchup. Its example uses the current top-SRS
+  team from `data/data.json`; the rest of the page is static.
 
 All pages read one file, `data/data.json`, and share `common.js` and `style.css`.
+
+**Live scores.** On game days the slate and matchup pages fetch live scores straight
+from ESPN's public site API in the viewer's browser (`live.js`): the slate shows
+scores, quarter/clock, possession and a "Live now" group; the matchup page adds a box
+score (line score, team stats, player stats, scoring plays) under the game header. Both
+refresh every 30 seconds while a game is live and do nothing before the pre-game window.
+The box score is left out of the printout. The feed is unofficial, so if it fails the
+pages fall back to the weekly data and show a short note.
+
+**Lines and forecast.** On page load the slate and matchup pages ask ESPN's scoreboard
+for each game's current spread and O/U; games without ESPN odds keep the weekly
+nflverse line. The forecast comes from [Open-Meteo](https://open-meteo.com/) (free, no
+key) in the viewer's browser (`weather.js`), using each stadium's coordinates from
+`data/data.json`: temperature, chance of rain and wind for the hour nearest kickoff.
+Forecasts only reach 16 days out, and if either service is down the page simply leaves
+that part out.
+
+Stadium locations and roof types live in `STADIUMS` at the top of
+`scripts/build_from_nflverse.py` (keyed by nflverse `stadium_id`). If a new stadium or
+international site shows up, add a row; until then that game just has no forecast.
+
+After changing any CSS or JS file, bump the `?v=` number on the `<link>`/`<script>`
+tags in every HTML page so browsers pick up the new version.
 
 ## Weekly update (current)
 
@@ -24,6 +62,8 @@ python scripts/build_from_nflverse.py --season 2026 --src <download folder>
 
 and pushes the new `data/data.json`. Besides team and player stats, the file
 holds `schedule` (the current week's games and byes), `season` and `throughWeek`.
+Each schedule game also carries `espnId` (for live scores), `start` (kickoff in UTC),
+`neutral`, and the venue's `city`, `lat`, `lon` and `indoor` flag.
 
 ## Legacy Excel pipeline
 

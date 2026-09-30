@@ -4,35 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NFL Matchup Dashboard</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=202609300600">
 </head>
-<body>
+<body data-page="week">
 <header class="topbar">
-  <div class="brand">
-    <h1><a href="index.html">NFL Matchup Dashboard</a></h1>
-    <nav class="site-nav">
-      <a href="index.html" class="active">This Week's Matchups</a>
-      <a href="compare.html">Team vs Team</a>
-    </nav>
-  </div>
-  <div class="topbar-meta">
-    <span id="lastUpdated">Loading...</span>
-  </div>
+  <h1><a href="index.html" class="home-link">NFL Matchup Dashboard</a></h1>
+  <nav class="topnav no-print">
+    <a href="index.html" class="active"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
+  </nav>
 </header>
 
-<main>
-  <div class="page-head">
-    <h2 id="weekTitle">This Week's Matchups</h2>
-    <p class="page-sub">Pick a game to see every stat for both teams. Want any two teams instead? Use <a href="compare.html">Team vs Team</a>.</p>
-  </div>
-  <section id="gameList"></section>
+<main id="app">
+  <section class="week-head">
+    <div>
+      <h2 id="weekTitle" class="week-title">This Week's Matchups</h2>
+      <p id="weekSub" class="week-sub"></p>
+      <p id="liveNote" class="live-note" hidden></p>
+    </div>
+    <div class="week-filters">
+      <button id="printAllBtn" class="print-btn" type="button" title="Print every game this week, one matchup per page" disabled>🖨 Print all</button>
+    </div>
+  </section>
+  <div id="gameList"><div class="empty-note">Loading games...</div></div>
 </main>
 
-<footer>
-  <p>Stats cover the current regular season through the latest completed week. Lines and projected QBs come from nflverse and can change before kickoff.</p>
+<footer class="no-print">
+  <p>Stats cover the current regular season through the latest completed week. Lines: ESPN when available, otherwise nflverse. Projected QBs come from nflverse and can change before kickoff. <a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a>.</p>
 </footer>
 
-<script src="common.js"></script>
-<script src="matchups.js"></script>
+<script src="common.js?v=202609300600"></script>
+<script src="live.js?v=202609300600"></script>
+<script src="weather.js?v=202609300600"></script>
+<script src="matchups.js?v=202609300600"></script>
 </body>
 </html>

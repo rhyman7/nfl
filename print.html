@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print all matchups · NFL Matchup Dashboard</title>
+<link rel="stylesheet" href="style.css?v=202609300600">
+</head>
+<body data-page="printall" class="mprint">
+<header class="topbar">
+  <h1><a href="index.html" class="home-link">NFL Matchup Dashboard</a></h1>
+  <nav class="topnav no-print">
+    <a href="index.html"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
+  </nav>
+</header>
+
+<main id="app">
+  <div class="matchup-bar print-all-bar no-print">
+    <a class="back-link" href="index.html">← All matchups</a>
+    <span id="printStatus" class="print-status">Preparing matchups…</span>
+    <button id="printAllBtn" class="print-btn" type="button" disabled>🖨 Print</button>
+  </div>
+  <div id="printAll"></div>
+</main>
+
+
+<script src="common.js?v=202609300600"></script>
+<script src="print.js?v=202609300600"></script>
+</body>
+</html>

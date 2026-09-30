@@ -1,17 +1,11 @@
-// Shared helpers for every page: data loading, header, and the team card.
+// Shared helpers for every page: data loading, lines, forecast, the game header,
+// Head to Head and the team card.
 let DATA = null;
 
 async function loadData() {
   const res = await fetch("data/data.json", { cache: "no-store" });
   if (!res.ok) throw new Error("HTTP " + res.status);
   DATA = await res.json();
-  const el = document.getElementById("lastUpdated");
-  if (el) {
-    const gen = new Date(DATA.generatedAt);
-    const through = DATA.throughWeek ? `Through Week ${DATA.throughWeek}, ${DATA.season} · ` : "";
-    el.textContent = through + "Updated " + gen.toLocaleDateString(undefined, { month: "short", day: "numeric" }) +
-      " " + gen.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
-  }
   return DATA;
 }
 
@@ -19,37 +13,203 @@ function loadError(target) {
   target.innerHTML = `<div class="empty-note">Couldn't load the stats. Try refreshing in a minute.</div>`;
 }
 
-// "20:15" (Eastern) -> "8:15 PM ET"
-function fmtKickoff(t) {
-  if (!t) return "TBD";
-  const [h, m] = t.split(":").map(Number);
-  const h12 = ((h + 11) % 12) + 1;
-  return `${h12}:${String(m).padStart(2, "0")} ${h >= 12 ? "PM" : "AM"} ET`;
+// Filled in after load: live game state from ESPN (live.js), ESPN's current
+// betting line (live.js) and the kickoff forecast (weather.js). All keyed by game id.
+const LIVE = {};    // { [id]: { state, detail, away, home, possession, ... } }
+const LINES = {};   // { [id]: { details: "CLE -2.5", total: 38.5 } }
+const WX = {};      // { [id]: { icon, text, temp, pop, wind } }
+function liveFor(g) { return LIVE[g.id] || null; }
+
+// nflverse abbreviations that ESPN writes differently.
+const ESPN_ABBR = { LA: "LAR", WAS: "WSH" };
+function abbrOf(name) {
+  const t = DATA.teams[name];
+  return t ? t.abbr : name;
+}
+function espnAbbrOf(name) {
+  const a = abbrOf(name);
+  return ESPN_ABBR[a] || a;
 }
 
-// "2026-10-04" -> "Sun, Oct 4"
-function fmtGameday(d) {
-  const dt = new Date(d + "T12:00:00");
-  return dt.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+function scheduleGames() {
+  return (DATA.schedule && DATA.schedule.games) || [];
+}
+
+function findGame(id) {
+  return scheduleGames().find(g => g.id === id) || null;
+}
+
+// Kickoff as a Date. Uses `start` (UTC) when the data has it, otherwise gameday +
+// gametime, which nflverse gives in US Eastern time.
+function gameStart(g) {
+  if (g.start) return new Date(g.start);
+  if (!g.gametime) return new Date(g.gameday + "T12:00:00");
+  const guess = new Date(`${g.gameday}T${g.gametime}:00Z`);
+  // Eastern is UTC-4 in daylight time and UTC-5 otherwise; ask the browser which applies.
+  const etHour = +new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", hourCycle: "h23" }).format(guess);
+  const offset = (guess.getUTCHours() - etHour + 24) % 24;
+  return new Date(guess.getTime() + offset * 3600 * 1000);
+}
+
+function isFinal(g) {
+  return g.awayScore !== null && g.awayScore !== undefined && g.homeScore !== null && g.homeScore !== undefined;
 }
 
 function fmtRecord(t) {
   return `${t.record.w}-${t.record.l}${t.record.t ? "-" + t.record.t : ""}`;
 }
 
-// nflverse spread_line: positive = home team favored by that many points.
-function fmtSpread(g) {
-  if (g.spread === null || g.spread === undefined) return null;
-  if (g.spread === 0) return "Pick'em";
-  const fav = g.spread > 0 ? g.home : g.away;
-  const abbr = DATA.teams[fav] ? DATA.teams[fav].abbr : fav;
-  return `${abbr} -${Math.abs(g.spread)}`;
+// Current line for a game: ESPN's (live.js) when it names one of the two teams,
+// otherwise the weekly nflverse line. spread = points the favorite gives;
+// fav = "away" or "home". nflverse spread_line: positive = home team favored.
+function lineFor(g) {
+  let fav = null, spread = null, pick = false;
+  const cur = LINES[g.id];
+  if (cur && cur.details) {
+    if (/^(even|pk|pick)/i.test(cur.details)) pick = true;
+    else {
+      const m = cur.details.match(/^(.+?)\s+-(\d+(?:\.\d+)?)$/);
+      if (m) {
+        const ab = m[1].trim().toUpperCase();
+        if (ab === espnAbbrOf(g.away).toUpperCase() || ab === abbrOf(g.away).toUpperCase()) fav = "away";
+        else if (ab === espnAbbrOf(g.home).toUpperCase() || ab === abbrOf(g.home).toUpperCase()) fav = "home";
+        if (fav) spread = parseFloat(m[2]);
+      }
+    }
+  }
+  if (!pick && !fav && g.spread !== null && g.spread !== undefined) {
+    if (g.spread === 0) pick = true;
+    else { fav = g.spread > 0 ? "home" : "away"; spread = Math.abs(g.spread); }
+  }
+  const total = cur && cur.total != null ? cur.total : (g.total || null);
+  if (!pick && !fav && total == null) return null;
+  return { fav, spread, pick, total };
 }
 
-function findGame(id) {
-  const games = (DATA.schedule && DATA.schedule.games) || [];
-  return games.find(g => g.id === id) || null;
+// "Spread: CLE -2.5 · O/U 38.5" from the current line.
+function heroLineText(g) {
+  const ln = lineFor(g);
+  if (!ln) return "";
+  const spread = ln.pick ? "Pick'em" : ln.fav ? `${abbrOf(g[ln.fav])} -${ln.spread}` : null;
+  return [spread ? `Spread: ${spread}` : null, ln.total != null ? `O/U ${ln.total}` : null].filter(Boolean).join(" · ");
 }
+
+// Forecast line for the game header; blank for indoor games and once the game is over.
+function heroWxText(g) {
+  if (isFinal(g) || g.indoor === true) return "";
+  const w = WX[g.id];
+  if (!w) return "";
+  return [`${w.icon} ${w.text}`, `${w.temp}° at kickoff`,
+    w.pop != null ? `${w.pop}% chance of rain` : null, w.wind != null ? `Wind ${w.wind} mph` : null]
+    .filter(Boolean).join(" · ");
+}
+
+function roofLabel(g) {
+  if (g.indoor === true) return { dome: "Dome", closed: "Roof closed" }[g.roof] || "Indoors";
+  if (g.indoor === false) return g.roof === "open" ? "Roof open" : "Outdoors";
+  return { dome: "Dome", closed: "Roof closed", open: "Roof open", outdoors: "Outdoors" }[g.roof] || null;
+}
+
+/* ---------------- One game: header, Head to Head, team cards ---------------- */
+
+// Used by the matchup page and Print all.
+function renderMatchupParts(g) {
+  const away = DATA.teams[g.away], home = DATA.teams[g.home];
+  const edges = `
+    <h3 class="section-title">Head to Head</h3>
+    <div class="edge-grid">
+      ${edgePanel(away, home)}
+      ${edgePanel(home, away)}
+    </div>
+    <p class="edge-key">Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense.</p>`;
+  const cards = `<h3 class="section-title">Full Team Stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
+  return { head: renderHero(g, away, home), edges, cards };
+}
+
+function renderHero(g, away, home) {
+  const final = isFinal(g);
+  const d = gameStart(g);
+  const day = d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+  const time = final ? "Final" : !g.gametime ? "Time TBD"
+    : d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+  const info = [
+    `${day} · ${time}`,
+    [g.stadium, g.city, roofLabel(g)].filter(Boolean).join(" · "),
+    g.neutral ? "Neutral site" : null,
+  ].filter(Boolean);
+  const lineText = heroLineText(g), wxText = heroWxText(g);
+
+  return `
+  <div class="mh-week">Week ${DATA.schedule.week}</div>
+  <div class="game-hero">
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", g.awayQb, final ? g.awayScore : null, "away")}
+    <div class="hero-mid">
+      <div class="hero-live" id="heroLive" hidden></div>
+      <div class="hero-at">${g.neutral ? "vs" : "@"}</div>
+      ${info.map(i => `<div class="hero-info">${escapeHtml(i)}</div>`).join("")}
+      <div class="hero-info hero-wx" id="heroWx"${wxText ? "" : " hidden"}>${escapeHtml(wxText || "")}</div>
+      <div class="hero-line" id="heroLine"${lineText ? "" : " hidden"}>${escapeHtml(lineText || "")}</div>
+      ${g.divisional ? `<div class="hero-info">Division game</div>` : ""}
+    </div>
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", g.homeQb, final ? g.homeScore : null, "home")}
+  </div>`;
+}
+
+function heroTeam(t, side, qb, score, sideKey) {
+  return `
+    <div class="hero-team" data-side="${sideKey}">
+      <div class="hero-side">${side}</div>
+      <div class="hero-score" hidden></div>
+      <div class="hero-name">${escapeHtml(t.team)}</div>
+      <div class="hero-rec">${fmtRecord(t)}${score !== null ? ` · <b>${score}</b>` : ""}</div>
+      ${qb ? `<div class="hero-qb">QB: ${escapeHtml(qb)}</div>` : ""}
+      <div class="hero-srs">SRS <span class="${t.record.srs > 0 ? "pos" : t.record.srs < 0 ? "neg" : ""}">${t.record.srs}</span></div>
+    </div>`;
+}
+
+// Rank a value among all 32 teams. higherIsBetter decides direction; ties share the lower rank.
+function leagueRank(getter, value, higherIsBetter) {
+  const all = Object.values(DATA.teams).map(getter);
+  return 1 + all.filter(v => (higherIsBetter ? v > value : v < value)).length;
+}
+
+const EDGE_ROWS = [
+  // label, offense getter, defense getter, offense higher-better, defense higher-better
+  ["Points / G", t => t.offense.ppg, t => t.defense.papg, true, false],
+  ["Rush Yds / G", t => t.offense.rushYdsG, t => t.defense.rushYdsG, true, false],
+  ["Rush TD / G", t => t.offense.rushTdG, t => t.defense.rushTdG, true, false],
+  ["Pass Yds / G", t => t.offense.passYdsG, t => t.defense.passYdsG, true, false],
+  ["Pass TD / G", t => t.offense.passTdG, t => t.defense.passTdG, true, false],
+  ["INT / G", t => t.offense.int, t => t.defense.int, false, true],
+];
+
+function edgePanel(offTeam, defTeam) {
+  const rows = EDGE_ROWS.map(([label, offGet, defGet, offHi, defHi]) => {
+    const ov = offGet(offTeam), dv = defGet(defTeam);
+    const or = leagueRank(offGet, ov, offHi), dr = leagueRank(defGet, dv, defHi);
+    const diff = dr - or;
+    const edge = diff >= 6 ? `<span class="edge-chip off">Offense</span>`
+      : diff <= -6 ? `<span class="edge-chip def">Defense</span>`
+      : `<span class="edge-chip even">Even</span>`;
+    return `<tr>
+      <td class="lbl">${label}</td>
+      <td class="num"><b>${ov}</b> <span class="rk">#${or}</span></td>
+      <td class="num"><b>${dv}</b> <span class="rk">#${dr}</span></td>
+      <td class="edge">${edge}</td>
+    </tr>`;
+  }).join("");
+
+  return `
+  <div class="edge-panel">
+    <h4><span class="off-txt">${escapeHtml(offTeam.abbr)} offense</span> vs <span class="def-txt">${escapeHtml(defTeam.abbr)} defense</span></h4>
+    <table class="edge-table">
+      <thead><tr><th></th><th class="num">${escapeHtml(offTeam.abbr)} O</th><th class="num">${escapeHtml(defTeam.abbr)} D</th><th class="num">Edge</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+/* ---------------- Team card ---------------- */
 
 function renderTeamCard(t) {
   if (!t) return "";
@@ -253,6 +413,7 @@ function gaugeSvg(value, min, max, color) {
 }
 
 function printOneTeam(teamName) {
+  document.body.classList.add("print-single");
   const cards = document.querySelectorAll(".team-card");
   cards.forEach(c => {
     if (c.dataset.team !== teamName) c.classList.add("print-hide");
@@ -262,6 +423,7 @@ function printOneTeam(teamName) {
 
 window.addEventListener("afterprint", () => {
   document.querySelectorAll(".team-card.print-hide").forEach(c => c.classList.remove("print-hide"));
+  document.body.classList.remove("print-single");
 });
 
 function escapeHtml(str) {

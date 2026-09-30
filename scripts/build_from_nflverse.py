@@ -21,6 +21,7 @@ import math
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
@@ -38,6 +39,82 @@ TEAM_NAMES = {
     "SEA": "Seattle Seahawks", "SF": "San Francisco 49ers", "TB": "Tampa Bay Buccaneers",
     "TEN": "Tennessee Titans", "WAS": "Washington Commanders",
 }
+
+
+# nflverse stadium_id -> (city, lat, lon, roof type). The site uses the location for the
+# kickoff forecast (Open-Meteo) and the roof type when nflverse leaves `roof` blank for
+# an upcoming game. "retractable" roofs count as indoors unless nflverse says "open".
+# Add a row when a new stadium shows up; unknown stadiums just get no forecast.
+STADIUMS = {
+    "PHO00": ("Glendale, AZ", 33.528, -112.263, "retractable"),
+    "ATL97": ("Atlanta, GA", 33.755, -84.401, "retractable"),
+    "BAL00": ("Baltimore, MD", 39.278, -76.623, "outdoors"),
+    "BUF00": ("Orchard Park, NY", 42.774, -78.787, "outdoors"),
+    "BUF01": ("Orchard Park, NY", 42.774, -78.787, "outdoors"),
+    "CAR00": ("Charlotte, NC", 35.226, -80.853, "outdoors"),
+    "CHI98": ("Chicago, IL", 41.862, -87.617, "outdoors"),
+    "CIN00": ("Cincinnati, OH", 39.095, -84.516, "outdoors"),
+    "CLE00": ("Cleveland, OH", 41.506, -81.700, "outdoors"),
+    "DAL00": ("Arlington, TX", 32.748, -97.093, "retractable"),
+    "DEN00": ("Denver, CO", 39.744, -105.020, "outdoors"),
+    "DET00": ("Detroit, MI", 42.340, -83.046, "dome"),
+    "GNB00": ("Green Bay, WI", 44.501, -88.062, "outdoors"),
+    "HOU00": ("Houston, TX", 29.685, -95.411, "retractable"),
+    "IND00": ("Indianapolis, IN", 39.760, -86.164, "retractable"),
+    "JAX00": ("Jacksonville, FL", 30.324, -81.637, "outdoors"),
+    "KAN00": ("Kansas City, MO", 39.049, -94.484, "outdoors"),
+    "LAX01": ("Inglewood, CA", 33.953, -118.339, "dome"),
+    "VEG00": ("Las Vegas, NV", 36.091, -115.184, "dome"),
+    "MIA00": ("Miami Gardens, FL", 25.958, -80.239, "outdoors"),
+    "MIN01": ("Minneapolis, MN", 44.974, -93.258, "dome"),
+    "BOS00": ("Foxborough, MA", 42.091, -71.264, "outdoors"),
+    "NOR00": ("New Orleans, LA", 29.951, -90.081, "dome"),
+    "NYC01": ("East Rutherford, NJ", 40.813, -74.074, "outdoors"),
+    "PHI00": ("Philadelphia, PA", 39.901, -75.168, "outdoors"),
+    "PIT00": ("Pittsburgh, PA", 40.447, -80.016, "outdoors"),
+    "SEA00": ("Seattle, WA", 47.595, -122.332, "outdoors"),
+    "SFO01": ("Santa Clara, CA", 37.403, -121.970, "outdoors"),
+    "TAM00": ("Tampa, FL", 27.976, -82.503, "outdoors"),
+    "NAS00": ("Nashville, TN", 36.166, -86.771, "outdoors"),
+    "WAS00": ("Landover, MD", 38.908, -76.864, "outdoors"),
+    # international and neutral sites (open-air unless noted)
+    "LON00": ("London, England", 51.556, -0.280, "outdoors"),
+    "LON02": ("London, England", 51.604, -0.066, "outdoors"),
+    "MEL00": ("Melbourne, Australia", -37.820, 144.983, "outdoors"),
+    "RIO00": ("Rio de Janeiro, Brazil", -22.912, -43.230, "outdoors"),
+    "PAR00": ("Saint-Denis, France", 48.924, 2.360, "outdoors"),
+    "MAD01": ("Madrid, Spain", 40.453, -3.688, "retractable"),
+    "MUN01": ("Munich, Germany", 48.219, 11.625, "outdoors"),
+    "FRA00": ("Frankfurt, Germany", 50.069, 8.646, "retractable"),
+    "BER00": ("Berlin, Germany", 52.515, 13.239, "outdoors"),
+    "MEX00": ("Mexico City, Mexico", 19.303, -99.150, "outdoors"),
+    "SAO00": ("São Paulo, Brazil", -23.545, -46.474, "outdoors"),
+    "DUB00": ("Dublin, Ireland", 53.361, -6.251, "outdoors"),
+}
+
+
+def schedule_extras(g):
+    """ESPN id, UTC kickoff, neutral site and venue location for one games.csv row."""
+    out = {"espnId": None if pd.isna(g.espn) else str(int(g.espn)),
+           "start": None, "neutral": str(g.location) == "Neutral",
+           "city": None, "lat": None, "lon": None, "indoor": None}
+    if not pd.isna(g.gametime):
+        et = datetime.strptime(f"{g.gameday} {g.gametime}", "%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("America/New_York"))
+        out["start"] = et.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    st = STADIUMS.get(None if pd.isna(g.stadium_id) else str(g.stadium_id))
+    roof = None if pd.isna(g.roof) else str(g.roof)
+    if st:
+        out["city"], out["lat"], out["lon"] = st[0], st[1], st[2]
+        kind = st[3]
+        if kind == "dome":
+            out["indoor"] = True
+        elif kind == "outdoors":
+            out["indoor"] = False
+        else:  # retractable: closed unless nflverse says it's open
+            out["indoor"] = roof != "open"
+    elif roof:
+        out["indoor"] = roof in ("dome", "closed")
+    return out
 
 
 def r1(x):
@@ -232,6 +309,7 @@ def main():
             "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
             "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
             "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
+            **schedule_extras(g),
         })
     playing = {x for g in schedule_games for x in (g["away"], g["home"])}
     byes = sorted(n for n in teams_out if n not in playing)

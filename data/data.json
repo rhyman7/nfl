@@ -20,7 +20,14 @@
         "roof": "outdoors",
         "divisional": true,
         "awayQb": "Aaron Rodgers",
-        "homeQb": "Deshaun Watson"
+        "homeQb": "Deshaun Watson",
+        "espnId": "401872964",
+        "start": "2026-10-02T00:15Z",
+        "neutral": false,
+        "city": "Cleveland, OH",
+        "lat": 41.506,
+        "lon": -81.7,
+        "indoor": false
       },
       {
         "id": "2026_04_IND_WAS",
@@ -37,7 +44,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Daniel Jones",
-        "homeQb": "Jayden Daniels"
+        "homeQb": "Jayden Daniels",
+        "espnId": "401872965",
+        "start": "2026-10-04T13:30Z",
+        "neutral": true,
+        "city": "London, England",
+        "lat": 51.604,
+        "lon": -0.066,
+        "indoor": false
       },
       {
         "id": "2026_04_ARI_NYG",
@@ -54,7 +68,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Jacoby Brissett",
-        "homeQb": "Jameis Winston"
+        "homeQb": "Jameis Winston",
+        "espnId": "401872966",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "East Rutherford, NJ",
+        "lat": 40.813,
+        "lon": -74.074,
+        "indoor": false
       },
       {
         "id": "2026_04_DAL_HOU",
@@ -71,7 +92,14 @@
         "roof": null,
         "divisional": false,
         "awayQb": "Dak Prescott",
-        "homeQb": "C.J. Stroud"
+        "homeQb": "C.J. Stroud",
+        "espnId": "401872967",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Houston, TX",
+        "lat": 29.685,
+        "lon": -95.411,
+        "indoor": true
       },
       {
         "id": "2026_04_GB_TB",
@@ -88,7 +116,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Jordan Love",
-        "homeQb": "Jalon Daniels"
+        "homeQb": "Jalon Daniels",
+        "espnId": "401872968",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Tampa, FL",
+        "lat": 27.976,
+        "lon": -82.503,
+        "indoor": false
       },
       {
         "id": "2026_04_JAX_CIN",
@@ -105,7 +140,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Trevor Lawrence",
-        "homeQb": "Joe Burrow"
+        "homeQb": "Joe Burrow",
+        "espnId": "401872969",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Cincinnati, OH",
+        "lat": 39.095,
+        "lon": -84.516,
+        "indoor": false
       },
       {
         "id": "2026_04_LA_PHI",
@@ -122,7 +164,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Matthew Stafford",
-        "homeQb": "Jalen Hurts"
+        "homeQb": "Jalen Hurts",
+        "espnId": "401872970",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Philadelphia, PA",
+        "lat": 39.901,
+        "lon": -75.168,
+        "indoor": false
       },
       {
         "id": "2026_04_NE_BUF",
@@ -139,7 +188,14 @@
         "roof": "outdoors",
         "divisional": true,
         "awayQb": "Drake Maye",
-        "homeQb": "Josh Allen"
+        "homeQb": "Josh Allen",
+        "espnId": "401872971",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Orchard Park, NY",
+        "lat": 42.774,
+        "lon": -78.787,
+        "indoor": false
       },
       {
         "id": "2026_04_NYJ_CHI",
@@ -156,7 +212,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Geno Smith",
-        "homeQb": "Case Keenum"
+        "homeQb": "Case Keenum",
+        "espnId": "401872972",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Chicago, IL",
+        "lat": 41.862,
+        "lon": -87.617,
+        "indoor": false
       },
       {
         "id": "2026_04_TEN_BAL",
@@ -173,7 +236,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Cam Ward",
-        "homeQb": "Lamar Jackson"
+        "homeQb": "Lamar Jackson",
+        "espnId": "401872973",
+        "start": "2026-10-04T17:00Z",
+        "neutral": false,
+        "city": "Baltimore, MD",
+        "lat": 39.278,
+        "lon": -76.623,
+        "indoor": false
       },
       {
         "id": "2026_04_MIA_MIN",
@@ -190,7 +260,14 @@
         "roof": "dome",
         "divisional": false,
         "awayQb": "Malik Willis",
-        "homeQb": "Kyler Murray"
+        "homeQb": "Kyler Murray",
+        "espnId": "401872974",
+        "start": "2026-10-04T20:05Z",
+        "neutral": false,
+        "city": "Minneapolis, MN",
+        "lat": 44.974,
+        "lon": -93.258,
+        "indoor": true
       },
       {
         "id": "2026_04_DEN_SF",
@@ -207,7 +284,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Bo Nix",
-        "homeQb": "Brock Purdy"
+        "homeQb": "Brock Purdy",
+        "espnId": "401872975",
+        "start": "2026-10-04T20:25Z",
+        "neutral": false,
+        "city": "Santa Clara, CA",
+        "lat": 37.403,
+        "lon": -121.97,
+        "indoor": false
       },
       {
         "id": "2026_04_KC_LV",
@@ -224,7 +308,14 @@
         "roof": "dome",
         "divisional": true,
         "awayQb": "Patrick Mahomes",
-        "homeQb": "Kirk Cousins"
+        "homeQb": "Kirk Cousins",
+        "espnId": "401872976",
+        "start": "2026-10-04T20:25Z",
+        "neutral": false,
+        "city": "Las Vegas, NV",
+        "lat": 36.091,
+        "lon": -115.184,
+        "indoor": true
       },
       {
         "id": "2026_04_LAC_SEA",
@@ -241,7 +332,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Justin Herbert",
-        "homeQb": "Drew Lock"
+        "homeQb": "Drew Lock",
+        "espnId": "401872977",
+        "start": "2026-10-04T20:25Z",
+        "neutral": false,
+        "city": "Seattle, WA",
+        "lat": 47.595,
+        "lon": -122.332,
+        "indoor": false
       },
       {
         "id": "2026_04_DET_CAR",
@@ -258,7 +356,14 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Jared Goff",
-        "homeQb": "Bryce Young"
+        "homeQb": "Bryce Young",
+        "espnId": "401872978",
+        "start": "2026-10-05T00:20Z",
+        "neutral": false,
+        "city": "Charlotte, NC",
+        "lat": 35.226,
+        "lon": -80.853,
+        "indoor": false
       },
       {
         "id": "2026_04_ATL_NO",
@@ -275,7 +380,14 @@
         "roof": "dome",
         "divisional": true,
         "awayQb": "Michael Penix Jr.",
-        "homeQb": "Tyler Shough"
+        "homeQb": "Tyler Shough",
+        "espnId": "401872979",
+        "start": "2026-10-06T00:15Z",
+        "neutral": false,
+        "city": "New Orleans, LA",
+        "lat": 29.951,
+        "lon": -90.081,
+        "indoor": true
       }
     ],
     "byes": []
