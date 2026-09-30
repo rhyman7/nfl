@@ -219,9 +219,46 @@ def main():
         "wr": vs_pos(["WR"], "receiving_yards", "receiving_tds"),
     }
 
+    # ---- game results by (week, team): home/away and final score, for game logs ----
+    results = {}
+    for _, g in done.iterrows():
+        for side, other in (("home", "away"), ("away", "home")):
+            us, them = int(g[f"{side}_score"]), int(g[f"{other}_score"])
+            res = "W" if us > them else "L" if us < them else "T"
+            results[(int(g.week), g[f"{side}_team"])] = {
+                "at": side == "away" and str(g.location) != "Neutral", "res": f"{res} {us}-{them}"}
+
+    # ---- per-game logs for every player shown in a table (keyed "ABBR|player_id") ----
+    game_logs = {}
+
+    def n0(x):
+        return 0 if pd.isna(x) else x
+
+    def add_log(team, pid):
+        key = f"{team}|{pid}"
+        if key in game_logs:
+            return key
+        rows = ps[(ps.team == team) & (ps.player_id == pid)].sort_values("week")
+        log = []
+        for _, r in rows.iterrows():
+            gr = results.get((int(r.week), team), {})
+            fl = n0(r.sack_fumbles_lost) + n0(r.rushing_fumbles_lost) + n0(r.receiving_fumbles_lost)
+            log.append({
+                "w": int(r.week), "opp": r.opponent_team, "at": gr.get("at", False), "res": gr.get("res"),
+                "cmp": int(n0(r.completions)), "att": int(n0(r.attempts)), "pYds": int(n0(r.passing_yards)),
+                "pTd": int(n0(r.passing_tds)), "int": int(n0(r.passing_interceptions)),
+                "car": int(n0(r.carries)), "rYds": int(n0(r.rushing_yards)), "rTd": int(n0(r.rushing_tds)),
+                "tgt": int(n0(r.targets)), "rec": int(n0(r.receptions)), "recYds": int(n0(r.receiving_yards)),
+                "recTd": int(n0(r.receiving_tds)), "fl": int(fl), "fp": r1(n0(r.fantasy_points_ppr)),
+            })
+        # stat fields that are 0 are left out to keep the file small; the site reads them as 0
+        game_logs[key] = [{k: v for k, v in e.items() if v or k in ("w", "opp", "at", "fp")} for e in log]
+        return key
+
     # ---- player tables ----
     def players(team, kind):
         sub = ps[ps.team == team]
+        ids = sub.groupby("player_display_name").player_id.first()
         if kind == "passing":
             sub = sub[sub.attempts > 0]
             agg = sub.groupby("player_display_name").agg(g=("week", "nunique"), yds=("passing_yards", "sum"),
@@ -242,7 +279,10 @@ def main():
             rows = [{"player": n, "ydsG": r1(a.yds / a.g), "td": r2(a.td / a.g),
                      "yr": r1(a.yds / a.rec) if a.rec else 0.0, "rec": r2(a.rec / a.g)} for n, a in agg.iterrows()]
             n = 7
-        return sorted(rows, key=lambda r: r["ydsG"], reverse=True)[:n]
+        top = sorted(rows, key=lambda r: r["ydsG"], reverse=True)[:n]
+        for r in top:
+            r["log"] = add_log(team, ids[r["player"]])
+        return top
 
     # ---- standings / ratings from PFR (optional) ----
     ratings, notes = {}, []
@@ -326,6 +366,7 @@ def main():
         "schedule": {"week": sched_week, "games": schedule_games, "byes": byes},
         "teams": teams_out,
         "teamNames": sorted(teams_out),
+        "gameLogs": game_logs,
         "leagueAverage": {"rushTdG": r1(o.rushTdG.mean()), "passTdG": r1(o.passTdG.mean()), "ppg": r1(o.ppg.mean())},
         "gaugeRanges": {"offRushYdsG": gauge_range(o.rushYdsG), "offPassYdsG": gauge_range(o.passYdsG),
                         "defRushYdsG": gauge_range(d.rushYdsG), "defPassYdsG": gauge_range(d.passYdsG)},

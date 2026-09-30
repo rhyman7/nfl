@@ -27,6 +27,14 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 
 All pages read one file, `data/data.json`, and share `common.js` and `style.css`.
 
+**Player game logs.** On every team card, each player name in the Passing, Rushing and
+Receiving tables is clickable. Hovering (on a computer) shows a tooltip with that
+player's week-by-week stats for the table, the opponent, and full-PPR fantasy points;
+clicking or tapping opens a panel with the full game log (result, passing, rushing,
+receiving, fumbles lost, fantasy points). The logs live in `gameLogs` in
+`data/data.json`, keyed `ABBR|player_id`, and each player row carries a `log` key that
+points to its entry. Fantasy points are nflverse's `fantasy_points_ppr`.
+
 **Live scores.** On game days the slate and matchup pages fetch live scores straight
 from ESPN's public site API in the viewer's browser (`live.js`): the slate shows
 scores, quarter/clock, possession and a "Live now" group; the matchup page adds a box
