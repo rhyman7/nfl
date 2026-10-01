@@ -772,7 +772,87 @@
           "epaRank": 29,
           "srRank": 26
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "LAC",
+          "at": true,
+          "res": "W 26-14",
+          "espnId": "401872926",
+          "pass": {
+            "n": "Jacoby Brissett",
+            "yds": 277,
+            "td": 1,
+            "cmp": 27,
+            "att": 37
+          },
+          "rush": {
+            "n": "Tyler Allgeier",
+            "yds": 61,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Trey McBride",
+            "yds": 95,
+            "td": 1,
+            "rec": 9
+          }
+        },
+        {
+          "w": 2,
+          "opp": "SEA",
+          "at": false,
+          "res": "L 7-31",
+          "espnId": "401872943",
+          "pass": {
+            "n": "Jacoby Brissett",
+            "yds": 95,
+            "td": 1,
+            "cmp": 17,
+            "att": 28
+          },
+          "rush": {
+            "n": "Jeremiyah Love",
+            "yds": 29,
+            "td": 0,
+            "car": 9
+          },
+          "rec": {
+            "n": "Trey McBride",
+            "yds": 41,
+            "td": 1,
+            "rec": 8
+          }
+        },
+        {
+          "w": 3,
+          "opp": "SF",
+          "at": true,
+          "res": "L 30-36",
+          "espnId": "401872958",
+          "pass": {
+            "n": "Jacoby Brissett",
+            "yds": 280,
+            "td": 2,
+            "cmp": 38,
+            "att": 52
+          },
+          "rush": {
+            "n": "Jeremiyah Love",
+            "yds": 90,
+            "td": 0,
+            "car": 21
+          },
+          "rec": {
+            "n": "Michael Wilson",
+            "yds": 89,
+            "td": 1,
+            "rec": 11
+          }
+        }
+      ]
     },
     "Atlanta Falcons": {
       "team": "Atlanta Falcons",
@@ -1061,7 +1141,87 @@
           "epaRank": 8,
           "srRank": 4
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "PIT",
+          "at": true,
+          "res": "L 13-20",
+          "espnId": "401872658",
+          "pass": {
+            "n": "Cooper Rush",
+            "yds": 143,
+            "td": 1,
+            "cmp": 12,
+            "att": 22
+          },
+          "rush": {
+            "n": "Bijan Robinson",
+            "yds": 83,
+            "td": 0,
+            "car": 21
+          },
+          "rec": {
+            "n": "Bijan Robinson",
+            "yds": 90,
+            "td": 1,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "CAR",
+          "at": false,
+          "res": "L 3-34",
+          "espnId": "401872933",
+          "pass": {
+            "n": "Cooper Rush",
+            "yds": 86,
+            "td": 0,
+            "cmp": 10,
+            "att": 17
+          },
+          "rush": {
+            "n": "Bijan Robinson",
+            "yds": 72,
+            "td": 0,
+            "car": 16
+          },
+          "rec": {
+            "n": "Drake London",
+            "yds": 51,
+            "td": 0,
+            "rec": 4
+          }
+        },
+        {
+          "w": 3,
+          "opp": "GB",
+          "at": true,
+          "res": "W 35-14",
+          "espnId": "401872948",
+          "pass": {
+            "n": "Michael Penix Jr.",
+            "yds": 256,
+            "td": 1,
+            "cmp": 18,
+            "att": 25
+          },
+          "rush": {
+            "n": "Bijan Robinson",
+            "yds": 194,
+            "td": 2,
+            "car": 29
+          },
+          "rec": {
+            "n": "Drake London",
+            "yds": 194,
+            "td": 0,
+            "rec": 9
+          }
+        }
+      ]
     },
     "Baltimore Ravens": {
       "team": "Baltimore Ravens",
@@ -1334,7 +1494,87 @@
           "epaRank": 21,
           "srRank": 19
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "IND",
+          "at": true,
+          "res": "W 41-23",
+          "espnId": "401872659",
+          "pass": {
+            "n": "Lamar Jackson",
+            "yds": 324,
+            "td": 1,
+            "cmp": 17,
+            "att": 25
+          },
+          "rush": {
+            "n": "Derrick Henry",
+            "yds": 144,
+            "td": 3,
+            "car": 24
+          },
+          "rec": {
+            "n": "Zay Flowers",
+            "yds": 150,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "NO",
+          "at": false,
+          "res": "L 17-24",
+          "espnId": "401872938",
+          "pass": {
+            "n": "Lamar Jackson",
+            "yds": 235,
+            "td": 1,
+            "cmp": 21,
+            "att": 31
+          },
+          "rush": {
+            "n": "Derrick Henry",
+            "yds": 68,
+            "td": 1,
+            "car": 16
+          },
+          "rec": {
+            "n": "Rashod Bateman",
+            "yds": 88,
+            "td": 1,
+            "rec": 7
+          }
+        },
+        {
+          "w": 3,
+          "opp": "DAL",
+          "at": false,
+          "res": "W 34-31",
+          "espnId": "401872960",
+          "pass": {
+            "n": "Lamar Jackson",
+            "yds": 186,
+            "td": 2,
+            "cmp": 15,
+            "att": 20
+          },
+          "rush": {
+            "n": "Derrick Henry",
+            "yds": 89,
+            "td": 2,
+            "car": 26
+          },
+          "rec": {
+            "n": "Zay Flowers",
+            "yds": 84,
+            "td": 0,
+            "rec": 5
+          }
+        }
+      ]
     },
     "Buffalo Bills": {
       "team": "Buffalo Bills",
@@ -1617,7 +1857,87 @@
           "epaRank": 25,
           "srRank": 27
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "HOU",
+          "at": true,
+          "res": "W 36-31",
+          "espnId": "401872660",
+          "pass": {
+            "n": "Josh Allen",
+            "yds": 334,
+            "td": 2,
+            "cmp": 20,
+            "att": 29
+          },
+          "rush": {
+            "n": "James Cook",
+            "yds": 57,
+            "td": 0,
+            "car": 13
+          },
+          "rec": {
+            "n": "Dalton Kincaid",
+            "yds": 130,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "DET",
+          "at": false,
+          "res": "W 41-31",
+          "espnId": "401872932",
+          "pass": {
+            "n": "Josh Allen",
+            "yds": 248,
+            "td": 3,
+            "cmp": 20,
+            "att": 31
+          },
+          "rush": {
+            "n": "James Cook",
+            "yds": 135,
+            "td": 1,
+            "car": 21
+          },
+          "rec": {
+            "n": "Dalton Kincaid",
+            "yds": 95,
+            "td": 1,
+            "rec": 7
+          }
+        },
+        {
+          "w": 3,
+          "opp": "LAC",
+          "at": false,
+          "res": "W 24-16",
+          "espnId": "401872953",
+          "pass": {
+            "n": "Josh Allen",
+            "yds": 204,
+            "td": 0,
+            "cmp": 16,
+            "att": 26
+          },
+          "rush": {
+            "n": "James Cook",
+            "yds": 154,
+            "td": 1,
+            "car": 24
+          },
+          "rec": {
+            "n": "DJ Moore",
+            "yds": 67,
+            "td": 0,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Carolina Panthers": {
       "team": "Carolina Panthers",
@@ -1908,7 +2228,87 @@
           "epaRank": 13,
           "srRank": 13
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "CHI",
+          "at": false,
+          "res": "L 37-59",
+          "espnId": "401872661",
+          "pass": {
+            "n": "Bryce Young",
+            "yds": 361,
+            "td": 3,
+            "cmp": 23,
+            "att": 37
+          },
+          "rush": {
+            "n": "Chuba Hubbard",
+            "yds": 49,
+            "td": 1,
+            "car": 10
+          },
+          "rec": {
+            "n": "Jalen Coker",
+            "yds": 138,
+            "td": 2,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "ATL",
+          "at": true,
+          "res": "W 34-3",
+          "espnId": "401872933",
+          "pass": {
+            "n": "Bryce Young",
+            "yds": 287,
+            "td": 3,
+            "cmp": 23,
+            "att": 36
+          },
+          "rush": {
+            "n": "Chuba Hubbard",
+            "yds": 53,
+            "td": 0,
+            "car": 12
+          },
+          "rec": {
+            "n": "Tetairoa McMillan",
+            "yds": 101,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "CLE",
+          "at": true,
+          "res": "L 18-21",
+          "espnId": "401872949",
+          "pass": {
+            "n": "Bryce Young",
+            "yds": 291,
+            "td": 1,
+            "cmp": 26,
+            "att": 48
+          },
+          "rush": {
+            "n": "Chuba Hubbard",
+            "yds": 82,
+            "td": 0,
+            "car": 19
+          },
+          "rec": {
+            "n": "Brycen Tremayne",
+            "yds": 83,
+            "td": 0,
+            "rec": 4
+          }
+        }
+      ]
     },
     "Chicago Bears": {
       "team": "Chicago Bears",
@@ -2188,7 +2588,87 @@
           "epaRank": 9,
           "srRank": 7
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "CAR",
+          "at": true,
+          "res": "W 59-37",
+          "espnId": "401872661",
+          "pass": {
+            "n": "Caleb Williams",
+            "yds": 269,
+            "td": 2,
+            "cmp": 21,
+            "att": 29
+          },
+          "rush": {
+            "n": "D'Andre Swift",
+            "yds": 124,
+            "td": 3,
+            "car": 18
+          },
+          "rec": {
+            "n": "Kalif Raymond",
+            "yds": 84,
+            "td": 0,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "MIN",
+          "at": false,
+          "res": "L 3-9",
+          "espnId": "401872937",
+          "pass": {
+            "n": "Caleb Williams",
+            "yds": 138,
+            "td": 0,
+            "cmp": 15,
+            "att": 26
+          },
+          "rush": {
+            "n": "Kyle Monangai",
+            "yds": 47,
+            "td": 0,
+            "car": 10
+          },
+          "rec": {
+            "n": "D'Andre Swift",
+            "yds": 54,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "PHI",
+          "at": false,
+          "res": "W 27-7",
+          "espnId": "401872963",
+          "pass": {
+            "n": "Case Keenum",
+            "yds": 247,
+            "td": 2,
+            "cmp": 24,
+            "att": 34
+          },
+          "rush": {
+            "n": "D'Andre Swift",
+            "yds": 84,
+            "td": 0,
+            "car": 20
+          },
+          "rec": {
+            "n": "Kalif Raymond",
+            "yds": 90,
+            "td": 1,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Cincinnati Bengals": {
       "team": "Cincinnati Bengals",
@@ -2441,7 +2921,87 @@
           "epaRank": 7,
           "srRank": 16
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "TB",
+          "at": false,
+          "res": "W 33-27",
+          "espnId": "401872925",
+          "pass": {
+            "n": "Joe Burrow",
+            "yds": 254,
+            "td": 1,
+            "cmp": 25,
+            "att": 35
+          },
+          "rush": {
+            "n": "Chase Brown",
+            "yds": 56,
+            "td": 1,
+            "car": 16
+          },
+          "rec": {
+            "n": "Mike Gesicki",
+            "yds": 78,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "HOU",
+          "at": true,
+          "res": "W 20-6",
+          "espnId": "401872934",
+          "pass": {
+            "n": "Joe Burrow",
+            "yds": 207,
+            "td": 2,
+            "cmp": 20,
+            "att": 31
+          },
+          "rush": {
+            "n": "Chase Brown",
+            "yds": 80,
+            "td": 0,
+            "car": 20
+          },
+          "rec": {
+            "n": "Tee Higgins",
+            "yds": 95,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "PIT",
+          "at": true,
+          "res": "L 27-30",
+          "espnId": "401872950",
+          "pass": {
+            "n": "Joe Burrow",
+            "yds": 282,
+            "td": 3,
+            "cmp": 28,
+            "att": 37
+          },
+          "rush": {
+            "n": "Chase Brown",
+            "yds": 61,
+            "td": 0,
+            "car": 13
+          },
+          "rec": {
+            "n": "Ja'Marr Chase",
+            "yds": 98,
+            "td": 1,
+            "rec": 9
+          }
+        }
+      ]
     },
     "Cleveland Browns": {
       "team": "Cleveland Browns",
@@ -2712,7 +3272,87 @@
           "epaRank": 14,
           "srRank": 15
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "JAX",
+          "at": true,
+          "res": "L 10-34",
+          "espnId": "401872922",
+          "pass": {
+            "n": "Deshaun Watson",
+            "yds": 205,
+            "td": 1,
+            "cmp": 16,
+            "att": 22
+          },
+          "rush": {
+            "n": "Deshaun Watson",
+            "yds": 38,
+            "td": 0,
+            "car": 6
+          },
+          "rec": {
+            "n": "Denzel Boston",
+            "yds": 59,
+            "td": 1,
+            "rec": 2
+          }
+        },
+        {
+          "w": 2,
+          "opp": "TB",
+          "at": true,
+          "res": "W 23-19",
+          "espnId": "401872935",
+          "pass": {
+            "n": "Deshaun Watson",
+            "yds": 238,
+            "td": 2,
+            "cmp": 24,
+            "att": 30
+          },
+          "rush": {
+            "n": "Deshaun Watson",
+            "yds": 22,
+            "td": 0,
+            "car": 7
+          },
+          "rec": {
+            "n": "Denzel Boston",
+            "yds": 95,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "CAR",
+          "at": false,
+          "res": "W 21-18",
+          "espnId": "401872949",
+          "pass": {
+            "n": "Deshaun Watson",
+            "yds": 144,
+            "td": 2,
+            "cmp": 16,
+            "att": 30
+          },
+          "rush": {
+            "n": "Quinshon Judkins",
+            "yds": 70,
+            "td": 0,
+            "car": 18
+          },
+          "rec": {
+            "n": "Harold Fannin Jr.",
+            "yds": 51,
+            "td": 2,
+            "rec": 7
+          }
+        }
+      ]
     },
     "Dallas Cowboys": {
       "team": "Dallas Cowboys",
@@ -2983,7 +3623,87 @@
           "epaRank": 32,
           "srRank": 32
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "NYG",
+          "at": true,
+          "res": "L 20-28",
+          "espnId": "401872930",
+          "pass": {
+            "n": "Dak Prescott",
+            "yds": 175,
+            "td": 2,
+            "cmp": 22,
+            "att": 34
+          },
+          "rush": {
+            "n": "Javonte Williams",
+            "yds": 41,
+            "td": 1,
+            "car": 12
+          },
+          "rec": {
+            "n": "CeeDee Lamb",
+            "yds": 44,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "WAS",
+          "at": false,
+          "res": "W 37-20",
+          "espnId": "401872944",
+          "pass": {
+            "n": "Dak Prescott",
+            "yds": 279,
+            "td": 4,
+            "cmp": 26,
+            "att": 31
+          },
+          "rush": {
+            "n": "Javonte Williams",
+            "yds": 30,
+            "td": 0,
+            "car": 12
+          },
+          "rec": {
+            "n": "CeeDee Lamb",
+            "yds": 153,
+            "td": 2,
+            "rec": 8
+          }
+        },
+        {
+          "w": 3,
+          "opp": "BAL",
+          "at": false,
+          "res": "L 31-34",
+          "espnId": "401872960",
+          "pass": {
+            "n": "Dak Prescott",
+            "yds": 276,
+            "td": 1,
+            "cmp": 25,
+            "att": 40
+          },
+          "rush": {
+            "n": "Javonte Williams",
+            "yds": 98,
+            "td": 1,
+            "car": 19
+          },
+          "rec": {
+            "n": "CeeDee Lamb",
+            "yds": 112,
+            "td": 0,
+            "rec": 7
+          }
+        }
+      ]
     },
     "Denver Broncos": {
       "team": "Denver Broncos",
@@ -3254,7 +3974,87 @@
           "epaRank": 20,
           "srRank": 10
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "KC",
+          "at": true,
+          "res": "L 10-31",
+          "espnId": "401872931",
+          "pass": {
+            "n": "Bo Nix",
+            "yds": 131,
+            "td": 1,
+            "cmp": 17,
+            "att": 28
+          },
+          "rush": {
+            "n": "J.K. Dobbins",
+            "yds": 36,
+            "td": 0,
+            "car": 8
+          },
+          "rec": {
+            "n": "Evan Engram",
+            "yds": 43,
+            "td": 1,
+            "rec": 4
+          }
+        },
+        {
+          "w": 2,
+          "opp": "JAX",
+          "at": false,
+          "res": "W 20-13",
+          "espnId": "401872940",
+          "pass": {
+            "n": "Bo Nix",
+            "yds": 288,
+            "td": 1,
+            "cmp": 22,
+            "att": 31
+          },
+          "rush": {
+            "n": "Jonah Coleman",
+            "yds": 39,
+            "td": 1,
+            "car": 10
+          },
+          "rec": {
+            "n": "Jaylen Waddle",
+            "yds": 138,
+            "td": 0,
+            "rec": 8
+          }
+        },
+        {
+          "w": 3,
+          "opp": "LA",
+          "at": false,
+          "res": "W 30-26",
+          "espnId": "401872962",
+          "pass": {
+            "n": "Bo Nix",
+            "yds": 186,
+            "td": 2,
+            "cmp": 17,
+            "att": 34
+          },
+          "rush": {
+            "n": "J.K. Dobbins",
+            "yds": 49,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Courtland Sutton",
+            "yds": 46,
+            "td": 0,
+            "rec": 3
+          }
+        }
+      ]
     },
     "Detroit Lions": {
       "team": "Detroit Lions",
@@ -3498,7 +4298,87 @@
           "epaRank": 31,
           "srRank": 29
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "NO",
+          "at": false,
+          "res": "W 31-30",
+          "espnId": "401872923",
+          "pass": {
+            "n": "Jared Goff",
+            "yds": 206,
+            "td": 2,
+            "cmp": 26,
+            "att": 39
+          },
+          "rush": {
+            "n": "Jahmyr Gibbs",
+            "yds": 156,
+            "td": 2,
+            "car": 29
+          },
+          "rec": {
+            "n": "Amon-Ra St. Brown",
+            "yds": 67,
+            "td": 2,
+            "rec": 10
+          }
+        },
+        {
+          "w": 2,
+          "opp": "BUF",
+          "at": true,
+          "res": "L 31-41",
+          "espnId": "401872932",
+          "pass": {
+            "n": "Jared Goff",
+            "yds": 327,
+            "td": 4,
+            "cmp": 26,
+            "att": 38
+          },
+          "rush": {
+            "n": "Jahmyr Gibbs",
+            "yds": 52,
+            "td": 0,
+            "car": 16
+          },
+          "rec": {
+            "n": "Amon-Ra St. Brown",
+            "yds": 142,
+            "td": 2,
+            "rec": 9
+          }
+        },
+        {
+          "w": 3,
+          "opp": "NYJ",
+          "at": false,
+          "res": "W 31-24",
+          "espnId": "401872954",
+          "pass": {
+            "n": "Jared Goff",
+            "yds": 269,
+            "td": 2,
+            "cmp": 25,
+            "att": 32
+          },
+          "rush": {
+            "n": "Jahmyr Gibbs",
+            "yds": 99,
+            "td": 2,
+            "car": 20
+          },
+          "rec": {
+            "n": "Isaac TeSlaa",
+            "yds": 66,
+            "td": 0,
+            "rec": 3
+          }
+        }
+      ]
     },
     "Green Bay Packers": {
       "team": "Green Bay Packers",
@@ -3751,7 +4631,87 @@
           "epaRank": 26,
           "srRank": 23
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "MIN",
+          "at": true,
+          "res": "L 22-39",
+          "espnId": "401872927",
+          "pass": {
+            "n": "Jordan Love",
+            "yds": 387,
+            "td": 2,
+            "cmp": 21,
+            "att": 42
+          },
+          "rush": {
+            "n": "MarShawn Lloyd",
+            "yds": 37,
+            "td": 0,
+            "car": 13
+          },
+          "rec": {
+            "n": "Christian Watson",
+            "yds": 147,
+            "td": 2,
+            "rec": 6
+          }
+        },
+        {
+          "w": 2,
+          "opp": "NYJ",
+          "at": true,
+          "res": "W 20-17",
+          "espnId": "401872936",
+          "pass": {
+            "n": "Jordan Love",
+            "yds": 145,
+            "td": 2,
+            "cmp": 16,
+            "att": 29
+          },
+          "rush": {
+            "n": "Kaleb Johnson",
+            "yds": 32,
+            "td": 0,
+            "car": 8
+          },
+          "rec": {
+            "n": "Matthew Golden",
+            "yds": 58,
+            "td": 0,
+            "rec": 4
+          }
+        },
+        {
+          "w": 3,
+          "opp": "ATL",
+          "at": false,
+          "res": "L 14-35",
+          "espnId": "401872948",
+          "pass": {
+            "n": "Jordan Love",
+            "yds": 312,
+            "td": 2,
+            "cmp": 28,
+            "att": 53
+          },
+          "rush": {
+            "n": "MarShawn Lloyd",
+            "yds": 11,
+            "td": 0,
+            "car": 4
+          },
+          "rec": {
+            "n": "Matthew Golden",
+            "yds": 100,
+            "td": 1,
+            "rec": 5
+          }
+        }
+      ]
     },
     "Houston Texans": {
       "team": "Houston Texans",
@@ -4043,7 +5003,87 @@
           "epaRank": 18,
           "srRank": 3
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "BUF",
+          "at": false,
+          "res": "L 31-36",
+          "espnId": "401872660",
+          "pass": {
+            "n": "C.J. Stroud",
+            "yds": 274,
+            "td": 2,
+            "cmp": 26,
+            "att": 38
+          },
+          "rush": {
+            "n": "David Montgomery",
+            "yds": 60,
+            "td": 2,
+            "car": 20
+          },
+          "rec": {
+            "n": "Nico Collins",
+            "yds": 75,
+            "td": 1,
+            "rec": 7
+          }
+        },
+        {
+          "w": 2,
+          "opp": "CIN",
+          "at": false,
+          "res": "L 6-20",
+          "espnId": "401872934",
+          "pass": {
+            "n": "C.J. Stroud",
+            "yds": 353,
+            "td": 0,
+            "cmp": 30,
+            "att": 55
+          },
+          "rush": {
+            "n": "C.J. Stroud",
+            "yds": 29,
+            "td": 0,
+            "car": 3
+          },
+          "rec": {
+            "n": "Dalton Schultz",
+            "yds": 140,
+            "td": 0,
+            "rec": 12
+          }
+        },
+        {
+          "w": 3,
+          "opp": "IND",
+          "at": true,
+          "res": "L 17-19",
+          "espnId": "401872951",
+          "pass": {
+            "n": "C.J. Stroud",
+            "yds": 167,
+            "td": 1,
+            "cmp": 16,
+            "att": 27
+          },
+          "rush": {
+            "n": "David Montgomery",
+            "yds": 33,
+            "td": 0,
+            "car": 11
+          },
+          "rec": {
+            "n": "Xavier Hutchinson",
+            "yds": 51,
+            "td": 0,
+            "rec": 3
+          }
+        }
+      ]
     },
     "Indianapolis Colts": {
       "team": "Indianapolis Colts",
@@ -4321,7 +5361,87 @@
           "epaRank": 28,
           "srRank": 28
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "BAL",
+          "at": false,
+          "res": "L 23-41",
+          "espnId": "401872659",
+          "pass": {
+            "n": "Daniel Jones",
+            "yds": 166,
+            "td": 1,
+            "cmp": 19,
+            "att": 31
+          },
+          "rush": {
+            "n": "Jonathan Taylor",
+            "yds": 98,
+            "td": 2,
+            "car": 19
+          },
+          "rec": {
+            "n": "Alec Pierce",
+            "yds": 61,
+            "td": 0,
+            "rec": 4
+          }
+        },
+        {
+          "w": 2,
+          "opp": "KC",
+          "at": true,
+          "res": "L 30-33",
+          "espnId": "401872945",
+          "pass": {
+            "n": "Daniel Jones",
+            "yds": 210,
+            "td": 1,
+            "cmp": 22,
+            "att": 31
+          },
+          "rush": {
+            "n": "Jonathan Taylor",
+            "yds": 92,
+            "td": 2,
+            "car": 24
+          },
+          "rec": {
+            "n": "Josh Downs",
+            "yds": 72,
+            "td": 0,
+            "rec": 7
+          }
+        },
+        {
+          "w": 3,
+          "opp": "HOU",
+          "at": false,
+          "res": "W 19-17",
+          "espnId": "401872951",
+          "pass": {
+            "n": "Daniel Jones",
+            "yds": 235,
+            "td": 1,
+            "cmp": 24,
+            "att": 36
+          },
+          "rush": {
+            "n": "Jonathan Taylor",
+            "yds": 68,
+            "td": 0,
+            "car": 23
+          },
+          "rec": {
+            "n": "Josh Downs",
+            "yds": 77,
+            "td": 0,
+            "rec": 5
+          }
+        }
+      ]
     },
     "Jacksonville Jaguars": {
       "team": "Jacksonville Jaguars",
@@ -4600,7 +5720,87 @@
           "epaRank": 4,
           "srRank": 11
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "CLE",
+          "at": false,
+          "res": "W 34-10",
+          "espnId": "401872922",
+          "pass": {
+            "n": "Trevor Lawrence",
+            "yds": 245,
+            "td": 4,
+            "cmp": 18,
+            "att": 23
+          },
+          "rush": {
+            "n": "Bhayshul Tuten",
+            "yds": 66,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "Parker Washington",
+            "yds": 83,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "DEN",
+          "at": true,
+          "res": "L 13-20",
+          "espnId": "401872940",
+          "pass": {
+            "n": "Trevor Lawrence",
+            "yds": 189,
+            "td": 0,
+            "cmp": 17,
+            "att": 29
+          },
+          "rush": {
+            "n": "Bhayshul Tuten",
+            "yds": 65,
+            "td": 1,
+            "car": 13
+          },
+          "rec": {
+            "n": "Parker Washington",
+            "yds": 98,
+            "td": 0,
+            "rec": 7
+          }
+        },
+        {
+          "w": 3,
+          "opp": "NE",
+          "at": false,
+          "res": "W 35-6",
+          "espnId": "401872957",
+          "pass": {
+            "n": "Trevor Lawrence",
+            "yds": 182,
+            "td": 3,
+            "cmp": 19,
+            "att": 29
+          },
+          "rush": {
+            "n": "Bhayshul Tuten",
+            "yds": 73,
+            "td": 1,
+            "car": 15
+          },
+          "rec": {
+            "n": "Jakobi Meyers",
+            "yds": 64,
+            "td": 1,
+            "rec": 7
+          }
+        }
+      ]
     },
     "Kansas City Chiefs": {
       "team": "Kansas City Chiefs",
@@ -4853,7 +6053,87 @@
           "epaRank": 6,
           "srRank": 6
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "DEN",
+          "at": false,
+          "res": "W 31-10",
+          "espnId": "401872931",
+          "pass": {
+            "n": "Patrick Mahomes",
+            "yds": 184,
+            "td": 2,
+            "cmp": 15,
+            "att": 27
+          },
+          "rush": {
+            "n": "Kenneth Walker III",
+            "yds": 173,
+            "td": 1,
+            "car": 23
+          },
+          "rec": {
+            "n": "Travis Kelce",
+            "yds": 71,
+            "td": 0,
+            "rec": 3
+          }
+        },
+        {
+          "w": 2,
+          "opp": "IND",
+          "at": false,
+          "res": "W 33-30",
+          "espnId": "401872945",
+          "pass": {
+            "n": "Patrick Mahomes",
+            "yds": 382,
+            "td": 3,
+            "cmp": 32,
+            "att": 47
+          },
+          "rush": {
+            "n": "Kenneth Walker III",
+            "yds": 117,
+            "td": 0,
+            "car": 24
+          },
+          "rec": {
+            "n": "Travis Kelce",
+            "yds": 101,
+            "td": 1,
+            "rec": 9
+          }
+        },
+        {
+          "w": 3,
+          "opp": "MIA",
+          "at": true,
+          "res": "W 24-10",
+          "espnId": "401872952",
+          "pass": {
+            "n": "Patrick Mahomes",
+            "yds": 246,
+            "td": 2,
+            "cmp": 20,
+            "att": 24
+          },
+          "rush": {
+            "n": "Kenneth Walker III",
+            "yds": 70,
+            "td": 1,
+            "car": 18
+          },
+          "rec": {
+            "n": "Rashee Rice",
+            "yds": 88,
+            "td": 0,
+            "rec": 7
+          }
+        }
+      ]
     },
     "Los Angeles Rams": {
       "team": "Los Angeles Rams",
@@ -5136,7 +6416,87 @@
           "epaRank": 12,
           "srRank": 14
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "SF",
+          "at": false,
+          "res": "L 7-27",
+          "espnId": "401872657",
+          "pass": {
+            "n": "Matthew Stafford",
+            "yds": 155,
+            "td": 0,
+            "cmp": 15,
+            "att": 25
+          },
+          "rush": {
+            "n": "Blake Corum",
+            "yds": 54,
+            "td": 0,
+            "car": 10
+          },
+          "rec": {
+            "n": "Puka Nacua",
+            "yds": 74,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "NYG",
+          "at": false,
+          "res": "W 28-6",
+          "espnId": "401872947",
+          "pass": {
+            "n": "Matthew Stafford",
+            "yds": 327,
+            "td": 4,
+            "cmp": 22,
+            "att": 31
+          },
+          "rush": {
+            "n": "Kyren Williams",
+            "yds": 85,
+            "td": 0,
+            "car": 12
+          },
+          "rec": {
+            "n": "Davante Adams",
+            "yds": 195,
+            "td": 2,
+            "rec": 8
+          }
+        },
+        {
+          "w": 3,
+          "opp": "DEN",
+          "at": true,
+          "res": "L 26-30",
+          "espnId": "401872962",
+          "pass": {
+            "n": "Matthew Stafford",
+            "yds": 390,
+            "td": 2,
+            "cmp": 30,
+            "att": 55
+          },
+          "rush": {
+            "n": "Kyren Williams",
+            "yds": 88,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "Davante Adams",
+            "yds": 137,
+            "td": 0,
+            "rec": 7
+          }
+        }
+      ]
     },
     "Los Angeles Chargers": {
       "team": "Los Angeles Chargers",
@@ -5402,7 +6762,87 @@
           "epaRank": 17,
           "srRank": 17
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "ARI",
+          "at": false,
+          "res": "L 14-26",
+          "espnId": "401872926",
+          "pass": {
+            "n": "Justin Herbert",
+            "yds": 209,
+            "td": 1,
+            "cmp": 17,
+            "att": 27
+          },
+          "rush": {
+            "n": "Omarion Hampton",
+            "yds": 43,
+            "td": 1,
+            "car": 12
+          },
+          "rec": {
+            "n": "Ladd McConkey",
+            "yds": 82,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "LV",
+          "at": false,
+          "res": "L 14-26",
+          "espnId": "401872941",
+          "pass": {
+            "n": "Justin Herbert",
+            "yds": 192,
+            "td": 1,
+            "cmp": 15,
+            "att": 27
+          },
+          "rush": {
+            "n": "Omarion Hampton",
+            "yds": 94,
+            "td": 1,
+            "car": 23
+          },
+          "rec": {
+            "n": "Tre Harris",
+            "yds": 53,
+            "td": 0,
+            "rec": 1
+          }
+        },
+        {
+          "w": 3,
+          "opp": "BUF",
+          "at": true,
+          "res": "L 16-24",
+          "espnId": "401872953",
+          "pass": {
+            "n": "Justin Herbert",
+            "yds": 226,
+            "td": 1,
+            "cmp": 20,
+            "att": 34
+          },
+          "rush": {
+            "n": "Omarion Hampton",
+            "yds": 56,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "Tre Harris",
+            "yds": 76,
+            "td": 0,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Las Vegas Raiders": {
       "team": "Las Vegas Raiders",
@@ -5664,7 +7104,87 @@
           "epaRank": 2,
           "srRank": 8
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "MIA",
+          "at": false,
+          "res": "W 27-13",
+          "espnId": "401872928",
+          "pass": {
+            "n": "Kirk Cousins",
+            "yds": 160,
+            "td": 3,
+            "cmp": 21,
+            "att": 30
+          },
+          "rush": {
+            "n": "Ashton Jeanty",
+            "yds": 102,
+            "td": 0,
+            "car": 23
+          },
+          "rec": {
+            "n": "Ashton Jeanty",
+            "yds": 45,
+            "td": 2,
+            "rec": 6
+          }
+        },
+        {
+          "w": 2,
+          "opp": "LAC",
+          "at": true,
+          "res": "W 26-14",
+          "espnId": "401872941",
+          "pass": {
+            "n": "Kirk Cousins",
+            "yds": 253,
+            "td": 3,
+            "cmp": 19,
+            "att": 29
+          },
+          "rush": {
+            "n": "Ashton Jeanty",
+            "yds": 48,
+            "td": 0,
+            "car": 21
+          },
+          "rec": {
+            "n": "Tre Tucker",
+            "yds": 119,
+            "td": 1,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "NO",
+          "at": true,
+          "res": "W 35-27",
+          "espnId": "401872961",
+          "pass": {
+            "n": "Kirk Cousins",
+            "yds": 248,
+            "td": 3,
+            "cmp": 22,
+            "att": 33
+          },
+          "rush": {
+            "n": "Ashton Jeanty",
+            "yds": 56,
+            "td": 0,
+            "car": 19
+          },
+          "rec": {
+            "n": "Brock Bowers",
+            "yds": 116,
+            "td": 1,
+            "rec": 10
+          }
+        }
+      ]
     },
     "Miami Dolphins": {
       "team": "Miami Dolphins",
@@ -5947,7 +7467,87 @@
           "epaRank": 30,
           "srRank": 30
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "LV",
+          "at": true,
+          "res": "L 13-27",
+          "espnId": "401872928",
+          "pass": {
+            "n": "Malik Willis",
+            "yds": 220,
+            "td": 0,
+            "cmp": 15,
+            "att": 27
+          },
+          "rush": {
+            "n": "Malik Willis",
+            "yds": 39,
+            "td": 1,
+            "car": 6
+          },
+          "rec": {
+            "n": "Caleb Douglas",
+            "yds": 94,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "SF",
+          "at": true,
+          "res": "L 13-35",
+          "espnId": "401872942",
+          "pass": {
+            "n": "Malik Willis",
+            "yds": 197,
+            "td": 1,
+            "cmp": 14,
+            "att": 23
+          },
+          "rush": {
+            "n": "De'Von Achane",
+            "yds": 74,
+            "td": 0,
+            "car": 20
+          },
+          "rec": {
+            "n": "Ryan Miller",
+            "yds": 77,
+            "td": 1,
+            "rec": 1
+          }
+        },
+        {
+          "w": 3,
+          "opp": "KC",
+          "at": false,
+          "res": "L 10-24",
+          "espnId": "401872952",
+          "pass": {
+            "n": "Malik Willis",
+            "yds": 210,
+            "td": 0,
+            "cmp": 20,
+            "att": 36
+          },
+          "rush": {
+            "n": "Malik Willis",
+            "yds": 56,
+            "td": 0,
+            "car": 9
+          },
+          "rec": {
+            "n": "Chris Bell",
+            "yds": 67,
+            "td": 0,
+            "rec": 4
+          }
+        }
+      ]
     },
     "Minnesota Vikings": {
       "team": "Minnesota Vikings",
@@ -6239,7 +7839,87 @@
           "epaRank": 1,
           "srRank": 1
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "GB",
+          "at": false,
+          "res": "W 39-22",
+          "espnId": "401872927",
+          "pass": {
+            "n": "Carson Wentz",
+            "yds": 133,
+            "td": 3,
+            "cmp": 12,
+            "att": 19
+          },
+          "rush": {
+            "n": "Jordan Mason",
+            "yds": 59,
+            "td": 1,
+            "car": 15
+          },
+          "rec": {
+            "n": "Justin Jefferson",
+            "yds": 92,
+            "td": 2,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "CHI",
+          "at": true,
+          "res": "W 9-3",
+          "espnId": "401872937",
+          "pass": {
+            "n": "Carson Wentz",
+            "yds": 143,
+            "td": 0,
+            "cmp": 11,
+            "att": 20
+          },
+          "rush": {
+            "n": "Aaron Jones",
+            "yds": 105,
+            "td": 0,
+            "car": 23
+          },
+          "rec": {
+            "n": "Justin Jefferson",
+            "yds": 55,
+            "td": 0,
+            "rec": 3
+          }
+        },
+        {
+          "w": 3,
+          "opp": "TB",
+          "at": true,
+          "res": "W 23-16",
+          "espnId": "401872959",
+          "pass": {
+            "n": "Kyler Murray",
+            "yds": 168,
+            "td": 1,
+            "cmp": 15,
+            "att": 29
+          },
+          "rush": {
+            "n": "Aaron Jones",
+            "yds": 58,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Jordan Addison",
+            "yds": 90,
+            "td": 1,
+            "rec": 5
+          }
+        }
+      ]
     },
     "New England Patriots": {
       "team": "New England Patriots",
@@ -6519,7 +8199,87 @@
           "epaRank": 11,
           "srRank": 12
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "SEA",
+          "at": true,
+          "res": "L 10-13",
+          "espnId": "401872656",
+          "pass": {
+            "n": "Drake Maye",
+            "yds": 178,
+            "td": 1,
+            "cmp": 23,
+            "att": 33
+          },
+          "rush": {
+            "n": "Rhamondre Stevenson",
+            "yds": 51,
+            "td": 0,
+            "car": 18
+          },
+          "rec": {
+            "n": "Mack Hollins",
+            "yds": 51,
+            "td": 0,
+            "rec": 4
+          }
+        },
+        {
+          "w": 2,
+          "opp": "PIT",
+          "at": false,
+          "res": "W 20-3",
+          "espnId": "401872946",
+          "pass": {
+            "n": "Drake Maye",
+            "yds": 208,
+            "td": 0,
+            "cmp": 14,
+            "att": 22
+          },
+          "rush": {
+            "n": "TreVeyon Henderson",
+            "yds": 76,
+            "td": 1,
+            "car": 16
+          },
+          "rec": {
+            "n": "Romeo Doubs",
+            "yds": 96,
+            "td": 0,
+            "rec": 3
+          }
+        },
+        {
+          "w": 3,
+          "opp": "JAX",
+          "at": true,
+          "res": "L 6-35",
+          "espnId": "401872957",
+          "pass": {
+            "n": "Drake Maye",
+            "yds": 199,
+            "td": 0,
+            "cmp": 14,
+            "att": 25
+          },
+          "rush": {
+            "n": "TreVeyon Henderson",
+            "yds": 23,
+            "td": 0,
+            "car": 8
+          },
+          "rec": {
+            "n": "Mack Hollins",
+            "yds": 87,
+            "td": 0,
+            "rec": 6
+          }
+        }
+      ]
     },
     "New Orleans Saints": {
       "team": "New Orleans Saints",
@@ -6790,7 +8550,87 @@
           "epaRank": 22,
           "srRank": 31
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "DET",
+          "at": true,
+          "res": "L 30-31",
+          "espnId": "401872923",
+          "pass": {
+            "n": "Tyler Shough",
+            "yds": 410,
+            "td": 3,
+            "cmp": 35,
+            "att": 56
+          },
+          "rush": {
+            "n": "Travis Etienne",
+            "yds": 46,
+            "td": 0,
+            "car": 9
+          },
+          "rec": {
+            "n": "Chris Olave",
+            "yds": 182,
+            "td": 0,
+            "rec": 10
+          }
+        },
+        {
+          "w": 2,
+          "opp": "BAL",
+          "at": true,
+          "res": "W 24-17",
+          "espnId": "401872938",
+          "pass": {
+            "n": "Tyler Shough",
+            "yds": 252,
+            "td": 1,
+            "cmp": 27,
+            "att": 34
+          },
+          "rush": {
+            "n": "Travis Etienne",
+            "yds": 25,
+            "td": 0,
+            "car": 8
+          },
+          "rec": {
+            "n": "Chris Olave",
+            "yds": 86,
+            "td": 1,
+            "rec": 8
+          }
+        },
+        {
+          "w": 3,
+          "opp": "LV",
+          "at": false,
+          "res": "L 27-35",
+          "espnId": "401872961",
+          "pass": {
+            "n": "Tyler Shough",
+            "yds": 255,
+            "td": 4,
+            "cmp": 29,
+            "att": 42
+          },
+          "rush": {
+            "n": "Travis Etienne",
+            "yds": 57,
+            "td": 0,
+            "car": 13
+          },
+          "rec": {
+            "n": "Chris Olave",
+            "yds": 107,
+            "td": 0,
+            "rec": 9
+          }
+        }
+      ]
     },
     "New York Giants": {
       "team": "New York Giants",
@@ -7074,7 +8914,87 @@
           "epaRank": 27,
           "srRank": 24
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "DAL",
+          "at": false,
+          "res": "W 28-20",
+          "espnId": "401872930",
+          "pass": {
+            "n": "Jaxson Dart",
+            "yds": 230,
+            "td": 3,
+            "cmp": 23,
+            "att": 29
+          },
+          "rush": {
+            "n": "Cam Skattebo",
+            "yds": 81,
+            "td": 1,
+            "car": 18
+          },
+          "rec": {
+            "n": "Isaiah Likely",
+            "yds": 78,
+            "td": 2,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "LA",
+          "at": true,
+          "res": "L 6-28",
+          "espnId": "401872947",
+          "pass": {
+            "n": "Jameis Winston",
+            "yds": 111,
+            "td": 0,
+            "cmp": 11,
+            "att": 27
+          },
+          "rush": {
+            "n": "Cam Skattebo",
+            "yds": 36,
+            "td": 0,
+            "car": 12
+          },
+          "rec": {
+            "n": "Darnell Mooney",
+            "yds": 48,
+            "td": 0,
+            "rec": 2
+          }
+        },
+        {
+          "w": 3,
+          "opp": "TEN",
+          "at": false,
+          "res": "W 12-7",
+          "espnId": "401872956",
+          "pass": {
+            "n": "Jameis Winston",
+            "yds": 118,
+            "td": 0,
+            "cmp": 14,
+            "att": 22
+          },
+          "rush": {
+            "n": "Cam Skattebo",
+            "yds": 60,
+            "td": 0,
+            "car": 20
+          },
+          "rec": {
+            "n": "Cam Skattebo",
+            "yds": 40,
+            "td": 0,
+            "rec": 3
+          }
+        }
+      ]
     },
     "New York Jets": {
       "team": "New York Jets",
@@ -7356,7 +9276,87 @@
           "epaRank": 15,
           "srRank": 22
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "TEN",
+          "at": true,
+          "res": "W 23-10",
+          "espnId": "401872924",
+          "pass": {
+            "n": "Geno Smith",
+            "yds": 215,
+            "td": 0,
+            "cmp": 19,
+            "att": 24
+          },
+          "rush": {
+            "n": "Breece Hall",
+            "yds": 102,
+            "td": 1,
+            "car": 22
+          },
+          "rec": {
+            "n": "Garrett Wilson",
+            "yds": 79,
+            "td": 0,
+            "rec": 6
+          }
+        },
+        {
+          "w": 2,
+          "opp": "GB",
+          "at": false,
+          "res": "L 17-20",
+          "espnId": "401872936",
+          "pass": {
+            "n": "Geno Smith",
+            "yds": 247,
+            "td": 1,
+            "cmp": 27,
+            "att": 41
+          },
+          "rush": {
+            "n": "Breece Hall",
+            "yds": 29,
+            "td": 0,
+            "car": 16
+          },
+          "rec": {
+            "n": "Breece Hall",
+            "yds": 63,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 3,
+          "opp": "DET",
+          "at": true,
+          "res": "L 24-31",
+          "espnId": "401872954",
+          "pass": {
+            "n": "Geno Smith",
+            "yds": 321,
+            "td": 3,
+            "cmp": 31,
+            "att": 37
+          },
+          "rush": {
+            "n": "Breece Hall",
+            "yds": 32,
+            "td": 0,
+            "car": 13
+          },
+          "rec": {
+            "n": "Garrett Wilson",
+            "yds": 107,
+            "td": 1,
+            "rec": 10
+          }
+        }
+      ]
     },
     "Philadelphia Eagles": {
       "team": "Philadelphia Eagles",
@@ -7636,7 +9636,87 @@
           "epaRank": 24,
           "srRank": 20
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "WAS",
+          "at": false,
+          "res": "W 24-22",
+          "espnId": "401872929",
+          "pass": {
+            "n": "Jalen Hurts",
+            "yds": 203,
+            "td": 3,
+            "cmp": 14,
+            "att": 25
+          },
+          "rush": {
+            "n": "Saquon Barkley",
+            "yds": 83,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "Dallas Goedert",
+            "yds": 77,
+            "td": 2,
+            "rec": 4
+          }
+        },
+        {
+          "w": 2,
+          "opp": "TEN",
+          "at": true,
+          "res": "W 24-20",
+          "espnId": "401872939",
+          "pass": {
+            "n": "Jalen Hurts",
+            "yds": 264,
+            "td": 2,
+            "cmp": 26,
+            "att": 37
+          },
+          "rush": {
+            "n": "Tank Bigsby",
+            "yds": 33,
+            "td": 1,
+            "car": 13
+          },
+          "rec": {
+            "n": "DeVonta Smith",
+            "yds": 117,
+            "td": 1,
+            "rec": 10
+          }
+        },
+        {
+          "w": 3,
+          "opp": "CHI",
+          "at": true,
+          "res": "L 7-27",
+          "espnId": "401872963",
+          "pass": {
+            "n": "Jalen Hurts",
+            "yds": 153,
+            "td": 0,
+            "cmp": 16,
+            "att": 25
+          },
+          "rush": {
+            "n": "Saquon Barkley",
+            "yds": 82,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "DeVonta Smith",
+            "yds": 65,
+            "td": 0,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Pittsburgh Steelers": {
       "team": "Pittsburgh Steelers",
@@ -7929,7 +10009,87 @@
           "epaRank": 10,
           "srRank": 18
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "ATL",
+          "at": false,
+          "res": "W 20-13",
+          "espnId": "401872658",
+          "pass": {
+            "n": "Aaron Rodgers",
+            "yds": 221,
+            "td": 1,
+            "cmp": 24,
+            "att": 40
+          },
+          "rush": {
+            "n": "Jaylen Warren",
+            "yds": 46,
+            "td": 0,
+            "car": 10
+          },
+          "rec": {
+            "n": "Michael Pittman",
+            "yds": 58,
+            "td": 0,
+            "rec": 3
+          }
+        },
+        {
+          "w": 2,
+          "opp": "NE",
+          "at": true,
+          "res": "L 3-20",
+          "espnId": "401872946",
+          "pass": {
+            "n": "Aaron Rodgers",
+            "yds": 187,
+            "td": 0,
+            "cmp": 23,
+            "att": 39
+          },
+          "rush": {
+            "n": "Jaylen Warren",
+            "yds": 43,
+            "td": 0,
+            "car": 11
+          },
+          "rec": {
+            "n": "Germie Bernard",
+            "yds": 35,
+            "td": 0,
+            "rec": 4
+          }
+        },
+        {
+          "w": 3,
+          "opp": "CIN",
+          "at": false,
+          "res": "W 30-27",
+          "espnId": "401872950",
+          "pass": {
+            "n": "Aaron Rodgers",
+            "yds": 292,
+            "td": 3,
+            "cmp": 19,
+            "att": 34
+          },
+          "rush": {
+            "n": "Jaylen Warren",
+            "yds": 127,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Darnell Washington",
+            "yds": 67,
+            "td": 0,
+            "rec": 3
+          }
+        }
+      ]
     },
     "Seattle Seahawks": {
       "team": "Seattle Seahawks",
@@ -8218,7 +10378,87 @@
           "epaRank": 3,
           "srRank": 2
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "NE",
+          "at": false,
+          "res": "W 13-10",
+          "espnId": "401872656",
+          "pass": {
+            "n": "Drew Lock",
+            "yds": 187,
+            "td": 1,
+            "cmp": 16,
+            "att": 22
+          },
+          "rush": {
+            "n": "Jadarian Price",
+            "yds": 52,
+            "td": 0,
+            "car": 10
+          },
+          "rec": {
+            "n": "Jaxon Smith-Njigba",
+            "yds": 122,
+            "td": 1,
+            "rec": 8
+          }
+        },
+        {
+          "w": 2,
+          "opp": "ARI",
+          "at": true,
+          "res": "W 31-7",
+          "espnId": "401872943",
+          "pass": {
+            "n": "Drew Lock",
+            "yds": 235,
+            "td": 3,
+            "cmp": 19,
+            "att": 26
+          },
+          "rush": {
+            "n": "Emanuel Wilson",
+            "yds": 92,
+            "td": 0,
+            "car": 21
+          },
+          "rec": {
+            "n": "Jaxon Smith-Njigba",
+            "yds": 155,
+            "td": 3,
+            "rec": 9
+          }
+        },
+        {
+          "w": 3,
+          "opp": "WAS",
+          "at": true,
+          "res": "L 31-33",
+          "espnId": "401872955",
+          "pass": {
+            "n": "Sam Darnold",
+            "yds": 379,
+            "td": 4,
+            "cmp": 31,
+            "att": 45
+          },
+          "rush": {
+            "n": "Jadarian Price",
+            "yds": 15,
+            "td": 0,
+            "car": 5
+          },
+          "rec": {
+            "n": "Jaxon Smith-Njigba",
+            "yds": 128,
+            "td": 2,
+            "rec": 10
+          }
+        }
+      ]
     },
     "San Francisco 49ers": {
       "team": "San Francisco 49ers",
@@ -8505,7 +10745,87 @@
           "epaRank": 16,
           "srRank": 21
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "LA",
+          "at": false,
+          "res": "W 27-7",
+          "espnId": "401872657",
+          "pass": {
+            "n": "Brock Purdy",
+            "yds": 205,
+            "td": 3,
+            "cmp": 25,
+            "att": 34
+          },
+          "rush": {
+            "n": "Christian McCaffrey",
+            "yds": 68,
+            "td": 0,
+            "car": 10
+          },
+          "rec": {
+            "n": "Demarcus Robinson",
+            "yds": 50,
+            "td": 1,
+            "rec": 2
+          }
+        },
+        {
+          "w": 2,
+          "opp": "MIA",
+          "at": false,
+          "res": "W 35-13",
+          "espnId": "401872942",
+          "pass": {
+            "n": "Brock Purdy",
+            "yds": 287,
+            "td": 2,
+            "cmp": 20,
+            "att": 22
+          },
+          "rush": {
+            "n": "Brock Purdy",
+            "yds": 30,
+            "td": 1,
+            "car": 3
+          },
+          "rec": {
+            "n": "George Kittle",
+            "yds": 80,
+            "td": 1,
+            "rec": 4
+          }
+        },
+        {
+          "w": 3,
+          "opp": "ARI",
+          "at": false,
+          "res": "W 36-30",
+          "espnId": "401872958",
+          "pass": {
+            "n": "Brock Purdy",
+            "yds": 297,
+            "td": 4,
+            "cmp": 15,
+            "att": 27
+          },
+          "rush": {
+            "n": "Christian McCaffrey",
+            "yds": 75,
+            "td": 1,
+            "car": 15
+          },
+          "rec": {
+            "n": "George Kittle",
+            "yds": 82,
+            "td": 2,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Tampa Bay Buccaneers": {
       "team": "Tampa Bay Buccaneers",
@@ -8809,7 +11129,87 @@
           "epaRank": 5,
           "srRank": 5
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "CIN",
+          "at": true,
+          "res": "L 27-33",
+          "espnId": "401872925",
+          "pass": {
+            "n": "Baker Mayfield",
+            "yds": 216,
+            "td": 0,
+            "cmp": 23,
+            "att": 28
+          },
+          "rush": {
+            "n": "Bucky Irving",
+            "yds": 45,
+            "td": 1,
+            "car": 8
+          },
+          "rec": {
+            "n": "Emeka Egbuka",
+            "yds": 63,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "CLE",
+          "at": false,
+          "res": "L 19-23",
+          "espnId": "401872935",
+          "pass": {
+            "n": "Baker Mayfield",
+            "yds": 182,
+            "td": 1,
+            "cmp": 21,
+            "att": 34
+          },
+          "rush": {
+            "n": "Bucky Irving",
+            "yds": 89,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Tez Johnson",
+            "yds": 49,
+            "td": 0,
+            "rec": 1
+          }
+        },
+        {
+          "w": 3,
+          "opp": "MIN",
+          "at": false,
+          "res": "L 16-23",
+          "espnId": "401872959",
+          "pass": {
+            "n": "Baker Mayfield",
+            "yds": 217,
+            "td": 1,
+            "cmp": 17,
+            "att": 34
+          },
+          "rush": {
+            "n": "Bucky Irving",
+            "yds": 46,
+            "td": 0,
+            "car": 15
+          },
+          "rec": {
+            "n": "Emeka Egbuka",
+            "yds": 62,
+            "td": 0,
+            "rec": 5
+          }
+        }
+      ]
     },
     "Tennessee Titans": {
       "team": "Tennessee Titans",
@@ -9074,7 +11474,87 @@
           "epaRank": 19,
           "srRank": 9
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "NYJ",
+          "at": false,
+          "res": "L 10-23",
+          "espnId": "401872924",
+          "pass": {
+            "n": "Cam Ward",
+            "yds": 140,
+            "td": 1,
+            "cmp": 19,
+            "att": 32
+          },
+          "rush": {
+            "n": "Tony Pollard",
+            "yds": 35,
+            "td": 0,
+            "car": 7
+          },
+          "rec": {
+            "n": "Wan'Dale Robinson",
+            "yds": 38,
+            "td": 0,
+            "rec": 5
+          }
+        },
+        {
+          "w": 2,
+          "opp": "PHI",
+          "at": false,
+          "res": "L 20-24",
+          "espnId": "401872939",
+          "pass": {
+            "n": "Cam Ward",
+            "yds": 183,
+            "td": 0,
+            "cmp": 13,
+            "att": 20
+          },
+          "rush": {
+            "n": "Tony Pollard",
+            "yds": 64,
+            "td": 0,
+            "car": 14
+          },
+          "rec": {
+            "n": "Elic Ayomanor",
+            "yds": 69,
+            "td": 0,
+            "rec": 2
+          }
+        },
+        {
+          "w": 3,
+          "opp": "NYG",
+          "at": true,
+          "res": "L 7-12",
+          "espnId": "401872956",
+          "pass": {
+            "n": "Cam Ward",
+            "yds": 181,
+            "td": 1,
+            "cmp": 23,
+            "att": 36
+          },
+          "rush": {
+            "n": "Tony Pollard",
+            "yds": 74,
+            "td": 0,
+            "car": 17
+          },
+          "rec": {
+            "n": "Carnell Tate",
+            "yds": 58,
+            "td": 0,
+            "rec": 6
+          }
+        }
+      ]
     },
     "Washington Commanders": {
       "team": "Washington Commanders",
@@ -9383,7 +11863,87 @@
           "epaRank": 23,
           "srRank": 25
         }
-      }
+      },
+      "games": [
+        {
+          "w": 1,
+          "opp": "PHI",
+          "at": true,
+          "res": "L 22-24",
+          "espnId": "401872929",
+          "pass": {
+            "n": "Jayden Daniels",
+            "yds": 164,
+            "td": 2,
+            "cmp": 18,
+            "att": 34
+          },
+          "rush": {
+            "n": "Jacory Croskey-Merritt",
+            "yds": 63,
+            "td": 1,
+            "car": 16
+          },
+          "rec": {
+            "n": "Antonio Williams",
+            "yds": 64,
+            "td": 1,
+            "rec": 4
+          }
+        },
+        {
+          "w": 2,
+          "opp": "DAL",
+          "at": true,
+          "res": "L 20-37",
+          "espnId": "401872944",
+          "pass": {
+            "n": "Marcus Mariota",
+            "yds": 111,
+            "td": 1,
+            "cmp": 11,
+            "att": 16
+          },
+          "rush": {
+            "n": "Jayden Daniels",
+            "yds": 69,
+            "td": 0,
+            "car": 7
+          },
+          "rec": {
+            "n": "Terry McLaurin",
+            "yds": 50,
+            "td": 0,
+            "rec": 2
+          }
+        },
+        {
+          "w": 3,
+          "opp": "SEA",
+          "at": false,
+          "res": "W 33-31",
+          "espnId": "401872955",
+          "pass": {
+            "n": "Marcus Mariota",
+            "yds": 183,
+            "td": 3,
+            "cmp": 19,
+            "att": 31
+          },
+          "rush": {
+            "n": "Jacory Croskey-Merritt",
+            "yds": 36,
+            "td": 0,
+            "car": 19
+          },
+          "rec": {
+            "n": "Terry McLaurin",
+            "yds": 77,
+            "td": 1,
+            "rec": 6
+          }
+        }
+      ]
     }
   },
   "teamNames": [

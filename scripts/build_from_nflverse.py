@@ -144,6 +144,49 @@ def gauge_range(series):
     return {"min": 0, "max": int(math.ceil((hi + pad) / 5) * 5)}
 
 
+def team_game_list(done, ps):
+    """Each team's completed games in order: opponent, result, the ESPN id (for the box
+    score the site fetches) and that team's top passer, rusher and receiver by yards.
+
+    Returns {abbr: [{w, opp, at, res, espnId, pass, rush, rec}]}. pass = {n, yds, td, cmp,
+    att}, rush = {n, yds, td, car}, rec = {n, yds, td, rec}; a leader is left out when the
+    team has no player with an attempt, carry or catch in that game's stats."""
+    def n0(x):
+        return 0 if pd.isna(x) else int(x)
+
+    def leader(rows, need, yds, td, extra):
+        rows = rows[rows[need] > 0]
+        if rows.empty:
+            return None
+        r = rows.sort_values([yds, td], ascending=False).iloc[0]
+        return {"n": r.player_display_name, "yds": n0(r[yds]), "td": n0(r[td]),
+                **{k: n0(r[col]) for k, col in extra.items()}}
+
+    by_team_week = {k: v for k, v in ps.groupby(["team", "week"])}
+    out = {}
+    for _, g in done.sort_values(["week", "gameday", "game_id"]).iterrows():
+        for side, other in (("home", "away"), ("away", "home")):
+            team = g[f"{side}_team"]
+            us, them = int(g[f"{side}_score"]), int(g[f"{other}_score"])
+            res = "W" if us > them else "L" if us < them else "T"
+            entry = {"w": int(g.week), "opp": g[f"{other}_team"],
+                     "at": side == "away" and str(g.location) != "Neutral",
+                     "res": f"{res} {us}-{them}",
+                     "espnId": None if pd.isna(g.espn) else str(int(g.espn))}
+            rows = by_team_week.get((team, int(g.week)))
+            if rows is not None:
+                for key, args in (
+                    ("pass", ("attempts", "passing_yards", "passing_tds", {"cmp": "completions", "att": "attempts"})),
+                    ("rush", ("carries", "rushing_yards", "rushing_tds", {"car": "carries"})),
+                    ("rec", ("receptions", "receiving_yards", "receiving_tds", {"rec": "receptions"})),
+                ):
+                    top = leader(rows, *args)
+                    if top:
+                        entry[key] = top
+            out.setdefault(team, []).append(entry)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--season", type=int, required=True)
@@ -421,6 +464,9 @@ def main():
         s = ratings.get(name)
         return r1(s[key]) if s else 0.0
 
+    # ---- each team's games so far, with the game's top passer, rusher and receiver ----
+    team_games = team_game_list(done, ps)
+
     teams_out = {}
     for abbr in teams:
         name = TEAM_NAMES[abbr]
@@ -443,6 +489,7 @@ def main():
                               for k, v in dvp.items()},
             "betting": bet.get(abbr),
             "eff": eff.get(abbr),
+            "games": team_games.get(abbr, []),
         }
 
     # ---- this week's schedule: the first week that isn't finished ----

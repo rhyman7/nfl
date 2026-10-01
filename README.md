@@ -47,6 +47,15 @@ receiving, fumbles lost, fantasy points). The logs live in `gameLogs` in
 `data/data.json`, keyed `ABBR|player_id`, and each player row carries a `log` key that
 points to its entry. Fantasy points are nflverse's `fantasy_points_ppr`.
 
+**Team games and box scores.** Team names in the matchup header and on every team card
+are clickable. Hovering (on a computer) shows the team's games this season: week,
+opponent, result, and the team's high passer, rusher and receiver by yards. Clicking or
+tapping opens a panel with the same list; pick a game to see its box score (scoring by
+quarter, team stats, every passer, rusher and receiver, scoring plays), which the
+browser fetches from ESPN using the game's `espnId`. If ESPN can't be reached the panel
+says so and links to the game on ESPN. The list is `games` on each team in
+`data/data.json`.
+
 **Prop check.** The game log panel has a prop tool: pick a stat (pass/rush/rec yards,
 receptions, TDs, combos, fantasy points), type a line, and it shows how many games he
 went over, the average, the last 3 results, each game marked O/U, and what next week's
