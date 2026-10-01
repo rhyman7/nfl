@@ -552,7 +552,7 @@ function initPlayerSearch() {
   wrap.className = "psearch no-print";
   wrap.innerHTML = `<input type="search" placeholder="Search players" aria-label="Search players" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="psearchList">
     <ul class="psearch-list" id="psearchList" role="listbox" hidden></ul>`;
-  bar.appendChild(wrap);
+  (bar.querySelector(".topnav") || bar).appendChild(wrap);
   const input = wrap.querySelector("input"), list = wrap.querySelector("ul");
   let hits = [], active = -1;
   const norm = x => x.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.'’-]/g, "");

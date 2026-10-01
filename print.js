@@ -17,7 +17,7 @@ async function init() {
   const games = scheduleGames().filter(g => DATA.teams[g.away] && DATA.teams[g.home])
     .filter(g => !only || g.id === only)
     .slice().sort((a, b) => gameStart(a) - gameStart(b));
-  document.title = `Week ${DATA.schedule.week} matchups (${games.length}) · NFL Matchup Dashboard`;
+  document.title = `Week ${DATA.schedule.week} matchups (${games.length}) · NFL Matchups`;
   if (!games.length) {
     status.textContent = "No games to print.";
     return;
