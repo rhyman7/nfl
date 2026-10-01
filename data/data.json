@@ -1098,7 +1098,11 @@
           "td": 1.33,
           "int": 0.33,
           "pos": "QB",
-          "log": "BAL|00-0034796"
+          "log": "BAL|00-0034796",
+          "inj": {
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
+          }
         }
       ],
       "rushing": [
@@ -1118,7 +1122,11 @@
           "ya": 7.3,
           "ag": 5.7,
           "pos": "QB",
-          "log": "BAL|00-0034796"
+          "log": "BAL|00-0034796",
+          "inj": {
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Zay Flowers",
@@ -1127,7 +1135,11 @@
           "ya": 20.0,
           "ag": 1.0,
           "pos": "WR",
-          "log": "BAL|00-0039064"
+          "log": "BAL|00-0039064",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Justice Hill",
@@ -1147,7 +1159,11 @@
           "yr": 23.4,
           "rec": 5.0,
           "pos": "WR",
-          "log": "BAL|00-0039064"
+          "log": "BAL|00-0039064",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Rashod Bateman",
@@ -1183,7 +1199,11 @@
           "yr": 21.0,
           "rec": 1.0,
           "pos": "WR",
-          "log": "BAL|00-0032398"
+          "log": "BAL|00-0032398",
+          "inj": {
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Matthew Hibner",
@@ -1406,7 +1426,11 @@
           "ya": -1.0,
           "ag": 1.0,
           "pos": "WR",
-          "log": "BUF|00-0034827"
+          "log": "BUF|00-0034827",
+          "inj": {
+            "s": "LP",
+            "note": "Shoulder \u00b7 Limited Participation in Practice"
+          }
         }
       ],
       "receiving": [
@@ -1426,7 +1450,11 @@
           "yr": 15.2,
           "rec": 5.5,
           "pos": "WR",
-          "log": "BUF|00-0034827"
+          "log": "BUF|00-0034827",
+          "inj": {
+            "s": "LP",
+            "note": "Shoulder \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Ty Johnson",
@@ -1453,7 +1481,11 @@
           "yr": 12.6,
           "rec": 2.67,
           "pos": "WR",
-          "log": "BUF|00-0039901"
+          "log": "BUF|00-0039901",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Khalil Shakir",
@@ -1639,7 +1671,11 @@
           "ya": 4.5,
           "ag": 13.7,
           "pos": "RB",
-          "log": "CAR|00-0036555"
+          "log": "CAR|00-0036555",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Jonathon Brooks",
@@ -1695,7 +1731,11 @@
           "yr": 12.3,
           "rec": 6.0,
           "pos": "WR",
-          "log": "CAR|00-0039491"
+          "log": "CAR|00-0039491",
+          "inj": {
+            "s": "DNP",
+            "note": "Quadricep \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Tetairoa McMillan",
@@ -1713,7 +1753,11 @@
           "yr": 11.2,
           "rec": 3.33,
           "pos": "TE",
-          "log": "CAR|00-0031610"
+          "log": "CAR|00-0031610",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Xavier Legette",
@@ -1722,7 +1766,11 @@
           "yr": 32.0,
           "rec": 1.0,
           "pos": "WR",
-          "log": "CAR|00-0039342"
+          "log": "CAR|00-0039342",
+          "inj": {
+            "s": "DNP",
+            "note": "Knee \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Chuba Hubbard",
@@ -1731,7 +1779,11 @@
           "yr": 8.6,
           "rec": 3.0,
           "pos": "RB",
-          "log": "CAR|00-0036555"
+          "log": "CAR|00-0036555",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Tommy Tremble",
@@ -3777,7 +3829,11 @@
           "ya": 7.0,
           "ag": 1.0,
           "pos": "WR",
-          "log": "HOU|00-0036554"
+          "log": "HOU|00-0036554",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Xavier Hutchinson",
@@ -3797,7 +3853,11 @@
           "yr": 10.7,
           "rec": 7.0,
           "pos": "WR",
-          "log": "HOU|00-0036554"
+          "log": "HOU|00-0036554",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Dalton Schultz",
@@ -3806,7 +3866,11 @@
           "yr": 10.8,
           "rec": 6.33,
           "pos": "TE",
-          "log": "HOU|00-0034383"
+          "log": "HOU|00-0034383",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Xavier Hutchinson",
@@ -4011,7 +4075,11 @@
           "ya": 3.9,
           "ag": 22.0,
           "pos": "RB",
-          "log": "IND|00-0036223"
+          "log": "IND|00-0036223",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Deion Burks",
@@ -4076,7 +4144,11 @@
           "yr": 7.7,
           "rec": 4.33,
           "pos": "WR",
-          "log": "IND|00-0030279"
+          "log": "IND|00-0030279",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Tyler Warren",
@@ -4103,7 +4175,11 @@
           "yr": 7.4,
           "rec": 3.0,
           "pos": "RB",
-          "log": "IND|00-0036223"
+          "log": "IND|00-0036223",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Mo Alie-Cox",
@@ -4112,7 +4188,11 @@
           "yr": 16.0,
           "rec": 1.0,
           "pos": "TE",
-          "log": "IND|00-0033217"
+          "log": "IND|00-0033217",
+          "inj": {
+            "s": "DNP",
+            "note": "Illness \u00b7 Did Not Participate In Practice"
+          }
         }
       ],
       "defVsPosition": {
@@ -4317,7 +4397,11 @@
           "ya": 2.0,
           "ag": 1.0,
           "pos": "WR",
-          "log": "JAX|00-0034960"
+          "log": "JAX|00-0034960",
+          "inj": {
+            "s": "LP",
+            "note": "Thumb \u00b7 Limited Participation in Practice"
+          }
         }
       ],
       "receiving": [
@@ -4337,7 +4421,11 @@
           "yr": 13.2,
           "rec": 3.33,
           "pos": "WR",
-          "log": "JAX|00-0034960"
+          "log": "JAX|00-0034960",
+          "inj": {
+            "s": "LP",
+            "note": "Thumb \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Brian Thomas Jr.",
@@ -4849,7 +4937,11 @@
           "yr": 19.9,
           "rec": 6.0,
           "pos": "WR",
-          "log": "LA|00-0031381"
+          "log": "LA|00-0031381",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Puka Nacua",
@@ -4858,7 +4950,11 @@
           "yr": 14.8,
           "rec": 5.0,
           "pos": "WR",
-          "log": "LA|00-0039075"
+          "log": "LA|00-0039075",
+          "inj": {
+            "s": "LP",
+            "note": "Hip \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Tyler Higbee",
@@ -4894,7 +4990,11 @@
           "yr": 9.0,
           "rec": 2.33,
           "pos": "TE",
-          "log": "LA|00-0040737"
+          "log": "LA|00-0040737",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Tutu Atwell",
@@ -5155,7 +5255,11 @@
           "yr": 7.0,
           "rec": 3.0,
           "pos": "TE",
-          "log": "LAC|00-0038046"
+          "log": "LAC|00-0038046",
+          "inj": {
+            "s": "DNP",
+            "note": "Forearm \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Oronde Gadsden II",
@@ -5612,7 +5716,11 @@
           "ya": 3.3,
           "ag": 1.5,
           "pos": "RB",
-          "log": "MIA|00-0039874"
+          "log": "MIA|00-0039874",
+          "inj": {
+            "s": "LP",
+            "note": "Foot \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Malik Washington",
@@ -5641,7 +5749,11 @@
           "yr": 16.1,
           "rec": 3.5,
           "pos": "WR",
-          "log": "MIA|00-0041523"
+          "log": "MIA|00-0041523",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Malik Washington",
@@ -5668,7 +5780,11 @@
           "yr": 18.4,
           "rec": 1.67,
           "pos": "WR",
-          "log": "MIA|00-0041525"
+          "log": "MIA|00-0041525",
+          "inj": {
+            "s": "LP",
+            "note": "Knee \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Greg Dulcich",
@@ -5863,7 +5979,11 @@
           "ya": 3.9,
           "ag": 17.3,
           "pos": "RB",
-          "log": "MIN|00-0033293"
+          "log": "MIN|00-0033293",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Jordan Mason",
@@ -5919,7 +6039,11 @@
           "yr": 13.8,
           "rec": 4.33,
           "pos": "WR",
-          "log": "MIN|00-0036322"
+          "log": "MIN|00-0036322",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Jordan Addison",
@@ -5955,7 +6079,11 @@
           "yr": 6.8,
           "rec": 2.5,
           "pos": "RB",
-          "log": "MIN|00-0033293"
+          "log": "MIN|00-0033293",
+          "inj": {
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "DeeJay Dallas",
@@ -6733,7 +6861,11 @@
           "ya": 5.7,
           "ag": 1.5,
           "pos": "RB",
-          "log": "NYG|00-0039384"
+          "log": "NYG|00-0039384",
+          "inj": {
+            "s": "DNP",
+            "note": "Knee \u00b7 Did Not Participate In Practice"
+          }
         }
       ],
       "receiving": [
@@ -6958,7 +7090,11 @@
           "ya": 3.2,
           "ag": 17.0,
           "pos": "RB",
-          "log": "NYJ|00-0038120"
+          "log": "NYJ|00-0038120",
+          "inj": {
+            "s": "DNP",
+            "note": "Quadricep \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Braelon Allen",
@@ -6994,7 +7130,11 @@
           "ya": 3.0,
           "ag": 1.0,
           "pos": "TE",
-          "log": "NYJ|00-0041032"
+          "log": "NYJ|00-0041032",
+          "inj": {
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
+          }
         }
       ],
       "receiving": [
@@ -7014,7 +7154,11 @@
           "yr": 13.7,
           "rec": 4.5,
           "pos": "WR",
-          "log": "NYJ|00-0039890"
+          "log": "NYJ|00-0039890",
+          "inj": {
+            "s": "DNP",
+            "note": "Finger \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Kenyon Sadiq",
@@ -7023,7 +7167,11 @@
           "yr": 11.9,
           "rec": 4.0,
           "pos": "TE",
-          "log": "NYJ|00-0041032"
+          "log": "NYJ|00-0041032",
+          "inj": {
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Breece Hall",
@@ -7032,7 +7180,11 @@
           "yr": 10.2,
           "rec": 3.33,
           "pos": "RB",
-          "log": "NYJ|00-0038120"
+          "log": "NYJ|00-0038120",
+          "inj": {
+            "s": "DNP",
+            "note": "Quadricep \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Omar Cooper Jr.",
@@ -8073,7 +8225,11 @@
           "ya": 4.7,
           "ag": 11.7,
           "pos": "RB",
-          "log": "SF|00-0033280"
+          "log": "SF|00-0033280",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Kaelon Black",
@@ -8147,7 +8303,11 @@
           "yr": 11.4,
           "rec": 4.0,
           "pos": "WR",
-          "log": "SF|00-0031408"
+          "log": "SF|00-0031408",
+          "inj": {
+            "s": "DNP",
+            "note": "Ribs \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Demarcus Robinson",
@@ -8174,7 +8334,11 @@
           "yr": 8.0,
           "rec": 4.33,
           "pos": "RB",
-          "log": "SF|00-0033280"
+          "log": "SF|00-0033280",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "KhaDarel Hodge",
@@ -8183,7 +8347,11 @@
           "yr": 18.0,
           "rec": 1.0,
           "pos": "WR",
-          "log": "SF|00-0034854"
+          "log": "SF|00-0034854",
+          "inj": {
+            "s": "DNP",
+            "note": "Knee \u00b7 Did Not Participate In Practice"
+          }
         }
       ],
       "defVsPosition": {
@@ -8332,7 +8500,11 @@
           "td": 0.67,
           "int": 0.67,
           "pos": "QB",
-          "log": "TB|00-0034855"
+          "log": "TB|00-0034855",
+          "inj": {
+            "s": "DNP",
+            "note": "Thumb \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Jalon Daniels",
@@ -8351,7 +8523,11 @@
           "ya": 4.5,
           "ag": 13.3,
           "pos": "RB",
-          "log": "TB|00-0039361"
+          "log": "TB|00-0039361",
+          "inj": {
+            "s": "LP",
+            "note": "Glute \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Baker Mayfield",
@@ -8360,7 +8536,11 @@
           "ya": 5.9,
           "ag": 3.7,
           "pos": "QB",
-          "log": "TB|00-0034855"
+          "log": "TB|00-0034855",
+          "inj": {
+            "s": "DNP",
+            "note": "Thumb \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Jalon Daniels",
@@ -8378,7 +8558,11 @@
           "ya": 7.5,
           "ag": 1.0,
           "pos": "WR",
-          "log": "TB|00-0033921"
+          "log": "TB|00-0033921",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Kenny Gainwell",
@@ -8425,7 +8609,11 @@
           "yr": 11.1,
           "rec": 3.33,
           "pos": "WR",
-          "log": "TB|00-0033921"
+          "log": "TB|00-0033921",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Ted Hurst III",
@@ -8443,7 +8631,11 @@
           "yr": 4.7,
           "rec": 4.33,
           "pos": "RB",
-          "log": "TB|00-0039361"
+          "log": "TB|00-0039361",
+          "inj": {
+            "s": "LP",
+            "note": "Glute \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Tez Johnson",
@@ -8621,7 +8813,11 @@
           "ya": 4.6,
           "ag": 12.7,
           "pos": "RB",
-          "log": "TEN|00-0035261"
+          "log": "TEN|00-0035261",
+          "inj": {
+            "s": "DNP",
+            "note": "Foot \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Tyjae Spears",
@@ -8630,7 +8826,11 @@
           "ya": 4.5,
           "ag": 4.3,
           "pos": "RB",
-          "log": "TEN|00-0039032"
+          "log": "TEN|00-0039032",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Cam Ward",
@@ -8686,7 +8886,11 @@
           "yr": 10.2,
           "rec": 2.0,
           "pos": "RB",
-          "log": "TEN|00-0039032"
+          "log": "TEN|00-0039032",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Gunnar Helm",
@@ -8870,7 +9074,11 @@
           "td": 1.5,
           "int": 0.0,
           "pos": "QB",
-          "log": "WAS|00-0039910"
+          "log": "WAS|00-0039910",
+          "inj": {
+            "s": "LP",
+            "note": "Elbow \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Antonio Williams",
@@ -8897,7 +9105,11 @@
           "ya": 8.3,
           "ag": 6.0,
           "pos": "QB",
-          "log": "WAS|00-0039910"
+          "log": "WAS|00-0039910",
+          "inj": {
+            "s": "LP",
+            "note": "Elbow \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Jacory Croskey-Merritt",
@@ -8915,7 +9127,11 @@
           "ya": 4.5,
           "ag": 7.3,
           "pos": "RB",
-          "log": "WAS|00-0037256"
+          "log": "WAS|00-0037256",
+          "inj": {
+            "s": "DNP",
+            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Kaytron Allen",
@@ -8971,7 +9187,11 @@
           "yr": 5.7,
           "rec": 3.0,
           "pos": "RB",
-          "log": "WAS|00-0037256"
+          "log": "WAS|00-0037256",
+          "inj": {
+            "s": "DNP",
+            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+          }
         },
         {
           "player": "Chig Okonkwo",
@@ -8980,7 +9200,11 @@
           "yr": 8.0,
           "rec": 2.0,
           "pos": "TE",
-          "log": "WAS|00-0037809"
+          "log": "WAS|00-0037809",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          }
         },
         {
           "player": "Jaylin Lane",
