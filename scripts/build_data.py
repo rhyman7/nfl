@@ -166,7 +166,7 @@ def main():
             },
             "passing": top_players(
                 passing, team, "Y/G",
-                [("ydsG", "Y/G"), ("td", "TD"), ("int", "Int")], 6,
+                [("ydsG", "Y/G"), ("td", "TD"), ("int", "Int"), ("cmp", "Cmp")], 6,
             ),
             "rushing": top_players(
                 rushing, team, "Y/G",

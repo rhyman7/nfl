@@ -373,8 +373,10 @@ def main():
         if kind == "passing":
             sub = sub[sub.attempts > 0]
             agg = sub.groupby("player_display_name").agg(g=("week", "nunique"), yds=("passing_yards", "sum"),
-                                                        td=("passing_tds", "sum"), i=("passing_interceptions", "sum"))
-            rows = [{"player": n, "ydsG": r1(a.yds / a.g), "td": r2(a.td / a.g), "int": r2(a.i / a.g)} for n, a in agg.iterrows()]
+                                                        td=("passing_tds", "sum"), i=("passing_interceptions", "sum"),
+                                                        cmp=("completions", "sum"))
+            rows = [{"player": n, "ydsG": r1(a.yds / a.g), "td": r2(a.td / a.g), "int": r2(a.i / a.g),
+                     "cmp": r1(a.cmp / a.g)} for n, a in agg.iterrows()]
             n = 6
         elif kind == "rushing":
             sub = sub[sub.carries > 0]
