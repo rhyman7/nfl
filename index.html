@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NFL Matchups</title>
-<link rel="stylesheet" href="style.css?v=202610011904">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<link rel="stylesheet" href="style.css?v=202610031730">
 </head>
 <body data-page="week">
 <header class="topbar">
@@ -26,8 +29,8 @@
       <p id="liveNote" class="live-note" hidden></p>
     </div>
     <div class="week-filters">
-      <button id="printAllBtn" class="print-btn" type="button" title="Print every game this week, one matchup per page" disabled>🖨 Print all</button>
-      <a id="pdfAllBtn" class="print-btn pdf-btn" hidden>⬇ PDF</a>
+      <button id="printAllBtn" class="print-btn" type="button" title="Print every game this week, one matchup per page" disabled>Print all</button>
+      <a id="pdfAllBtn" class="print-btn pdf-btn" hidden>Download PDF</a>
     </div>
   </section>
   <div id="gameList"><div class="empty-note">Loading games...</div></div>
@@ -37,9 +40,10 @@
   <p>Stats cover the current regular season through the latest completed week. Lines: ESPN when available, otherwise nflverse. <a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a>.</p>
 </footer>
 
-<script src="common.js?v=202610011904"></script>
-<script src="live.js?v=202610011904"></script>
+<script src="teamcolors.js?v=202610031730"></script>
+<script src="common.js?v=202610031730"></script>
+<script src="live.js?v=202610031700"></script>
 <script src="weather.js?v=202609301445"></script>
-<script src="matchups.js?v=202609301445"></script>
+<script src="matchups.js?v=202610031730"></script>
 </body>
 </html>

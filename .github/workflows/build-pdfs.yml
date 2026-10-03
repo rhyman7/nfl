@@ -9,6 +9,7 @@ on:
       - "print.html"
       - "print.js"
       - "common.js"
+      - "teamcolors.js"
       - "style.css"
       - "scripts/build_pdfs.py"
   # data.json commits made by the Rebuild workflow don't trigger push events

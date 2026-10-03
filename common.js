@@ -87,12 +87,18 @@ function lineFor(g) {
   return { fav, spread, pick, total };
 }
 
-// "Spread: CLE -2.5 · O/U 38.5" from the current line.
-function heroLineText(g) {
+const MINUS = "\u2212";   // a real minus sign for the numbers on the page
+function dispNum(v) { return String(v).replace("-", MINUS); }
+
+// The current spread as "CLE −2.5" / "Pick'em", and the current total as "Total 38.5".
+function spreadText(g) {
   const ln = lineFor(g);
   if (!ln) return "";
-  const spread = ln.pick ? "Pick'em" : ln.fav ? `${abbrOf(g[ln.fav])} -${ln.spread}` : null;
-  return [spread ? `Spread: ${spread}` : null, ln.total != null ? `O/U ${ln.total}` : null].filter(Boolean).join(" · ");
+  return ln.pick ? "Pick'em" : ln.fav ? `${abbrOf(g[ln.fav])} ${MINUS}${ln.spread}` : "";
+}
+function heroTotalText(g) {
+  const ln = lineFor(g);
+  return ln && ln.total != null ? `Total ${ln.total}` : "";
 }
 
 // Implied team totals from the current spread and O/U: favorite = (total + spread) / 2.
@@ -106,42 +112,55 @@ function impliedTotals(g) {
 }
 function impliedText(g) {
   const it = impliedTotals(g);
-  return it ? `Implied: ${abbrOf(g.away)} ${it.away} · ${abbrOf(g.home)} ${it.home}` : "";
+  return it ? `Implied ${abbrOf(g.away)} ${it.away}, ${abbrOf(g.home)} ${it.home}` : "";
 }
 
 // Line movement since this week's first update (g.lineOpen, nflverse sign: positive = home favored).
 function spreadLabel(g, homeSpread) {
   if (homeSpread == null) return null;
   if (homeSpread === 0) return "PK";
-  return homeSpread > 0 ? `${abbrOf(g.home)} -${homeSpread}` : `${abbrOf(g.away)} -${-homeSpread}`;
+  return homeSpread > 0 ? `${abbrOf(g.home)} ${MINUS}${homeSpread}` : `${abbrOf(g.away)} ${MINUS}${-homeSpread}`;
+}
+// What the line opened at, for whichever of the spread and total has moved since:
+// { when: "Wed", spread: "LA −3" or null, total: 43.5 or null }. null when there is nothing to compare.
+function lineMove(g) {
+  const o = g.lineOpen, ln = lineFor(g);
+  if (!o || !ln || isFinal(g)) return null;
+  const cur = ln.pick ? 0 : ln.fav === "home" ? ln.spread : ln.fav === "away" ? -ln.spread : null;
+  const when = o.at ? new Date(o.at + "T12:00:00").toLocaleDateString(undefined, { weekday: "short" }) : "earlier";
+  return {
+    when,
+    spread: cur != null && o.spread != null && Math.abs(cur - o.spread) >= 0.5 ? spreadLabel(g, o.spread) : null,
+    total: ln.total != null && o.total != null && Math.abs(ln.total - o.total) >= 0.5 ? o.total : null,
+  };
+}
+function lineMoveBits(m) {
+  return [m.spread ? `spread opened ${m.spread}` : null, m.total != null ? `total opened ${m.total}` : null].filter(Boolean);
 }
 function lineMoveText(g) {
-  const o = g.lineOpen, ln = lineFor(g);
-  if (!o || !ln || isFinal(g)) return "";
-  const cur = ln.pick ? 0 : ln.fav === "home" ? ln.spread : ln.fav === "away" ? -ln.spread : null;
-  const moved = [];
-  if (cur != null && o.spread != null && Math.abs(cur - o.spread) >= 0.5) moved.push(`spread ${spreadLabel(g, o.spread)} → ${spreadLabel(g, cur)}`);
-  if (ln.total != null && o.total != null && Math.abs(ln.total - o.total) >= 0.5) moved.push(`O/U ${o.total} → ${ln.total}`);
-  const when = o.at ? new Date(o.at + "T12:00:00").toLocaleDateString(undefined, { weekday: "short" }) : "earlier";
-  return moved.length ? `Line move since ${when}: ${moved.join(" · ")}` : `No line move since ${when}`;
+  const m = lineMove(g);
+  if (!m) return "";
+  const bits = lineMoveBits(m);
+  return bits.length ? `Since ${m.when}: ${bits.join(", ")}` : `No line move since ${m.when}`;
 }
 
 function refText(g) {
   const r = g.referee && DATA.referees ? DATA.referees[g.referee] : null;
   if (!g.referee) return "";
-  if (!r) return `Referee: ${g.referee}`;
+  if (!r) return `Referee ${g.referee}`;
   const n = r.o + r.u;
-  return `Referee: ${g.referee} · ${r.g} games ${DATA.refereeSeasons}: overs ${r.o}-${r.u}${r.p ? "-" + r.p : ""}${n ? ` (${Math.round((100 * r.o) / n)}%)` : ""} · ${r.ppg} pts/G`;
+  return `Referee ${g.referee}. ${r.g} games ${DATA.refereeSeasons}, overs ${r.o}-${r.u}${r.p ? "-" + r.p : ""}${n ? ` (${Math.round((100 * r.o) / n)}%)` : ""}, ${r.ppg} pts/G`;
 }
 
-// Forecast line for the game header; blank for indoor games and once the game is over.
+// The roof-or-forecast slot under the game header: an indoor game just names its roof
+// ("Dome"); an outdoor game shows the kickoff forecast once it has loaded.
 function heroWxText(g) {
-  if (isFinal(g) || g.indoor === true) return "";
-  const w = WX[g.id];
-  if (!w) return "";
-  return [`${w.icon} ${w.text}`, `${w.temp}° at kickoff`,
-    w.pop != null ? `${w.pop}% chance of rain` : null, w.wind != null ? `Wind ${w.wind} mph` : null]
-    .filter(Boolean).join(" · ");
+  if (g.indoor === true) return roofLabel(g) || "Indoors";
+  const w = isFinal(g) ? null : WX[g.id];
+  if (!w) return roofLabel(g) || "";
+  return [w.text, `${w.temp}° at kickoff`,
+    w.pop != null ? `${w.pop}% chance of rain` : null, w.wind != null ? `wind ${w.wind} mph` : null]
+    .filter(Boolean).join(", ");
 }
 
 function roofLabel(g) {
@@ -156,13 +175,13 @@ function roofLabel(g) {
 function renderMatchupParts(g) {
   const away = DATA.teams[g.away], home = DATA.teams[g.home];
   const edges = `
-    <h3 class="section-title">Head to Head</h3>
+    <h3 class="section-title">Head to head</h3>
     <div class="edge-grid">
       ${edgePanel(away, home)}
       ${edgePanel(home, away)}
     </div>
-    <p class="edge-key">Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
-  const cards = `<h3 class="section-title">Full Team Stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
+  const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
 
@@ -172,40 +191,51 @@ function renderHero(g, away, home) {
   const day = d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
   const time = final ? "Final" : !g.gametime ? "Time TBD"
     : d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-  const info = [
-    `${day} · ${time}`,
-    [g.stadium, g.city, roofLabel(g)].filter(Boolean).join(" · "),
-    g.neutral ? "Neutral site" : null,
-  ].filter(Boolean);
-  const lineText = heroLineText(g), wxText = heroWxText(g);
+  const facts = [
+    `${day}, ${time}`,
+    [g.stadium, g.city].filter(Boolean).join(", "),
+  ].filter(Boolean).map(f => `<span>${escapeHtml(f)}</span>`);
+  facts.push(`<span class="hero-wx" id="heroWx">${escapeHtml(heroWxText(g))}</span>`);
+  if (g.neutral) facts.push(`<span>Neutral site</span>`);
+  if (g.divisional) facts.push(`<span>Division game</span>`);
+  const line = spreadText(g), total = heroTotalText(g), imp = impliedText(g), move = lineMoveText(g);
 
   return `
   <div class="mh-week">Week ${DATA.schedule.week}</div>
   <div class="game-hero">
-    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, "away")}
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb)}
     <div class="hero-mid">
       <div class="hero-live" id="heroLive" hidden></div>
-      <div class="hero-at">${g.neutral ? "vs" : "@"}</div>
-      ${info.map(i => `<div class="hero-info">${escapeHtml(i)}</div>`).join("")}
-      <div class="hero-info hero-wx" id="heroWx"${wxText ? "" : " hidden"}>${escapeHtml(wxText || "")}</div>
-      <div class="hero-line" id="heroLine"${lineText ? "" : " hidden"}>${escapeHtml(lineText || "")}</div>
-      <div class="hero-info hero-implied" id="heroImplied"${impliedText(g) ? "" : " hidden"}>${escapeHtml(impliedText(g))}</div>
-      <div class="hero-info hero-move" id="heroMove"${lineMoveText(g) ? "" : " hidden"}>${escapeHtml(lineMoveText(g))}</div>
-      ${refText(g) ? `<div class="hero-info">${escapeHtml(refText(g))}</div>` : ""}
-      ${g.divisional ? `<div class="hero-info">Division game</div>` : ""}
+      <div class="hero-line" id="heroLine"${line ? "" : " hidden"}>${escapeHtml(line)}</div>
+      <div class="hero-total" id="heroTotal"${total ? "" : " hidden"}>${escapeHtml(total)}</div>
+      <div class="hero-info hero-implied" id="heroImplied"${imp ? "" : " hidden"}>${escapeHtml(imp)}</div>
+      <div class="hero-info hero-move" id="heroMove"${move ? "" : " hidden"}>${escapeHtml(move)}</div>
     </div>
-    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, "home")}
-  </div>`;
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb)}
+  </div>
+  <div class="hero-facts">${facts.join("")}</div>
+  ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}`;
 }
 
-function heroTeam(t, side, score, sideKey) {
+// Fill the current line and the forecast into a header that is already on the page.
+function refreshHero(g) {
+  for (const [id, fn] of [["heroLine", spreadText], ["heroTotal", heroTotalText], ["heroImplied", impliedText], ["heroMove", lineMoveText]]) {
+    const el = document.getElementById(id);
+    if (el) { const t = fn(g); el.textContent = t || ""; el.hidden = !t; }
+  }
+  const wx = document.getElementById("heroWx");
+  if (wx) wx.textContent = heroWxText(g);
+}
+
+function heroTeam(t, side, score, otherScore, sideKey, qb) {
+  const rec = `${fmtRecord(t)}, SRS ${dispNum(t.record.srs)}${qb ? `. ${qb} at QB` : ""}`;
+  const lost = score !== null && otherScore !== null && score < otherScore;
   return `
-    <div class="hero-team" data-side="${sideKey}">
+    <div class="hero-team" data-side="${sideKey}" style="${teamVars(t.abbr)}">
       <div class="hero-side">${side}</div>
-      <div class="hero-score" hidden></div>
       <div class="hero-name">${teamLink(t)}</div>
-      <div class="hero-rec">${fmtRecord(t)}${score !== null ? ` · <b>${score}</b>` : ""}</div>
-      <div class="hero-srs">SRS <span class="${t.record.srs > 0 ? "pos" : t.record.srs < 0 ? "neg" : ""}">${t.record.srs}</span></div>
+      <div class="hero-score${lost ? " lost" : ""}"${score === null ? " hidden" : ""}>${score === null ? "" : score}</div>
+      <div class="hero-rec">${escapeHtml(rec)}</div>
     </div>`;
 }
 
@@ -233,29 +263,35 @@ function edgeRows() {
   return Object.values(DATA.teams).every(t => t.eff) ? EDGE_ROWS.slice(0, 1).concat(EFF_ROWS, EDGE_ROWS.slice(1)) : EDGE_ROWS;
 }
 
+// One offense against the other defense, stat by stat. Each side's bar grows from the
+// middle with its league rank (longer = better); the side with the edge shows in its color.
 function edgePanel(offTeam, defTeam) {
+  const n = Object.keys(DATA.teams).length;
+  const ov = teamVars(offTeam.abbr), dv = teamVars(defTeam.abbr);
+  const oa = escapeHtml(offTeam.abbr), da = escapeHtml(defTeam.abbr);
   const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi]) => {
-    const ov = offGet(offTeam), dv = defGet(defTeam);
-    const or = leagueRank(offGet, ov, offHi), dr = leagueRank(defGet, dv, defHi);
+    const o = offGet(offTeam), d = defGet(defTeam);
+    const or = leagueRank(offGet, o, offHi), dr = leagueRank(defGet, d, defHi);
     const diff = dr - or;
-    const edge = diff >= 6 ? `<span class="edge-chip off">Offense</span>`
-      : diff <= -6 ? `<span class="edge-chip def">Defense</span>`
-      : `<span class="edge-chip even">Even</span>`;
-    return `<tr>
-      <td class="lbl">${label}</td>
-      <td class="num"><b>${ov}</b> <span class="rk">#${or}</span></td>
-      <td class="num"><b>${dv}</b> <span class="rk">#${dr}</span></td>
-      <td class="edge">${edge}</td>
-    </tr>`;
+    const side = diff >= 6 ? "off" : diff <= -6 ? "def" : "";
+    const w = r => Math.round(((n + 1 - r) / n) * 100);
+    const edge = side === "off" ? `<b class="tc" style="${ov}">${oa}</b>`
+      : side === "def" ? `<b class="tc" style="${dv}">${da}</b>` : `<span class="even">Even</span>`;
+    return `<div class="tape">
+      <span class="lbl">${label}</span>
+      <span class="num"><b>${dispNum(o)}</b> <span class="rk">#${or}</span></span>
+      <span class="tl"><i class="tb${side === "off" ? " on" : ""}" style="width:${w(or)}%;${ov}"></i></span>
+      <span class="tr"><i class="tb${side === "def" ? " on" : ""}" style="width:${w(dr)}%;${dv}"></i></span>
+      <span><b>${dispNum(d)}</b> <span class="rk">#${dr}</span></span>
+      <span class="num edge">${edge}</span>
+    </div>`;
   }).join("");
 
   return `
   <div class="edge-panel">
-    <h4><span class="off-txt">${escapeHtml(offTeam.abbr)} offense</span> vs <span class="def-txt">${escapeHtml(defTeam.abbr)} defense</span></h4>
-    <table class="edge-table">
-      <thead><tr><th></th><th class="num">${escapeHtml(offTeam.abbr)} O</th><th class="num">${escapeHtml(defTeam.abbr)} D</th><th class="num">Edge</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
+    <h4><span class="tc" style="${ov}">${oa} offense</span> against <span class="tc" style="${dv}">${da} defense</span></h4>
+    <div class="tape tape-h"><span></span><span class="num">${oa} offense</span><span></span><span></span><span>${da} defense</span><span class="num">Edge</span></div>
+    ${rows}
   </div>`;
 }
 
@@ -266,7 +302,7 @@ function edgePanel(offTeam, defTeam) {
 function renderBetting(a, b) {
   if (!a || !b || !a.betting || !b.betting) return "";
   return `<div class="bet-section no-print">
-    <h3 class="section-title">Betting Trends</h3>
+    <h3 class="section-title">Betting trends</h3>
     <div class="edge-grid">${bettingPanel(a)}${bettingPanel(b)}</div>
     <p class="edge-key">Against the spread (ATS) and over/under records use each game's closing line from nflverse. W-L-P = wins, losses and pushes. Small samples early in the season can mislead.</p>
   </div>`;
@@ -277,19 +313,19 @@ function fmtLine(x) {
   return x === 0 ? "PK" : x > 0 ? `+${x}` : `${x}`;
 }
 function wlp(r) { return `${r.w}-${r.l}${r.p ? "-" + r.p : ""}`; }
-function pct(n, d) { return d ? ` <span class="rk">${Math.round((100 * n) / d)}%</span>` : ""; }
+function pct(n, d, what) { return `<span class="rk">${d ? Math.round((100 * n) / d) + "%" + (what || "") : ""}</span>`; }
 
 function bettingPanel(t) {
   const b = t.betting;
   const chip = (label, r) => `<div class="bet-chip"><span class="lbl">${label}</span><b>${wlp(r)}</b>${pct(r.w, r.w + r.l)}</div>`;
-  const ouChip = `<div class="bet-chip"><span class="lbl">O/U</span><b>${b.ou.o}-${b.ou.u}${b.ou.p ? "-" + b.ou.p : ""}</b>${pct(b.ou.o, b.ou.o + b.ou.u)}</div>`;
+  const ouChip = `<div class="bet-chip"><span class="lbl">Over/under</span><b>${b.ou.o}-${b.ou.u}${b.ou.p ? "-" + b.ou.p : ""}</b>${pct(b.ou.o, b.ou.o + b.ou.u, " over")}</div>`;
   const rows = b.games.slice().reverse().map(g => `<tr>
-    <td>${g.w}</td><td>${g.at ? "@" : "vs"} ${escapeHtml(g.opp)}</td><td class="num">${fmtLine(g.line)}</td>
+    <td>${g.w}</td><td>${g.at ? "@" : "vs"} ${escapeHtml(g.opp)}</td><td class="num">${dispNum(fmtLine(g.line))}</td>
     <td class="num">${escapeHtml(g.score)}</td><td class="num"><span class="tag ${g.ats}">${g.ats}</span></td>
     <td class="num">${g.total != null ? g.total : "—"}</td><td class="num">${g.ou ? `<span class="tag ${g.ou === "O" ? "W" : g.ou === "U" ? "L" : "P"}">${g.ou}</span>` : "—"}</td></tr>`).join("");
-  return `<div class="edge-panel bet-panel">
+  return `<div class="edge-panel bet-panel" style="${teamVars(t.abbr)}">
     <h4>${escapeHtml(t.team)}</h4>
-    <div class="bet-chips">${chip("ATS", b.ats)}${chip("Fav", b.fav)}${chip("Dog", b.dog)}${chip("Home", b.home)}${chip("Away", b.away)}${ouChip}</div>
+    <div class="bet-chips">${chip("ATS", b.ats)}${chip("Favorite", b.fav)}${chip("Underdog", b.dog)}${chip("Home", b.home)}${chip("Away", b.away)}${ouChip}</div>
     ${b.games.length ? `<table class="edge-table">
       <thead><tr><th>Wk</th><th>Opp</th><th class="num">Line</th><th class="num">Score</th><th class="num">ATS</th><th class="num">Total</th><th class="num">O/U</th></tr></thead>
       <tbody>${rows}</tbody></table>` : `<div class="empty-note">No games with a line yet.</div>`}
@@ -304,9 +340,10 @@ function renderTeamCard(t) {
   const gr = DATA.gaugeRanges;
 
   return `
-  <div class="team-card" data-team="${escapeHtml(t.team)}">
+  <div class="team-card" data-team="${escapeHtml(t.team)}" style="${teamVars(t.abbr)}">
     <div class="team-card-header">
       <div class="team-name-block">
+        ${slabHtml(t.abbr, t.abbr)}
         <h2>${teamLink(t)}</h2>
         <div class="record"><b>${t.record.w}-${t.record.l}${t.record.t ? "-" + t.record.t : ""}</b></div>
       </div>
@@ -316,15 +353,15 @@ function renderTeamCard(t) {
         ${badge("DSRS", t.record.dsrs)}
         ${badge("SRS", t.record.srs)}
       </div>
-      <button class="print-btn print-btn-single no-print" type="button" onclick="printOneTeam('${escapeHtml(t.team).replace(/'/g, "\\'")}')">🖨 Print</button>
+      <button class="print-btn print-btn-single no-print" type="button" onclick="printOneTeam('${escapeHtml(t.team).replace(/'/g, "\\'")}')">Print</button>
     </div>
 
     <div class="stat-columns">
       <div class="stat-col offense">
         <h3>Offense</h3>
         <div class="gauges">
-          ${gaugeBlock("Rush Yds/G", t.offense.rushYdsG, gr.offRushYdsG, t.offense.rushYdsGRank, "var(--off)")}
-          ${gaugeBlock("Pass Yds/G", t.offense.passYdsG, gr.offPassYdsG, t.offense.passYdsGRank, "var(--off)")}
+          ${gaugeBlock("Rush Yds/G", t.offense.rushYdsG, gr.offRushYdsG, t.offense.rushYdsGRank)}
+          ${gaugeBlock("Pass Yds/G", t.offense.passYdsG, gr.offPassYdsG, t.offense.passYdsGRank)}
         </div>
         <div class="mini-stats">
           ${miniStat("Rush TD/G", t.offense.rushTdG, avg.rushTdG)}
@@ -334,39 +371,21 @@ function renderTeamCard(t) {
       </div>
 
       <div class="center-col">
-        <div class="rank-compare">
-          <div class="rank-pill off">
-            <span class="lbl">Off Rush Rk</span>
-            <span class="val">${fmtRank(t.offense.rushYdsGRank)}</span>
-          </div>
-          <span class="rank-arrow">vs</span>
-          <div class="rank-pill def">
-            <span class="lbl">Def Rush Rk</span>
-            <span class="val">${fmtRank(t.defense.rushYdsGRank)}</span>
-          </div>
+        <div class="rank-line">
+          <div class="lbl">Run game</div>
+          <div class="val">${fmtRank(t.offense.rushYdsGRank)} <span>off</span> / ${fmtRank(t.defense.rushYdsGRank)} <span>def</span></div>
         </div>
-        <div class="rank-compare">
-          <div class="rank-pill off">
-            <span class="lbl">Off Pass Rk</span>
-            <span class="val">${fmtRank(t.offense.passYdsGRank)}</span>
-          </div>
-          <span class="rank-arrow">vs</span>
-          <div class="rank-pill def">
-            <span class="lbl">Def Pass Rk</span>
-            <span class="val">${fmtRank(t.defense.passYdsGRank)}</span>
-          </div>
-        </div>
-        <div class="pass-rank-block">
-          <div class="lbl">League Avg (Rush TD/G · Pass TD/G · PPG)</div>
-          <div class="pass-rank-row">${avg.rushTdG} · ${avg.passTdG} · ${avg.ppg}</div>
+        <div class="rank-line">
+          <div class="lbl">Pass game</div>
+          <div class="val">${fmtRank(t.offense.passYdsGRank)} <span>off</span> / ${fmtRank(t.defense.passYdsGRank)} <span>def</span></div>
         </div>
       </div>
 
       <div class="stat-col defense">
         <h3>Defense</h3>
         <div class="gauges">
-          ${gaugeBlock("Rush Yds/G", t.defense.rushYdsG, gr.defRushYdsG, t.defense.rushYdsGRank, "var(--def)")}
-          ${gaugeBlock("Pass Yds/G", t.defense.passYdsG, gr.defPassYdsG, t.defense.passYdsGRank, "var(--def)")}
+          ${gaugeBlock("Rush Yds/G", t.defense.rushYdsG, gr.defRushYdsG, t.defense.rushYdsGRank)}
+          ${gaugeBlock("Pass Yds/G", t.defense.passYdsG, gr.defPassYdsG, t.defense.passYdsGRank)}
         </div>
         <div class="mini-stats">
           ${miniStat("Rush TD/G", t.defense.rushTdG, avg.rushTdG)}
@@ -401,17 +420,17 @@ function renderTeamCard(t) {
     </div>
 
     <div class="defpos-row">
-      ${defPosBlock("Def vs RB", t.defVsPosition.rb)}
-      ${defPosBlock("Def vs Rec-RB", t.defVsPosition.recRb)}
-      ${defPosBlock("Def vs TE", t.defVsPosition.te)}
-      ${defPosBlock("Def vs WR", t.defVsPosition.wr)}
+      ${defPosBlock("Defense vs RB", t.defVsPosition.rb)}
+      ${defPosBlock("Defense vs receiving RB", t.defVsPosition.recRb)}
+      ${defPosBlock("Defense vs TE", t.defVsPosition.te)}
+      ${defPosBlock("Defense vs WR", t.defVsPosition.wr)}
     </div>
   </div>`;
 }
 
 function badge(label, value) {
   const cls = value > 0 ? "pos" : value < 0 ? "neg" : "";
-  return `<div class="badge"><span class="label">${label}</span><span class="value ${cls}">${value}</span></div>`;
+  return `<div class="badge"><span class="label">${label}</span><span class="value ${cls}">${dispNum(value)}</span></div>`;
 }
 
 function miniStat(label, value, avg) {
@@ -432,8 +451,8 @@ function defPosBlock(title, d) {
   return `<div class="defpos-block">
     <h4>${title}</h4>
     <div class="defpos-stats">
-      <div class="item"><div class="val">${fmtRank(d.rank)}</div><div class="lbl">Rank</div></div>
-      <div class="item"><div class="val">${d.yds}</div><div class="lbl">Yds/G</div></div>
+      <div class="item"><div class="val">${fmtRank(d.rank)}</div><div class="lbl">rank</div></div>
+      <div class="item"><div class="val">${d.yds}</div><div class="lbl">yds/G</div></div>
       <div class="item"><div class="val">${d.td}</div><div class="lbl">TD/G</div></div>
     </div>
   </div>`;
@@ -447,7 +466,7 @@ function playerTable(title, rows, cols) {
   const kind = title.toLowerCase();
   const body = rows.map(r => {
     const cells = cols.map(([, key, type]) => {
-      const txt = escapeHtml(String(r[key] ?? "—"));
+      const txt = escapeHtml(type === "num" ? dispNum(r[key] ?? "—") : String(r[key] ?? "—"));
       const val = key === "player" && r.log && DATA.gameLogs && DATA.gameLogs[r.log]
         ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>${injTag(r.inj)}`
         : txt + (key === "player" ? injTag(r.inj) : "");
@@ -462,8 +481,8 @@ function playerTable(title, rows, cols) {
 }
 
 // --- Gauge (SVG semicircle) ---
-function gaugeBlock(label, value, range, rank, color) {
-  const svg = gaugeSvg(value, range.min, range.max, color);
+function gaugeBlock(label, value, range, rank) {
+  const svg = gaugeSvg(value, range.min, range.max);
   return `<div class="gauge-block">
     ${svg}
     <div class="gauge-value">${value}</div>
@@ -472,7 +491,7 @@ function gaugeBlock(label, value, range, rank, color) {
   </div>`;
 }
 
-function gaugeSvg(value, min, max, color) {
+function gaugeSvg(value, min, max) {
   const clamped = Math.max(min, Math.min(max, value));
   const pct = (clamped - min) / (max - min || 1);
   const angle = 180 * pct; // 0 = left (min), 180 = right (max)
@@ -499,11 +518,11 @@ function gaugeSvg(value, min, max, color) {
   const ny = cy - (r - 6) * Math.sin(needleRad);
 
   return `
-  <svg viewBox="0 0 120 66" width="120" height="66">
-    <path d="M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}" fill="none" stroke="var(--track)" stroke-width="9" stroke-linecap="round"/>
-    <path d="${arcPath}" fill="none" stroke="${color}" stroke-width="9" stroke-linecap="round"/>
-    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(2)}" y2="${ny.toFixed(2)}" stroke="var(--text)" stroke-width="2" class="gauge-needle-tip"/>
-    <circle cx="${cx}" cy="${cy}" r="3.5" fill="var(--text)"/>
+  <svg viewBox="0 0 120 66" width="120" height="66" aria-hidden="true">
+    <path class="g-track" d="M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}" fill="none" stroke-width="8"/>
+    <path class="g-arc" d="${arcPath}" fill="none" stroke-width="8"/>
+    <line class="g-needle" x1="${cx}" y1="${cy}" x2="${nx.toFixed(2)}" y2="${ny.toFixed(2)}" stroke-width="2"/>
+    <circle class="g-hub" cx="${cx}" cy="${cy}" r="3.5"/>
   </svg>`;
 }
 
@@ -560,7 +579,7 @@ function initPlayerSearch() {
   const close = () => { list.hidden = true; input.setAttribute("aria-expanded", "false"); active = -1; };
   const render = () => {
     list.innerHTML = hits.map((p, i) => `<li role="option" data-i="${i}" class="${i === active ? "active" : ""}" aria-selected="${i === active}">
-      <span class="ps-name">${escapeHtml(p.name)}${injTag(p.inj)}</span><span class="ps-meta">${escapeHtml([p.pos, p.abbr].filter(Boolean).join(" · "))}</span></li>`).join("")
+      <span class="ps-name">${escapeHtml(p.name)}${injTag(p.inj)}</span><span class="ps-meta">${escapeHtml([p.pos, p.abbr].filter(Boolean).join(", "))}</span></li>`).join("")
       || `<li class="ps-empty">No players found</li>`;
     list.hidden = false; input.setAttribute("aria-expanded", "true");
   };
@@ -672,7 +691,7 @@ function oppContext(teamAbbr, statKey, pos) {
     what = `${dv[k].yds} rec yds/G to ${lbl} (#${dv[k].rank})`;
     if (statKey === "rrYds" && (P === "RB" || P === "FB")) what = `${dv.rb.yds} rush + ${dv.recRb.yds} rec yds/G to RBs (#${dv.rb.rank} / #${dv.recRb.rank})`;
   }
-  return `Next: ${where} — ${escapeHtml(opp.abbr)} allows ${what}. Ranks out of 32; #1 = allows the fewest.`;
+  return `Next: ${where}. ${escapeHtml(opp.abbr)} allows ${what}. Ranks out of 32; #1 = allows the fewest.`;
 }
 
 function propToolHtml(groups, kind) {
@@ -713,7 +732,7 @@ function updateProp(card, log) {
   if (isNaN(line)) { res.textContent = "Enter a line to see how often he's cleared it."; return; }
   const n = over + under;
   const last3 = vals.slice(-3).map(v => (v > line ? "O" : v < line ? "U" : "P")).join(" ");
-  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""} · Avg ${avg.toFixed(1)} · Last ${Math.min(3, vals.length)}: ${last3}`;
+  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`;
 }
 
 function panelHtml(name, key, log, kind) {
@@ -735,7 +754,7 @@ function panelHtml(name, key, log, kind) {
       <div>
         <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
         ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">Week ${DATA.injuryWeek} injury report: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
-        <div class="plog-sub">${pinfo && pinfo.pos ? escapeHtml(pinfo.pos) + " · " : ""}${t ? escapeHtml(t.team) + " · " : ""}${log.length} game${log.length === 1 ? "" : "s"} · ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
+        <div class="plog-sub">${pinfo && pinfo.pos ? escapeHtml(pinfo.pos) + ", " : ""}${t ? escapeHtml(t.team) + ", " : ""}${log.length} game${log.length === 1 ? "" : "s"}, ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
       </div>
       <button type="button" class="plog-close" aria-label="Close">✕</button>
     </div>
@@ -862,12 +881,12 @@ function teamGamesHtml(t) {
     const l = e[k];
     if (!l) return `<td class="gstart tg-lead" data-label="${label}">—</td>`;
     return `<td class="gstart tg-lead" data-label="${label}"><div class="tg-name">${escapeHtml(l.n)}</div>
-      <div class="tg-line">${extra(l)} · <b>${l.yds}</b> yds${l.td ? ` · ${l.td} TD` : ""}</div></td>`;
+      <div class="tg-line">${extra(l)}, <b>${l.yds}</b> yds${l.td ? `, ${l.td} TD` : ""}</div></td>`;
   };
   const body = t.games.map((e, i) => `<tr class="tg-row" data-i="${i}">
     <td>${e.w}</td><td>${escapeHtml(oppText(e))}</td><td class="res ${resClass(e.res)}">${escapeHtml(e.res || "")}</td>
     ${TG_LEADERS.map(c => cell(e, c)).join("")}
-    <td class="gstart tg-go"><button type="button" class="tg-open" data-i="${i}" aria-label="Box score, week ${e.w} ${escapeHtml(oppText(e))}">Box score ›</button></td></tr>`).join("");
+    <td class="gstart tg-go"><button type="button" class="tg-open" data-i="${i}" aria-label="Box score, week ${e.w} ${escapeHtml(oppText(e))}">Box score</button></td></tr>`).join("");
   return `<table class="tg-table">
     <thead><tr><th>Wk</th><th>Opp</th><th>Result</th>${TG_LEADERS.map(([, l]) => `<th class="gstart">${l}</th>`).join("")}<th class="gstart"></th></tr></thead>
     <tbody>${body}</tbody></table>`;
@@ -903,7 +922,7 @@ function teamGamesHtml(t) {
     panel.innerHTML = `<div class="plog-card tg-card" role="dialog" aria-modal="true" aria-labelledby="tgTitle">
       <div class="plog-top">
         <div>
-          ${back ? `<button type="button" class="tg-back">← All ${escapeHtml(team.team)} games</button>` : ""}
+          ${back ? `<button type="button" class="tg-back">All ${escapeHtml(team.team)} games</button>` : ""}
           <h3 id="tgTitle">${title}</h3>
           <div class="plog-sub">${sub}</div>
         </div>
@@ -917,7 +936,7 @@ function teamGamesHtml(t) {
   function showList(focusRow) {
     showing++;
     const n = team.games.length;
-    frame(escapeHtml(team.team), `${fmtRecord(team)} · ${n} game${n === 1 ? "" : "s"} · Pick a game to see its box score`, false,
+    frame(escapeHtml(team.team), `${fmtRecord(team)}, ${n} game${n === 1 ? "" : "s"}. Pick a game to see its box score`, false,
       teamGamesHtml(team),
       `High passer, rusher and receiver are ${escapeHtml(team.abbr)}'s leaders by yards in each game. Completed games through Week ${DATA.throughWeek}.`);
     const target = focusRow != null && panel.querySelector(`.tg-open[data-i="${focusRow}"]`);
@@ -928,9 +947,9 @@ function teamGamesHtml(t) {
     if (!e) return;
     const mine = ++showing;
     const espn = e.espnId && typeof espnGameUrl === "function"
-      ? ` <a href="${espnGameUrl(e.espnId)}" target="_blank" rel="noopener">Open this game on ESPN ↗</a>` : "";
-    frame(`Week ${e.w} · ${escapeHtml(team.abbr)} ${escapeHtml(oppText(e))}`,
-      `<span class="res ${resClass(e.res)}">${escapeHtml(e.res || "")}</span> · ${escapeHtml(team.team)}`, true,
+      ? ` <a href="${espnGameUrl(e.espnId)}" target="_blank" rel="noopener">Open this game on ESPN</a>` : "";
+    frame(`Week ${e.w}, ${escapeHtml(team.abbr)} ${escapeHtml(oppText(e))}`,
+      `<span class="res ${resClass(e.res)}">${escapeHtml(e.res || "")}</span>, ${escapeHtml(team.team)}`, true,
       `<div class="empty-note tg-wait">Loading the box score…</div>`, `Box score from ESPN.${espn}`);
     panel.querySelector(".tg-back").dataset.i = i;
     panel.querySelector(".tg-back").focus();
@@ -938,7 +957,7 @@ function teamGamesHtml(t) {
     const fail = () => {
       if (mine !== showing) return;
       const leaders = TG_LEADERS.filter(([k]) => e[k]).map(([k, label, , extra]) =>
-        `<li>${label}: <b>${escapeHtml(e[k].n)}</b> — ${extra(e[k])}, ${e[k].yds} yds${e[k].td ? `, ${e[k].td} TD` : ""}</li>`).join("");
+        `<li>${label}: <b>${escapeHtml(e[k].n)}</b>, ${extra(e[k])}, ${e[k].yds} yds${e[k].td ? `, ${e[k].td} TD` : ""}</li>`).join("");
       body.innerHTML = `<div class="empty-note">The box score for this game isn't available right now.${espn}</div>
         ${leaders ? `<ul class="tg-fallback">${leaders}</ul>` : ""}`;
     };

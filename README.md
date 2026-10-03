@@ -6,12 +6,14 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 
 ## Pages
 
-- **This Week's Matchups** (`index.html`) — every game in the current week grouped by
-  day, with kickoff time, records and points per game. Before kickoff, the favored
-  team's row shows the spread (e.g. -3), the other team's row shows the O/U (PK on the
-  first row for a pick'em), and a kickoff forecast sits under the teams ("Indoors" for
-  domes and closed roofs). Once a game starts, the scores take that spot. Click a game
-  to open it. "Print all" prints every matchup, one per landscape page.
+- **This Week's Matchups** (`index.html`) — a board with one row per game in the current
+  week, grouped by kickoff time. Each row has both teams (a block in the team's color,
+  record and points per game), the spread, the total, implied team totals and the venue,
+  in fixed columns so the lines read straight down. A spread or total that has moved
+  shows what it opened at underneath. The venue line carries the kickoff forecast
+  ("Indoors" for domes and closed roofs). Once a game starts, scores join the teams and
+  the implied column shows the game's status. Click a row to open the game. "Print all"
+  prints every matchup, one per landscape page.
 - **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
   forecast, current spread and O/U; a Head to Head table (each
   offense against the other defense, with league ranks and edges); then both teams'
@@ -19,7 +21,7 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
   one matchup per landscape page, and brings up the print dialog. Each team card still
   has its own Print button (one team per portrait page).
-- **Download PDF** — "⬇ PDF" on This Week's Matchups (every game) and "Download PDF" on
+- **Download PDF** — "Download PDF" on This Week's Matchups (every game) and "Download PDF" on
   each matchup page (that game). The PDFs are the print layout rendered by headless
   Chrome, so they come out the same whatever browser or printer you use.
   `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf` and
@@ -37,7 +39,16 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   DSRS and SRS and how to use them in a matchup. Its example uses the current top-SRS
   team from `data/data.json`; the rest of the page is static.
 
-All pages read one file, `data/data.json`, and share `common.js` and `style.css`.
+All pages read one file, `data/data.json`, and share `common.js`, `teamcolors.js` and
+`style.css`.
+
+**Look.** Graphite background, with team colors carrying the color: `teamcolors.js` holds
+each team's primary and secondary color and derives readable versions for the dark page
+and for print. The matchup header is a scorebug (each team's name on its color, lettered
+in its secondary color, with the current line between them); the bar under it lists
+kickoff, venue, and either the roof ("Dome") for indoor games or the kickoff forecast for
+outdoor ones. Head to Head draws a bar for each side's league rank, and the side with the
+edge shows in its team color. Type is Archivo, loaded from Google Fonts.
 
 **Player game logs.** On every team card, each player name in the Passing, Rushing and
 Receiving tables is clickable. Hovering (on a computer) shows a tooltip with that
@@ -69,7 +80,7 @@ fills in Wednesday–Friday, which is why there's a Friday refresh.
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
 
-**Implied totals and line movement.** The matchup header, slate cards and Weekly Edges
+**Implied totals and line movement.** The matchup header, the week board and Weekly Edges
 show implied team totals from the current spread and O/U. `lineOpen` on each schedule
 game is the line from the week's first update; the build keeps it when it reruns for the
 same week, and the pages show how far the line has moved since.

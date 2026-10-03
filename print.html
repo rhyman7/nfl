@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Print all matchups · NFL Matchups</title>
-<link rel="stylesheet" href="style.css?v=202610011904">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<link rel="stylesheet" href="style.css?v=202610031730">
 </head>
 <body data-page="printall" class="mprint">
 <header class="topbar">
@@ -20,17 +23,18 @@
 
 <main id="app">
   <div class="matchup-bar print-all-bar no-print">
-    <a class="back-link" href="index.html">← All matchups</a>
+    <a class="back-link" href="index.html">All matchups</a>
     <span id="printStatus" class="print-status">Preparing matchups…</span>
-    <span class="bar-actions"><button id="printAllBtn" class="print-btn" type="button" disabled>🖨 Print</button>
-    <a id="pdfAllBtn" class="print-btn pdf-btn" hidden>⬇ Download PDF</a></span>
+    <span class="bar-actions"><button id="printAllBtn" class="print-btn" type="button" disabled>Print</button>
+    <a id="pdfAllBtn" class="print-btn pdf-btn" hidden>Download PDF</a></span>
   </div>
   <div id="printAll"></div>
 </main>
 
 
-<script src="common.js?v=202610011904"></script>
-<script src="live.js?v=202610011904"></script>
-<script src="print.js?v=202610010600"></script>
+<script src="teamcolors.js?v=202610031730"></script>
+<script src="common.js?v=202610031730"></script>
+<script src="live.js?v=202610031700"></script>
+<script src="print.js?v=202610031700"></script>
 </body>
 </html>

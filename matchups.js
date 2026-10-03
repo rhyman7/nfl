@@ -20,10 +20,10 @@ async function init() {
     return;
   }
 
-  document.getElementById("weekTitle").textContent = `Week ${sched.week} Matchups`;
+  document.getElementById("weekTitle").textContent = `Week ${sched.week}`;
   document.getElementById("weekSub").textContent =
-    `${games.length} game${games.length === 1 ? "" : "s"} · team stats through Week ${DATA.throughWeek}` +
-    " · tap a game for the full matchup";
+    `${games.length} game${games.length === 1 ? "" : "s"}. Team stats through Week ${DATA.throughWeek}.` +
+    " Pick a game for the full matchup.";
 
   const rerender = () => renderWeek(games);
   rerender();
@@ -56,13 +56,16 @@ function renderWeek(games) {
     const starts = grp.games.map(gameStart);
     const same = starts.every(s => s.getTime() === starts[0].getTime());
     const hour = new Date(starts[0]); hour.setMinutes(0, 0, 0);
-    grp.label = `${grp.day} · ${fmtTime(same ? starts[0] : hour)}`;
+    grp.exact = same;   // every game kicks off at the time in the label
+    grp.label = `${grp.day}, ${fmtTime(same ? starts[0] : hour)}`;
   });
 
-  gameList.innerHTML = groups.map(grp => `
+  gameList.innerHTML = `
+    <div class="board-cols" aria-hidden="true"><span>Away</span><span></span><span>Home</span><span>Spread</span><span>Total</span><span>Implied score</span><span>Where</span></div>`
+    + groups.map(grp => `
     <section class="day-group">
-      <h2 class="day-label${grp.live ? " live" : ""}">${grp.live ? '<span class="live-dot"></span>' : ""}${escapeHtml(grp.label)} <span class="day-count">${grp.games.length}</span></h2>
-      <div class="game-grid">${grp.games.map(gameCard).join("")}</div>
+      <h2 class="day-label">${grp.live ? '<span class="live-dot"></span>' : ""}${escapeHtml(grp.label)}${grp.games.length > 1 ? ` <span class="day-count">${grp.games.length} games</span>` : ""}</h2>
+      ${grp.games.map(g => gameRow(g, grp)).join("")}
     </section>`).join("") + byeNote(DATA.schedule.byes);
 }
 
@@ -70,7 +73,7 @@ function updatePrintAll(n) {
   const btn = document.getElementById("printAllBtn");
   if (!btn) return;
   btn.disabled = !n;
-  btn.textContent = `🖨 Print all (${n})`;
+  btn.textContent = `Print all ${n}`;
   if (!btn.dataset.wired) {
     btn.dataset.wired = "1";
     btn.addEventListener("click", () => window.open("print.html", "_blank"));
@@ -87,65 +90,70 @@ function kickoff(g) {
   return gameStart(g).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 }
 
-function gameSide(g, sideKey) {
+// One team in a board row: its block, name and record, and its score once the game is on.
+function rowTeam(g, sideKey) {
   const name = g[sideKey];
   const t = DATA.teams[name];
   const otherKey = sideKey === "away" ? "home" : "away";
-  // Before kickoff: favored team shows the spread, the other team shows the O/U.
-  const ln = lineFor(g);
-  let lineTag = "";
-  if (ln) {
-    if (ln.pick && sideKey === "away") lineTag = `<span class="gs-srs gs-line" title="Spread">PK</span>`;
-    else if (ln.fav === sideKey) lineTag = `<span class="gs-srs gs-line" title="Spread">-${ln.spread}</span>`;
-    else if (ln.total != null) lineTag = `<span class="gs-srs gs-line" title="Over/under">O/U ${ln.total}</span>`;
-  }
   const L = liveFor(g);
-  const scoreKey = sideKey + "Score", otherScoreKey = otherKey + "Score";
-  let score = isFinal(g) ? g[scoreKey] : null, otherScore = isFinal(g) ? g[otherScoreKey] : null, done = isFinal(g);
+  let score = isFinal(g) ? g[sideKey + "Score"] : null, otherScore = isFinal(g) ? g[otherKey + "Score"] : null, done = isFinal(g);
   if (L && (L.state === "in" || L.state === "post") && L[sideKey]) {
     score = L[sideKey].score; otherScore = L[otherKey] ? L[otherKey].score : null; done = L.state === "post";
   }
-  const won = done && score != null && otherScore != null && score > otherScore;
+  const lost = done && score != null && otherScore != null && score < otherScore;
   const poss = L && L.state === "in" && L.possession === sideKey ? `<span class="poss" title="Has the ball">●</span>` : "";
-  const sub = t ? `${fmtRecord(t)} · ${t.offense.ppg} PPG · ${t.defense.papg} PA/G` : "";
-  return `<div class="gs-row${won ? " won" : ""}">
-    <span class="gs-name">${escapeHtml(name)}${poss}</span>
-    <span class="gs-rec">${escapeHtml(sub)}</span>
-    ${score != null ? `<span class="gs-score">${score}</span>` : lineTag}
+  // once there's a score the row has no room for the season averages
+  const sub = !t ? "" : score != null ? fmtRecord(t) : `${fmtRecord(t)}, ${t.offense.ppg} PPG, ${t.defense.papg} PA/G`;
+  return `<div class="gr-team ${sideKey}${lost ? " lost" : ""}">
+    ${t ? slabHtml(t.abbr, t.abbr) : ""}
+    <div class="gr-tx"><div class="gr-name">${escapeHtml(name)}${poss}</div><div class="gr-sub">${escapeHtml(sub)}</div></div>
+    ${score != null ? `<span class="gr-score">${score}</span>` : ""}
   </div>`;
 }
 
-function gameCard(g) {
+// One game on the board: both teams, the current spread and total (with what they opened
+// at when they have moved), implied team totals, and where it is played. Once the game
+// starts, scores join the teams and the implied column shows the game's status.
+function gameRow(g, grp) {
   const L = liveFor(g);
-  const isLive = L && L.state === "in";
-  const sit = isLive && L.downDistance ? `<div class="game-sit">${escapeHtml(L.downDistance)}</div>` : "";
-  return `<a class="game-card${isLive ? " live" : ""}" href="matchup.html?game=${encodeURIComponent(g.id)}">
-    <div class="game-meta">
-      <span class="game-time">${isLive ? '<span class="live-badge">Live</span> ' : ""}${escapeHtml(kickoff(g))}</span>
-      ${g.divisional ? `<span class="game-tv">Division</span>` : ""}
-    </div>
-    ${gameSide(g, "away")}
-    <div class="gs-at">${g.neutral ? "vs" : "@"}</div>
-    ${gameSide(g, "home")}
-    ${sit}
-    ${gameExtra(g, L)}
-    <div class="game-venue">${escapeHtml([g.stadium, g.city].filter(Boolean).join(" · "))}${g.neutral ? " (neutral)" : ""}</div>
-  </a>`;
-}
+  const isLive = !!L && L.state === "in";
+  const done = isFinal(g) || (!!L && L.state === "post");
+  const started = isLive || done;
+  const ln = lineFor(g), it = impliedTotals(g), mv = started ? null : lineMove(g);
+  const spread = spreadText(g) || "—";
+  const total = ln && ln.total != null ? ln.total : "—";
 
-// Kickoff forecast, shown until the game starts.
-function gameExtra(g, L) {
-  if (isFinal(g) || (L && (L.state === "in" || L.state === "post"))) return "";
-  const w = WX[g.id];
-  let wx = "";
-  if (g.indoor === true) wx = `<span class="game-wx" title="Indoor stadium">🏟 Indoors</span>`;
-  else if (w) {
-    const bits = [`${w.temp}°`, w.pop != null ? `${w.pop}% rain` : null, w.wind != null ? `${w.wind} mph` : null].filter(Boolean);
-    wx = `<span class="game-wx" title="${escapeHtml("Forecast at kickoff: " + w.text)}">${w.icon} ${escapeHtml(bits.join(" · "))}</span>`;
+  let status;
+  if (isLive) {
+    status = `<div class="gr-big"><span class="live-badge">Live</span> ${escapeHtml(L.detail || "")}</div>` +
+      (L.downDistance ? `<div class="gr-sub game-sit">${escapeHtml(L.downDistance)}</div>` : "");
+  } else if (done) {
+    status = `<div class="gr-big">${escapeHtml((L && L.state === "post" && L.detail) || "Final")}</div>`;
+  } else {
+    status = it ? `<span class="imp-pre">Implied </span>${escapeHtml(abbrOf(g.away))} ${it.away}, ${escapeHtml(abbrOf(g.home))} ${it.home}` : "";
   }
-  const it = impliedTotals(g);
-  const imp = it ? `<span class="game-implied" title="Implied team totals from the spread and O/U">Implied ${escapeHtml(abbrOf(g.away))} ${it.away} · ${escapeHtml(abbrOf(g.home))} ${it.home}</span>` : "";
-  return wx || imp ? `<div class="game-extra">${wx}${imp}</div>` : "";
+
+  // second line under the stadium: kickoff time when the group's label doesn't give it,
+  // the city, then the forecast (outdoor games, before kickoff) or "Indoors"
+  const bits = [];
+  if (!started && !(grp && grp.exact)) bits.push(kickoff(g));
+  bits.push([g.city, g.neutral ? "neutral site" : null].filter(Boolean).join(", "));
+  if (g.indoor === true) bits.push("Indoors");
+  else if (!started && WX[g.id]) {
+    const w = WX[g.id];
+    bits.push([`${w.temp}°`, w.pop != null ? `${w.pop}% rain` : null, w.wind != null ? `${w.wind} mph wind` : null].filter(Boolean).join(", "));
+  }
+  if (g.divisional) bits.push("Division game");
+
+  return `<a class="game-row${isLive ? " live" : ""}${done ? " done" : ""}" href="matchup.html?game=${encodeURIComponent(g.id)}">
+    ${rowTeam(g, "away")}
+    <div class="gr-at">${g.neutral ? "vs" : "at"}</div>
+    ${rowTeam(g, "home")}
+    <div class="gr-spread"><div class="gr-big">${escapeHtml(spread)}</div>${mv && mv.spread ? `<div class="gr-sub gr-move">opened ${escapeHtml(mv.spread)}</div>` : ""}</div>
+    <div class="gr-total"><div class="gr-big"><span class="ou-pre">O/U </span>${total}</div>${mv && mv.total != null ? `<div class="gr-sub gr-move">opened ${mv.total}</div>` : ""}</div>
+    <div class="gr-implied">${status}</div>
+    <div class="gr-where"><div>${escapeHtml(g.stadium || "")}</div><div class="gr-sub">${escapeHtml(bits.filter(Boolean).join(". "))}</div></div>
+  </a>`;
 }
 
 function byeNote(byes) {
