@@ -1,6 +1,6 @@
 # NFL Matchup Dashboard
 
-**Live site: https://rhyman7.github.io/nfl-dashboard/**
+**Live site: https://rhyman7.github.io/nfl/**
 
 A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://github.com/rhyman7/cfb).
 
@@ -148,11 +148,11 @@ used but still works if you ever want to go back to it.
 
 ## One-time setup
 
-1. Create a new **public** GitHub repository (e.g. `nfl-dashboard`).
+1. Create a new **public** GitHub repository (e.g. `nfl`).
 2. Push everything in this folder to that repo (see "Pushing to GitHub" below).
 3. In the repo, go to **Settings → Pages**, and under "Build and deployment"
    set **Source: Deploy from a branch**, branch **main**, folder **/ (root)**.
-   Save. GitHub gives you a URL like `https://<username>.github.io/nfl-dashboard/`
+   Save. GitHub gives you a URL like `https://<username>.github.io/nfl/`
    — that's your live site.
 
 That's it. The site is now live and will re-deploy automatically any time
@@ -211,7 +211,7 @@ git init
 git add .
 git commit -m "Initial NFL dashboard"
 git branch -M main
-git remote add origin https://github.com/<your-username>/nfl-dashboard.git
+git remote add origin https://github.com/<your-username>/nfl.git
 git push -u origin main
 ```
 
