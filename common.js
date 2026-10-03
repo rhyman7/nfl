@@ -343,7 +343,7 @@ function renderTeamCard(t) {
   <div class="team-card" data-team="${escapeHtml(t.team)}" style="${teamVars(t.abbr)}">
     <div class="team-card-header">
       <div class="team-name-block">
-        ${slabHtml(t.abbr, t.abbr, true)}
+        ${slabHtml(t.abbr, t.abbr)}
         <h2>${teamLink(t)}</h2>
         <div class="record"><b>${t.record.w}-${t.record.l}${t.record.t ? "-" + t.record.t : ""}</b></div>
       </div>
