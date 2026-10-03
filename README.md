@@ -45,8 +45,11 @@ All pages read one file, `data/data.json`, and share `common.js`, `teamcolors.js
 **Look.** Graphite background, with team colors carrying the color: `teamcolors.js` holds
 each team's primary and secondary color and derives readable versions for the dark page
 and for print. The matchup header is a scorebug (each team's name on its color, lettered
-in its secondary color, with the current line between them); the bar under it lists
-kickoff, venue, and either the roof ("Dome") for indoor games or the kickoff forecast for
+in its secondary color, with the current line between them); the secondary is used as
+listed when it can be read on the primary (3:1 for the big lettering, 4.5:1 for the small
+lines) and otherwise nudged lighter or darker in the same hue, or set in plain white or
+dark when the secondary is black or white. Below 900px wide the scorebug stacks. The bar
+under it lists kickoff, venue, and either the roof ("Dome") for indoor games or the kickoff forecast for
 outdoor ones. Head to Head draws a bar for each side's league rank, and the side with the
 edge shows in its team color. Type is Archivo, loaded from Google Fonts.
 
