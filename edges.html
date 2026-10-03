@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Weekly Edges · NFL Matchups</title>
-<link rel="stylesheet" href="style.css?v=202610011904">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<link rel="stylesheet" href="style.css?v=202610031700">
 </head>
 <body data-page="edges">
 <header class="topbar">
@@ -26,11 +29,11 @@
     </div>
   </section>
 
-  <h3 class="section-title">Game Board</h3>
+  <h3 class="section-title">Game board</h3>
   <div id="gameBoard" class="table-block board-block"><div class="empty-note">Loading...</div></div>
   <p class="edge-key">Implied totals come from the current spread and O/U (ESPN when available, otherwise nflverse). Line moves are measured from this week's first update. Net EPA = offense EPA/play minus defense EPA/play allowed; the gap shows which team has been better per play. Referee records cover the listed seasons.</p>
 
-  <h3 class="section-title">Prop Matchups</h3>
+  <h3 class="section-title">Prop matchups</h3>
   <p class="edge-key edge-intro">Players facing defenses that give up more than the league average at their position. <b>Matchup</b> = what this opponent allows per game ÷ the league average; <b>Adj</b> = the player's average × Matchup. It's a starting point for props, not a projection. Click a name for his game log and prop check.</p>
   <div id="propBoards" class="prop-boards"></div>
 </main>
@@ -39,8 +42,9 @@
   <p>Stats cover the current regular season through the latest completed week. Lines: ESPN when available, otherwise nflverse.</p>
 </footer>
 
-<script src="common.js?v=202610011904"></script>
-<script src="live.js?v=202610011904"></script>
-<script src="edges.js?v=202609301445"></script>
+<script src="teamcolors.js?v=202610031700"></script>
+<script src="common.js?v=202610031700"></script>
+<script src="live.js?v=202610031700"></script>
+<script src="edges.js?v=202610031700"></script>
 </body>
 </html>

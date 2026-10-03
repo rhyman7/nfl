@@ -36,7 +36,7 @@ async function init() {
   wrap.querySelectorAll("[id]").forEach(el => el.removeAttribute("id"));
 
   const n = games.length;
-  status.textContent = `${n} matchup${n === 1 ? "" : "s"} ready · ${n} landscape page${n === 1 ? "" : "s"}`;
+  status.textContent = `${n} matchup${n === 1 ? "" : "s"} ready, ${n} landscape page${n === 1 ? "" : "s"}`;
   const btn = document.getElementById("printAllBtn");
   btn.disabled = false;
   btn.addEventListener("click", () => window.print());

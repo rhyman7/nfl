@@ -13,7 +13,7 @@ async function init() {
     .slice().sort((a, b) => gameStart(a) - gameStart(b));
   document.getElementById("edgesTitle").textContent = `Week ${DATA.schedule.week} Edges`;
   document.getElementById("edgesSub").textContent =
-    `${games.length} games · stats through Week ${DATA.throughWeek}` + (DATA.injuryWeek ? ` · Week ${DATA.injuryWeek} injury report` : "");
+    `${games.length} games. Stats through Week ${DATA.throughWeek}.` + (DATA.injuryWeek ? ` Week ${DATA.injuryWeek} injury report.` : "");
   const draw = () => {
     document.getElementById("gameBoard").innerHTML = gameBoard(games);
     document.getElementById("propBoards").innerHTML = propBoards(games);
@@ -31,8 +31,9 @@ function gameBoard(games) {
   const rows = games.map(g => {
     const a = DATA.teams[g.away], h = DATA.teams[g.home];
     const ln = lineFor(g), it = impliedTotals(g);
-    const spread = !ln ? "—" : ln.pick ? "PK" : ln.fav ? `${abbrOf(g[ln.fav])} -${ln.spread}` : "—";
-    const move = lineMoveText(g).replace(/^Line move since \w+: /, "").replace(/^No line move since \w+$/, "—");
+    const spread = !ln ? "—" : ln.pick ? "PK" : ln.fav ? `${abbrOf(g[ln.fav])} ${MINUS}${ln.spread}` : "—";
+    const m = lineMove(g);
+    const move = (m && lineMoveBits(m).join(", ")) || "—";
     const na = netEpa(a), nh = netEpa(h);
     let epa = "—";
     if (na != null && nh != null) {
@@ -41,15 +42,15 @@ function gameBoard(games) {
     }
     const r = g.referee && DATA.referees ? DATA.referees[g.referee] : null;
     const ref = !g.referee ? `<span class="rk">TBA</span>`
-      : r ? `${escapeHtml(g.referee)} <span class="rk">O ${r.o}-${r.u} · ${r.ppg} pts</span>` : escapeHtml(g.referee);
+      : r ? `${escapeHtml(g.referee)} <span class="rk">O ${r.o}-${r.u}, ${r.ppg} pts</span>` : escapeHtml(g.referee);
     const d = gameStart(g);
     const when = isFinal(g) ? "Final" : d.toLocaleDateString(undefined, { weekday: "short" }) + " " + (g.gametime ? d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) : "TBD");
     return `<tr>
       <td>${escapeHtml(when)}</td>
-      <td><a class="board-link" href="matchup.html?game=${encodeURIComponent(g.id)}">${escapeHtml(a.abbr)} ${g.neutral ? "vs" : "@"} ${escapeHtml(h.abbr)}</a></td>
+      <td><a class="board-link" href="matchup.html?game=${encodeURIComponent(g.id)}">${slabHtml(a.abbr, a.abbr)} <span class="board-at">${g.neutral ? "vs" : "at"}</span> ${slabHtml(h.abbr, h.abbr)}</a></td>
       <td class="num">${escapeHtml(spread)}</td>
       <td class="num">${ln && ln.total != null ? ln.total : "—"}</td>
-      <td class="num">${it ? `${escapeHtml(a.abbr)} ${it.away} · ${escapeHtml(h.abbr)} ${it.home}` : "—"}</td>
+      <td class="num">${it ? `${escapeHtml(a.abbr)} ${it.away}, ${escapeHtml(h.abbr)} ${it.home}` : "—"}</td>
       <td class="num move">${escapeHtml(move)}</td>
       <td class="num">${epa}</td>
       <td>${ref}</td>
@@ -62,11 +63,11 @@ function gameBoard(games) {
 
 // board: [title, player table, positions, min avg, opponent-allowed getter, label for what the defense allows]
 const PROP_BOARDS = [
-  ["QB · Pass Yds", "passing", ["QB"], 150, d => d.defense.passYdsG, d => d.defense.passYdsGRank, "pass yds/G"],
-  ["RB · Rush Yds", "rushing", ["RB", "FB"], 30, d => d.defVsPosition.rb.yds, d => d.defVsPosition.rb.rank, "RB rush yds/G"],
-  ["WR · Rec Yds", "receiving", ["WR"], 30, d => d.defVsPosition.wr.yds, d => d.defVsPosition.wr.rank, "WR rec yds/G"],
-  ["TE · Rec Yds", "receiving", ["TE"], 20, d => d.defVsPosition.te.yds, d => d.defVsPosition.te.rank, "TE rec yds/G"],
-  ["RB · Rec Yds", "receiving", ["RB", "FB"], 15, d => d.defVsPosition.recRb.yds, d => d.defVsPosition.recRb.rank, "RB rec yds/G"],
+  ["QB pass yds", "passing", ["QB"], 150, d => d.defense.passYdsG, d => d.defense.passYdsGRank, "pass yds/G"],
+  ["RB rush yds", "rushing", ["RB", "FB"], 30, d => d.defVsPosition.rb.yds, d => d.defVsPosition.rb.rank, "RB rush yds/G"],
+  ["WR rec yds", "receiving", ["WR"], 30, d => d.defVsPosition.wr.yds, d => d.defVsPosition.wr.rank, "WR rec yds/G"],
+  ["TE rec yds", "receiving", ["TE"], 20, d => d.defVsPosition.te.yds, d => d.defVsPosition.te.rank, "TE rec yds/G"],
+  ["RB rec yds", "receiving", ["RB", "FB"], 15, d => d.defVsPosition.recRb.yds, d => d.defVsPosition.recRb.rank, "RB rec yds/G"],
 ];
 
 function propBoards(games) {

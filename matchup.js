@@ -31,15 +31,7 @@ async function init() {
 
   if (typeof startLiveMatchup === "function") startLiveMatchup(g);
   // Fill the forecast and the current line into the header in place (live.js may be updating it too).
-  const refreshExtras = () => {
-    const wx = document.getElementById("heroWx"), ln = document.getElementById("heroLine");
-    if (wx) { const t = heroWxText(g); wx.textContent = t || ""; wx.hidden = !t; }
-    if (ln) { const t = heroLineText(g); ln.textContent = t || ""; ln.hidden = !t; }
-    for (const [id, fn] of [["heroImplied", impliedText], ["heroMove", lineMoveText]]) {
-      const el = document.getElementById(id);
-      if (el) { const t = fn(g); el.textContent = t || ""; el.hidden = !t; }
-    }
-  };
+  const refreshExtras = () => refreshHero(g);
   if (typeof refreshLines === "function") refreshLines([g], refreshExtras);
   if (typeof startWeather === "function") startWeather([g], refreshExtras);
 }
