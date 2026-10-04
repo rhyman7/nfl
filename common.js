@@ -2,12 +2,107 @@
 // Head to Head and the team card.
 let DATA = null;
 
+// The week strip. data.json is always this week (stats and schedule). The board and the
+// matchup page can show another week: its games come from data/weeks/<N>.json and replace
+// DATA.schedule, while the teams stay as they are in data.json.
+let SEASON = null;      // data/season.json: { season, weeks: [{ week, games, from, to }] }
+let LIVE_WEEK = null;   // the week data.json is for
+let VIEW_WEEK = null;   // the week this page is showing
+let WEEK_MISSING = false;   // the chosen week's file couldn't be loaded
+
+// "current", "past" (finished: scores and box scores) or "upcoming" (schedule only).
+function weekMode() {
+  return VIEW_WEEK == null || VIEW_WEEK === LIVE_WEEK ? "current" : VIEW_WEEK < LIVE_WEEK ? "past" : "upcoming";
+}
+function weekHref(week) {
+  return week === LIVE_WEEK ? "index.html" : `index.html?week=${week}`;
+}
+// The week a link asks for: ?week=N on the board, or the week in a game id (2026_03_ATL_GB).
+function wantedWeek() {
+  const page = document.body.dataset.page, params = new URLSearchParams(location.search);
+  let w = null;
+  if (page === "week") w = parseInt(params.get("week"), 10);
+  else if (page === "matchup") w = parseInt((/^\d{4}_(\d{1,2})_/.exec(params.get("game") || "") || [])[1], 10);
+  return Number.isFinite(w) ? w : null;
+}
+
 async function loadData() {
-  const res = await fetch("data/data.json", { cache: "no-store" });
+  const [res, season] = await Promise.all([
+    fetch("data/data.json", { cache: "no-store" }),
+    fetch("data/season.json", { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
   if (!res.ok) throw new Error("HTTP " + res.status);
   DATA = await res.json();
+  SEASON = season && season.season === DATA.season && Array.isArray(season.weeks) ? season : null;
+  LIVE_WEEK = VIEW_WEEK = DATA.schedule ? DATA.schedule.week : null;
+  DATA.liveSchedule = DATA.schedule;
+  const want = wantedWeek();
+  if (want != null && want !== LIVE_WEEK && SEASON && SEASON.weeks.some(w => w.week === want)) {
+    VIEW_WEEK = want;
+    try {
+      const r = await fetch(`data/weeks/${want}.json`, { cache: "no-cache" });
+      const wk = r.ok ? await r.json() : null;
+      if (!wk || wk.season !== DATA.season || !wk.schedule) throw new Error("no week file");
+      DATA.schedule = wk.schedule;
+    } catch (e) {
+      WEEK_MISSING = true;
+      DATA.schedule = { week: want, games: [], byes: [] };
+    }
+  }
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
+  try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
+}
+
+// The week strip in the top bar, just left of the player search: one link per week,
+// ending at the season's last week. Finished weeks open their scores, later weeks their schedule.
+function initWeekNav() {
+  const nav = document.querySelector(".topbar .topnav");
+  if (!nav || !SEASON || LIVE_WEEK == null || nav.querySelector(".weeknav")) return;
+  const page = document.body.dataset.page;
+  const shown = page === "week" || page === "matchup" ? VIEW_WEEK : null;
+  const day = d => new Date(d + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  const el = document.createElement("div");
+  el.className = "weeknav no-print";
+  el.setAttribute("role", "navigation");
+  el.setAttribute("aria-label", "Weeks");
+  el.innerHTML = `<span class="wk-label">Week</span>` + SEASON.weeks.map(w => {
+    const state = w.week === LIVE_WEEK ? "now" : w.week < LIVE_WEEK ? "past" : "next";
+    const what = state === "now" ? "this week" : state === "past" ? "final scores" : "schedule";
+    const dates = w.from && w.to ? `, ${w.from === w.to ? day(w.from) : day(w.from) + " to " + day(w.to)}` : "";
+    return `<a href="${weekHref(w.week)}" class="wk ${state}${w.week === shown ? " sel" : ""}"${w.week === shown ? ' aria-current="page"' : ""} title="${escapeHtml(`Week ${w.week}${dates}: ${what}`)}"><span class="wk-pre">Week </span>${w.week}</a>`;
+  }).join("");
+  // the strip and the search box travel together, so the last week stays beside the search
+  const tools = document.createElement("div");
+  tools.className = "navtools";
+  tools.appendChild(el);
+  const search = nav.querySelector(".psearch");
+  if (search) tools.appendChild(search);
+  nav.appendChild(tools);
+  // "This Week's Matchups" is only the page on screen when the board shows this week
+  if (page === "week" && VIEW_WEEK !== LIVE_WEEK) nav.querySelectorAll(":scope > a.active").forEach(a => a.classList.remove("active"));
+
+  // Keep everything on one row when it can be: if the strip had to drop to a second row,
+  // try the short page names. On phones the strip scrolls sideways, starting on the week in view.
+  const first = nav.querySelector(":scope > a");
+  const dropped = () => !!first && tools.offsetTop > first.offsetTop + 8;
+  const focus = el.querySelector(".sel") || el.querySelector(".now");
+  const fit = () => {
+    nav.classList.remove("nav-tight");
+    if (dropped()) {
+      nav.classList.add("nav-tight");
+      if (dropped()) nav.classList.remove("nav-tight");
+    }
+    if (focus) el.scrollLeft = focus.offsetLeft - (el.clientWidth - focus.offsetWidth) / 2;
+  };
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener("resize", fit);
+  el.addEventListener("wheel", e => {
+    if (el.scrollWidth <= el.clientWidth || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    el.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
 }
 
 function loadError(target) {
@@ -203,7 +298,7 @@ function renderHero(g, away, home) {
   return `
   <div class="mh-week">Week ${DATA.schedule.week}</div>
   <div class="game-hero">
-    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb)}
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb, g.awayRecord)}
     <div class="hero-mid">
       <div class="hero-live" id="heroLive" hidden></div>
       <div class="hero-line" id="heroLine"${line ? "" : " hidden"}>${escapeHtml(line)}</div>
@@ -211,7 +306,7 @@ function renderHero(g, away, home) {
       <div class="hero-info hero-implied" id="heroImplied"${imp ? "" : " hidden"}>${escapeHtml(imp)}</div>
       <div class="hero-info hero-move" id="heroMove"${move ? "" : " hidden"}>${escapeHtml(move)}</div>
     </div>
-    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb)}
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb, g.homeRecord)}
   </div>
   <div class="hero-facts">${facts.join("")}</div>
   ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}`;
@@ -227,8 +322,11 @@ function refreshHero(g) {
   if (wx) wx.textContent = heroWxText(g);
 }
 
-function heroTeam(t, side, score, otherScore, sideKey, qb) {
-  const rec = `${fmtRecord(t)}, SRS ${dispNum(t.record.srs)}${qb ? `. ${qb} at QB` : ""}`;
+// weekRecord: the team's record going into another week's game (week files only); the
+// header then leaves out the rating, which is this week's.
+function heroTeam(t, side, score, otherScore, sideKey, qb, weekRecord) {
+  const rec = (weekMode() !== "current" && weekRecord != null ? weekRecord : `${fmtRecord(t)}, SRS ${dispNum(t.record.srs)}`)
+    + (qb ? `. ${qb} at QB` : "");
   const lost = score !== null && otherScore !== null && score < otherScore;
   return `
     <div class="hero-team" data-side="${sideKey}" style="${teamVars(t.abbr)}">
@@ -672,7 +770,8 @@ function propOptions(groups) {
 function oppContext(teamAbbr, statKey, pos) {
   const team = Object.values(DATA.teams).find(t => t.abbr === teamAbbr);
   if (!team) return "";
-  const g = scheduleGames().find(x => x.away === team.team || x.home === team.team);
+  const live = (DATA.liveSchedule && DATA.liveSchedule.games) || scheduleGames();
+  const g = live.find(x => x.away === team.team || x.home === team.team);
   if (!g) return `${escapeHtml(teamAbbr)} is on a bye this week.`;
   const isAway = g.away === team.team;
   const opp = DATA.teams[isAway ? g.home : g.away];
@@ -1031,7 +1130,7 @@ function pdfManifest() {
 async function showPdfLink(el, gameId) {
   if (!el) return;
   const m = await pdfManifest();
-  if (!m || !DATA || !DATA.schedule || m.week !== DATA.schedule.week || m.season !== DATA.season) return;
+  if (!m || !DATA || !DATA.schedule || weekMode() !== "current" || m.week !== DATA.schedule.week || m.season !== DATA.season) return;
   if (gameId) {
     if (!(m.games || []).includes(gameId)) return;
     el.href = `pdf/games/${encodeURIComponent(gameId)}.pdf?v=${encodeURIComponent(m.generatedAt)}`;

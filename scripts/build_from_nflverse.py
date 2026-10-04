@@ -22,8 +22,15 @@ before it, because a single season gives each crew only a handful of games. The 
 labels them that way. The Wednesday line for this week's games (lineOpen) is kept from
 the file already at --out when it covers the same week, so line movement is measured
 from the first update of the week.
+
+Next to data.json the build also writes the files behind the site's week strip:
+    data/season.json      every week of the season: game count and first/last game day
+    data/weeks/<N>.json   that week's games, in the same shape as data.json's schedule,
+                          plus each team's record going into the week. Finished weeks carry
+                          the final scores; later weeks are the schedule so far.
 """
 import argparse
+import copy
 import json
 import math
 import sys
@@ -123,6 +130,83 @@ def schedule_extras(g):
     elif roof:
         out["indoor"] = roof in ("dome", "closed")
     return out
+
+
+def num(x):
+    return None if pd.isna(x) else float(x)
+
+
+def txt(x):
+    return None if pd.isna(x) else str(x)
+
+
+def schedule_week(games, week):
+    """One week's games in kickoff order, plus the teams on a bye."""
+    wk = games[games.week == week].sort_values(["gameday", "gametime", "game_id"])
+    rows = []
+    for _, g in wk.iterrows():
+        rows.append({
+            "id": g.game_id, "gameday": g.gameday, "weekday": g.weekday, "gametime": txt(g.gametime),
+            "away": TEAM_NAMES[g.away_team], "home": TEAM_NAMES[g.home_team],
+            "awayScore": None if pd.isna(g.away_score) else int(g.away_score),
+            "homeScore": None if pd.isna(g.home_score) else int(g.home_score),
+            "spread": num(g.spread_line),  # positive = home team favored by that many points
+            "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
+            "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
+            "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
+            "referee": txt(g.referee), "awayRest": None if pd.isna(g.away_rest) else int(g.away_rest),
+            "homeRest": None if pd.isna(g.home_rest) else int(g.home_rest),
+            **schedule_extras(g),
+        })
+    playing = {x for g in rows for x in (g["away"], g["home"])}
+    return {"week": int(week), "games": rows, "byes": sorted(n for n in TEAM_NAMES.values() if n not in playing)}
+
+
+def records_before(games, week):
+    """Each team's W-L(-T) from the finished games before `week`: {team name: "2-1"}."""
+    rec = {name: [0, 0, 0] for name in TEAM_NAMES.values()}
+    for g in games[(games.week < week) & games.home_score.notna() & games.away_score.notna()].itertuples():
+        h, a = rec[TEAM_NAMES[g.home_team]], rec[TEAM_NAMES[g.away_team]]
+        if g.home_score > g.away_score:
+            h[0] += 1; a[1] += 1
+        elif g.home_score < g.away_score:
+            a[0] += 1; h[1] += 1
+        else:
+            h[2] += 1; a[2] += 1
+    return {name: f"{w}-{l}" + (f"-{t}" if t else "") for name, (w, l, t) in rec.items()}
+
+
+def write_if_changed(path, data, **dump):
+    """Write JSON unless the file already holds the same thing (ignoring generatedAt),
+    so a rerun only touches the weeks that changed."""
+    def strip(x):
+        return {k: v for k, v in x.items() if k != "generatedAt"}
+    try:
+        if strip(json.loads(path.read_text(encoding="utf-8"))) == strip(json.loads(json.dumps(data))):
+            return False
+    except (OSError, ValueError):
+        pass
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, **dump) + "\n", encoding="utf-8")
+    return True
+
+
+def write_weeks(games, season, data, out):
+    """data/season.json and data/weeks/<N>.json for the site's week strip. This week's file
+    is data.json's own schedule (so it keeps lineOpen); the others are built from games.csv."""
+    cur, weeks, wrote = data["schedule"]["week"], [], []
+    for week, grp in games.groupby("week"):
+        week = int(week)
+        weeks.append({"week": week, "games": int(len(grp)), "from": str(grp.gameday.min()), "to": str(grp.gameday.max())})
+        sched = copy.deepcopy(data["schedule"]) if week == cur else schedule_week(games, week)
+        before = records_before(games, week)
+        for g in sched["games"]:
+            g["awayRecord"], g["homeRecord"] = before[g["away"]], before[g["home"]]
+        doc = {"season": season, "week": week, "generatedAt": data["generatedAt"], "schedule": sched}
+        if write_if_changed(out.parent / "weeks" / f"{week}.json", doc, separators=(",", ":")):
+            wrote.append(week)
+    write_if_changed(out.parent / "season.json", {"season": season, "weeks": weeks}, indent=1)
+    return wrote
 
 
 def r1(x):
@@ -495,29 +579,7 @@ def main():
     # ---- this week's schedule: the first week that isn't finished ----
     remaining = [int(w) for w, ok in week_done.items() if not ok]
     sched_week = min(remaining) if remaining else through_week
-    wk = games[games.week == sched_week].sort_values(["gameday", "gametime", "game_id"])
-
-    def num(x):
-        return None if pd.isna(x) else float(x)
-
-    def txt(x):
-        return None if pd.isna(x) else str(x)
-
-    schedule_games = []
-    for _, g in wk.iterrows():
-        schedule_games.append({
-            "id": g.game_id, "gameday": g.gameday, "weekday": g.weekday, "gametime": txt(g.gametime),
-            "away": TEAM_NAMES[g.away_team], "home": TEAM_NAMES[g.home_team],
-            "awayScore": None if pd.isna(g.away_score) else int(g.away_score),
-            "homeScore": None if pd.isna(g.home_score) else int(g.home_score),
-            "spread": num(g.spread_line),  # positive = home team favored by that many points
-            "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
-            "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
-            "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
-            "referee": txt(g.referee), "awayRest": None if pd.isna(g.away_rest) else int(g.away_rest),
-            "homeRest": None if pd.isna(g.home_rest) else int(g.home_rest),
-            **schedule_extras(g),
-        })
+    schedule_games = schedule_week(games, sched_week)["games"]
     # Line movement baseline: the line from this week's first update, kept across rebuilds of the same week.
     prev_open = {}
     try:
@@ -555,6 +617,9 @@ def main():
     Path(args.out).write_text(json.dumps(data, indent=2))
     print(f"Wrote {args.out}: season {season}, through Week {through_week}, schedule Week {sched_week} "
           f"({len(schedule_games)} games, {len(byes)} byes)")
+    wrote = write_weeks(games, season, data, Path(args.out))
+    print("Week files (data/season.json, data/weeks/): "
+          + ("updated " + ", ".join(f"Week {w}" for w in wrote) if wrote else "no changes"))
     for n in notes:
         print("NOTE:", n)
 
