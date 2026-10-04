@@ -1,5 +1,7 @@
 // Landing page: every game in the current week, grouped by day, with live
 // scores (live.js), the current line and the kickoff forecast (weather.js).
+// index.html?week=N shows another week from the week strip: a finished week's final
+// scores (each row opens that game's box score) or a later week's schedule (plain rows).
 const gameList = document.getElementById("gameList");
 
 init();
@@ -14,16 +16,27 @@ async function init() {
 
   const sched = DATA.schedule;
   const games = (sched && sched.games) || [];
+  const mode = weekMode();
+  if (mode !== "current") {
+    // Print all and the PDF are this week's matchups
+    document.getElementById("printAllBtn").hidden = true;
+    document.getElementById("weekTitle").textContent = `Week ${sched.week}`;
+    document.title = `Week ${sched.week} · NFL Matchups`;
+  }
   if (!games.length) {
-    gameList.innerHTML = `<div class="empty-note">This week's schedule shows up after the next weekly update. In the meantime, <a href="compare.html">compare any two teams</a>.</div>`;
+    gameList.innerHTML = mode === "current"
+      ? `<div class="empty-note">This week's schedule shows up after the next weekly update. In the meantime, <a href="compare.html">compare any two teams</a>.</div>`
+      : `<div class="empty-note">Week ${sched.week} isn't available right now. <a href="index.html">See this week's matchups</a>.</div>`;
     updatePrintAll(0);
     return;
   }
 
+  const count = `${games.length} game${games.length === 1 ? "" : "s"}`;
   document.getElementById("weekTitle").textContent = `Week ${sched.week}`;
   document.getElementById("weekSub").textContent =
-    `${games.length} game${games.length === 1 ? "" : "s"}. Team stats through Week ${DATA.throughWeek}.` +
-    " Pick a game for the full matchup.";
+    mode === "past" ? `${count}, final scores. Pick a game for its box score.`
+    : mode === "upcoming" ? `${count} on the schedule. Full matchups open when Week ${sched.week} is the current week.`
+    : `${count}. Team stats through Week ${DATA.throughWeek}. Pick a game for the full matchup.`;
 
   const rerender = () => renderWeek(games);
   rerender();
@@ -103,7 +116,10 @@ function rowTeam(g, sideKey) {
   const lost = done && score != null && otherScore != null && score < otherScore;
   const poss = L && L.state === "in" && L.possession === sideKey ? `<span class="poss" title="Has the ball">●</span>` : "";
   // once there's a score the row has no room for the season averages
-  const sub = !t ? "" : score != null ? fmtRecord(t) : `${fmtRecord(t)}, ${t.offense.ppg} PPG, ${t.defense.papg} PA/G`;
+  // another week's row shows the record going into that week, and leaves this week's averages out
+  const weekRec = weekMode() !== "current" ? g[sideKey + "Record"] : null;
+  const sub = !t ? "" : weekRec != null ? weekRec : score != null || weekMode() !== "current" ? fmtRecord(t)
+    : `${fmtRecord(t)}, ${t.offense.ppg} PPG, ${t.defense.papg} PA/G`;
   return `<div class="gr-team ${sideKey}${lost ? " lost" : ""}">
     ${t ? slabHtml(t.abbr, t.abbr) : ""}
     <div class="gr-tx"><div class="gr-name">${escapeHtml(name)}${poss}</div><div class="gr-sub">${escapeHtml(sub)}</div></div>
@@ -119,7 +135,8 @@ function gameRow(g, grp) {
   const isLive = !!L && L.state === "in";
   const done = isFinal(g) || (!!L && L.state === "post");
   const started = isLive || done;
-  const ln = lineFor(g), it = impliedTotals(g), mv = started ? null : lineMove(g);
+  const mode = weekMode();
+  const ln = lineFor(g), it = impliedTotals(g), mv = started || mode !== "current" ? null : lineMove(g);
   const spread = spreadText(g) || "—";
   const total = ln && ln.total != null ? ln.total : "—";
 
@@ -145,7 +162,10 @@ function gameRow(g, grp) {
   }
   if (g.divisional) bits.push("Division game");
 
-  return `<a class="game-row${isLive ? " live" : ""}${done ? " done" : ""}" href="matchup.html?game=${encodeURIComponent(g.id)}">
+  // a later week's games are just listed; this week's and finished ones open the game
+  const open = mode === "upcoming" && !started ? `<div class="game-row upcoming">`
+    : `<a class="game-row${isLive ? " live" : ""}${done ? " done" : ""}" href="matchup.html?game=${encodeURIComponent(g.id)}">`;
+  return `${open}
     ${rowTeam(g, "away")}
     <div class="gr-at">${g.neutral ? "vs" : "at"}</div>
     ${rowTeam(g, "home")}
@@ -153,7 +173,7 @@ function gameRow(g, grp) {
     <div class="gr-total"><div class="gr-big"><span class="ou-pre">O/U </span>${total}</div>${mv && mv.total != null ? `<div class="gr-sub gr-move">opened ${mv.total}</div>` : ""}</div>
     <div class="gr-implied">${status}</div>
     <div class="gr-where"><div>${escapeHtml(g.stadium || "")}</div><div class="gr-sub">${escapeHtml(bits.filter(Boolean).join(". "))}</div></div>
-  </a>`;
+  </${open.startsWith("<a") ? "a" : "div"}>`;
 }
 
 function byeNote(byes) {

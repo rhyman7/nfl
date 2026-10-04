@@ -80,6 +80,19 @@ fills in Wednesday–Friday, which is why there's a Friday refresh.
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
 
+**Week strip.** Just left of the search box, the top bar lists every week of the season
+(1 to 18), right-aligned so the last week sits beside the search. The current week is
+outlined and the week on screen is filled in. A finished week (`index.html?week=N`) shows
+that week's games with final scores and each team's record going into it; a row opens
+`matchup.html?game=<id>` with the game header and the full box score from ESPN, and
+nothing else. A later week shows the schedule so far (kickoff, venue, records and any
+line) as plain rows that don't open anything. The stats, Head to Head, Weekly Edges,
+Print all and the PDFs stay on the current week. When the bar is too narrow for one row
+the page names shorten, then the strip and search drop to a second row; on phones the
+strip scrolls sideways. The weeks come from `data/season.json` and each week's games from
+`data/weeks/<N>.json` (same shape as `schedule` in `data.json`, plus `awayRecord` /
+`homeRecord`); the site decides what is past or upcoming from the week in `data.json`.
+
 **Implied totals and line movement.** The matchup header, the week board and Weekly Edges
 show implied team totals from the current spread and O/U. `lineOpen` on each schedule
 game is the line from the week's first update; the build keeps it when it reruns for the
@@ -136,7 +149,9 @@ final injury report, referee assignments and line moves. The download folder als
 `play_by_play_2026.csv.gz` and `injuries_2026.csv` from the nflverse-data releases
 (`pbp` and `injuries`); without them the build leaves EPA or injury tags out.
 
-and pushes the new `data/data.json`. Besides team and player stats, the file
+and pushes the new `data/data.json` along with `data/season.json` and `data/weeks/`,
+which the same build rewrites for the week strip (only the weeks that changed; a week
+whose scores are missing there is filled in from ESPN in the browser). Besides team and player stats, the file
 holds `schedule` (the current week's games and byes), `season` and `throughWeek`.
 Each schedule game also carries `espnId` (for live scores), `start` (kickoff in UTC),
 `neutral`, and the venue's `city`, `lat`, `lon` and `indoor` flag.
