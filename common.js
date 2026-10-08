@@ -275,7 +275,7 @@ function renderMatchupParts(g) {
       ${edgePanel(away, home)}
       ${edgePanel(home, away)}
     </div>
-    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
   const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -344,7 +344,7 @@ function leagueRank(getter, value, higherIsBetter) {
 }
 
 const EDGE_ROWS = [
-  // label, offense getter, defense getter, offense higher-better, defense higher-better
+  // label, offense getter, defense getter, offense higher-better, defense higher-better, number format (optional)
   ["Points / G", t => t.offense.ppg, t => t.defense.papg, true, false],
   ["Rush Yds / G", t => t.offense.rushYdsG, t => t.defense.rushYdsG, true, false],
   ["Rush TD / G", t => t.offense.rushTdG, t => t.defense.rushTdG, true, false],
@@ -353,12 +353,19 @@ const EDGE_ROWS = [
   ["INT / G", t => t.offense.int, t => t.defense.int, false, true],
 ];
 
+// Yards per rush attempt, on the row under Rush Yds / G (left out if the data file predates it).
+const YPA_ROW = ["Rush Yds / Att", t => t.offense.rushYdsAtt, t => t.defense.rushYdsAtt, true, false, v => v.toFixed(2)];
+
 const EFF_ROWS = [
   ["EPA / play", t => t.eff.off.epa, t => t.eff.def.epa, true, false],
   ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
 ];
 function edgeRows() {
-  return Object.values(DATA.teams).every(t => t.eff) ? EDGE_ROWS.slice(0, 1).concat(EFF_ROWS, EDGE_ROWS.slice(1)) : EDGE_ROWS;
+  const teams = Object.values(DATA.teams);
+  const rows = EDGE_ROWS.slice();
+  if (teams.every(t => typeof t.offense.rushYdsAtt === "number" && typeof t.defense.rushYdsAtt === "number")) rows.splice(2, 0, YPA_ROW);
+  if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
+  return rows;
 }
 
 // One offense against the other defense, stat by stat. Each side's bar grows from the
@@ -367,7 +374,8 @@ function edgePanel(offTeam, defTeam) {
   const n = Object.keys(DATA.teams).length;
   const ov = teamVars(offTeam.abbr), dv = teamVars(defTeam.abbr);
   const oa = escapeHtml(offTeam.abbr), da = escapeHtml(defTeam.abbr);
-  const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi]) => {
+  const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi, fmt]) => {
+    const show = v => dispNum(fmt ? fmt(v) : v);
     const o = offGet(offTeam), d = defGet(defTeam);
     const or = leagueRank(offGet, o, offHi), dr = leagueRank(defGet, d, defHi);
     const diff = dr - or;
@@ -377,10 +385,10 @@ function edgePanel(offTeam, defTeam) {
       : side === "def" ? `<b class="tc" style="${dv}">${da}</b>` : `<span class="even">Even</span>`;
     return `<div class="tape">
       <span class="lbl">${label}</span>
-      <span class="num"><b>${dispNum(o)}</b> <span class="rk">#${or}</span></span>
+      <span class="num"><b>${show(o)}</b> <span class="rk">#${or}</span></span>
       <span class="tl"><i class="tb${side === "off" ? " on" : ""}" style="width:${w(or)}%;${ov}"></i></span>
       <span class="tr"><i class="tb${side === "def" ? " on" : ""}" style="width:${w(dr)}%;${dv}"></i></span>
-      <span><b>${dispNum(d)}</b> <span class="rk">#${dr}</span></span>
+      <span><b>${show(d)}</b> <span class="rk">#${dr}</span></span>
       <span class="num edge">${edge}</span>
     </div>`;
   }).join("");

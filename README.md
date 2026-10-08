@@ -101,6 +101,11 @@ same week, and the pages show how far the line has moved since.
 **EPA and success rate.** Head to Head adds EPA per play and success rate for each
 offense and defense, from nflverse play-by-play (`eff` on each team).
 
+**Yards per rush.** Head to Head also has a Rush Yds / Att row: rushing yards divided by
+rush attempts for the offense, and the same for what the defense has allowed
+(`rushYdsAtt` on each team's `offense` and `defense`, from nflverse team stats). For a
+defense, lower is better.
+
 **Referee.** When nflverse has the week's referee assignment, the matchup header and
 Weekly Edges show the referee with his over/under record and points per game. These
 are the only multi-season numbers on the site (`refereeSeasons`, e.g. 2023–2026),
