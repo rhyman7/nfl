@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T16:58:19.155789+00:00",
+  "generatedAt": "2026-10-09T21:01:48.999352+00:00",
   "season": 2026,
   "throughWeek": 4,
   "schedule": {
@@ -12,16 +12,16 @@
         "gametime": "20:15",
         "away": "Tampa Bay Buccaneers",
         "home": "Dallas Cowboys",
-        "awayScore": null,
-        "homeScore": null,
-        "spread": 8.5,
-        "total": 48.5,
+        "awayScore": 24,
+        "homeScore": 16,
+        "spread": 9.5,
+        "total": 49.5,
         "stadium": "AT&T Stadium",
-        "roof": null,
+        "roof": "closed",
         "divisional": false,
         "awayQb": "Jalon Daniels",
         "homeQb": "Dak Prescott",
-        "referee": null,
+        "referee": "Alex Moore",
         "awayRest": 4,
         "homeRest": 4,
         "espnId": "401872980",
@@ -110,8 +110,8 @@
         "home": "Miami Dolphins",
         "awayScore": null,
         "homeScore": null,
-        "spread": -6.5,
-        "total": 42.5,
+        "spread": -7.0,
+        "total": 43.5,
         "stadium": "Hard Rock Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -142,7 +142,7 @@
         "home": "New York Jets",
         "awayScore": null,
         "homeScore": null,
-        "spread": 1.5,
+        "spread": 2.5,
         "total": 39.5,
         "stadium": "MetLife Stadium",
         "roof": "outdoors",
@@ -174,8 +174,8 @@
         "home": "Tennessee Titans",
         "awayScore": null,
         "homeScore": null,
-        "spread": -7.5,
-        "total": 38.5,
+        "spread": -7.0,
+        "total": 37.5,
         "stadium": "Nissan Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -206,8 +206,8 @@
         "home": "Pittsburgh Steelers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 2.5,
-        "total": 44.5,
+        "spread": 3.0,
+        "total": 43.5,
         "stadium": "Acrisure Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -302,7 +302,7 @@
         "home": "Washington Commanders",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.5,
+        "spread": 4.5,
         "total": 41.5,
         "stadium": "Northwest Stadium",
         "roof": "outdoors",
@@ -430,12 +430,12 @@
         "home": "Atlanta Falcons",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
+        "spread": 3.5,
         "total": 43.5,
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
-        "awayQb": "Lamar Jackson",
+        "awayQb": "Tyler Huntley",
         "homeQb": "Michael Penix Jr.",
         "referee": null,
         "awayRest": 7,
@@ -545,6 +545,10 @@
           "ya": 4.1,
           "ag": 13.8,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
+          },
           "log": "ARI|00-0041027"
         },
         {
@@ -628,6 +632,10 @@
           "yr": 3.3,
           "rec": 2.75,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
+          },
           "log": "ARI|00-0041027"
         },
         {
@@ -1404,10 +1412,6 @@
           "yr": 15.5,
           "rec": 2.75,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Shoulder \u00b7 Limited Participation in Practice"
-          },
           "log": "BAL|00-0036550"
         },
         {
@@ -1444,10 +1448,6 @@
           "yr": 21.0,
           "rec": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
-          },
           "log": "BAL|00-0032398"
         },
         {
@@ -1781,6 +1781,10 @@
           "ya": 2.5,
           "ag": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+          },
           "log": "BUF|00-0034827"
         }
       ],
@@ -1801,6 +1805,10 @@
           "yr": 14.8,
           "rec": 4.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+          },
           "log": "BUF|00-0034827"
         },
         {
@@ -2550,8 +2558,8 @@
           "ag": 17.2,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Hip \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Hip \u00b7 Limited Participation in Practice"
           },
           "log": "CHI|00-0036275"
         },
@@ -2641,8 +2649,8 @@
           "rec": 2.5,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Hip \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Hip \u00b7 Limited Participation in Practice"
           },
           "log": "CHI|00-0036275"
         },
@@ -2997,8 +3005,8 @@
           "rec": 5.25,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Concussion \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Concussion \u00b7 Limited Participation in Practice"
           },
           "log": "CIN|00-0036900"
         },
@@ -4129,6 +4137,10 @@
           "ya": 16.0,
           "ag": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          },
           "log": "DEN|00-0040134"
         },
         {
@@ -4176,6 +4188,10 @@
           "yr": 14.8,
           "rec": 2.25,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          },
           "log": "DEN|00-0040134"
         },
         {
@@ -5652,10 +5668,6 @@
           "ya": 4.1,
           "ag": 21.5,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
-          },
           "log": "IND|00-0036223"
         },
         {
@@ -5752,10 +5764,6 @@
           "yr": 6.9,
           "rec": 2.5,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
-          },
           "log": "IND|00-0036223"
         },
         {
@@ -6887,6 +6895,10 @@
           "yr": 17.7,
           "rec": 5.5,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          },
           "log": "LA|00-0031381"
         },
         {
@@ -7265,6 +7277,10 @@
           "ya": 1.5,
           "ag": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Chest \u00b7 Limited Participation in Practice"
+          },
           "log": "LAC|00-0038544"
         }
       ],
@@ -7285,6 +7301,10 @@
           "yr": 15.2,
           "rec": 3.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Foot \u00b7 Did Not Participate In Practice"
+          },
           "log": "LAC|00-0039915"
         },
         {
@@ -7294,6 +7314,10 @@
           "yr": 11.7,
           "rec": 3.0,
           "pos": "FB",
+          "inj": {
+            "s": "LP",
+            "note": "Shoulder \u00b7 Limited Participation in Practice"
+          },
           "log": "LAC|00-0035125"
         },
         {
@@ -7312,6 +7336,10 @@
           "yr": 15.4,
           "rec": 1.75,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Chest \u00b7 Limited Participation in Practice"
+          },
           "log": "LAC|00-0038544"
         },
         {
@@ -7330,6 +7358,10 @@
           "yr": 7.0,
           "rec": 3.0,
           "pos": "TE",
+          "inj": {
+            "s": "LP",
+            "note": "Forearm \u00b7 Limited Participation in Practice"
+          },
           "log": "LAC|00-0038046"
         }
       ],
@@ -7609,6 +7641,10 @@
           "ya": 3.4,
           "ag": 19.5,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
+          },
           "log": "LV|00-0040122"
         },
         {
@@ -7683,6 +7719,10 @@
           "yr": 8.7,
           "rec": 4.75,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
+          },
           "log": "LV|00-0040122"
         },
         {
@@ -8016,6 +8056,10 @@
           "ya": 2.1,
           "ag": 2.7,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Foot \u00b7 Limited Participation in Practice"
+          },
           "log": "MIA|00-0039874"
         },
         {
@@ -8478,8 +8522,8 @@
           "rec": 2.75,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
           },
           "log": "MIN|00-0038994"
         },
@@ -9199,10 +9243,6 @@
           "int": 0.75,
           "cmp": 30.2,
           "pos": "QB",
-          "inj": {
-            "s": "LP",
-            "note": "Hand \u00b7 Limited Participation in Practice"
-          },
           "log": "NO|00-0040743"
         }
       ],
@@ -9224,8 +9264,8 @@
           "ag": 8.3,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Back \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
           },
           "log": "NO|00-0033906"
         },
@@ -9236,10 +9276,6 @@
           "ya": 4.5,
           "ag": 4.0,
           "pos": "QB",
-          "inj": {
-            "s": "LP",
-            "note": "Hand \u00b7 Limited Participation in Practice"
-          },
           "log": "NO|00-0040743"
         },
         {
@@ -9268,8 +9304,8 @@
           "ag": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Thigh \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Thigh \u00b7 Limited Participation in Practice"
           },
           "log": "NO|00-0041099"
         }
@@ -9283,8 +9319,8 @@
           "rec": 8.75,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
           },
           "log": "NO|00-0037239"
         },
@@ -9336,8 +9372,8 @@
           "rec": 3.67,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Back \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
           },
           "log": "NO|00-0033906"
         },
@@ -9658,10 +9694,6 @@
           "ya": 4.0,
           "ag": 7.3,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - personal matter \u00b7 Did Not Participate In Practice"
-          },
           "log": "NYG|00-0036893"
         },
         {
@@ -9701,8 +9733,8 @@
           "rec": 4.5,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Knee \u00b7 Limited Participation in Practice"
           },
           "log": "NYG|00-0039337"
         },
@@ -10446,6 +10478,10 @@
           "ya": 5.1,
           "ag": 9.0,
           "pos": "RB",
+          "inj": {
+            "s": "DNP",
+            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+          },
           "log": "PHI|00-0034844"
         },
         {
@@ -10482,6 +10518,10 @@
           "ya": 6.0,
           "ag": 2.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Ankle \u00b7 Did Not Participate In Practice"
+          },
           "log": "PHI|00-0035662"
         },
         {
@@ -10502,6 +10542,10 @@
           "yr": 12.4,
           "rec": 6.33,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+          },
           "log": "PHI|00-0036912"
         },
         {
@@ -10511,6 +10555,10 @@
           "yr": 16.4,
           "rec": 3.0,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
+          },
           "log": "PHI|00-0038393"
         },
         {
@@ -10520,6 +10568,10 @@
           "yr": 16.2,
           "rec": 2.5,
           "pos": "TE",
+          "inj": {
+            "s": "LP",
+            "note": "Knee \u00b7 Limited Participation in Practice"
+          },
           "log": "PHI|00-0034351"
         },
         {
@@ -10959,8 +11011,8 @@
           "rec": 2.33,
           "pos": "WR",
           "inj": {
-            "s": "LP",
-            "note": "Foot \u00b7 Limited Participation in Practice"
+            "s": "DNP",
+            "note": "Foot \u00b7 Did Not Participate In Practice"
           },
           "log": "PIT|00-0036252"
         },
@@ -11295,6 +11347,10 @@
           "ya": 3.2,
           "ag": 5.5,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Ribs \u00b7 Limited Participation in Practice"
+          },
           "log": "SEA|00-0039299"
         },
         {
@@ -11731,6 +11787,10 @@
           "yr": 12.5,
           "rec": 4.25,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Ribs \u00b7 Did Not Participate In Practice"
+          },
           "log": "SF|00-0031408"
         },
         {
@@ -11767,6 +11827,10 @@
           "yr": 13.8,
           "rec": 1.33,
           "pos": "FB",
+          "inj": {
+            "s": "DNP",
+            "note": "Knee \u00b7 Did Not Participate In Practice"
+          },
           "log": "SF|00-0029892"
         }
       ],
@@ -12452,10 +12516,6 @@
           "ya": 4.1,
           "ag": 13.5,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Foot \u00b7 Did Not Participate In Practice"
-          },
           "log": "TEN|00-0035261"
         },
         {
@@ -12503,6 +12563,10 @@
           "yr": 12.2,
           "rec": 5.5,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Back \u00b7 Limited Participation in Practice"
+          },
           "log": "TEN|00-0041438"
         },
         {
@@ -12539,6 +12603,10 @@
           "yr": 6.7,
           "rec": 2.25,
           "pos": "TE",
+          "inj": {
+            "s": "LP",
+            "note": "Knee \u00b7 Limited Participation in Practice"
+          },
           "log": "TEN|00-0040584"
         },
         {
@@ -26161,13 +26229,13 @@
       "cur": 3
     },
     "Alex Moore": {
-      "g": 20,
-      "ppg": 49.4,
+      "g": 21,
+      "ppg": 49.0,
       "o": 11,
-      "u": 9,
+      "u": 10,
       "p": 0,
-      "homeWinPct": 50.0,
-      "cur": 4
+      "homeWinPct": 47.6,
+      "cur": 5
     },
     "Bill Vinovich": {
       "g": 52,
