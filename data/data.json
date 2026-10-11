@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T14:16:35.321083+00:00",
+  "generatedAt": "2026-10-11T14:16:28.737335+00:00",
   "season": 2026,
   "throughWeek": 4,
   "schedule": {
@@ -79,7 +79,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -1.5,
-        "total": 45.5,
+        "total": 47.5,
         "stadium": "Lambeau Field",
         "roof": "outdoors",
         "divisional": true,
@@ -175,7 +175,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -7.0,
-        "total": 38.5,
+        "total": 37.5,
         "stadium": "Nissan Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -270,7 +270,7 @@
         "home": "New Orleans Saints",
         "awayScore": null,
         "homeScore": null,
-        "spread": -2.5,
+        "spread": -1.5,
         "total": 41.5,
         "stadium": "Caesars Superdome",
         "roof": "dome",
@@ -399,7 +399,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 3.0,
-        "total": 45.5,
+        "total": 46.5,
         "stadium": "Lumen Field",
         "roof": "outdoors",
         "divisional": true,
@@ -462,7 +462,7 @@
         "home": "Los Angeles Rams",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
+        "spread": 3.5,
         "total": 54.5,
         "stadium": "SoFi Stadium",
         "roof": "dome",
@@ -1774,8 +1774,8 @@
           "ag": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Shoulder \u00b7 Questionable"
           },
           "log": "BUF|00-0034827"
         }
@@ -1798,8 +1798,8 @@
           "rec": 4.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Shoulder \u00b7 Questionable"
           },
           "log": "BUF|00-0034827"
         },
@@ -1837,6 +1837,10 @@
           "yr": 26.7,
           "rec": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "O",
+            "note": "Shoulder \u00b7 Out"
+          },
           "log": "BUF|00-0036988"
         },
         {
@@ -6879,10 +6883,6 @@
           "yr": 17.7,
           "rec": 5.5,
           "pos": "WR",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
-          },
           "log": "LA|00-0031381"
         },
         {
@@ -6892,6 +6892,10 @@
           "yr": 9.4,
           "rec": 5.0,
           "pos": "TE",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          },
           "log": "LA|00-0033110"
         },
         {
