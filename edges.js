@@ -91,6 +91,16 @@ function shareCells(t, r, kind) {
   return `<td class="num share-cell"><b>${x.s.toFixed(1)}%</b><span class="trend ${cls}">${cls === "up" ? "↑" : cls === "down" ? "↓" : "L3"} ${x.l3.toFixed(1)}</span></td>`;
 }
 
+// This week's book line for a prop-table row (data/props.json), with Adj minus the line under it.
+const TABLE_MARKET = { passing: "player_pass_yds", rushing: "player_rush_yds", receiving: "player_reception_yds" };
+function lineCell(r, kind, adj) {
+  if (!PROPS) return "";
+  const bp = bookProp(r.player, TABLE_MARKET[kind]);
+  if (!bp) return `<td class="num"><span class="rk">—</span></td>`;
+  const d = adj - bp.line;
+  return `<td class="num share-cell" title="Median of ${bp.books} sportsbooks: over ${fmtOdds(bp.over)}, under ${fmtOdds(bp.under)}"><b>${bp.line}</b><span class="trend ${d >= 0 ? "up" : "down"}">${d >= 0 ? "+" : MINUS}${Math.abs(d).toFixed(1)}</span></td>`;
+}
+
 // board: [title, player table, positions, min avg, opponent-allowed getter, label for what the defense allows]
 const PROP_BOARDS = [
   ["QB pass yds", "passing", ["QB"], 150, d => d.defense.passYdsG, d => d.defense.passYdsGRank, "pass yds/G"],
@@ -128,15 +138,16 @@ function propBoards(games) {
       <td class="num">${allowed(o.t)} <span class="rk">#${allowedRank(o.t)}</span></td>
       <td class="num"><span class="tag W">+${Math.round((f - 1) * 100)}%</span></td>
       <td class="num"><b>${adj.toFixed(1)}</b></td>
+      ${lineCell(r, kind, adj)}
       ${kind === "passing" ? "" : shareCells(t, r, kind)}
     </tr>`).join("");
     const shareHead = table === "passing" ? "" : table === "rushing" ? `<th class="num" title="Share of the team's carries">Carry %</th>`
       : `<th class="num" title="Share of the team's targets this season, with the last three games under it (arrow when it moved 2 points or more)">Tgt %</th>`;
     return `<div class="table-block">
       <h4>${escapeHtml(title)}</h4>
-      ${body ? `<table><thead><tr><th>Player</th><th>Game</th><th class="num">Avg</th><th class="num" title="${escapeHtml("Opponent allows " + what + "; rank out of 32, #1 = fewest")}">Opp allows</th><th class="num">Matchup</th><th class="num">Adj</th>${shareHead}</tr></thead><tbody>${body}</tbody></table>`
+      ${body ? `<table><thead><tr><th>Player</th><th>Game</th><th class="num">Avg</th><th class="num" title="${escapeHtml("Opponent allows " + what + "; rank out of 32, #1 = fewest")}">Opp allows</th><th class="num">Matchup</th><th class="num">Adj</th>${PROPS ? `<th class="num" title="This week's median sportsbook line; the figure under it is Adj minus the line (blue = Adj above the line)">Line</th>` : ""}${shareHead}</tr></thead><tbody>${body}</tbody></table>`
         : `<div class="empty-note">No favorable matchups this week.</div>`}
-      <p class="bet-note">League average allowed: ${lg.toFixed(1)} ${escapeHtml(what)}.${table === "receiving" ? " Tgt % = share of team targets; the figure under it is the last three games." : table === "rushing" ? " Carry % = share of team carries." : ""}</p>
+      <p class="bet-note">League average allowed: ${lg.toFixed(1)} ${escapeHtml(what)}.${PROPS ? ` Line = median sportsbook line (The Odds API, ${escapeHtml(propsAsOf())}); under it, Adj minus the line.` : ""}${table === "receiving" ? " Tgt % = share of team targets; the figure under it is the last three games." : table === "rushing" ? " Carry % = share of team carries." : ""}</p>
     </div>`;
   }).join("");
 }

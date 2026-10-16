@@ -301,3 +301,15 @@ one game from this week, with numbered markers on the real components and notes 
 that game's numbers (`how-to-read.js`, built on the same render functions as the matchup page).
 It opens on a random game; the Game picker and "Pick another game" switch games, and
 `?game=<id>` opens a given one. Nothing extra to build: it reads `data/data.json`.
+
+### Player prop lines (`data/props.json`)
+
+The **Fetch player props** workflow (`.github/workflows/fetch-props.yml`, Thursdays at 15:07 UTC
+and by hand from the Actions tab) runs `scripts/fetch_props.py`, which pulls six markets for this
+week's games from The Odds API: pass yds, pass TD, rush yds, rec yds, receptions and anytime TD,
+US sportsbooks. The key is the `ODDS_API_KEY` repository secret. Each game costs 6 credits
+(about 80–90 a week); games already under way are skipped, and the run stops before using the
+last 25 credits. The file keeps each player's median line and prices across books plus the best
+price. The site uses it in two places: a Line column on the Weekly Edges prop tables (with Adj
+minus the line), and the game-log panel's prop check, which starts from this week's book line and
+shows the prices. Without the file (or for another week) both fall back to how they worked before.

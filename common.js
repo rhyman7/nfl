@@ -49,9 +49,40 @@ async function loadData() {
       DATA.schedule = { week: want, games: [], byes: [] };
     }
   }
+  // player prop lines (data/props.json, from The Odds API via the Fetch player props workflow)
+  try {
+    const pr = await fetch("data/props.json", { cache: "no-cache" });
+    const p = pr.ok ? await pr.json() : null;
+    if (p && p.season === DATA.season && p.week === LIVE_WEEK && p.games) PROPS = p;
+  } catch (e) { /* props are optional */ }
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
+}
+
+/* ---------------- Player prop lines (data/props.json) ---------------- */
+let PROPS = null;
+let PROP_INDEX = null;
+// prop check stat -> The Odds API market
+const PROP_MARKET = { pYds: "player_pass_yds", pTd: "player_pass_tds", rYds: "player_rush_yds",
+  recYds: "player_reception_yds", rec: "player_receptions", tds: "player_anytime_td" };
+function normName(n) {
+  return String(n || "").toLowerCase().replace(/\b(jr|sr|ii|iii|iv|v)\b\.?/g, "").replace(/[^a-z]/g, "");
+}
+function propIndex() {
+  if (PROP_INDEX) return PROP_INDEX;
+  PROP_INDEX = {};
+  if (PROPS) for (const g of Object.values(PROPS.games)) for (const [n, m] of Object.entries(g.players || {})) PROP_INDEX[normName(n)] = m;
+  return PROP_INDEX;
+}
+// The book line for a player and market: { line, over, under, books, best: { over: [price, book], under } }
+function bookProp(name, market) {
+  const m = propIndex()[normName(name)];
+  return m && m[market] ? m[market] : null;
+}
+function fmtOdds(p) { return p == null ? "—" : p > 0 ? "+" + p : MINUS + Math.abs(p); }
+function propsAsOf() {
+  return PROPS ? new Date(PROPS.fetchedAt).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) : "";
 }
 
 // The week strip in the top bar, just left of the player search: one link per week,
@@ -912,8 +943,9 @@ function updateProp(card, log) {
   const lineEl = card.querySelector(".prop-line");
   const vals = log.map(stat[3]);
   const avg = vals.reduce((a, v) => a + v, 0) / (vals.length || 1);
-  if (lineEl.dataset.stat !== key) {  // new stat: suggest a line just under the season average
-    lineEl.value = Math.max(0.5, Math.floor(avg) + 0.5);
+  const bp = PROP_MARKET[key] ? bookProp(card.dataset.player, PROP_MARKET[key]) : null;
+  if (lineEl.dataset.stat !== key) {  // new stat: this week's book line, else a line just under the season average
+    lineEl.value = bp ? bp.line : Math.max(0.5, Math.floor(avg) + 0.5);
     lineEl.dataset.stat = key;
   }
   const line = parseFloat(lineEl.value);
@@ -931,7 +963,11 @@ function updateProp(card, log) {
   if (isNaN(line)) { res.textContent = "Enter a line to see how often he's cleared it."; return; }
   const n = over + under;
   const last3 = vals.slice(-3).map(v => (v > line ? "O" : v < line ? "U" : "P")).join(" ");
-  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`;
+  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`
+    + (bp ? `<div class="prop-book">${key === "tds"
+      ? `This week's anytime TD price: <b>${fmtOdds(bp.over)}</b>${bp.best.over ? `, best ${fmtOdds(bp.best.over[0])} at ${escapeHtml(bp.best.over[1])}` : ""}`
+      : `This week's line: <b>${bp.line}</b>, over ${fmtOdds(bp.over)} / under ${fmtOdds(bp.under)}${bp.best.over ? `; best over ${fmtOdds(bp.best.over[0])} at ${escapeHtml(bp.best.over[1])}` : ""}`}
+      <span class="rk">(median of ${bp.books} sportsbook${bp.books === 1 ? "" : "s"}, ${escapeHtml(propsAsOf())})</span></div>` : "");
 }
 
 function panelHtml(name, key, log, kind) {
@@ -948,7 +984,7 @@ function panelHtml(name, key, log, kind) {
     ${anyFl ? `<td class="num gstart">${e.fl || 0}</td>` : ""}
     <td class="num fp gstart">${(e.fp || 0).toFixed(1)}</td><td class="num prop-cell gstart"></td></tr>`).join("");
   const total = log.reduce((a, e) => a + (e.fp || 0), 0);
-  return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle">
+  return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle" data-player="${name}">
     <div class="plog-top">
       <div>
         <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
