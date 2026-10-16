@@ -13,13 +13,13 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   shows what it opened at underneath. The venue line carries the kickoff forecast
   ("Indoors" for domes and closed roofs). Once a game starts, scores join the teams and
   the implied column shows the game's status. Click a row to open the game. "Print all"
-  prints every matchup, one per landscape page.
+  prints every matchup, two landscape pages each.
 - **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
   forecast, current spread and O/U; a Head to Head table (each
   offense against the other defense, with league ranks and edges); then both teams'
-  full stat cards. Prints on one landscape page.
+  full stat cards. Prints on two landscape pages.
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
-  one matchup per landscape page, and brings up the print dialog. Each team card still
+  two landscape pages per matchup, and brings up the print dialog. Each team card still
   has its own Print button (one team per portrait page).
 - **Download PDF** — "Download PDF" on This Week's Matchups (every game) and "Download PDF" on
   each matchup page (that game). The PDFs are the print layout rendered by headless
@@ -291,4 +291,4 @@ nflverse-data releases into `--src` when they aren't there.
 - **Weekly Edges**: combined plays per game and pass rate over expected on the game board;
   Tgt % (with the last three games) on the receiving prop tables and Carry % on RB rush yds.
 
-These sections are screen-only: printouts and the matchup PDFs keep the one-page layout.
+Printouts and the matchup PDFs include them: each matchup prints on two landscape pages (header, Head to Head and pace on the first; both team cards with usage on the second). Betting trends stay screen-only, as before.

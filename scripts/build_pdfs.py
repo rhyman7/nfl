@@ -1,6 +1,6 @@
 """Build downloadable PDFs of this week's matchups with headless Chrome.
 
-Renders print.html exactly as the browser's print does (one landscape page per
+Renders print.html exactly as the browser's print does (two landscape pages per
 matchup) and writes:
   pdf/matchups.pdf          every game this week
   pdf/games/<game id>.pdf   one file per game
