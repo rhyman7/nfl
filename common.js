@@ -275,7 +275,8 @@ function renderMatchupParts(g) {
       ${edgePanel(away, home)}
       ${edgePanel(home, away)}
     </div>
-    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
+    ${pacePanel(away, home)}
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
   const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -360,11 +361,36 @@ const EFF_ROWS = [
   ["EPA / play", t => t.eff.off.epa, t => t.eff.def.epa, true, false],
   ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
 ];
+// Red zone, 3rd down, big plays and pass rush (t.situ, from scripts/situational.py), in labeled groups
+// under the rows above. A row is shown only when every team has the number.
+const sv = (side, key) => t => t.situ && t.situ[side][key] ? t.situ[side][key].v : null;
+const SITU_GROUPS = [
+  ["Finishing drives", [
+    ["Red zone TD %", sv("off", "rzTd"), sv("def", "rzTd"), true, false, v => v.toFixed(1)],
+    ["3rd down %", sv("off", "third"), sv("def", "third"), true, false, v => v.toFixed(1)],
+  ]],
+  ["Big plays", [
+    ["Explosive %", sv("off", "explosive"), sv("def", "explosive"), true, false, v => v.toFixed(1)],
+    ["Pass 20+ %", sv("off", "expPass"), sv("def", "expPass"), true, false, v => v.toFixed(1)],
+    ["Rush 10+ %", sv("off", "expRush"), sv("def", "expRush"), true, false, v => v.toFixed(1)],
+  ]],
+  ["Pass rush vs protection", [
+    ["Sack rate %", sv("off", "sackRate"), sv("def", "sackRate"), false, true, v => v.toFixed(1)],
+    ["Pressure %", sv("off", "pressureRate"), sv("def", "pressureRate"), false, true, v => v.toFixed(1)],
+  ]],
+];
+function hasSitu() { return Object.values(DATA.teams).every(t => t.situ); }
 function edgeRows() {
   const teams = Object.values(DATA.teams);
   const rows = EDGE_ROWS.slice();
   if (teams.every(t => typeof t.offense.rushYdsAtt === "number" && typeof t.defense.rushYdsAtt === "number")) rows.splice(2, 0, YPA_ROW);
   if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
+  if (hasSitu()) {
+    for (const [group, list] of SITU_GROUPS) {
+      const ok = list.filter(([, og, dg]) => teams.every(t => og(t) != null && dg(t) != null));
+      if (ok.length) rows.push(group, ...ok);
+    }
+  }
   return rows;
 }
 
@@ -374,7 +400,10 @@ function edgePanel(offTeam, defTeam) {
   const n = Object.keys(DATA.teams).length;
   const ov = teamVars(offTeam.abbr), dv = teamVars(defTeam.abbr);
   const oa = escapeHtml(offTeam.abbr), da = escapeHtml(defTeam.abbr);
-  const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi, fmt]) => {
+  let extra = false;  // rows after the first group label are the newer ones; print leaves them out
+  const rows = edgeRows().map(row => {
+    if (typeof row === "string") { extra = true; return `<div class="tape-group">${escapeHtml(row)}</div>`; }
+    const [label, offGet, defGet, offHi, defHi, fmt] = row;
     const show = v => dispNum(fmt ? fmt(v) : v);
     const o = offGet(offTeam), d = defGet(defTeam);
     const or = leagueRank(offGet, o, offHi), dr = leagueRank(defGet, d, defHi);
@@ -383,7 +412,7 @@ function edgePanel(offTeam, defTeam) {
     const w = r => Math.round(((n + 1 - r) / n) * 100);
     const edge = side === "off" ? `<b class="tc" style="${ov}">${oa}</b>`
       : side === "def" ? `<b class="tc" style="${dv}">${da}</b>` : `<span class="even">Even</span>`;
-    return `<div class="tape">
+    return `<div class="tape${extra ? " tape-x" : ""}">
       <span class="lbl">${label}</span>
       <span class="num"><b>${show(o)}</b> <span class="rk">#${or}</span></span>
       <span class="tl"><i class="tb${side === "off" ? " on" : ""}" style="width:${w(or)}%;${ov}"></i></span>
@@ -398,6 +427,67 @@ function edgePanel(offTeam, defTeam) {
     <h4><span class="tc" style="${ov}">${oa} offense</span> against <span class="tc" style="${dv}">${da} defense</span></h4>
     <div class="tape tape-h"><span></span><span class="num">${oa} offense</span><span></span><span></span><span>${da} defense</span><span class="num">Edge</span></div>
     ${rows}
+  </div>`;
+}
+
+// Pace and tendency for both teams (t.pace): plays per game, seconds between snaps in neutral
+// situations and early-down pass rate over expected. Combined plays are compared with the league.
+function pacePanel(a, h) {
+  if (!a || !h || !a.pace || !h.pace || !a.pace.ppg || !h.pace.ppg) return "";
+  const teams = Object.values(DATA.teams).filter(t => t.pace && t.pace.ppg);
+  const lg = 2 * teams.reduce((s, t) => s + t.pace.ppg.v, 0) / teams.length;
+  const both = a.pace.ppg.v + h.pace.ppg.v;
+  const cell = (x, unit) => x ? `<b>${dispNum(x.v.toFixed(1))}${unit || ""}</b> <span class="rk">#${x.rank}</span>` : "—";
+  const proe = x => x ? `<b>${x.v > 0 ? "+" : ""}${dispNum(x.v.toFixed(1))}%</b> <span class="rk">#${x.rank}</span>` : "—";
+  const row = t => `<tr>
+      <td><span class="pace-team">${slabHtml(t.abbr, t.abbr)} ${teamLink(t)}</span></td>
+      <td class="num">${cell(t.pace.ppg)}</td>
+      <td class="num">${cell(t.pace.spp)}</td>
+      <td class="num">${proe(t.pace.proe)}</td>
+    </tr>`;
+  return `<div class="pace-panel">
+    <div class="pace-head">
+      <h4>Pace and tendency</h4>
+      <span class="pace-sum">Both teams combined: <b>${both.toFixed(1)} plays per game</b> (league average ${lg.toFixed(1)})</span>
+    </div>
+    <div class="pace-scroll"><table>
+      <thead><tr><th>Team</th><th class="num">Plays / G</th><th class="num">Seconds / play (neutral)</th><th class="num">Pass rate over expected</th></tr></thead>
+      <tbody>${row(a)}${row(h)}</tbody>
+    </table></div>
+    <p class="bet-note">Neutral = one-score games, first three quarters. Pass rate over expected is early downs, from nflverse's play-by-play model. Rank 1 = most plays, fastest pace, most pass-heavy.</p>
+  </div>`;
+}
+
+// Usage block in a team card (t.usage): snap %, target and air-yards share, last three games.
+function usageBlock(t) {
+  const u = t.usage;
+  if (!u || !u.targets || !u.targets.length) return "";
+  const hasSnap = u.targets.some(r => r.snap != null);
+  const name = (r, kind) => r.log && DATA.gameLogs && DATA.gameLogs[r.log]
+    ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${escapeHtml(r.player)}">${escapeHtml(r.player)}</button>`
+    : escapeHtml(r.player);
+  const trend = r => {
+    const d = r.ts3 - r.ts;
+    const cls = d >= 2 ? "up" : d <= -2 ? "down" : "";
+    return `<span class="trend ${cls}">${cls === "up" ? "↑ " : cls === "down" ? "↓ " : ""}${r.ts3.toFixed(1)}%</span>`;
+  };
+  const rows = u.targets.map(r => `<tr>
+      <td>${name(r, "receiving")}</td>
+      <td class="pos-cell">${escapeHtml(r.pos || "")}</td>
+      ${hasSnap ? `<td class="num">${r.snap == null ? "—" : r.snap + "%"}</td>` : ""}
+      <td class="num"><span class="share"><i style="width:${Math.min(100, Math.round(r.ts / 40 * 100))}%"></i></span><b>${r.ts.toFixed(1)}%</b></td>
+      <td class="num">${r.as.toFixed(1)}%</td>
+      <td class="num">${trend(r)}</td>
+    </tr>`).join("");
+  const carries = (u.carries || []).map(c => `<span class="usage-chip">${name(c, "rushing")} <b>${c.cs.toFixed(1)}%</b></span>`).join("");
+  return `<div class="usage-block">
+    <h4>Usage</h4>
+    <div class="table-block"><table>
+      <thead><tr><th>Player</th><th>Pos</th>${hasSnap ? `<th class="num">Snap %</th>` : ""}<th class="num">Target share</th><th class="num">Air yds</th><th class="num" title="Target share over the team's last three games">Last 3</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>
+    ${carries ? `<div class="usage-carries"><span class="lbl">Carry share</span>${carries}</div>` : ""}
+    <p class="bet-note">Target share = share of team targets; Air yds = share of the team's air yards; Last 3 = target share over the last three games (arrow when it moved 2 points or more).${hasSnap ? " Snap % = offensive snaps played." : ""}</p>
   </div>`;
 }
 
@@ -524,6 +614,8 @@ function renderTeamCard(t) {
         ["Rec/G", "rec", "num"],
       ])}
     </div>
+
+    ${usageBlock(t)}
 
     <div class="defpos-row">
       ${defPosBlock("Defense vs RB", t.defVsPosition.rb)}

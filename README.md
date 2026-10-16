@@ -272,3 +272,23 @@ Note: the old Looker Studio report had a broken "Offense Pass Yds/G" gauge
 (it showed a static, non-updating number). This site fixes that — the
 offense column now has a real, working Pass Yds/G gauge and rank alongside
 the Rush Yds/G one.
+
+### Situational, big-play, pressure, pace and usage numbers
+
+Built by `scripts/situational.py` (called from `build_from_nflverse.py`) into each team's
+`situ`, `pace` and `usage` keys, plus `ts`/`ts3` on receiving rows and `cs` on rushing rows.
+It downloads `snap_counts_<season>.csv` and `advstats_week_pass/def_<season>.csv` from the
+nflverse-data releases into `--src` when they aren't there.
+
+- **Head to head** gains three groups under the existing rows: Finishing drives (red zone TD %,
+  3rd down %), Big plays (explosive %, passes of 20+ yards, runs of 10+) and Pass rush vs
+  protection (sack rate and Pro Football Reference pressure rate, per dropback). Same bars and the
+  same 6-spot edge rule as the rows above.
+- **Pace and tendency** under Head to head: plays per game, seconds per play in neutral
+  situations, early-down pass rate over expected (nflverse `pass_oe`).
+- **Usage** in each team card: snap %, target share, air-yards share, last three games' target
+  share, and carry share.
+- **Weekly Edges**: combined plays per game and pass rate over expected on the game board;
+  Tgt % (with the last three games) on the receiving prop tables and Carry % on RB rush yds.
+
+These sections are screen-only: printouts and the matchup PDFs keep the one-page layout.

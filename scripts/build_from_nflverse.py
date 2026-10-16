@@ -13,6 +13,9 @@ Inputs (downloaded each week into a working folder, not committed):
                                     left out if missing)
     injuries_<season>.csv           github.com/nflverse/nflverse-data releases (injuries) -- injury
                                     tags (optional; left out if missing)
+    snap_counts_<season>.csv,       snap %, pressure rate (scripts/situational.py); downloaded
+    advstats_week_pass_<season>.csv, into --src automatically when they aren't there
+    advstats_week_def_<season>.csv
 
 Usage:
     python scripts/build_from_nflverse.py --season 2026 --src <folder> [--out data/data.json]
@@ -45,6 +48,7 @@ import numpy as np
 import pandas as pd
 
 from epa_ratings import build_epa
+import situational
 
 TEAM_NAMES = {
     "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
@@ -589,6 +593,14 @@ def main():
     # ---- each team's games so far, with the game's top passer, rusher and receiver ----
     team_games = team_game_list(done, ps)
 
+    # ---- red zone, 3rd down, big plays, pressure, pace and usage (scripts/situational.py) ----
+    extra = situational.build(src, season, through_week, ps, teams, notes)
+    for t, x in extra.items():
+        u = x.get("usage")
+        if u:
+            for row in u["targets"] + u["carries"]:
+                row["log"] = add_log(t, row.pop("pid"))
+
     teams_out = {}
     for abbr in teams:
         name = TEAM_NAMES[abbr]
@@ -612,7 +624,23 @@ def main():
             "betting": bet.get(abbr),
             "eff": eff.get(abbr),
             "games": team_games.get(abbr, []),
+            "situ": extra[abbr].get("situ"),
+            "pace": extra[abbr].get("pace"),
+            "usage": extra[abbr].get("usage"),
         }
+
+    # target share (receiving rows) and carry share (rushing rows) for every player in a table
+    for abbr in teams:
+        sh = extra[abbr].get("shares") or {}
+        t = teams_out[TEAM_NAMES[abbr]]
+        for r in t["receiving"]:
+            x = sh.get(r["log"].split("|", 1)[1])
+            if x:
+                r["ts"], r["ts3"] = x["ts"], x["ts3"]
+        for r in t["rushing"]:
+            x = sh.get(r["log"].split("|", 1)[1])
+            if x:
+                r["cs"] = x["cs"]
 
     # ---- this week's schedule: the first week that isn't finished ----
     remaining = [int(w) for w, ok in week_done.items() if not ok]
