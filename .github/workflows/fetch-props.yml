@@ -1,0 +1,52 @@
+name: Fetch player props
+
+# Pulls this week's NFL player prop lines from The Odds API into data/props.json.
+# The key is the ODDS_API_KEY repository secret. Once a week on the free plan (500 credits a
+# month, about 90 a pull); run it by hand from the Actions tab for an extra refresh.
+on:
+  schedule:
+    - cron: "7 15 * * 4"   # Thursdays 15:07 UTC (11:07 am ET in daylight time, 10:07 am in winter)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list the games and the credit cost (no odds fetched)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-props
+  cancel-in-progress: false
+
+jobs:
+  props:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch props
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/fetch_props.py ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit props
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/props.json
+          if git diff --staged --quiet; then exit 0; fi
+          git commit -m "Update player props"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
