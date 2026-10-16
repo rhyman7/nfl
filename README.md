@@ -50,7 +50,7 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
   yds, WR/TE/RB rec yds) listing players whose opponent allows more than the league
   average at their position, with a matchup factor and an adjusted average.
-- **Team vs Team** (`compare.html`) — the original dashboard: pick any two teams
+- **Compare Any Two Teams** (`compare.html`) — the original dashboard: pick any two teams
   and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
 - **Ratings Explained** (`ratings.html`) — plain-language definitions of SoS, OSRS,
   DSRS and SRS and how to use them in a matchup. Its example uses the current top-SRS
@@ -128,7 +128,7 @@ Weekly Edges show the referee with his over/under record and points per game. Th
 are the only multi-season numbers on the site (`refereeSeasons`, e.g. 2023–2026),
 because one season gives a crew just a few games.
 
-**Betting Trends.** The matchup and Team vs Team pages show each team's record against
+**Betting Trends.** The matchup and Compare Any Two Teams pages show each team's record against
 the spread (overall, as favorite/underdog, home/away) and over/under record, plus a
 game-by-game list, from nflverse's closing `spread_line` and `total_line`. The data is
 `betting` on each team in `data/data.json`. It's left out of printouts.
