@@ -292,3 +292,12 @@ nflverse-data releases into `--src` when they aren't there.
   Tgt % (with the last three games) on the receiving prop tables and Carry % on RB rush yds.
 
 Printouts and the matchup PDFs include them: each matchup prints on two landscape pages (header, Head to Head and pace on the first; both team cards with usage on the second). Betting trends stay screen-only, as before.
+
+### How to Read Matchups (`how-to-read.html`)
+
+Linked left of EPA. Walks through every section of a matchup page (game header, Head to Head,
+pace, betting trends, team card, player tables and game logs, usage, defense vs position) using
+one game from this week, with numbered markers on the real components and notes written from
+that game's numbers (`how-to-read.js`, built on the same render functions as the matchup page).
+It opens on a random game; the Game picker and "Pick another game" switch games, and
+`?game=<id>` opens a given one. Nothing extra to build: it reads `data/data.json`.
