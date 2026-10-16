@@ -146,6 +146,29 @@ document.addEventListener("click", e => {
   document.querySelectorAll(".plog-card").forEach(c => { const sel = c.querySelector(".prop-line"); if (sel) { delete sel.dataset.stat; c.querySelector(".prop-stat").dispatchEvent(new Event("change", { bubbles: true })); } });
   document.dispatchEvent(new CustomEvent("bookchange"));
 });
+// The quarterback the sportsbooks expect to start: of the team's players with a passing-yards
+// prop for this game, the one with the highest line. Null when there are no props for the game
+// (other weeks, games already played, or the books haven't posted QB props yet).
+function bookQb(g, teamName) {
+  const pg = g && PROPS && PROPS.games[g.id];
+  const t = DATA.teams[teamName];
+  if (!pg || !t) return null;
+  const byName = {};
+  for (const p of Object.values(playerIndex())) if (p.abbr) byName[normName(p.name)] = p.abbr;
+  let best = null;
+  for (const [n, m] of Object.entries(pg.players || {})) {
+    const py = m.player_pass_yds;
+    if (!py || py.line == null) continue;
+    if (((pg.teams || {})[n] || byName[normName(n)]) !== t.abbr) continue;
+    if (!best || py.line > best.line) best = { name: n, line: py.line };
+  }
+  return best ? best.name : null;
+}
+// Header QB: before kickoff, the books' expected starter when there is one; otherwise
+// nflverse's (the actual starter once a game is played, the most recent starter before).
+function heroQb(g, teamName, nflverseQb) {
+  return (!isFinal(g) && bookQb(g, teamName)) || nflverseQb;
+}
 function propsAsOf() {
   return PROPS ? new Date(PROPS.fetchedAt).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) : "";
 }
@@ -395,7 +418,7 @@ function renderHero(g, away, home) {
   return `
   <div class="mh-week">Week ${DATA.schedule.week}</div>
   <div class="game-hero">
-    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb, g.awayRecord)}
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", heroQb(g, g.away, g.awayQb), g.awayRecord)}
     <div class="hero-mid">
       <div class="hero-live" id="heroLive" hidden></div>
       <div class="hero-line" id="heroLine"${line ? "" : " hidden"}>${escapeHtml(line)}</div>
@@ -403,7 +426,7 @@ function renderHero(g, away, home) {
       <div class="hero-info hero-implied" id="heroImplied"${imp ? "" : " hidden"}>${escapeHtml(imp)}</div>
       <div class="hero-info hero-move" id="heroMove"${move ? "" : " hidden"}>${escapeHtml(move)}</div>
     </div>
-    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb, g.homeRecord)}
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", heroQb(g, g.home, g.homeQb), g.homeRecord)}
   </div>
   <div class="hero-facts">${facts.join("")}</div>
   ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}`;

@@ -153,7 +153,7 @@ function learnSections(g, a, h) {
       ? `Since this week's first update, ${bits.join(", and ")}. Moves usually follow injury news or heavy betting on one side.`
       : "The line hasn't moved since this week's first update, so the market's view of this game has held steady."];
   }
-  const srsNote = ["Record, SRS and quarterback", `SRS is how many points per game better (+) or worse (${MINUS}) a team is than an average team, adjusted for its schedule. ${nm(a)} are at ${dispNum(String(a.record.srs))} and ${nm(h)} at ${dispNum(String(h.record.srs))}. The quarterback is each team's most recent starter.`];
+  const srsNote = ["Record, SRS and quarterback", `SRS is how many points per game better (+) or worse (${MINUS}) a team is than an average team, adjusted for its schedule. ${nm(a)} are at ${dispNum(String(a.record.srs))} and ${nm(h)} at ${dispNum(String(h.record.srs))}. Before kickoff, the quarterback is the one the sportsbooks expect to start (the team's highest passing-yards prop); without props it is the team's most recent starter, and after the game it is the actual starter.`];
   const factNote = ["Game facts", `Kickoff in your time zone, the stadium, the kickoff forecast for outdoor games${g.divisional ? ", and a tag when it's a division game" : ""}. ${g.referee ? `The referee is ${escapeHtml(g.referee)}; his over/under record is listed under the header.` : "The referee and his over/under record appear once the crew is assigned, usually by Friday."}`];
   parts.push(section(1, "Game header", "Who's playing, where, and what the betting market expects",
     renderHero(g, a, h), [spreadNote, totalNote, impNote, moveNote, srsNote, factNote], "", true));
