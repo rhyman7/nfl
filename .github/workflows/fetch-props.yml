@@ -1,8 +1,8 @@
 name: Fetch player props
 
-# Pulls this week's NFL player prop lines from The Odds API into data/props.json.
+# Pulls this week's NFL player prop lines (DraftKings and FanDuel) from The Odds API into data/props.json.
 # The key is the ODDS_API_KEY repository secret. Once a week on the free plan (500 credits a
-# month, about 90 a pull); run it by hand from the Actions tab for an extra refresh.
+# month, about 105 a pull); run it by hand from the Actions tab for an extra refresh.
 on:
   schedule:
     - cron: "7 15 * * 4"   # Thursdays 15:07 UTC (11:07 am ET in daylight time, 10:07 am in winter)
@@ -12,6 +12,10 @@ on:
         description: "Only list the games and the credit cost (no odds fetched)"
         type: boolean
         default: false
+      game:
+        description: "Only this game (nflverse id, e.g. 2026_06_BAL_CLE); blank = every game this week"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -35,7 +39,7 @@ jobs:
       - name: Fetch props
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python scripts/fetch_props.py ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: python scripts/fetch_props.py ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.game && format('--game {0}', inputs.game) || '' }}
 
       - name: Commit props
         if: ${{ !inputs.dry_run }}

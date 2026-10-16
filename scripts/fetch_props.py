@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Fetch this week's NFL player prop lines from The Odds API into data/props.json.
+"""Fetch this week's NFL player prop lines (DraftKings and FanDuel) from The Odds API into data/props.json.
 
 Runs in GitHub Actions (.github/workflows/fetch-props.yml) with the key in the ODDS_API_KEY
 repository secret; nothing else in the repo or on the site sees the key.
 
-Cost: the events list is free; each game's odds cost one credit per market per region.
-With the six markets below and US books only that is 6 credits a game, so a full week
-(~15 games) is about 90 credits. Games that have already kicked off are skipped, and the
+Cost: the events list is free; each game's odds cost one credit per market (two named
+bookmakers count as one region). With the seven markets below that is 7 credits a game,
+so a full week (~15 games) is about 105 credits. Games that have already kicked off are skipped, and the
 run stops before a game would take the remaining credits below --keep (default 25).
 
 Output (data/props.json):
@@ -14,12 +14,14 @@ Output (data/props.json):
   "fetchedAt": ISO time, "season", "week", "credits": {"used", "remaining", "lastCall"},
   "markets": {market key: label},
   "games": {nflverse game id: {"eventId", "commence", "players": {
-      player name: {market key: {"line", "over", "under", "books", "best": {"over": [price, book], "under": [price, book]}}}}}}
+      player name: {market key: {"line", "over", "under", "books", "best": {"over": [price, book], "under": [price, book]},
+                                  "dk": {"line", "over", "under"}, "fd": {"line", "over", "under"}}}}}}
 }
-"line" is the median line across books; "over"/"under" are the median prices at that line.
-For the anytime-TD market there is no line: "line" is 0.5 and "over" is the median Yes price.
+"line" is the median line across the books; "over"/"under" are the median prices at that line;
+"dk" and "fd" are each book's own line and prices (missing when that book has no line).
+For the anytime-TD market there is no line: "line" is 0.5 and "over" is the Yes price.
 
-Usage: ODDS_API_KEY=... python scripts/fetch_props.py [--keep 25] [--dry-run]
+Usage: ODDS_API_KEY=... python scripts/fetch_props.py [--keep 25] [--dry-run] [--game <nflverse id>]
 """
 import argparse
 import json
@@ -40,7 +42,9 @@ MARKETS = {
     "player_reception_yds": "Rec Yds",
     "player_receptions": "Receptions",
     "player_anytime_td": "Anytime TD",
+    "player_rush_attempts": "Rush Att",
 }
+BOOKS = {"draftkings": "dk", "fanduel": "fd"}
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -77,7 +81,7 @@ def summarize(bookmakers):
                     line = o.get("point")
                 if line is None or side not in ("over", "under"):
                     continue
-                raw.setdefault(player, {}).setdefault(m["key"], []).append((bm.get("title") or bm.get("key"), float(line), side, int(o["price"])))
+                raw.setdefault(player, {}).setdefault(m["key"], []).append((bm.get("title") or bm.get("key"), float(line), side, int(o["price"]), bm.get("key")))
     out = {}
     for player, mk in raw.items():
         for key, rows in mk.items():
@@ -102,6 +106,15 @@ def summarize(bookmakers):
                 "books": len({r[0] for r in rows}),
                 "best": best,
             }
+            for bkey, short in BOOKS.items():
+                mine = [r for r in rows if r[4] == bkey]
+                if not mine:
+                    continue
+                bo = [r for r in mine if r[2] == "over"]
+                bu = [r for r in mine if r[2] == "under"]
+                bl = (bo or mine)[0][1]
+                out[player][key][short] = {"line": bl, "over": bo[0][3] if bo else None,
+                                           "under": next((r[3] for r in bu if r[1] == bl), None)}
     return out
 
 
@@ -109,6 +122,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--keep", type=int, default=25, help="credits to leave unused")
     ap.add_argument("--dry-run", action="store_true", help="list the games and the cost, fetch no odds")
+    ap.add_argument("--game", default="", help="fetch only this nflverse game id")
     args = ap.parse_args()
     key = os.environ.get("ODDS_API_KEY", "").strip()
     if not key:
@@ -122,7 +136,7 @@ def main():
     todo = []
     for ev in events:
         g = sched.get((ev.get("away_team"), ev.get("home_team")))
-        if not g:
+        if not g or (args.game and g["id"] != args.game):
             continue
         start = datetime.fromisoformat(ev["commence_time"].replace("Z", "+00:00"))
         if start <= now:
@@ -151,7 +165,7 @@ def main():
             print(f"stop: {credits['remaining']} credits left, keeping {args.keep}")
             break
         try:
-            body, credits = get(f"/events/{ev['id']}/odds", key, regions="us", markets=",".join(MARKETS), oddsFormat="american")
+            body, credits = get(f"/events/{ev['id']}/odds", key, bookmakers=",".join(BOOKS), markets=",".join(MARKETS), oddsFormat="american")
         except urllib.error.HTTPError as e:
             print(f"{g['id']}: HTTP {e.code} {e.read()[:200]!r}")
             if e.code in (401, 429):
