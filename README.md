@@ -41,6 +41,10 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   using `scripts/epa_ratings.py` (garbage time dropped at 10–90% win probability, a ridge
   regression on offense, defense and home field, projections pulled toward a pick'em);
   the page works out each game's projection from those ratings and the current line.
+- **EPA Explained** (`epa-explained.html`) — linked right of EPA: what expected points and EPA
+  are, why EPA beats yards and points, what "adjusted" means here, how to read every part of the
+  EPA page, a routine for any game and the limits. Its example uses the current #1 team in net
+  EPA from `data/epa.json`; the rest of the page is static.
 - **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
   implied team totals, line move since the week's first update, net EPA edge, referee
   and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
