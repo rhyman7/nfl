@@ -4,6 +4,8 @@ Renders print.html exactly as the browser's print does (one landscape page per
 matchup) and writes:
   pdf/matchups.pdf          every game this week
   pdf/games/<game id>.pdf   one file per game
+  pdf/epa.pdf               the EPA page's Print all (every game, the board, the ratings);
+                            built when data/epa.json is there
   pdf/manifest.json         season, week and build time; the pages use it to show
                             the Download PDF links only when the PDFs match the data
 
@@ -35,10 +37,10 @@ def serve():
     return srv, f"http://127.0.0.1:{srv.server_address[1]}"
 
 
-def render(page, url, dest):
+def render(page, url, dest, ready="#printAllBtn:not([disabled])"):
     page.goto(url, wait_until="networkidle")
-    # print.js enables the Print button once every matchup has been laid out
-    page.wait_for_selector("#printAllBtn:not([disabled])", timeout=30000)
+    # print.js (epa.js) enables its Print button once every matchup has been laid out
+    page.wait_for_selector(ready, timeout=30000)
     page.evaluate("document.fonts.ready")
     page.emulate_media(media="print")
     page.pdf(path=str(dest), prefer_css_page_size=True, print_background=True)
@@ -64,6 +66,10 @@ def main():
             for g in games:
                 render(page, f"{base}/print.html?auto=0&game={g['id']}", OUT / "games" / f"{g['id']}.pdf")
                 print("built", g["id"])
+            has_epa = (ROOT / "data" / "epa.json").exists()
+            if has_epa:
+                render(page, f"{base}/epa.html", OUT / "epa.pdf", ready="#epaPrintBtn:not([disabled])")
+                print("built epa.pdf")
             browser.close()
     finally:
         srv.shutdown()
@@ -74,6 +80,7 @@ def main():
         "dataGeneratedAt": data.get("generatedAt"),
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "games": [g["id"] for g in games],
+        "epa": has_epa,
     }
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"built {len(games)} game PDFs + matchups.pdf for week {manifest['week']}")

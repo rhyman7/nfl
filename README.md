@@ -24,10 +24,23 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
 - **Download PDF** — "Download PDF" on This Week's Matchups (every game) and "Download PDF" on
   each matchup page (that game). The PDFs are the print layout rendered by headless
   Chrome, so they come out the same whatever browser or printer you use.
-  `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf` and
-  `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
+  `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf`,
+  `pdf/epa.pdf` (the EPA page's Print all) and `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
   `data/data.json` or the print layout changes. The links only show when the PDFs are
   for the week on the page. `print.html?game=<id>` prints a single game.
+- **EPA** (`epa.html`, `epa.js`) — opponent-adjusted EPA, linked left of Weekly Edges.
+  Pick a game for Head to Head panels (adjusted EPA / play, pass and rush EPA, early-down
+  pass EPA, success rate, with the same rank bars as the matchup page) and both teams'
+  cards (raw vs. adjusted rank, QB EPA / dropback and CPOE, pace, neutral pass rate and
+  regression flags such as turnover margin or one-score record). Below that: the EPA
+  line and total against the current market for every game, a sortable 32-team ratings
+  table, and a walk-forward check of how the ratings have done against closing lines.
+  **Print all** prints every game (one landscape page each), then the board and the
+  ratings; **Download PDF** is the same as `pdf/epa.pdf`. The ratings are
+  `data/epa.json`, which `scripts/build_from_nflverse.py` writes next to `data.json`
+  using `scripts/epa_ratings.py` (garbage time dropped at 10–90% win probability, a ridge
+  regression on offense, defense and home field, projections pulled toward a pick'em);
+  the page works out each game's projection from those ratings and the current line.
 - **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
   implied team totals, line move since the week's first update, net EPA edge, referee
   and his over/under record) and prop matchup tables by position (QB pass yds, RB rush

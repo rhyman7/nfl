@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPA · NFL Matchups</title>
+<meta name="description" content="Opponent-adjusted EPA for every NFL team: matchup panels for this week's games, an EPA line against the market, and regression flags.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NFL Matchups">
+<meta property="og:title" content="EPA · NFL Matchups">
+<meta property="og:description" content="Opponent-adjusted EPA for every NFL team: matchup panels for this week's games, an EPA line against the market, and regression flags.">
+<meta property="og:url" content="https://rhyman7.github.io/nfl/epa.html">
+<meta property="og:image" content="https://rhyman7.github.io/nfl/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NFL Matchups: every game this week, offense against defense.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<link rel="stylesheet" href="style.css?v=202610161300">
+</head>
+<body data-page="epa">
+<header class="topbar">
+  <h1><a href="index.html" class="home-link">NFL Matchups</a></h1>
+  <nav class="topnav no-print">
+    <a href="index.html"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="epa.html" class="active"><span class="nav-full">EPA</span><span class="nav-short">EPA</span></a>
+    <a href="edges.html"><span class="nav-full">Weekly Edges</span><span class="nav-short">Edges</span></a>
+    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
+  </nav>
+  <a href="/cfb/" class="league-link no-print">CFB Matchups</a>
+</header>
+
+<main id="app">
+  <div class="matchup-bar no-print">
+    <span id="epaStatus" class="print-status">Loading…</span>
+    <span class="bar-actions"><button id="epaPrintBtn" class="print-btn" type="button" disabled>Print all</button>
+    <a id="epaPdfBtn" class="print-btn pdf-btn" hidden>Download PDF</a></span>
+  </div>
+  <div id="epaMain">
+    <section class="ep-intro">
+      <div class="mh-week" id="epaWeek"></div>
+      <h2>EPA</h2>
+      <p>Expected points added per play, from nflverse play-by-play. Garbage time is left out, and every team is adjusted for the offenses and defenses it has faced, so a soft schedule doesn't inflate a rating.</p>
+      <div class="ep-facts" id="epaFacts"></div>
+    </section>
+
+    <section class="ep-screen no-print">
+      <h3 class="section-title">Head to head</h3>
+      <div class="ep-pick" id="epaPicker" role="group" aria-label="Choose a game"></div>
+      <div id="epaGame"></div>
+      <p class="edge-key">Longer bar, better rank out of 32; the edge goes to the side ranking at least 6 spots better. Adjusted EPA / play strips out what each opponent was expected to allow or gain. Plays when the offense's win chance was under 10% or over 90% are left out, along with kneels and spikes. Early-down pass is EPA on 1st- and 2nd-down passes. For a defense, lower is better.</p>
+    </section>
+
+    <div id="epaPrintGames" class="ep-print-only"></div>
+
+    <section class="ep-print-page">
+      <h3 class="section-title">EPA line vs. the market</h3>
+      <p class="ep-lede">The EPA line is what the ratings alone say about each game. A big gap is not a bet: more often the market knows something the ratings can't see, such as a quarterback injury or the weather. Treat it as a game to look into.</p>
+      <div class="ep-tbl"><table class="ep-table" id="epaBoard"></table></div>
+    </section>
+
+    <section class="ep-print-page">
+      <h3 class="section-title">EPA ratings, all 32 teams</h3>
+      <p class="ep-lede">Net is offense minus defense, in adjusted EPA per play. The shift columns show how many spots a unit moves once schedule and garbage time are accounted for. The flags list results likely to even out. Select a column heading to sort.</p>
+      <div class="ep-tbl"><table class="ep-table" id="epaLeague"></table></div>
+    </section>
+
+    <section class="ep-print-page">
+      <h3 class="section-title">How the numbers are built</h3>
+      <div class="ep-method">
+        <div class="ep-card">
+          <ol>
+            <li>Take every pass and run play this season from nflverse play-by-play, which carries EPA and success for each play.</li>
+            <li>Drop garbage time (offense win chance under 10% or over 90%), kneels and spikes.</li>
+            <li>Fit one regression across all plays so each team gets an offense rating and a defense rating, with opponent strength and home field separated out. Pass and run get their own fits.</li>
+            <li>Project each game: each offense's rating plus the other defense's, times expected plays, plus 1.5 points for home field.</li>
+            <li>Pull the projections well toward average, because a few weeks is a small sample and unregressed ratings miss badly.</li>
+          </ol>
+          <p class="ep-small">Not included: quarterback injuries, weather, rest and travel, and last season's results.</p>
+        </div>
+        <div class="ep-card">
+          <h4>Does it predict anything yet?</h4>
+          <div id="epaBacktest"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="no-print">
+  <p>EPA ratings cover the current regular season through the latest completed week, from nflverse play-by-play. Lines: ESPN when available, otherwise nflverse.</p>
+</footer>
+
+<script src="teamcolors.js?v=202610031730"></script>
+<script src="common.js?v=202610081330"></script>
+<script src="live.js?v=202610041900"></script>
+<script src="epa.js?v=202610161300"></script>
+</body>
+</html>

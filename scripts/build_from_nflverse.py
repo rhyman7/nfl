@@ -9,7 +9,8 @@ Inputs (downloaded each week into a working folder, not committed):
     standings.json                  list of {Tm, W, L, T, SoS, SRS, OSRS, DSRS} from
                                     pro-football-reference.com/years/<season>/ (optional)
     play_by_play_<season>.csv.gz    github.com/nflverse/nflverse-data releases (pbp) -- EPA and
-                                    success rate (optional; left out if missing)
+                                    success rate, and data/epa.json for the EPA page (optional;
+                                    left out if missing)
     injuries_<season>.csv           github.com/nflverse/nflverse-data releases (injuries) -- injury
                                     tags (optional; left out if missing)
 
@@ -25,6 +26,8 @@ from the first update of the week.
 
 Next to data.json the build also writes the files behind the site's week strip:
     data/season.json      every week of the season: game count and first/last game day
+    data/epa.json         opponent-adjusted EPA ratings for the EPA page (scripts/epa_ratings.py),
+                          through the same week as data.json
     data/weeks/<N>.json   that week's games, in the same shape as data.json's schedule,
                           plus each team's record going into the week. Finished weeks carry
                           the final scores; later weeks are the schedule so far.
@@ -40,6 +43,8 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
+
+from epa_ratings import build_epa
 
 TEAM_NAMES = {
     "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
@@ -269,6 +274,38 @@ def team_game_list(done, ps):
                         entry[key] = top
             out.setdefault(team, []).append(entry)
     return out
+
+
+def write_epa(pfile, done, season, through_week, sched_week, out_dir):
+    """data/epa.json: opponent-adjusted EPA ratings (scripts/epa_ratings.py) for the EPA page."""
+    cols = ["game_id", "season_type", "week", "posteam", "defteam", "home_team", "pass", "rush", "epa",
+            "success", "down", "wp", "qb_kneel", "qb_spike", "interception", "fumble_lost", "qb_dropback",
+            "passer_player_name", "cpoe"]
+    p = pd.read_csv(pfile, low_memory=False, usecols=cols)
+    p = p[(p.season_type == "REG") & (p.week <= through_week) & ((p["pass"] == 1) | (p["rush"] == 1))
+          & (p.qb_kneel != 1) & (p.qb_spike != 1) & p.epa.notna() & p.posteam.notna()]
+    neutral_ids = set(done.loc[done.location == "Neutral", "game_id"]) if "location" in done else set()
+    name = lambda a: TEAM_NAMES.get(a, a)
+    plays = pd.DataFrame({
+        "game_id": p.game_id, "week": p.week, "off": p.posteam.map(name), "def": p.defteam.map(name),
+        "home": ((p.posteam == p.home_team) & ~p.game_id.isin(neutral_ids)).astype(int),
+        "epa": p.epa, "success": p.success.fillna(0), "pass": p["pass"].astype(int), "rush": p["rush"].astype(int),
+        "down": p.down, "wp": p.wp, "to_lost": p.interception.fillna(0) + p.fumble_lost.fillna(0),
+        "passer": p.passer_player_name.where(p.qb_dropback == 1), "cpoe": p.cpoe,
+    })
+    games = pd.DataFrame({
+        "game_id": done.game_id, "week": done.week, "home": done.home_team.map(name), "away": done.away_team.map(name),
+        "hs": done.home_score, "as_": done.away_score, "neutral": done.game_id.isin(neutral_ids),
+        # nflverse spread_line: + = home favored; the site's convention is negative = home favored
+        "spread": -done.spread_line, "total": done.total_line,
+    })
+    epa = build_epa(plays, games, sorted(set(plays.off)), hfa=1.5, alpha=150.0, k_margin=0.35, k_total=0.30)
+    epa = {"generatedAt": datetime.now(timezone.utc).isoformat(), "season": season, "throughWeek": through_week,
+           "week": sched_week, **epa}
+    (out_dir / "epa.json").write_text(json.dumps(epa, separators=(",", ":"), allow_nan=False) + "\n")
+    bt = epa["backtest"]
+    print(f"Wrote data/epa.json: {epa['teamCount']} teams, {epa['playsUsed']} of {epa['playsAll']} plays"
+          + (f"; walk-forward miss on {bt['games']} games: line {bt['lineM']}, EPA {bt['modelM']}" if bt else ""))
 
 
 def main():
@@ -621,6 +658,8 @@ def main():
     wrote = write_weeks(games, season, data, Path(args.out))
     print("Week files (data/season.json, data/weeks/): "
           + ("updated " + ", ".join(f"Week {w}" for w in wrote) if wrote else "no changes"))
+    if pfile.exists():
+        write_epa(pfile, done, season, through_week, sched_week, Path(args.out).parent)
     for n in notes:
         print("NOTE:", n)
 
