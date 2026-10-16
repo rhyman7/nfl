@@ -305,11 +305,30 @@ It opens on a random game; the Game picker and "Pick another game" switch games,
 ### Player prop lines (`data/props.json`)
 
 The **Fetch player props** workflow (`.github/workflows/fetch-props.yml`, Thursdays at 15:07 UTC
-and by hand from the Actions tab) runs `scripts/fetch_props.py`, which pulls six markets for this
-week's games from The Odds API: pass yds, pass TD, rush yds, rec yds, receptions and anytime TD,
-US sportsbooks. The key is the `ODDS_API_KEY` repository secret. Each game costs 6 credits
-(about 80–90 a week); games already under way are skipped, and the run stops before using the
-last 25 credits. The file keeps each player's median line and prices across books plus the best
-price. The site uses it in two places: a Line column on the Weekly Edges prop tables (with Adj
-minus the line), and the game-log panel's prop check, which starts from this week's book line and
-shows the prices. Without the file (or for another week) both fall back to how they worked before.
+and by hand from the Actions tab) runs `scripts/fetch_props.py`, which pulls seven markets for this
+week's games from The Odds API at DraftKings and FanDuel only: pass yds, pass TD, rush yds, rush
+attempts, rec yds, receptions and anytime TD. The key is the `ODDS_API_KEY` repository secret. Each
+game costs 7 credits (about 105 a week, roughly 450 a month against the free plan's 500); games
+already under way are skipped (and kept from the week's earlier pull), and the run stops before
+using the last 25 credits. The file keeps each book's own line and prices per player (`dk`, `fd`),
+and a `teams` map putting each player on one of the game's two teams from nflverse's weekly
+rosters (team defenses left out). `python scripts/fetch_props.py --tag-teams` redoes that map
+without the API key or any credits.
+
+**Which book.** Every prop line on the site shows one sportsbook at a time. The DraftKings and
+FanDuel buttons (`bookButtons()` in `common.js`, logos in `img/`) switch every line on the page and
+the choice is remembered in the browser (`localStorage` `propBook`, DraftKings by default):
+
+- Matchup pages (current week only): the buttons sit under the Run game / Pass game ranks on each
+  team card. Passing gets the yards line next to Yds/G and the TD over/under next to TD; Rushing
+  the yards line next to Yds/G and the attempts line after A/G; Receiving the yards line next to
+  Yds/G and the receptions line after Rec/G, each with its over/under prices. With these columns
+  Passing runs across the top and Rushing and Receiving sit side by side under it. An Anytime TD
+  block (shortest price first, up to four columns of four) sits between the tables and Usage.
+  "—" means that book has no line for the player (FanDuel posts no rush-attempt lines). Printing
+  shows the chosen book without the buttons.
+- Weekly Edges: the buttons sit above the prop tables; the Line column (with Adj minus the line)
+  shows the chosen book.
+- The game-log panel's prop check starts from the chosen book's line and shows its prices.
+
+Without the file (or for another week) all of these fall back to how they worked before.

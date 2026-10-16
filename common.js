@@ -65,7 +65,7 @@ let PROPS = null;
 let PROP_INDEX = null;
 // prop check stat -> The Odds API market
 const PROP_MARKET = { pYds: "player_pass_yds", pTd: "player_pass_tds", rYds: "player_rush_yds",
-  recYds: "player_reception_yds", rec: "player_receptions", tds: "player_anytime_td" };
+  recYds: "player_reception_yds", rec: "player_receptions", tds: "player_anytime_td", car: "player_rush_attempts" };
 function normName(n) {
   return String(n || "").toLowerCase().replace(/\b(jr|sr|ii|iii|iv|v)\b\.?/g, "").replace(/[^a-z]/g, "");
 }
@@ -81,6 +81,71 @@ function bookProp(name, market) {
   return m && m[market] ? m[market] : null;
 }
 function fmtOdds(p) { return p == null ? "—" : p > 0 ? "+" + p : MINUS + Math.abs(p); }
+
+/* Sportsbook choice: every prop line on the site shows one book at a time (DraftKings or FanDuel),
+   remembered in this browser. Clicking a .book-btn switches it everywhere on the page. */
+const BOOKS = { dk: { name: "DraftKings", short: "DK", logo: "img/draftkings.png" }, fd: { name: "FanDuel", short: "FD", logo: "img/fanduel.png" } };
+let BOOK = (() => { try { return localStorage.getItem("propBook") === "fd" ? "fd" : "dk"; } catch (e) { return "dk"; } })();
+// This book's own line for a player and market: { line, over, under } or null.
+function bookLine(name, market) {
+  const bp = bookProp(name, market);
+  return bp && bp[BOOK] ? bp[BOOK] : null;
+}
+// Prop lines on team cards: matchup pages (and Print all) for the current week only.
+function cardProps() {
+  return !!PROPS && weekMode() === "current" && ["matchup", "printall"].includes(document.body.dataset.page);
+}
+function bookButtons() {
+  return `<div class="book-pick" role="group" aria-label="Sportsbook for prop lines">
+      ${Object.entries(BOOKS).map(([k, b]) => `<button type="button" class="book-btn book-${k}" data-book="${k}" aria-pressed="${BOOK === k}" title="Show ${b.name} lines"><img src="${b.logo}" alt="${b.name}"></button>`).join("")}
+    </div>
+    <div class="book-cap">Showing <b class="book-name">${BOOKS[BOOK].name}</b> lines and prices</div>`;
+}
+function propCell(name, market) {
+  return `<td class="num prop-td" data-pp="${escapeHtml(name)}" data-pm="${market}">${propCellInner(name, market)}</td>`;
+}
+function propCellInner(name, market) {
+  const b = bookLine(name, market);
+  return b ? `<b>${b.line}</b><span class="pp">O ${fmtOdds(b.over)} · U ${fmtOdds(b.under)}</span>` : `<span class="pp-none">—</span>`;
+}
+// Anytime TD prices for one team's players in its game this week, shortest first:
+// up to four columns of four.
+function tdPropsBlock(t) {
+  return `<div class="td-props" data-team="${escapeHtml(t.team)}">${tdPropsInner(t.team)}</div>`;
+}
+function tdPropsInner(teamName) {
+  const t = DATA.teams[teamName];
+  const g = t && (DATA.schedule.games || []).find(x => x.away === teamName || x.home === teamName);
+  const pg = g && PROPS && PROPS.games[g.id];
+  if (!pg) return "";
+  const byName = {};
+  for (const p of Object.values(playerIndex())) if (p.abbr) byName[normName(p.name)] = p.abbr;
+  const list = Object.entries(pg.players || {}).filter(([n]) => ((pg.teams || {})[n] || byName[normName(n)]) === t.abbr)
+    .map(([n, m]) => [n, m.player_anytime_td && m.player_anytime_td[BOOK] ? m.player_anytime_td[BOOK].over : null])
+    .filter(x => x[1] != null).sort((a, b) => a[1] - b[1]).slice(0, 16);
+  const cols = [];
+  for (let i = 0; i < list.length; i += 4) cols.push(list.slice(i, i + 4));
+  return `<div class="td-head"><h4>Anytime TD</h4><span class="rk"><span class="book-name">${BOOKS[BOOK].name}</span> price to score, shortest first</span></div>`
+    + (list.length ? `<div class="td-cols">${cols.map(c => `<div class="td-col">${c.map(([n, p]) => `<div class="td-row"><span>${escapeHtml(n)}</span><b>${fmtOdds(p)}</b></div>`).join("")}</div>`).join("")}</div>`
+      : `<div class="empty-note">No anytime TD prices at ${BOOKS[BOOK].name} for this game yet.</div>`);
+}
+function paintBook(root) {
+  root = root || document;
+  root.querySelectorAll(".prop-td").forEach(td => { td.innerHTML = propCellInner(td.dataset.pp, td.dataset.pm); });
+  root.querySelectorAll(".td-props").forEach(el => { el.innerHTML = tdPropsInner(el.dataset.team); });
+  root.querySelectorAll(".book-short").forEach(el => { el.textContent = BOOKS[BOOK].short; });
+  root.querySelectorAll(".book-name").forEach(el => { el.textContent = BOOKS[BOOK].name; });
+  root.querySelectorAll(".book-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.book === BOOK)));
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest(".book-btn");
+  if (!b || !BOOKS[b.dataset.book]) return;
+  BOOK = b.dataset.book;
+  try { localStorage.setItem("propBook", BOOK); } catch (err) { /* remembered for this visit only */ }
+  paintBook();
+  document.querySelectorAll(".plog-card").forEach(c => { const sel = c.querySelector(".prop-line"); if (sel) { delete sel.dataset.stat; c.querySelector(".prop-stat").dispatchEvent(new Event("change", { bubbles: true })); } });
+  document.dispatchEvent(new CustomEvent("bookchange"));
+});
 function propsAsOf() {
   return PROPS ? new Date(PROPS.fetchedAt).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) : "";
 }
@@ -565,6 +630,8 @@ function renderTeamCard(t) {
   if (!t) return "";
   const avg = DATA.leagueAverage;
   const gr = DATA.gaugeRanges;
+  const P = cardProps();
+  const bk = what => `<span class="book-short">${BOOKS[BOOK].short}</span> ${what}`;
 
   return `
   <div class="team-card" data-team="${escapeHtml(t.team)}" style="${teamVars(t.abbr)}">
@@ -583,7 +650,7 @@ function renderTeamCard(t) {
       <button class="print-btn print-btn-single no-print" type="button" onclick="printOneTeam('${escapeHtml(t.team).replace(/'/g, "\\'")}')">Print</button>
     </div>
 
-    <div class="stat-columns">
+    <div class="stat-columns${P ? " with-books" : ""}">
       <div class="stat-col offense">
         <h3>Offense</h3>
         <div class="gauges">
@@ -606,6 +673,7 @@ function renderTeamCard(t) {
           <div class="lbl">Pass game</div>
           <div class="val">${fmtRank(t.offense.passYdsGRank)} <span>off</span> / ${fmtRank(t.defense.passYdsGRank)} <span>def</span></div>
         </div>
+        ${P ? bookButtons() : ""}
       </div>
 
       <div class="stat-col defense">
@@ -622,29 +690,36 @@ function renderTeamCard(t) {
       </div>
     </div>
 
-    <div class="tables-row">
+    <div class="tables-row${P ? " with-props" : ""}">
       ${playerTable("Passing", t.passing, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_pass_yds", "prop"]] : []),
         ["TD", "td", "num"],
+        ...(P ? [[bk("TD O/U"), "player_pass_tds", "prop"]] : []),
         ["Int", "int", "num"],
         ["Cmp/G", "cmp", "num"],
       ])}
       ${playerTable("Rushing", t.rushing, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_rush_yds", "prop"]] : []),
         ["TD", "td", "num"],
         ["Y/A", "ya", "num"],
         ["A/G", "ag", "num"],
+        ...(P ? [[bk("Att"), "player_rush_attempts", "prop"]] : []),
       ])}
       ${playerTable("Receiving", t.receiving, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_reception_yds", "prop"]] : []),
         ["TD", "td", "num"],
         ["Y/R", "yr", "num"],
         ["Rec/G", "rec", "num"],
+        ...(P ? [[bk("Rec"), "player_receptions", "prop"]] : []),
       ])}
     </div>
+    ${P ? tdPropsBlock(t) : ""}
 
     ${usageBlock(t)}
 
@@ -691,10 +766,11 @@ function playerTable(title, rows, cols) {
   if (!rows || rows.length === 0) {
     return `<div class="table-block"><h4>${title}</h4><div class="empty-note">No data</div></div>`;
   }
-  const head = cols.map(([label, , type]) => `<th class="${type === "num" ? "num" : ""}">${label}</th>`).join("");
+  const head = cols.map(([label, , type]) => `<th class="${type === "num" ? "num" : type === "prop" ? "num prop-th" : ""}">${label}</th>`).join("");
   const kind = title.toLowerCase();
   const body = rows.map(r => {
     const cells = cols.map(([, key, type]) => {
+      if (type === "prop") return propCell(r.player, key);
       const txt = escapeHtml(type === "num" ? dispNum(r[key] ?? "—") : String(r[key] ?? "—"));
       const val = key === "player" && r.log && DATA.gameLogs && DATA.gameLogs[r.log]
         ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>${injTag(r.inj)}`
@@ -703,7 +779,7 @@ function playerTable(title, rows, cols) {
     }).join("");
     return `<tr>${cells}</tr>`;
   }).join("");
-  return `<div class="table-block">
+  return `<div class="table-block${cols.some(c => c[2] === "prop") ? " has-props" : ""}">
     <h4>${title}</h4>
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
   </div>`;
@@ -943,7 +1019,7 @@ function updateProp(card, log) {
   const lineEl = card.querySelector(".prop-line");
   const vals = log.map(stat[3]);
   const avg = vals.reduce((a, v) => a + v, 0) / (vals.length || 1);
-  const bp = PROP_MARKET[key] ? bookProp(card.dataset.player, PROP_MARKET[key]) : null;
+  const bp = PROP_MARKET[key] ? bookLine(card.dataset.player, PROP_MARKET[key]) : null;
   if (lineEl.dataset.stat !== key) {  // new stat: this week's book line, else a line just under the season average
     lineEl.value = bp ? bp.line : Math.max(0.5, Math.floor(avg) + 0.5);
     lineEl.dataset.stat = key;
@@ -965,9 +1041,9 @@ function updateProp(card, log) {
   const last3 = vals.slice(-3).map(v => (v > line ? "O" : v < line ? "U" : "P")).join(" ");
   res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`
     + (bp ? `<div class="prop-book">${key === "tds"
-      ? `This week's anytime TD price: <b>${fmtOdds(bp.over)}</b>${bp.best.over ? `, best ${fmtOdds(bp.best.over[0])} at ${escapeHtml(bp.best.over[1])}` : ""}`
-      : `This week's line: <b>${bp.line}</b>, over ${fmtOdds(bp.over)} / under ${fmtOdds(bp.under)}${bp.best.over ? `; best over ${fmtOdds(bp.best.over[0])} at ${escapeHtml(bp.best.over[1])}` : ""}`}
-      <span class="rk">(median of ${bp.books} sportsbook${bp.books === 1 ? "" : "s"}, ${escapeHtml(propsAsOf())})</span></div>` : "");
+      ? `This week's ${BOOKS[BOOK].name} anytime TD price: <b>${fmtOdds(bp.over)}</b>`
+      : `This week's ${BOOKS[BOOK].name} line: <b>${bp.line}</b>, over ${fmtOdds(bp.over)} / under ${fmtOdds(bp.under)}`}
+      <span class="rk">(${escapeHtml(propsAsOf())})</span></div>` : PROPS && PROP_MARKET[key] ? `<div class="prop-book"><span class="rk">No ${BOOKS[BOOK].name} line for him this week.</span></div>` : "");
 }
 
 function panelHtml(name, key, log, kind) {

@@ -1033,7 +1033,7 @@ body.plog-open { overflow: hidden; }
   body.mprint:not(.print-single) .m-head,
   body.mprint:not(.print-single) .m-edges { zoom: 0.64; }
   body.mprint:not(.print-single) #teamCards,
-  body.mprint:not(.print-single) .m-cards { width: 1880px; zoom: 0.5; }
+  body.mprint:not(.print-single) .m-cards { width: 1960px; zoom: 0.48; }
   body.mprint:not(.print-single) .mh-week { margin-bottom: 4px; }
   body.mprint:not(.print-single) .hero-team { padding: 10px 22px; gap: 3px 16px; }
   body.mprint:not(.print-single) .hero-name { font-size: 2rem; }
@@ -1188,3 +1188,61 @@ body.plog-open { overflow: hidden; }
   .ep-print-page .ep-lede { margin-bottom: 6px; }
 }
 .prop-book { margin-top: 4px; font-size: 0.8125rem; color: var(--text); }
+
+/* ---------------- Sportsbook props on team cards and Weekly Edges ---------------- */
+.stat-columns.with-books { grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr); }
+.book-pick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.book-btn {
+  display: grid; place-items: center; height: 52px; padding: 0;
+  background: #ffffff; border: 3px solid transparent; border-radius: 8px; cursor: pointer;
+  opacity: 0.6; transition: opacity 0.15s, border-color 0.15s;
+}
+.book-btn:hover { opacity: 0.9; }
+.book-btn[aria-pressed="true"] { opacity: 1; border-color: #7cb6ff; box-shadow: 0 0 0 3px rgba(124, 182, 255, 0.25); }
+.book-btn:focus-visible { outline: 2px solid #7cb6ff; outline-offset: 3px; }
+/* sized to about the same area: FanDuel is a wide wordmark, DraftKings a stacked one */
+.book-dk img { height: 36px; width: auto; display: block; }
+.book-fd img { height: 20px; width: auto; display: block; }
+.book-cap { font-size: 0.78rem; color: var(--text-dim); }
+.book-cap b { color: var(--text); }
+.book-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 14px; }
+.book-bar .book-pick { width: 300px; max-width: 100%; }
+
+.prop-th { color: #7cb6ff; background: rgba(124, 182, 255, 0.07); }
+.prop-td { background: rgba(124, 182, 255, 0.07); }
+.prop-td b { display: block; }
+.prop-td .pp { display: block; font-size: 0.6875rem; color: var(--text-dim); white-space: nowrap; }
+.prop-td .pp-none { color: var(--mute); }
+/* with prop columns the three tables need more room: Passing across the top,
+   Rushing and Receiving side by side under it */
+.tables-row.with-props { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tables-row.with-props > .table-block:first-child { grid-column: 1 / -1; }
+.tables-row .has-props th, .tables-row .has-props td { padding-left: 5px; padding-right: 5px; }
+
+.td-props { margin: 0 0 20px; padding-top: 14px; border-top: 1px solid var(--border); }
+.td-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 6px 8px; }
+.td-head h4 { margin: 0; font-size: 0.9375rem; font-weight: 600; }
+.td-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 24px; }
+.td-row { display: flex; justify-content: space-between; gap: 8px; padding: 6px 8px; border-top: 1px solid var(--hair, var(--border)); font-size: 0.875rem; }
+.td-row b { color: #7cb6ff; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 900px) {
+  .stat-columns.with-books, .tables-row.with-props { grid-template-columns: minmax(0, 1fr); }
+  .center-col { flex-wrap: wrap; }
+  .center-col .book-pick { flex: 1 0 100%; max-width: 320px; margin: 0 auto; }
+  .center-col .book-cap { flex: 1 0 100%; }
+  .td-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media print {
+  .book-pick, .book-bar { display: none !important; }
+  .stat-columns.with-books { grid-template-columns: minmax(0, 1fr) 170px minmax(0, 1fr) !important; }
+  .tables-row.with-props { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .prop-th { color: var(--text); }
+  .prop-th, .prop-td { background: #eef3fa; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .td-row b { color: var(--text); }
+  .td-props { break-inside: avoid; page-break-inside: avoid; margin-bottom: 12px; padding-top: 8px; }
+  .td-row { padding: 2px 6px; }
+  .td-cols { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .td-head { margin-bottom: 2px; }
+}

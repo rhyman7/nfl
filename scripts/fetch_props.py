@@ -15,16 +15,23 @@ Output (data/props.json):
   "markets": {market key: label},
   "games": {nflverse game id: {"eventId", "commence", "players": {
       player name: {market key: {"line", "over", "under", "books", "best": {"over": [price, book], "under": [price, book]},
-                                  "dk": {"line", "over", "under"}, "fd": {"line", "over", "under"}}}}}}
+                                  "dk": {"line", "over", "under"}, "fd": {"line", "over", "under"}}}},
+      "teams": {player name: team abbr}}}
 }
 "line" is the median line across the books; "over"/"under" are the median prices at that line;
 "dk" and "fd" are each book's own line and prices (missing when that book has no line).
 For the anytime-TD market there is no line: "line" is 0.5 and "over" is the Yes price.
+"teams" puts each player on one of the game's two teams, from nflverse's weekly rosters (the API's
+player props don't say); team defenses (D/ST) and anyone not found are left out.
 
 Usage: ODDS_API_KEY=... python scripts/fetch_props.py [--keep 25] [--dry-run] [--game <nflverse id>]
+       python scripts/fetch_props.py --tag-teams   (re-tag the teams in data/props.json; no key, no credits)
 """
 import argparse
+import csv
+import io
 import json
+import re
 import os
 import statistics
 import sys
@@ -46,6 +53,61 @@ MARKETS = {
 }
 BOOKS = {"draftkings": "dk", "fanduel": "fd"}
 ROOT = Path(__file__).resolve().parent.parent
+ROSTERS = "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_{season}.csv"
+
+
+def norm_name(n):
+    """Same as normName() in common.js: lower case, no Jr./Sr./II-V, letters only."""
+    n = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b\.?", "", str(n or "").lower())
+    return re.sub(r"[^a-z]", "", n)
+
+
+def load_rosters(season):
+    """{normalized name: {team abbr, ...}} from each player's latest week on nflverse's rosters."""
+    try:
+        req = urllib.request.Request(ROSTERS.format(season=season), headers={"User-Agent": "rhyman7-nfl-dashboard"})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            text = r.read().decode("utf-8")
+    except Exception as e:  # rosters are a nice-to-have; the lines still work without them
+        print(f"rosters unavailable: {e}")
+        return {}
+    latest = {}
+    for row in csv.DictReader(io.StringIO(text)):
+        key = row.get("gsis_id") or row.get("full_name")
+        wk = int(row.get("week") or 0)
+        if key not in latest or wk >= latest[key][0]:
+            latest[key] = (wk, row)
+    out = {}
+    for _, row in latest.values():
+        if not row.get("team"):
+            continue
+        for nm in {row.get("full_name"), f"{row.get('football_name') or row.get('first_name')} {row.get('last_name')}"}:
+            if nm:
+                out.setdefault(norm_name(nm), set()).add(row["team"])
+        # fallback for nicknames (Hollywood Brown, Bam Knight): last name among skill players
+        if row.get("position") in ("QB", "RB", "WR", "TE", "FB"):
+            out.setdefault("~" + norm_name(row.get("last_name")), set()).add(row["team"])
+            out.setdefault("~~" + norm_name(row.get("last_name")), []).append(row["team"])
+    return out
+
+
+def tag_teams(game_id, players, sched_by_id, abbr_of, rosters):
+    g = sched_by_id.get(game_id)
+    if not g:
+        return {}
+    pair = {abbr_of.get(g["away"]), abbr_of.get(g["home"])}
+    out = {}
+    for name in players:
+        if re.search(r"\b(D/ST|Defense)$", name):
+            continue
+        hits = rosters.get(norm_name(name), set()) & pair
+        if not hits:   # nickname: a last name only one skill player on the two teams has
+            last = norm_name(name.split()[-1] if not re.search(r"\b(jr|sr|ii|iii|iv|v)\.?$", name.lower()) else name.split()[-2])
+            if sum(1 for t in rosters.get("~~" + last, []) if t in pair) == 1:
+                hits = rosters.get("~" + last, set()) & pair
+        if len(hits) == 1:
+            out[name] = hits.pop()
+    return out
 
 
 def get(path, key, **params):
@@ -123,12 +185,26 @@ def main():
     ap.add_argument("--keep", type=int, default=25, help="credits to leave unused")
     ap.add_argument("--dry-run", action="store_true", help="list the games and the cost, fetch no odds")
     ap.add_argument("--game", default="", help="fetch only this nflverse game id")
+    ap.add_argument("--tag-teams", action="store_true", help="only re-tag player teams in data/props.json")
     args = ap.parse_args()
+
+    data = json.loads((ROOT / "data" / "data.json").read_text())
+    sched_by_id = {g["id"]: g for g in data["schedule"]["games"]}
+    abbr_of = {name: t["abbr"] for name, t in data["teams"].items()}
+    out_path = ROOT / "data" / "props.json"
+
+    if args.tag_teams:
+        p = json.loads(out_path.read_text())
+        rosters = load_rosters(p["season"])
+        for gid, g in p["games"].items():
+            g["teams"] = tag_teams(gid, g.get("players", {}), sched_by_id, abbr_of, rosters)
+            print(f"{gid}: {len(g['teams'])} of {len(g.get('players', {}))} players tagged")
+        out_path.write_text(json.dumps(p, separators=(",", ":")))
+        return
+
     key = os.environ.get("ODDS_API_KEY", "").strip()
     if not key:
         sys.exit("ODDS_API_KEY isn't set (add it as a repository secret).")
-
-    data = json.loads((ROOT / "data" / "data.json").read_text())
     sched = {(g["away"], g["home"]): g for g in data["schedule"]["games"]}
     now = datetime.now(timezone.utc)
 
@@ -149,7 +225,7 @@ def main():
     if args.dry_run:
         return
 
-    out_path = ROOT / "data" / "props.json"
+    rosters = load_rosters(data["season"])
     prev = {}
     if out_path.exists():
         try:
@@ -172,7 +248,8 @@ def main():
                 break
             continue
         players = summarize(body.get("bookmakers", []))
-        games[g["id"]] = {"eventId": ev["id"], "commence": ev["commence_time"], "players": players}
+        games[g["id"]] = {"eventId": ev["id"], "commence": ev["commence_time"], "players": players,
+                          "teams": tag_teams(g["id"], players, sched_by_id, abbr_of, rosters)}
         fetched += 1
         print(f"{g['id']}: {len(players)} players, {len(body.get('bookmakers', []))} books, cost {credits['lastCall']}, {credits['remaining']} left")
 
