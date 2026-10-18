@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T14:12:36.383636+00:00",
+  "generatedAt": "2026-10-18T14:17:24.198749+00:00",
   "season": 2026,
   "throughWeek": 5,
   "schedule": {
@@ -147,7 +147,7 @@
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
-        "awayQb": "Tyson Bagent",
+        "awayQb": "Caleb Williams",
         "homeQb": "Michael Penix Jr.",
         "referee": null,
         "awayRest": 7,
@@ -270,7 +270,7 @@
         "home": "Indianapolis Colts",
         "awayScore": null,
         "homeScore": null,
-        "spread": 7.0,
+        "spread": 6.5,
         "total": 44.5,
         "stadium": "Lucas Oil Stadium",
         "roof": null,
@@ -16152,8 +16152,8 @@
           "ag": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "Q",
-            "note": "Illness \u00b7 Questionable"
+            "s": "DNP",
+            "note": "Illness \u00b7 Did Not Participate In Practice"
           },
           "log": "PIT|00-0035640",
           "cs": 0.9
@@ -16209,8 +16209,8 @@
           "rec": 3.8,
           "pos": "WR",
           "inj": {
-            "s": "Q",
-            "note": "Illness \u00b7 Questionable"
+            "s": "DNP",
+            "note": "Illness \u00b7 Did Not Participate In Practice"
           },
           "log": "PIT|00-0035640",
           "ts": 21.3,
@@ -16249,6 +16249,10 @@
           "yr": 8.9,
           "rec": 3.8,
           "pos": "TE",
+          "inj": {
+            "s": "Q",
+            "note": "Calf \u00b7 Questionable"
+          },
           "log": "PIT|00-0036894",
           "ts": 14.9,
           "ts3": 16.0
@@ -17365,6 +17369,10 @@
           "ya": 3.7,
           "ag": 7.4,
           "pos": "RB",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - personal matter \u00b7 Did Not Participate In Practice"
+          },
           "log": "SF|00-0041052",
           "cs": 26.6
         },
@@ -17386,8 +17394,8 @@
           "ag": 1.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "SF|00-0035719",
           "cs": 6.5
@@ -17422,8 +17430,8 @@
           "rec": 4.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Ribs \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Ribs \u00b7 Questionable"
           },
           "log": "SF|00-0031408",
           "ts": 24.8,
@@ -17470,8 +17478,8 @@
           "rec": 4.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "SF|00-0035719",
           "ts": 14.6,
@@ -19183,8 +19191,8 @@
           "cmp": 11.0,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Knee \u00b7 Out"
           },
           "log": "WAS|00-0032268"
         },
@@ -19226,8 +19234,8 @@
           "ag": 13.4,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Groin \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Groin \u00b7 Out"
           },
           "log": "WAS|00-0040242",
           "cs": 45.3
@@ -19254,8 +19262,8 @@
           "ag": 2.3,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Knee \u00b7 Out"
           },
           "log": "WAS|00-0032268",
           "cs": 4.7
@@ -19294,8 +19302,8 @@
           "rec": 3.5,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "LP",
+            "note": "Hamstring \u00b7 Limited Participation in Practice"
           },
           "log": "WAS|00-0035659",
           "ts": 17.1,
@@ -19309,8 +19317,8 @@
           "rec": 4.5,
           "pos": "WR",
           "inj": {
-            "s": "LP",
-            "note": "Hamstring \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Hamstring \u00b7 Questionable"
           },
           "log": "WAS|00-0031588",
           "ts": 20.4,
