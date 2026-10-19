@@ -95,6 +95,7 @@ function matchEvent(ev, games) {
 // Once per page load: pull ESPN's current spread and O/U for this week's games.
 // If it fails or a game has no odds, the page keeps the line from data.json.
 function refreshLines(games, onChange) {
+  if (games.length && games.every(isFinal)) return;   // a finished week keeps its closing line
   weekScoreboard().then(sb => {
     let changed = false;
     (sb.events || []).forEach(ev => {
@@ -195,6 +196,9 @@ function startLiveMatchup(g) {
   let timer = null;
   const schedule = ms => { clearTimeout(timer); timer = setTimeout(() => whenVisible(tick), ms); };
 
+  // a game from a finished week (week strip): the box score is the page, so say so while it loads
+  const past = typeof weekMode === "function" && weekMode() === "past";
+
   async function tick() {
     const now = Date.now();
     const start = gameStart(g).getTime();
@@ -222,13 +226,16 @@ function startLiveMatchup(g) {
       LIVE[g.id] = L;
       updateHeroLive(g, L);
       if (state === "in" || state === "post") {
-        box.innerHTML = renderBoxScore(g, L, s);
+        box.innerHTML = renderBoxScore(g, L, s, past);
         box.hidden = false;
       } else {
         box.hidden = true;
       }
     } catch (err) {
-      if (!isFinal(g) && inGameWindow(g, now) && box.hidden) {
+      if (past) {
+        box.innerHTML = `<h3 class="section-title">Box score</h3><div class="empty-note">The box score for this game isn't available right now.${g.espnId ? ` <a href="${espnGameUrl(g.espnId)}" target="_blank" rel="noopener">Open this game on ESPN</a>.` : ""}</div>`;
+        box.hidden = false;
+      } else if (!isFinal(g) && inGameWindow(g, now) && box.hidden) {
         box.innerHTML = `<h3 class="section-title">Box score</h3><div class="empty-note">The live box score isn't available right now.</div>`;
         box.hidden = false;
       }
@@ -237,7 +244,8 @@ function startLiveMatchup(g) {
     else if (state === "pre" || (state === null && inGameWindow(g, Date.now()))) schedule(POLL_SOON_MS);
   }
 
-  box.hidden = true;
+  box.hidden = !past;
+  if (past) box.innerHTML = `<h3 class="section-title">Box score</h3><div class="empty-note">Loading the box score…</div>`;
   whenVisible(tick);
 }
 
@@ -268,7 +276,8 @@ function updateHeroLive(g, L) {
   }
 }
 
-function renderBoxScore(g, L, s) {
+// full: a finished week's game, where the box score is the page: every player, no "stats below".
+function renderBoxScore(g, L, s, full) {
   const awayAbbr = abbrOf(g.away), homeAbbr = abbrOf(g.home);
   const idToSide = {};
   if (L.away && L.away.id) idToSide[L.away.id] = "away";
@@ -280,7 +289,7 @@ function renderBoxScore(g, L, s) {
     : `<span class="final-badge">${escapeHtml(L.detail || "Final")}</span>`;
 
   const parts = [lineScore(g, L, awayAbbr, homeAbbr), teamStats(s, idToSide, awayAbbr, homeAbbr)].filter(Boolean);
-  const players = playerStats(s, idToSide, sideAbbr);
+  const players = playerStats(s, idToSide, sideAbbr, !!full);
   const scoring = scoringPlays(s, idToSide, sideAbbr);
 
   return `
@@ -288,7 +297,8 @@ function renderBoxScore(g, L, s) {
     <div class="box-grid">${parts.join("")}</div>
     ${players}
     ${scoring}
-    <p class="edge-key">Live data from ESPN${L.state === "in" ? ", updates every 30 seconds" : ""}. Season stats below are as of Week ${DATA.throughWeek}.</p>`;
+    <p class="edge-key">${full ? `Box score from ESPN.${g.espnId ? ` <a href="${espnGameUrl(g.espnId)}" target="_blank" rel="noopener">Open this game on ESPN</a>.` : ""}`
+      : `Live data from ESPN${L.state === "in" ? ", updates every 30 seconds" : ""}. Season stats below are as of Week ${DATA.throughWeek}.`}</p>`;
 }
 
 function lineScore(g, L, awayAbbr, homeAbbr) {

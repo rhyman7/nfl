@@ -1,11 +1,14 @@
 name: Build matchup PDFs
 
-# Rebuilds pdf/ (the Download PDF files) whenever the data or the print layout changes.
+# Rebuilds pdf/ (the Download PDF files, matchups and EPA) whenever the data or the print layout changes.
 on:
   push:
     branches: [main]
     paths:
       - "data/data.json"
+      - "data/epa.json"
+      - "epa.html"
+      - "epa.js"
       - "print.html"
       - "print.js"
       - "common.js"

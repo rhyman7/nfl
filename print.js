@@ -1,4 +1,4 @@
-// Print all: every game this week, one matchup per landscape page.
+// Print all: every game this week, two landscape pages per matchup.
 init();
 
 async function init() {
@@ -36,7 +36,7 @@ async function init() {
   wrap.querySelectorAll("[id]").forEach(el => el.removeAttribute("id"));
 
   const n = games.length;
-  status.textContent = `${n} matchup${n === 1 ? "" : "s"} ready, ${n} landscape page${n === 1 ? "" : "s"}`;
+  status.textContent = `${n} matchup${n === 1 ? "" : "s"} ready, ${2 * n} landscape pages (two per matchup)`;
   const btn = document.getElementById("printAllBtn");
   btn.disabled = false;
   btn.addEventListener("click", () => window.print());

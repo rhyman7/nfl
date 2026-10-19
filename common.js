@@ -2,12 +2,203 @@
 // Head to Head and the team card.
 let DATA = null;
 
+// The week strip. data.json is always this week (stats and schedule). The board and the
+// matchup page can show another week: its games come from data/weeks/<N>.json and replace
+// DATA.schedule, while the teams stay as they are in data.json.
+let SEASON = null;      // data/season.json: { season, weeks: [{ week, games, from, to }] }
+let LIVE_WEEK = null;   // the week data.json is for
+let VIEW_WEEK = null;   // the week this page is showing
+let WEEK_MISSING = false;   // the chosen week's file couldn't be loaded
+
+// "current", "past" (finished: scores and box scores) or "upcoming" (schedule only).
+function weekMode() {
+  return VIEW_WEEK == null || VIEW_WEEK === LIVE_WEEK ? "current" : VIEW_WEEK < LIVE_WEEK ? "past" : "upcoming";
+}
+function weekHref(week) {
+  return week === LIVE_WEEK ? "index.html" : `index.html?week=${week}`;
+}
+// The week a link asks for: ?week=N on the board, or the week in a game id (2026_03_ATL_GB).
+function wantedWeek() {
+  const page = document.body.dataset.page, params = new URLSearchParams(location.search);
+  let w = null;
+  if (page === "week") w = parseInt(params.get("week"), 10);
+  else if (page === "matchup") w = parseInt((/^\d{4}_(\d{1,2})_/.exec(params.get("game") || "") || [])[1], 10);
+  return Number.isFinite(w) ? w : null;
+}
+
 async function loadData() {
-  const res = await fetch("data/data.json", { cache: "no-store" });
+  const [res, season] = await Promise.all([
+    fetch("data/data.json", { cache: "no-store" }),
+    fetch("data/season.json", { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
   if (!res.ok) throw new Error("HTTP " + res.status);
   DATA = await res.json();
+  SEASON = season && season.season === DATA.season && Array.isArray(season.weeks) ? season : null;
+  LIVE_WEEK = VIEW_WEEK = DATA.schedule ? DATA.schedule.week : null;
+  DATA.liveSchedule = DATA.schedule;
+  const want = wantedWeek();
+  if (want != null && want !== LIVE_WEEK && SEASON && SEASON.weeks.some(w => w.week === want)) {
+    VIEW_WEEK = want;
+    try {
+      const r = await fetch(`data/weeks/${want}.json`, { cache: "no-cache" });
+      const wk = r.ok ? await r.json() : null;
+      if (!wk || wk.season !== DATA.season || !wk.schedule) throw new Error("no week file");
+      DATA.schedule = wk.schedule;
+    } catch (e) {
+      WEEK_MISSING = true;
+      DATA.schedule = { week: want, games: [], byes: [] };
+    }
+  }
+  // player prop lines (data/props.json, from The Odds API via the Fetch player props workflow)
+  try {
+    const pr = await fetch("data/props.json", { cache: "no-cache" });
+    const p = pr.ok ? await pr.json() : null;
+    if (p && p.season === DATA.season && p.week === LIVE_WEEK && p.games) PROPS = p;
+  } catch (e) { /* props are optional */ }
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
+  try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
+}
+
+/* ---------------- Player prop lines (data/props.json) ---------------- */
+let PROPS = null;
+let PROP_INDEX = null;
+// prop check stat -> The Odds API market
+const PROP_MARKET = { pYds: "player_pass_yds", pTd: "player_pass_tds", rYds: "player_rush_yds",
+  recYds: "player_reception_yds", rec: "player_receptions", tds: "player_anytime_td", car: "player_rush_attempts" };
+function normName(n) {
+  return String(n || "").toLowerCase().replace(/\b(jr|sr|ii|iii|iv|v)\b\.?/g, "").replace(/[^a-z]/g, "");
+}
+function propIndex() {
+  if (PROP_INDEX) return PROP_INDEX;
+  PROP_INDEX = {};
+  if (PROPS) for (const g of Object.values(PROPS.games)) for (const [n, m] of Object.entries(g.players || {})) PROP_INDEX[normName(n)] = m;
+  return PROP_INDEX;
+}
+// The book line for a player and market: { line, over, under, books, best: { over: [price, book], under } }
+function bookProp(name, market) {
+  const m = propIndex()[normName(name)];
+  return m && m[market] ? m[market] : null;
+}
+function fmtOdds(p) { return p == null ? "—" : p > 0 ? "+" + p : MINUS + Math.abs(p); }
+
+/* Sportsbook choice: every prop line on the site shows one book at a time (DraftKings or FanDuel),
+   remembered in this browser. Clicking a .book-btn switches it everywhere on the page. */
+const BOOKS = { dk: { name: "DraftKings", short: "DK", logo: "img/draftkings.png" }, fd: { name: "FanDuel", short: "FD", logo: "img/fanduel.png" } };
+let BOOK = (() => { try { return localStorage.getItem("propBook") === "fd" ? "fd" : "dk"; } catch (e) { return "dk"; } })();
+// This book's own line for a player and market: { line, over, under } or null.
+function bookLine(name, market) {
+  const bp = bookProp(name, market);
+  return bp && bp[BOOK] ? bp[BOOK] : null;
+}
+// Prop lines on team cards: matchup pages (and Print all) for the current week only.
+function cardProps() {
+  return !!PROPS && weekMode() === "current" && ["matchup", "printall"].includes(document.body.dataset.page);
+}
+function bookButtons() {
+  return `<div class="book-pick" role="group" aria-label="Sportsbook for prop lines">
+      ${Object.entries(BOOKS).map(([k, b]) => `<button type="button" class="book-btn book-${k}" data-book="${k}" aria-pressed="${BOOK === k}" title="Show ${b.name} lines"><img src="${b.logo}" alt="${b.name}"></button>`).join("")}
+    </div>
+    <div class="book-cap">Showing <b class="book-name">${BOOKS[BOOK].name}</b> lines and prices</div>`;
+}
+function propCell(name, market) {
+  return `<td class="num prop-td" data-pp="${escapeHtml(name)}" data-pm="${market}">${propCellInner(name, market)}</td>`;
+}
+function propCellInner(name, market) {
+  const b = bookLine(name, market);
+  return b ? `<b>${b.line}</b><span class="pp">O ${fmtOdds(b.over)} · U ${fmtOdds(b.under)}</span>` : `<span class="pp-none">—</span>`;
+}
+// Anytime TD prices for one team's players in its game this week, shortest first:
+// up to four columns of four.
+function tdPropsBlock(t) {
+  return `<div class="td-props" data-team="${escapeHtml(t.team)}">${tdPropsInner(t.team)}</div>`;
+}
+function tdPropsInner(teamName) {
+  const t = DATA.teams[teamName];
+  const g = t && (DATA.schedule.games || []).find(x => x.away === teamName || x.home === teamName);
+  const pg = g && PROPS && PROPS.games[g.id];
+  if (!pg) return "";
+  const byName = {};
+  for (const p of Object.values(playerIndex())) if (p.abbr) byName[normName(p.name)] = p.abbr;
+  const list = Object.entries(pg.players || {}).filter(([n]) => ((pg.teams || {})[n] || byName[normName(n)]) === t.abbr)
+    .map(([n, m]) => [n, m.player_anytime_td && m.player_anytime_td[BOOK] ? m.player_anytime_td[BOOK].over : null])
+    .filter(x => x[1] != null).sort((a, b) => a[1] - b[1]).slice(0, 16);
+  const cols = [];
+  for (let i = 0; i < list.length; i += 4) cols.push(list.slice(i, i + 4));
+  return `<div class="td-head"><h4>Anytime TD</h4><span class="rk"><span class="book-name">${BOOKS[BOOK].name}</span> price to score, shortest first</span></div>`
+    + (list.length ? `<div class="td-cols">${cols.map(c => `<div class="td-col">${c.map(([n, p]) => `<div class="td-row"><span>${escapeHtml(n)}</span><b>${fmtOdds(p)}</b></div>`).join("")}</div>`).join("")}</div>`
+      : `<div class="empty-note">No anytime TD prices at ${BOOKS[BOOK].name} for this game yet.</div>`);
+}
+function paintBook(root) {
+  root = root || document;
+  root.querySelectorAll(".prop-td").forEach(td => { td.innerHTML = propCellInner(td.dataset.pp, td.dataset.pm); });
+  root.querySelectorAll(".td-props").forEach(el => { el.innerHTML = tdPropsInner(el.dataset.team); });
+  root.querySelectorAll(".book-short").forEach(el => { el.textContent = BOOKS[BOOK].short; });
+  root.querySelectorAll(".book-name").forEach(el => { el.textContent = BOOKS[BOOK].name; });
+  root.querySelectorAll(".book-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.book === BOOK)));
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest(".book-btn");
+  if (!b || !BOOKS[b.dataset.book]) return;
+  BOOK = b.dataset.book;
+  try { localStorage.setItem("propBook", BOOK); } catch (err) { /* remembered for this visit only */ }
+  paintBook();
+  document.querySelectorAll(".plog-card").forEach(c => { const sel = c.querySelector(".prop-line"); if (sel) { delete sel.dataset.stat; c.querySelector(".prop-stat").dispatchEvent(new Event("change", { bubbles: true })); } });
+  document.dispatchEvent(new CustomEvent("bookchange"));
+});
+function propsAsOf() {
+  return PROPS ? new Date(PROPS.fetchedAt).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) : "";
+}
+
+// The week strip in the top bar, just left of the player search: one link per week,
+// ending at the season's last week. Finished weeks open their scores, later weeks their schedule.
+function initWeekNav() {
+  const nav = document.querySelector(".topbar .topnav");
+  if (!nav || !SEASON || LIVE_WEEK == null || nav.querySelector(".weeknav")) return;
+  const page = document.body.dataset.page;
+  const shown = page === "week" || page === "matchup" ? VIEW_WEEK : null;
+  const day = d => new Date(d + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  const el = document.createElement("div");
+  el.className = "weeknav no-print";
+  el.setAttribute("role", "navigation");
+  el.setAttribute("aria-label", "Weeks");
+  el.innerHTML = `<span class="wk-label">Week</span>` + SEASON.weeks.map(w => {
+    const state = w.week === LIVE_WEEK ? "now" : w.week < LIVE_WEEK ? "past" : "next";
+    const what = state === "now" ? "this week" : state === "past" ? "final scores" : "schedule";
+    const dates = w.from && w.to ? `, ${w.from === w.to ? day(w.from) : day(w.from) + " to " + day(w.to)}` : "";
+    return `<a href="${weekHref(w.week)}" class="wk ${state}${w.week === shown ? " sel" : ""}"${w.week === shown ? ' aria-current="page"' : ""} title="${escapeHtml(`Week ${w.week}${dates}: ${what}`)}"><span class="wk-pre">Week </span>${w.week}</a>`;
+  }).join("");
+  // the strip and the search box travel together, so the last week stays beside the search
+  const tools = document.createElement("div");
+  tools.className = "navtools";
+  tools.appendChild(el);
+  const search = nav.querySelector(".psearch");
+  if (search) tools.appendChild(search);
+  nav.appendChild(tools);
+  // "This Week's Matchups" is only the page on screen when the board shows this week
+  if (page === "week" && VIEW_WEEK !== LIVE_WEEK) nav.querySelectorAll(":scope > a.active").forEach(a => a.classList.remove("active"));
+
+  // Keep everything on one row when it can be: if the strip had to drop to a second row,
+  // try the short page names. On phones the strip scrolls sideways, starting on the week in view.
+  const first = nav.querySelector(":scope > a");
+  const dropped = () => !!first && tools.offsetTop > first.offsetTop + 8;
+  const focus = el.querySelector(".sel") || el.querySelector(".now");
+  const fit = () => {
+    nav.classList.remove("nav-tight");
+    if (dropped()) {
+      nav.classList.add("nav-tight");
+      if (dropped()) nav.classList.remove("nav-tight");
+    }
+    if (focus) el.scrollLeft = focus.offsetLeft - (el.clientWidth - focus.offsetWidth) / 2;
+  };
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener("resize", fit);
+  el.addEventListener("wheel", e => {
+    if (el.scrollWidth <= el.clientWidth || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    el.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
 }
 
 function loadError(target) {
@@ -180,7 +371,8 @@ function renderMatchupParts(g) {
       ${edgePanel(away, home)}
       ${edgePanel(home, away)}
     </div>
-    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.</p>`;
+    ${pacePanel(away, home)}
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
   const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -203,7 +395,7 @@ function renderHero(g, away, home) {
   return `
   <div class="mh-week">Week ${DATA.schedule.week}</div>
   <div class="game-hero">
-    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb)}
+    ${heroTeam(away, g.neutral ? "Team 1" : "Away", final ? g.awayScore : null, final ? g.homeScore : null, "away", g.awayQb, g.awayRecord)}
     <div class="hero-mid">
       <div class="hero-live" id="heroLive" hidden></div>
       <div class="hero-line" id="heroLine"${line ? "" : " hidden"}>${escapeHtml(line)}</div>
@@ -211,7 +403,7 @@ function renderHero(g, away, home) {
       <div class="hero-info hero-implied" id="heroImplied"${imp ? "" : " hidden"}>${escapeHtml(imp)}</div>
       <div class="hero-info hero-move" id="heroMove"${move ? "" : " hidden"}>${escapeHtml(move)}</div>
     </div>
-    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb)}
+    ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", g.homeQb, g.homeRecord)}
   </div>
   <div class="hero-facts">${facts.join("")}</div>
   ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}`;
@@ -227,8 +419,11 @@ function refreshHero(g) {
   if (wx) wx.textContent = heroWxText(g);
 }
 
-function heroTeam(t, side, score, otherScore, sideKey, qb) {
-  const rec = `${fmtRecord(t)}, SRS ${dispNum(t.record.srs)}${qb ? `. ${qb} at QB` : ""}`;
+// weekRecord: the team's record going into another week's game (week files only); the
+// header then leaves out the rating, which is this week's.
+function heroTeam(t, side, score, otherScore, sideKey, qb, weekRecord) {
+  const rec = (weekMode() !== "current" && weekRecord != null ? weekRecord : `${fmtRecord(t)}, SRS ${dispNum(t.record.srs)}`)
+    + (qb ? `. ${qb} at QB` : "");
   const lost = score !== null && otherScore !== null && score < otherScore;
   return `
     <div class="hero-team" data-side="${sideKey}" style="${teamVars(t.abbr)}">
@@ -246,7 +441,7 @@ function leagueRank(getter, value, higherIsBetter) {
 }
 
 const EDGE_ROWS = [
-  // label, offense getter, defense getter, offense higher-better, defense higher-better
+  // label, offense getter, defense getter, offense higher-better, defense higher-better, number format (optional)
   ["Points / G", t => t.offense.ppg, t => t.defense.papg, true, false],
   ["Rush Yds / G", t => t.offense.rushYdsG, t => t.defense.rushYdsG, true, false],
   ["Rush TD / G", t => t.offense.rushTdG, t => t.defense.rushTdG, true, false],
@@ -255,12 +450,44 @@ const EDGE_ROWS = [
   ["INT / G", t => t.offense.int, t => t.defense.int, false, true],
 ];
 
+// Yards per rush attempt, on the row under Rush Yds / G (left out if the data file predates it).
+const YPA_ROW = ["Rush Yds / Att", t => t.offense.rushYdsAtt, t => t.defense.rushYdsAtt, true, false, v => v.toFixed(2)];
+
 const EFF_ROWS = [
   ["EPA / play", t => t.eff.off.epa, t => t.eff.def.epa, true, false],
   ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
 ];
+// Red zone, 3rd down, big plays and pass rush (t.situ, from scripts/situational.py), in labeled groups
+// under the rows above. A row is shown only when every team has the number.
+const sv = (side, key) => t => t.situ && t.situ[side][key] ? t.situ[side][key].v : null;
+const SITU_GROUPS = [
+  ["Finishing drives", [
+    ["Red zone TD %", sv("off", "rzTd"), sv("def", "rzTd"), true, false, v => v.toFixed(1)],
+    ["3rd down %", sv("off", "third"), sv("def", "third"), true, false, v => v.toFixed(1)],
+  ]],
+  ["Big plays", [
+    ["Explosive %", sv("off", "explosive"), sv("def", "explosive"), true, false, v => v.toFixed(1)],
+    ["Pass 20+ %", sv("off", "expPass"), sv("def", "expPass"), true, false, v => v.toFixed(1)],
+    ["Rush 10+ %", sv("off", "expRush"), sv("def", "expRush"), true, false, v => v.toFixed(1)],
+  ]],
+  ["Pass rush vs protection", [
+    ["Sack rate %", sv("off", "sackRate"), sv("def", "sackRate"), false, true, v => v.toFixed(1)],
+    ["Pressure %", sv("off", "pressureRate"), sv("def", "pressureRate"), false, true, v => v.toFixed(1)],
+  ]],
+];
+function hasSitu() { return Object.values(DATA.teams).every(t => t.situ); }
 function edgeRows() {
-  return Object.values(DATA.teams).every(t => t.eff) ? EDGE_ROWS.slice(0, 1).concat(EFF_ROWS, EDGE_ROWS.slice(1)) : EDGE_ROWS;
+  const teams = Object.values(DATA.teams);
+  const rows = EDGE_ROWS.slice();
+  if (teams.every(t => typeof t.offense.rushYdsAtt === "number" && typeof t.defense.rushYdsAtt === "number")) rows.splice(2, 0, YPA_ROW);
+  if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
+  if (hasSitu()) {
+    for (const [group, list] of SITU_GROUPS) {
+      const ok = list.filter(([, og, dg]) => teams.every(t => og(t) != null && dg(t) != null));
+      if (ok.length) rows.push(group, ...ok);
+    }
+  }
+  return rows;
 }
 
 // One offense against the other defense, stat by stat. Each side's bar grows from the
@@ -269,7 +496,11 @@ function edgePanel(offTeam, defTeam) {
   const n = Object.keys(DATA.teams).length;
   const ov = teamVars(offTeam.abbr), dv = teamVars(defTeam.abbr);
   const oa = escapeHtml(offTeam.abbr), da = escapeHtml(defTeam.abbr);
-  const rows = edgeRows().map(([label, offGet, defGet, offHi, defHi]) => {
+  let extra = false;  // rows after the first group label are the newer ones; print leaves them out
+  const rows = edgeRows().map(row => {
+    if (typeof row === "string") { extra = true; return `<div class="tape-group">${escapeHtml(row)}</div>`; }
+    const [label, offGet, defGet, offHi, defHi, fmt] = row;
+    const show = v => dispNum(fmt ? fmt(v) : v);
     const o = offGet(offTeam), d = defGet(defTeam);
     const or = leagueRank(offGet, o, offHi), dr = leagueRank(defGet, d, defHi);
     const diff = dr - or;
@@ -277,12 +508,12 @@ function edgePanel(offTeam, defTeam) {
     const w = r => Math.round(((n + 1 - r) / n) * 100);
     const edge = side === "off" ? `<b class="tc" style="${ov}">${oa}</b>`
       : side === "def" ? `<b class="tc" style="${dv}">${da}</b>` : `<span class="even">Even</span>`;
-    return `<div class="tape">
+    return `<div class="tape${extra ? " tape-x" : ""}">
       <span class="lbl">${label}</span>
-      <span class="num"><b>${dispNum(o)}</b> <span class="rk">#${or}</span></span>
+      <span class="num"><b>${show(o)}</b> <span class="rk">#${or}</span></span>
       <span class="tl"><i class="tb${side === "off" ? " on" : ""}" style="width:${w(or)}%;${ov}"></i></span>
       <span class="tr"><i class="tb${side === "def" ? " on" : ""}" style="width:${w(dr)}%;${dv}"></i></span>
-      <span><b>${dispNum(d)}</b> <span class="rk">#${dr}</span></span>
+      <span><b>${show(d)}</b> <span class="rk">#${dr}</span></span>
       <span class="num edge">${edge}</span>
     </div>`;
   }).join("");
@@ -292,6 +523,67 @@ function edgePanel(offTeam, defTeam) {
     <h4><span class="tc" style="${ov}">${oa} offense</span> against <span class="tc" style="${dv}">${da} defense</span></h4>
     <div class="tape tape-h"><span></span><span class="num">${oa} offense</span><span></span><span></span><span>${da} defense</span><span class="num">Edge</span></div>
     ${rows}
+  </div>`;
+}
+
+// Pace and tendency for both teams (t.pace): plays per game, seconds between snaps in neutral
+// situations and early-down pass rate over expected. Combined plays are compared with the league.
+function pacePanel(a, h) {
+  if (!a || !h || !a.pace || !h.pace || !a.pace.ppg || !h.pace.ppg) return "";
+  const teams = Object.values(DATA.teams).filter(t => t.pace && t.pace.ppg);
+  const lg = 2 * teams.reduce((s, t) => s + t.pace.ppg.v, 0) / teams.length;
+  const both = a.pace.ppg.v + h.pace.ppg.v;
+  const cell = (x, unit) => x ? `<b>${dispNum(x.v.toFixed(1))}${unit || ""}</b> <span class="rk">#${x.rank}</span>` : "—";
+  const proe = x => x ? `<b>${x.v > 0 ? "+" : ""}${dispNum(x.v.toFixed(1))}%</b> <span class="rk">#${x.rank}</span>` : "—";
+  const row = t => `<tr>
+      <td><span class="pace-team">${slabHtml(t.abbr, t.abbr)} ${teamLink(t)}</span></td>
+      <td class="num">${cell(t.pace.ppg)}</td>
+      <td class="num">${cell(t.pace.spp)}</td>
+      <td class="num">${proe(t.pace.proe)}</td>
+    </tr>`;
+  return `<div class="pace-panel">
+    <div class="pace-head">
+      <h4>Pace and tendency</h4>
+      <span class="pace-sum">Both teams combined: <b>${both.toFixed(1)} plays per game</b> (league average ${lg.toFixed(1)})</span>
+    </div>
+    <div class="pace-scroll"><table>
+      <thead><tr><th>Team</th><th class="num">Plays / G</th><th class="num">Seconds / play (neutral)</th><th class="num">Pass rate over expected</th></tr></thead>
+      <tbody>${row(a)}${row(h)}</tbody>
+    </table></div>
+    <p class="bet-note">Neutral = one-score games, first three quarters. Pass rate over expected is early downs, from nflverse's play-by-play model. Rank 1 = most plays, fastest pace, most pass-heavy.</p>
+  </div>`;
+}
+
+// Usage block in a team card (t.usage): snap %, target and air-yards share, last three games.
+function usageBlock(t) {
+  const u = t.usage;
+  if (!u || !u.targets || !u.targets.length) return "";
+  const hasSnap = u.targets.some(r => r.snap != null);
+  const name = (r, kind) => r.log && DATA.gameLogs && DATA.gameLogs[r.log]
+    ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${escapeHtml(r.player)}">${escapeHtml(r.player)}</button>`
+    : escapeHtml(r.player);
+  const trend = r => {
+    const d = r.ts3 - r.ts;
+    const cls = d >= 2 ? "up" : d <= -2 ? "down" : "";
+    return `<span class="trend ${cls}">${cls === "up" ? "↑ " : cls === "down" ? "↓ " : ""}${r.ts3.toFixed(1)}%</span>`;
+  };
+  const rows = u.targets.map(r => `<tr>
+      <td>${name(r, "receiving")}</td>
+      <td class="pos-cell">${escapeHtml(r.pos || "")}</td>
+      ${hasSnap ? `<td class="num">${r.snap == null ? "—" : r.snap + "%"}</td>` : ""}
+      <td class="num"><span class="share"><i style="width:${Math.min(100, Math.round(r.ts / 40 * 100))}%"></i></span><b>${r.ts.toFixed(1)}%</b></td>
+      <td class="num">${r.as.toFixed(1)}%</td>
+      <td class="num">${trend(r)}</td>
+    </tr>`).join("");
+  const carries = (u.carries || []).map(c => `<span class="usage-chip">${name(c, "rushing")} <b>${c.cs.toFixed(1)}%</b></span>`).join("");
+  return `<div class="usage-block">
+    <h4>Usage</h4>
+    <div class="table-block"><table>
+      <thead><tr><th>Player</th><th>Pos</th>${hasSnap ? `<th class="num">Snap %</th>` : ""}<th class="num">Target share</th><th class="num">Air yds</th><th class="num" title="Target share over the team's last three games">Last 3</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>
+    ${carries ? `<div class="usage-carries"><span class="lbl">Carry share</span>${carries}</div>` : ""}
+    <p class="bet-note">Target share = share of team targets; Air yds = share of the team's air yards; Last 3 = target share over the last three games (arrow when it moved 2 points or more).${hasSnap ? " Snap % = offensive snaps played." : ""}</p>
   </div>`;
 }
 
@@ -338,6 +630,8 @@ function renderTeamCard(t) {
   if (!t) return "";
   const avg = DATA.leagueAverage;
   const gr = DATA.gaugeRanges;
+  const P = cardProps();
+  const bk = what => `<span class="book-short">${BOOKS[BOOK].short}</span> ${what}`;
 
   return `
   <div class="team-card" data-team="${escapeHtml(t.team)}" style="${teamVars(t.abbr)}">
@@ -356,7 +650,7 @@ function renderTeamCard(t) {
       <button class="print-btn print-btn-single no-print" type="button" onclick="printOneTeam('${escapeHtml(t.team).replace(/'/g, "\\'")}')">Print</button>
     </div>
 
-    <div class="stat-columns">
+    <div class="stat-columns${P ? " with-books" : ""}">
       <div class="stat-col offense">
         <h3>Offense</h3>
         <div class="gauges">
@@ -379,6 +673,7 @@ function renderTeamCard(t) {
           <div class="lbl">Pass game</div>
           <div class="val">${fmtRank(t.offense.passYdsGRank)} <span>off</span> / ${fmtRank(t.defense.passYdsGRank)} <span>def</span></div>
         </div>
+        ${P ? bookButtons() : ""}
       </div>
 
       <div class="stat-col defense">
@@ -395,29 +690,38 @@ function renderTeamCard(t) {
       </div>
     </div>
 
-    <div class="tables-row">
+    <div class="tables-row${P ? " with-props" : ""}">
       ${playerTable("Passing", t.passing, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_pass_yds", "prop"]] : []),
         ["TD", "td", "num"],
+        ...(P ? [[bk("TD O/U"), "player_pass_tds", "prop"]] : []),
         ["Int", "int", "num"],
         ["Cmp/G", "cmp", "num"],
       ])}
       ${playerTable("Rushing", t.rushing, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_rush_yds", "prop"]] : []),
         ["TD", "td", "num"],
         ["Y/A", "ya", "num"],
         ["A/G", "ag", "num"],
+        ...(P ? [[bk("Att"), "player_rush_attempts", "prop"]] : []),
       ])}
       ${playerTable("Receiving", t.receiving, [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
+        ...(P ? [[bk("Yds"), "player_reception_yds", "prop"]] : []),
         ["TD", "td", "num"],
         ["Y/R", "yr", "num"],
         ["Rec/G", "rec", "num"],
+        ...(P ? [[bk("Rec"), "player_receptions", "prop"]] : []),
       ])}
     </div>
+    ${P ? tdPropsBlock(t) : ""}
+
+    ${usageBlock(t)}
 
     <div class="defpos-row">
       ${defPosBlock("Defense vs RB", t.defVsPosition.rb)}
@@ -462,10 +766,11 @@ function playerTable(title, rows, cols) {
   if (!rows || rows.length === 0) {
     return `<div class="table-block"><h4>${title}</h4><div class="empty-note">No data</div></div>`;
   }
-  const head = cols.map(([label, , type]) => `<th class="${type === "num" ? "num" : ""}">${label}</th>`).join("");
+  const head = cols.map(([label, , type]) => `<th class="${type === "num" ? "num" : type === "prop" ? "num prop-th" : ""}">${label}</th>`).join("");
   const kind = title.toLowerCase();
   const body = rows.map(r => {
     const cells = cols.map(([, key, type]) => {
+      if (type === "prop") return propCell(r.player, key);
       const txt = escapeHtml(type === "num" ? dispNum(r[key] ?? "—") : String(r[key] ?? "—"));
       const val = key === "player" && r.log && DATA.gameLogs && DATA.gameLogs[r.log]
         ? `<button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${txt}">${txt}</button>${injTag(r.inj)}`
@@ -474,7 +779,7 @@ function playerTable(title, rows, cols) {
     }).join("");
     return `<tr>${cells}</tr>`;
   }).join("");
-  return `<div class="table-block">
+  return `<div class="table-block${cols.some(c => c[2] === "prop") ? " has-props" : ""}">
     <h4>${title}</h4>
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
   </div>`;
@@ -672,7 +977,8 @@ function propOptions(groups) {
 function oppContext(teamAbbr, statKey, pos) {
   const team = Object.values(DATA.teams).find(t => t.abbr === teamAbbr);
   if (!team) return "";
-  const g = scheduleGames().find(x => x.away === team.team || x.home === team.team);
+  const live = (DATA.liveSchedule && DATA.liveSchedule.games) || scheduleGames();
+  const g = live.find(x => x.away === team.team || x.home === team.team);
   if (!g) return `${escapeHtml(teamAbbr)} is on a bye this week.`;
   const isAway = g.away === team.team;
   const opp = DATA.teams[isAway ? g.home : g.away];
@@ -713,8 +1019,9 @@ function updateProp(card, log) {
   const lineEl = card.querySelector(".prop-line");
   const vals = log.map(stat[3]);
   const avg = vals.reduce((a, v) => a + v, 0) / (vals.length || 1);
-  if (lineEl.dataset.stat !== key) {  // new stat: suggest a line just under the season average
-    lineEl.value = Math.max(0.5, Math.floor(avg) + 0.5);
+  const bp = PROP_MARKET[key] ? bookLine(card.dataset.player, PROP_MARKET[key]) : null;
+  if (lineEl.dataset.stat !== key) {  // new stat: this week's book line, else a line just under the season average
+    lineEl.value = bp ? bp.line : Math.max(0.5, Math.floor(avg) + 0.5);
     lineEl.dataset.stat = key;
   }
   const line = parseFloat(lineEl.value);
@@ -732,7 +1039,11 @@ function updateProp(card, log) {
   if (isNaN(line)) { res.textContent = "Enter a line to see how often he's cleared it."; return; }
   const n = over + under;
   const last3 = vals.slice(-3).map(v => (v > line ? "O" : v < line ? "U" : "P")).join(" ");
-  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`;
+  res.innerHTML = `Over ${line}: <b>${over} of ${vals.length} games</b>${n ? ` (${Math.round((100 * over) / n)}%)` : ""}${push ? `, ${push} push` : ""}. Avg ${avg.toFixed(1)}. Last ${Math.min(3, vals.length)}: ${last3}`
+    + (bp ? `<div class="prop-book">${key === "tds"
+      ? `This week's ${BOOKS[BOOK].name} anytime TD price: <b>${fmtOdds(bp.over)}</b>`
+      : `This week's ${BOOKS[BOOK].name} line: <b>${bp.line}</b>, over ${fmtOdds(bp.over)} / under ${fmtOdds(bp.under)}`}
+      <span class="rk">(${escapeHtml(propsAsOf())})</span></div>` : PROPS && PROP_MARKET[key] ? `<div class="prop-book"><span class="rk">No ${BOOKS[BOOK].name} line for him this week.</span></div>` : "");
 }
 
 function panelHtml(name, key, log, kind) {
@@ -749,7 +1060,7 @@ function panelHtml(name, key, log, kind) {
     ${anyFl ? `<td class="num gstart">${e.fl || 0}</td>` : ""}
     <td class="num fp gstart">${(e.fp || 0).toFixed(1)}</td><td class="num prop-cell gstart"></td></tr>`).join("");
   const total = log.reduce((a, e) => a + (e.fp || 0), 0);
-  return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle">
+  return `<div class="plog-card" role="dialog" aria-modal="true" aria-labelledby="plogTitle" data-player="${name}">
     <div class="plog-top">
       <div>
         <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
@@ -1031,7 +1342,7 @@ function pdfManifest() {
 async function showPdfLink(el, gameId) {
   if (!el) return;
   const m = await pdfManifest();
-  if (!m || !DATA || !DATA.schedule || m.week !== DATA.schedule.week || m.season !== DATA.season) return;
+  if (!m || !DATA || !DATA.schedule || weekMode() !== "current" || m.week !== DATA.schedule.week || m.season !== DATA.season) return;
   if (gameId) {
     if (!(m.games || []).includes(gameId)) return;
     el.href = `pdf/games/${encodeURIComponent(gameId)}.pdf?v=${encodeURIComponent(m.generatedAt)}`;

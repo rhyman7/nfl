@@ -4,18 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NFL Matchups</title>
+<meta name="description" content="Every NFL game this week on one board: spreads, totals, implied scores and kickoff forecasts, with a full offense-vs-defense breakdown of each matchup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NFL Matchups">
+<meta property="og:title" content="NFL Matchups">
+<meta property="og:description" content="Every NFL game this week on one board: spreads, totals, implied scores and kickoff forecasts, with a full offense-vs-defense breakdown of each matchup.">
+<meta property="og:url" content="https://rhyman7.github.io/nfl/">
+<meta property="og:image" content="https://rhyman7.github.io/nfl/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NFL Matchups: every game this week, offense against defense.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
-<link rel="stylesheet" href="style.css?v=202610031815">
+<link rel="stylesheet" href="style.css?v=202610191900">
 </head>
 <body data-page="week">
 <header class="topbar">
   <h1><a href="index.html" class="home-link">NFL Matchups</a></h1>
   <nav class="topnav no-print">
     <a href="index.html" class="active"><span class="nav-full">This Week's Matchups</span><span class="nav-short">This Week</span></a>
+    <a href="how-to-read.html"><span class="nav-full">How to Read Matchups</span><span class="nav-short">How to Read</span></a>
+    <a href="epa.html"><span class="nav-full">EPA</span><span class="nav-short">EPA</span></a>
+    <a href="epa-explained.html"><span class="nav-full">EPA Explained</span><span class="nav-short">EPA Explained</span></a>
     <a href="edges.html"><span class="nav-full">Weekly Edges</span><span class="nav-short">Edges</span></a>
-    <a href="compare.html"><span class="nav-full">Team vs Team</span><span class="nav-short">Compare</span></a>
+    <a href="compare.html"><span class="nav-full">Compare Any Two Teams</span><span class="nav-short">Compare</span></a>
     <a href="ratings.html"><span class="nav-full">Ratings Explained</span><span class="nav-short">Ratings</span></a>
   </nav>
   <a href="/cfb/" class="league-link no-print">CFB Matchups</a>
@@ -29,7 +43,7 @@
       <p id="liveNote" class="live-note" hidden></p>
     </div>
     <div class="week-filters">
-      <button id="printAllBtn" class="print-btn" type="button" title="Print every game this week, one matchup per page" disabled>Print all</button>
+      <button id="printAllBtn" class="print-btn" type="button" title="Print every game this week, two pages per matchup" disabled>Print all</button>
       <a id="pdfAllBtn" class="print-btn pdf-btn" hidden>Download PDF</a>
     </div>
   </section>
@@ -40,10 +54,10 @@
   <p>Stats cover the current regular season through the latest completed week. Lines: ESPN when available, otherwise nflverse. <a href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a>.</p>
 </footer>
 
-<script src="teamcolors.js?v=202610031815"></script>
-<script src="common.js?v=202610031730"></script>
-<script src="live.js?v=202610031700"></script>
+<script src="teamcolors.js?v=202610191900"></script>
+<script src="common.js?v=202610162300"></script>
+<script src="live.js?v=202610041900"></script>
 <script src="weather.js?v=202609301445"></script>
-<script src="matchups.js?v=202610031730"></script>
+<script src="matchups.js?v=202610041900"></script>
 </body>
 </html>

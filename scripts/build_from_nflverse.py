@@ -9,9 +9,13 @@ Inputs (downloaded each week into a working folder, not committed):
     standings.json                  list of {Tm, W, L, T, SoS, SRS, OSRS, DSRS} from
                                     pro-football-reference.com/years/<season>/ (optional)
     play_by_play_<season>.csv.gz    github.com/nflverse/nflverse-data releases (pbp) -- EPA and
-                                    success rate (optional; left out if missing)
+                                    success rate, and data/epa.json for the EPA page (optional;
+                                    left out if missing)
     injuries_<season>.csv           github.com/nflverse/nflverse-data releases (injuries) -- injury
                                     tags (optional; left out if missing)
+    snap_counts_<season>.csv,       snap %, pressure rate (scripts/situational.py); downloaded
+    advstats_week_pass_<season>.csv, into --src automatically when they aren't there
+    advstats_week_def_<season>.csv
 
 Usage:
     python scripts/build_from_nflverse.py --season 2026 --src <folder> [--out data/data.json]
@@ -22,8 +26,17 @@ before it, because a single season gives each crew only a handful of games. The 
 labels them that way. The Wednesday line for this week's games (lineOpen) is kept from
 the file already at --out when it covers the same week, so line movement is measured
 from the first update of the week.
+
+Next to data.json the build also writes the files behind the site's week strip:
+    data/season.json      every week of the season: game count and first/last game day
+    data/epa.json         opponent-adjusted EPA ratings for the EPA page (scripts/epa_ratings.py),
+                          through the same week as data.json
+    data/weeks/<N>.json   that week's games, in the same shape as data.json's schedule,
+                          plus each team's record going into the week. Finished weeks carry
+                          the final scores; later weeks are the schedule so far.
 """
 import argparse
+import copy
 import json
 import math
 import sys
@@ -33,6 +46,9 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
+
+from epa_ratings import build_epa
+import situational
 
 TEAM_NAMES = {
     "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
@@ -125,6 +141,83 @@ def schedule_extras(g):
     return out
 
 
+def num(x):
+    return None if pd.isna(x) else float(x)
+
+
+def txt(x):
+    return None if pd.isna(x) else str(x)
+
+
+def schedule_week(games, week):
+    """One week's games in kickoff order, plus the teams on a bye."""
+    wk = games[games.week == week].sort_values(["gameday", "gametime", "game_id"])
+    rows = []
+    for _, g in wk.iterrows():
+        rows.append({
+            "id": g.game_id, "gameday": g.gameday, "weekday": g.weekday, "gametime": txt(g.gametime),
+            "away": TEAM_NAMES[g.away_team], "home": TEAM_NAMES[g.home_team],
+            "awayScore": None if pd.isna(g.away_score) else int(g.away_score),
+            "homeScore": None if pd.isna(g.home_score) else int(g.home_score),
+            "spread": num(g.spread_line),  # positive = home team favored by that many points
+            "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
+            "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
+            "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
+            "referee": txt(g.referee), "awayRest": None if pd.isna(g.away_rest) else int(g.away_rest),
+            "homeRest": None if pd.isna(g.home_rest) else int(g.home_rest),
+            **schedule_extras(g),
+        })
+    playing = {x for g in rows for x in (g["away"], g["home"])}
+    return {"week": int(week), "games": rows, "byes": sorted(n for n in TEAM_NAMES.values() if n not in playing)}
+
+
+def records_before(games, week):
+    """Each team's W-L(-T) from the finished games before `week`: {team name: "2-1"}."""
+    rec = {name: [0, 0, 0] for name in TEAM_NAMES.values()}
+    for g in games[(games.week < week) & games.home_score.notna() & games.away_score.notna()].itertuples():
+        h, a = rec[TEAM_NAMES[g.home_team]], rec[TEAM_NAMES[g.away_team]]
+        if g.home_score > g.away_score:
+            h[0] += 1; a[1] += 1
+        elif g.home_score < g.away_score:
+            a[0] += 1; h[1] += 1
+        else:
+            h[2] += 1; a[2] += 1
+    return {name: f"{w}-{l}" + (f"-{t}" if t else "") for name, (w, l, t) in rec.items()}
+
+
+def write_if_changed(path, data, **dump):
+    """Write JSON unless the file already holds the same thing (ignoring generatedAt),
+    so a rerun only touches the weeks that changed."""
+    def strip(x):
+        return {k: v for k, v in x.items() if k != "generatedAt"}
+    try:
+        if strip(json.loads(path.read_text(encoding="utf-8"))) == strip(json.loads(json.dumps(data))):
+            return False
+    except (OSError, ValueError):
+        pass
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, **dump) + "\n", encoding="utf-8")
+    return True
+
+
+def write_weeks(games, season, data, out):
+    """data/season.json and data/weeks/<N>.json for the site's week strip. This week's file
+    is data.json's own schedule (so it keeps lineOpen); the others are built from games.csv."""
+    cur, weeks, wrote = data["schedule"]["week"], [], []
+    for week, grp in games.groupby("week"):
+        week = int(week)
+        weeks.append({"week": week, "games": int(len(grp)), "from": str(grp.gameday.min()), "to": str(grp.gameday.max())})
+        sched = copy.deepcopy(data["schedule"]) if week == cur else schedule_week(games, week)
+        before = records_before(games, week)
+        for g in sched["games"]:
+            g["awayRecord"], g["homeRecord"] = before[g["away"]], before[g["home"]]
+        doc = {"season": season, "week": week, "generatedAt": data["generatedAt"], "schedule": sched}
+        if write_if_changed(out.parent / "weeks" / f"{week}.json", doc, separators=(",", ":")):
+            wrote.append(week)
+    write_if_changed(out.parent / "season.json", {"season": season, "weeks": weeks}, indent=1)
+    return wrote
+
+
 def r1(x):
     return None if x is None or (isinstance(x, float) and math.isnan(x)) else round(float(x), 1)
 
@@ -187,6 +280,38 @@ def team_game_list(done, ps):
     return out
 
 
+def write_epa(pfile, done, season, through_week, sched_week, out_dir):
+    """data/epa.json: opponent-adjusted EPA ratings (scripts/epa_ratings.py) for the EPA page."""
+    cols = ["game_id", "season_type", "week", "posteam", "defteam", "home_team", "pass", "rush", "epa",
+            "success", "down", "wp", "qb_kneel", "qb_spike", "interception", "fumble_lost", "qb_dropback",
+            "passer_player_name", "cpoe"]
+    p = pd.read_csv(pfile, low_memory=False, usecols=cols)
+    p = p[(p.season_type == "REG") & (p.week <= through_week) & ((p["pass"] == 1) | (p["rush"] == 1))
+          & (p.qb_kneel != 1) & (p.qb_spike != 1) & p.epa.notna() & p.posteam.notna()]
+    neutral_ids = set(done.loc[done.location == "Neutral", "game_id"]) if "location" in done else set()
+    name = lambda a: TEAM_NAMES.get(a, a)
+    plays = pd.DataFrame({
+        "game_id": p.game_id, "week": p.week, "off": p.posteam.map(name), "def": p.defteam.map(name),
+        "home": ((p.posteam == p.home_team) & ~p.game_id.isin(neutral_ids)).astype(int),
+        "epa": p.epa, "success": p.success.fillna(0), "pass": p["pass"].astype(int), "rush": p["rush"].astype(int),
+        "down": p.down, "wp": p.wp, "to_lost": p.interception.fillna(0) + p.fumble_lost.fillna(0),
+        "passer": p.passer_player_name.where(p.qb_dropback == 1), "cpoe": p.cpoe,
+    })
+    games = pd.DataFrame({
+        "game_id": done.game_id, "week": done.week, "home": done.home_team.map(name), "away": done.away_team.map(name),
+        "hs": done.home_score, "as_": done.away_score, "neutral": done.game_id.isin(neutral_ids),
+        # nflverse spread_line: + = home favored; the site's convention is negative = home favored
+        "spread": -done.spread_line, "total": done.total_line,
+    })
+    epa = build_epa(plays, games, sorted(set(plays.off)), hfa=1.5, alpha=150.0, k_margin=0.35, k_total=0.30)
+    epa = {"generatedAt": datetime.now(timezone.utc).isoformat(), "season": season, "throughWeek": through_week,
+           "week": sched_week, **epa}
+    (out_dir / "epa.json").write_text(json.dumps(epa, separators=(",", ":"), allow_nan=False) + "\n")
+    bt = epa["backtest"]
+    print(f"Wrote data/epa.json: {epa['teamCount']} teams, {epa['playsUsed']} of {epa['playsAll']} plays"
+          + (f"; walk-forward miss on {bt['games']} games: line {bt['lineM']}, EPA {bt['modelM']}" if bt else ""))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--season", type=int, required=True)
@@ -231,11 +356,11 @@ def main():
     ts["pass_yds"] = ts["passing_yards"]
     off = ts.groupby("team").agg(
         gp=("week", "nunique"), rush_yds=("rushing_yards", "sum"), rush_td=("rushing_tds", "sum"),
-        pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"),
+        rush_att=("carries", "sum"), pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"),
         int_thrown=("passing_interceptions", "sum"), int_made=("def_interceptions", "sum"),
     )
     allowed = ts.groupby("opponent_team").agg(
-        rush_yds=("rushing_yards", "sum"), rush_td=("rushing_tds", "sum"),
+        rush_yds=("rushing_yards", "sum"), rush_td=("rushing_tds", "sum"), rush_att=("carries", "sum"),
         pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"),
     )
     teams = sorted(off.index)
@@ -244,12 +369,13 @@ def main():
 
     gp = off["gp"]
     o = pd.DataFrame({
-        "rushYdsG": off.rush_yds / gp, "rushTdG": off.rush_td / gp,
+        "rushYdsG": off.rush_yds / gp, "rushTdG": off.rush_td / gp, "rushYdsAtt": off.rush_yds / off.rush_att,
         "passYdsG": off.pass_yds / gp, "passTdG": off.pass_td / gp,
         "int": off.int_thrown / gp, "ppg": rec.pf / rec.gp,
     })
     d = pd.DataFrame({
         "rushYdsG": allowed.rush_yds / gp, "rushTdG": allowed.rush_td / gp,
+        "rushYdsAtt": allowed.rush_yds / allowed.rush_att,
         "passYdsG": allowed.pass_yds / gp, "passTdG": allowed.pass_td / gp,
         "int": off.int_made / gp, "papg": rec.pa / rec.gp,
     })
@@ -467,6 +593,14 @@ def main():
     # ---- each team's games so far, with the game's top passer, rusher and receiver ----
     team_games = team_game_list(done, ps)
 
+    # ---- red zone, 3rd down, big plays, pressure, pace and usage (scripts/situational.py) ----
+    extra = situational.build(src, season, through_week, ps, teams, notes)
+    for t, x in extra.items():
+        u = x.get("usage")
+        if u:
+            for row in u["targets"] + u["carries"]:
+                row["log"] = add_log(t, row.pop("pid"))
+
     teams_out = {}
     for abbr in teams:
         name = TEAM_NAMES[abbr]
@@ -477,10 +611,10 @@ def main():
                        "sos": rating(name, "SoS"), "srs": rating(name, "SRS"),
                        "osrs": rating(name, "OSRS"), "dsrs": rating(name, "DSRS")},
             "offense": {"ppg": r1(o.ppg[abbr]), "rushYdsG": r1(o.rushYdsG[abbr]), "rushYdsGRank": int(o.rushRk[abbr]),
-                        "rushTdG": r2(o.rushTdG[abbr]), "passYdsG": r1(o.passYdsG[abbr]),
+                        "rushYdsAtt": r2(o.rushYdsAtt[abbr]), "rushTdG": r2(o.rushTdG[abbr]), "passYdsG": r1(o.passYdsG[abbr]),
                         "passYdsGRank": int(o.passRk[abbr]), "passTdG": r2(o.passTdG[abbr]), "int": r2(o["int"][abbr])},
             "defense": {"papg": r1(d.papg[abbr]), "rushYdsG": r1(d.rushYdsG[abbr]), "rushYdsGRank": int(d.rushRk[abbr]),
-                        "rushTdG": r2(d.rushTdG[abbr]), "passYdsG": r1(d.passYdsG[abbr]),
+                        "rushYdsAtt": r2(d.rushYdsAtt[abbr]), "rushTdG": r2(d.rushTdG[abbr]), "passYdsG": r1(d.passYdsG[abbr]),
                         "passYdsGRank": int(d.passRk[abbr]), "passTdG": r2(d.passTdG[abbr]), "int": r2(d["int"][abbr])},
             "passing": players(abbr, "passing"),
             "rushing": players(abbr, "rushing"),
@@ -490,34 +624,28 @@ def main():
             "betting": bet.get(abbr),
             "eff": eff.get(abbr),
             "games": team_games.get(abbr, []),
+            "situ": extra[abbr].get("situ"),
+            "pace": extra[abbr].get("pace"),
+            "usage": extra[abbr].get("usage"),
         }
+
+    # target share (receiving rows) and carry share (rushing rows) for every player in a table
+    for abbr in teams:
+        sh = extra[abbr].get("shares") or {}
+        t = teams_out[TEAM_NAMES[abbr]]
+        for r in t["receiving"]:
+            x = sh.get(r["log"].split("|", 1)[1])
+            if x:
+                r["ts"], r["ts3"] = x["ts"], x["ts3"]
+        for r in t["rushing"]:
+            x = sh.get(r["log"].split("|", 1)[1])
+            if x:
+                r["cs"] = x["cs"]
 
     # ---- this week's schedule: the first week that isn't finished ----
     remaining = [int(w) for w, ok in week_done.items() if not ok]
     sched_week = min(remaining) if remaining else through_week
-    wk = games[games.week == sched_week].sort_values(["gameday", "gametime", "game_id"])
-
-    def num(x):
-        return None if pd.isna(x) else float(x)
-
-    def txt(x):
-        return None if pd.isna(x) else str(x)
-
-    schedule_games = []
-    for _, g in wk.iterrows():
-        schedule_games.append({
-            "id": g.game_id, "gameday": g.gameday, "weekday": g.weekday, "gametime": txt(g.gametime),
-            "away": TEAM_NAMES[g.away_team], "home": TEAM_NAMES[g.home_team],
-            "awayScore": None if pd.isna(g.away_score) else int(g.away_score),
-            "homeScore": None if pd.isna(g.home_score) else int(g.home_score),
-            "spread": num(g.spread_line),  # positive = home team favored by that many points
-            "total": num(g.total_line), "stadium": txt(g.stadium), "roof": txt(g.roof),
-            "divisional": bool(g.div_game) if not pd.isna(g.div_game) else False,
-            "awayQb": txt(g.away_qb_name), "homeQb": txt(g.home_qb_name),
-            "referee": txt(g.referee), "awayRest": None if pd.isna(g.away_rest) else int(g.away_rest),
-            "homeRest": None if pd.isna(g.home_rest) else int(g.home_rest),
-            **schedule_extras(g),
-        })
+    schedule_games = schedule_week(games, sched_week)["games"]
     # Line movement baseline: the line from this week's first update, kept across rebuilds of the same week.
     prev_open = {}
     try:
@@ -555,6 +683,11 @@ def main():
     Path(args.out).write_text(json.dumps(data, indent=2))
     print(f"Wrote {args.out}: season {season}, through Week {through_week}, schedule Week {sched_week} "
           f"({len(schedule_games)} games, {len(byes)} byes)")
+    wrote = write_weeks(games, season, data, Path(args.out))
+    print("Week files (data/season.json, data/weeks/): "
+          + ("updated " + ", ".join(f"Week {w}" for w in wrote) if wrote else "no changes"))
+    if pfile.exists():
+        write_epa(pfile, done, season, through_week, sched_week, Path(args.out).parent)
     for n in notes:
         print("NOTE:", n)
 

@@ -1,6 +1,6 @@
 # NFL Matchup Dashboard
 
-**Live site: https://rhyman7.github.io/nfl-dashboard/**
+**Live site: https://rhyman7.github.io/nfl/**
 
 A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://github.com/rhyman7/cfb).
 
@@ -13,27 +13,44 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   shows what it opened at underneath. The venue line carries the kickoff forecast
   ("Indoors" for domes and closed roofs). Once a game starts, scores join the teams and
   the implied column shows the game's status. Click a row to open the game. "Print all"
-  prints every matchup, one per landscape page.
+  prints every matchup, two landscape pages each.
 - **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
   forecast, current spread and O/U; a Head to Head table (each
   offense against the other defense, with league ranks and edges); then both teams'
-  full stat cards. Prints on one landscape page.
+  full stat cards. Prints on two landscape pages.
 - **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
-  one matchup per landscape page, and brings up the print dialog. Each team card still
+  two landscape pages per matchup, and brings up the print dialog. Each team card still
   has its own Print button (one team per portrait page).
 - **Download PDF** — "Download PDF" on This Week's Matchups (every game) and "Download PDF" on
   each matchup page (that game). The PDFs are the print layout rendered by headless
   Chrome, so they come out the same whatever browser or printer you use.
-  `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf` and
-  `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
+  `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf`,
+  `pdf/epa.pdf` (the EPA page's Print all) and `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
   `data/data.json` or the print layout changes. The links only show when the PDFs are
   for the week on the page. `print.html?game=<id>` prints a single game.
+- **EPA** (`epa.html`, `epa.js`) — opponent-adjusted EPA, linked left of Weekly Edges.
+  Pick a game for Head to Head panels (adjusted EPA / play, pass and rush EPA, early-down
+  pass EPA, success rate, with the same rank bars as the matchup page) and both teams'
+  cards (raw vs. adjusted rank, QB EPA / dropback and CPOE, pace, neutral pass rate and
+  regression flags such as turnover margin or one-score record). Below that: the EPA
+  line and total against the current market for every game, a sortable 32-team ratings
+  table, and a walk-forward check of how the ratings have done against closing lines.
+  **Print all** prints every game (one landscape page each), then the board and the
+  ratings; **Download PDF** is the same as `pdf/epa.pdf`. The ratings are
+  `data/epa.json`, which `scripts/build_from_nflverse.py` writes next to `data.json`
+  using `scripts/epa_ratings.py` (garbage time dropped at 10–90% win probability, a ridge
+  regression on offense, defense and home field, projections pulled toward a pick'em);
+  the page works out each game's projection from those ratings and the current line.
+- **EPA Explained** (`epa-explained.html`) — linked right of EPA: what expected points and EPA
+  are, why EPA beats yards and points, what "adjusted" means here, how to read every part of the
+  EPA page, a routine for any game and the limits. Its example uses the current #1 team in net
+  EPA from `data/epa.json`; the rest of the page is static.
 - **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
   implied team totals, line move since the week's first update, net EPA edge, referee
   and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
   yds, WR/TE/RB rec yds) listing players whose opponent allows more than the league
   average at their position, with a matchup factor and an adjusted average.
-- **Team vs Team** (`compare.html`) — the original dashboard: pick any two teams
+- **Compare Any Two Teams** (`compare.html`) — the original dashboard: pick any two teams
   and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
 - **Ratings Explained** (`ratings.html`) — plain-language definitions of SoS, OSRS,
   DSRS and SRS and how to use them in a matchup. Its example uses the current top-SRS
@@ -83,6 +100,19 @@ fills in Wednesday–Friday, which is why there's a Friday refresh.
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
 
+**Week strip.** Just left of the search box, the top bar lists every week of the season
+(1 to 18), right-aligned so the last week sits beside the search. The current week is
+outlined and the week on screen is filled in. A finished week (`index.html?week=N`) shows
+that week's games with final scores and each team's record going into it; a row opens
+`matchup.html?game=<id>` with the game header and the full box score from ESPN, and
+nothing else. A later week shows the schedule so far (kickoff, venue, records and any
+line) as plain rows that don't open anything. The stats, Head to Head, Weekly Edges,
+Print all and the PDFs stay on the current week. When the bar is too narrow for one row
+the page names shorten, then the strip and search drop to a second row; on phones the
+strip scrolls sideways. The weeks come from `data/season.json` and each week's games from
+`data/weeks/<N>.json` (same shape as `schedule` in `data.json`, plus `awayRecord` /
+`homeRecord`); the site decides what is past or upcoming from the week in `data.json`.
+
 **Implied totals and line movement.** The matchup header, the week board and Weekly Edges
 show implied team totals from the current spread and O/U. `lineOpen` on each schedule
 game is the line from the week's first update; the build keeps it when it reruns for the
@@ -91,12 +121,17 @@ same week, and the pages show how far the line has moved since.
 **EPA and success rate.** Head to Head adds EPA per play and success rate for each
 offense and defense, from nflverse play-by-play (`eff` on each team).
 
+**Yards per rush.** Head to Head also has a Rush Yds / Att row: rushing yards divided by
+rush attempts for the offense, and the same for what the defense has allowed
+(`rushYdsAtt` on each team's `offense` and `defense`, from nflverse team stats). For a
+defense, lower is better.
+
 **Referee.** When nflverse has the week's referee assignment, the matchup header and
 Weekly Edges show the referee with his over/under record and points per game. These
 are the only multi-season numbers on the site (`refereeSeasons`, e.g. 2023–2026),
 because one season gives a crew just a few games.
 
-**Betting Trends.** The matchup and Team vs Team pages show each team's record against
+**Betting Trends.** The matchup and Compare Any Two Teams pages show each team's record against
 the spread (overall, as favorite/underdog, home/away) and over/under record, plus a
 game-by-game list, from nflverse's closing `spread_line` and `total_line`. The data is
 `betting` on each team in `data/data.json`. It's left out of printouts.
@@ -139,7 +174,9 @@ final injury report, referee assignments and line moves. The download folder als
 `play_by_play_2026.csv.gz` and `injuries_2026.csv` from the nflverse-data releases
 (`pbp` and `injuries`); without them the build leaves EPA or injury tags out.
 
-and pushes the new `data/data.json`. Besides team and player stats, the file
+and pushes the new `data/data.json` along with `data/season.json` and `data/weeks/`,
+which the same build rewrites for the week strip (only the weeks that changed; a week
+whose scores are missing there is filled in from ESPN in the browser). Besides team and player stats, the file
 holds `schedule` (the current week's games and byes), `season` and `throughWeek`.
 Each schedule game also carries `espnId` (for live scores), `start` (kickoff in UTC),
 `neutral`, and the venue's `city`, `lat`, `lon` and `indoor` flag.
@@ -151,11 +188,11 @@ used but still works if you ever want to go back to it.
 
 ## One-time setup
 
-1. Create a new **public** GitHub repository (e.g. `nfl-dashboard`).
+1. Create a new **public** GitHub repository (e.g. `nfl`).
 2. Push everything in this folder to that repo (see "Pushing to GitHub" below).
 3. In the repo, go to **Settings → Pages**, and under "Build and deployment"
    set **Source: Deploy from a branch**, branch **main**, folder **/ (root)**.
-   Save. GitHub gives you a URL like `https://<username>.github.io/nfl-dashboard/`
+   Save. GitHub gives you a URL like `https://<username>.github.io/nfl/`
    — that's your live site.
 
 That's it. The site is now live and will re-deploy automatically any time
@@ -214,7 +251,7 @@ git init
 git add .
 git commit -m "Initial NFL dashboard"
 git branch -M main
-git remote add origin https://github.com/<your-username>/nfl-dashboard.git
+git remote add origin https://github.com/<your-username>/nfl.git
 git push -u origin main
 ```
 
@@ -238,3 +275,63 @@ Note: the old Looker Studio report had a broken "Offense Pass Yds/G" gauge
 (it showed a static, non-updating number). This site fixes that — the
 offense column now has a real, working Pass Yds/G gauge and rank alongside
 the Rush Yds/G one.
+
+### Situational, big-play, pressure, pace and usage numbers
+
+Built by `scripts/situational.py` (called from `build_from_nflverse.py`) into each team's
+`situ`, `pace` and `usage` keys, plus `ts`/`ts3` on receiving rows and `cs` on rushing rows.
+It downloads `snap_counts_<season>.csv` and `advstats_week_pass/def_<season>.csv` from the
+nflverse-data releases into `--src` when they aren't there.
+
+- **Head to head** gains three groups under the existing rows: Finishing drives (red zone TD %,
+  3rd down %), Big plays (explosive %, passes of 20+ yards, runs of 10+) and Pass rush vs
+  protection (sack rate and Pro Football Reference pressure rate, per dropback). Same bars and the
+  same 6-spot edge rule as the rows above.
+- **Pace and tendency** under Head to head: plays per game, seconds per play in neutral
+  situations, early-down pass rate over expected (nflverse `pass_oe`).
+- **Usage** in each team card: snap %, target share, air-yards share, last three games' target
+  share, and carry share.
+- **Weekly Edges**: combined plays per game and pass rate over expected on the game board;
+  Tgt % (with the last three games) on the receiving prop tables and Carry % on RB rush yds.
+
+Printouts and the matchup PDFs include them: each matchup prints on two landscape pages (header, Head to Head and pace on the first; both team cards with usage on the second). Betting trends stay screen-only, as before.
+
+### How to Read Matchups (`how-to-read.html`)
+
+Linked left of EPA. Walks through every section of a matchup page (game header, Head to Head,
+pace, betting trends, team card, player tables and game logs, usage, defense vs position) using
+one game from this week, with numbered markers on the real components and notes written from
+that game's numbers (`how-to-read.js`, built on the same render functions as the matchup page).
+It opens on a random game; the Game picker and "Pick another game" switch games, and
+`?game=<id>` opens a given one. Nothing extra to build: it reads `data/data.json`.
+
+### Player prop lines (`data/props.json`)
+
+The **Fetch player props** workflow (`.github/workflows/fetch-props.yml`, Thursdays at 15:07 UTC
+and by hand from the Actions tab) runs `scripts/fetch_props.py`, which pulls seven markets for this
+week's games from The Odds API at DraftKings and FanDuel only: pass yds, pass TD, rush yds, rush
+attempts, rec yds, receptions and anytime TD. The key is the `ODDS_API_KEY` repository secret. Each
+game costs 7 credits (about 105 a week, roughly 450 a month against the free plan's 500); games
+already under way are skipped (and kept from the week's earlier pull), and the run stops before
+using the last 25 credits. The file keeps each book's own line and prices per player (`dk`, `fd`),
+and a `teams` map putting each player on one of the game's two teams from nflverse's weekly
+rosters (team defenses left out). `python scripts/fetch_props.py --tag-teams` redoes that map
+without the API key or any credits.
+
+**Which book.** Every prop line on the site shows one sportsbook at a time. The DraftKings and
+FanDuel buttons (`bookButtons()` in `common.js`, logos in `img/`) switch every line on the page and
+the choice is remembered in the browser (`localStorage` `propBook`, DraftKings by default):
+
+- Matchup pages (current week only): the buttons sit under the Run game / Pass game ranks on each
+  team card. Passing gets the yards line next to Yds/G and the TD over/under next to TD; Rushing
+  the yards line next to Yds/G and the attempts line after A/G; Receiving the yards line next to
+  Yds/G and the receptions line after Rec/G, each with its over/under prices. With these columns
+  Passing runs across the top and Rushing and Receiving sit side by side under it. An Anytime TD
+  block (shortest price first, up to four columns of four) sits between the tables and Usage.
+  "—" means that book has no line for the player (FanDuel posts no rush-attempt lines). Printing
+  shows the chosen book without the buttons.
+- Weekly Edges: the buttons sit above the prop tables; the Line column (with Adj minus the line)
+  shows the chosen book.
+- The game-log panel's prop check starts from the chosen book's line and shows its prices.
+
+Without the file (or for another week) all of these fall back to how they worked before.
