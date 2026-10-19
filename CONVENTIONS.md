@@ -156,6 +156,9 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - DraftKings and FanDuel only. The chosen book is remembered in `localStorage` `propBook`
   (DraftKings by default). Without `data/props.json` for this week, pages fall back to how
   they worked before props.
+- The matchup header's "X at QB" before kickoff is the team's player with the highest
+  passing-yards prop (`heroQb()` in `common.js`); without QB props, and once the game is
+  final, it is nflverse's starter.
 
 ## Testing a change
 
