@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T20:57:13.387513+00:00",
+  "generatedAt": "2026-10-18T14:17:24.198749+00:00",
   "season": 2026,
   "throughWeek": 5,
   "schedule": {
@@ -110,7 +110,7 @@
         "home": "Philadelphia Eagles",
         "awayScore": null,
         "homeScore": null,
-        "spread": -3.5,
+        "spread": -3.0,
         "total": 39.5,
         "stadium": "Lincoln Financial Field",
         "roof": "outdoors",
@@ -143,11 +143,11 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -1.5,
-        "total": 51.5,
+        "total": 52.5,
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
-        "awayQb": "Tyson Bagent",
+        "awayQb": "Caleb Williams",
         "homeQb": "Michael Penix Jr.",
         "referee": null,
         "awayRest": 7,
@@ -239,7 +239,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -2.5,
-        "total": 39.5,
+        "total": 38.5,
         "stadium": "Raymond James Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -270,7 +270,7 @@
         "home": "Indianapolis Colts",
         "awayScore": null,
         "homeScore": null,
-        "spread": 7.0,
+        "spread": 6.5,
         "total": 44.5,
         "stadium": "Lucas Oil Stadium",
         "roof": null,
@@ -334,7 +334,7 @@
         "home": "Las Vegas Raiders",
         "awayScore": null,
         "homeScore": null,
-        "spread": -4.5,
+        "spread": -5.5,
         "total": 53.5,
         "stadium": "Allegiant Stadium",
         "roof": "dome",
@@ -431,7 +431,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 7.5,
-        "total": 51.5,
+        "total": 52.5,
         "stadium": "Levi's Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -525,8 +525,8 @@
           "ag": 13.4,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Ankle \u00b7 Out"
           },
           "log": "ARI|00-0041027",
           "cs": 54.9
@@ -1168,6 +1168,10 @@
           "ya": 2.0,
           "ag": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Hip \u00b7 Limited Participation in Practice"
+          },
           "log": "ATL|00-0037238",
           "cs": 1.2
         },
@@ -1190,6 +1194,10 @@
           "yr": 18.1,
           "rec": 5.4,
           "pos": "WR",
+          "inj": {
+            "s": "LP",
+            "note": "Hip \u00b7 Limited Participation in Practice"
+          },
           "log": "ATL|00-0037238",
           "ts": 28.3,
           "ts3": 35.1
@@ -1711,8 +1719,8 @@
           "cmp": 17.0,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Ankle \u00b7 Out"
           },
           "log": "BAL|00-0034796"
         },
@@ -1745,8 +1753,8 @@
           "ag": 4.8,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Ankle \u00b7 Out"
           },
           "log": "BAL|00-0034796",
           "cs": 11.7
@@ -1809,10 +1817,6 @@
           "yr": 14.6,
           "rec": 3.2,
           "pos": "WR",
-          "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
-          },
           "log": "BAL|00-0036550",
           "ts": 15.8,
           "ts3": 13.8
@@ -1836,8 +1840,8 @@
           "rec": 1.67,
           "pos": "TE",
           "inj": {
-            "s": "DNP",
-            "note": "Hand \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hand \u00b7 Out"
           },
           "log": "BAL|00-0040879",
           "ts": 3.8,
@@ -2367,10 +2371,6 @@
           "ya": 3.0,
           "ag": 1.0,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Hamstring \u00b7 Limited Participation in Practice"
-          },
           "log": "BUF|00-0035537",
           "cs": 0.7
         },
@@ -2392,8 +2392,8 @@
           "ag": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Shoulder \u00b7 Questionable"
           },
           "log": "BUF|00-0034827",
           "cs": 1.4
@@ -2408,8 +2408,8 @@
           "rec": 4.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Shoulder \u00b7 Questionable"
           },
           "log": "BUF|00-0034827",
           "ts": 15.4,
@@ -2455,10 +2455,6 @@
           "yr": 13.1,
           "rec": 3.33,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Hamstring \u00b7 Limited Participation in Practice"
-          },
           "log": "BUF|00-0035537",
           "ts": 7.7,
           "ts3": 13.5
@@ -2471,8 +2467,8 @@
           "rec": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "LP",
-            "note": "Shoulder \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Shoulder \u00b7 Questionable"
           },
           "log": "BUF|00-0036988",
           "ts": 6.9,
@@ -2980,8 +2976,8 @@
           "ag": 4.2,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Ankle \u00b7 Out"
           },
           "log": "CAR|00-0036265",
           "cs": 17.9
@@ -3048,10 +3044,6 @@
           "yr": 11.4,
           "rec": 3.25,
           "pos": "TE",
-          "inj": {
-            "s": "LP",
-            "note": "Toe \u00b7 Limited Participation in Practice"
-          },
           "log": "CAR|00-0031610",
           "ts": 12.9,
           "ts3": 15.0
@@ -3503,6 +3495,10 @@
           "int": 0.5,
           "cmp": 18.0,
           "pos": "QB",
+          "inj": {
+            "s": "Q",
+            "note": "Hamstring \u00b7 Questionable"
+          },
           "log": "CHI|00-0039918"
         },
         {
@@ -3533,8 +3529,8 @@
           "ag": 15.0,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Thumb \u00b7 Out"
           },
           "log": "CHI|00-0040236",
           "cs": 32.8
@@ -3556,6 +3552,10 @@
           "ya": 7.1,
           "ag": 7.5,
           "pos": "QB",
+          "inj": {
+            "s": "Q",
+            "note": "Hamstring \u00b7 Questionable"
+          },
           "log": "CHI|00-0039918",
           "cs": 8.2
         },
@@ -3665,8 +3665,8 @@
           "rec": 1.67,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Thumb \u00b7 Out"
           },
           "log": "CHI|00-0040236",
           "ts": 3.1,
@@ -4716,8 +4716,8 @@
           "ag": 14.6,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Ankle \u00b7 Questionable"
           },
           "log": "CLE|00-0040784",
           "cs": 57.9
@@ -4759,10 +4759,6 @@
           "ya": 2.2,
           "ag": 2.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Concussion \u00b7 Limited Participation in Practice"
-          },
           "log": "CLE|00-0041547",
           "cs": 3.2
         },
@@ -4811,10 +4807,6 @@
           "yr": 8.3,
           "rec": 3.6,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Concussion \u00b7 Limited Participation in Practice"
-          },
           "log": "CLE|00-0041547",
           "ts": 19.7,
           "ts3": 18.9
@@ -4838,8 +4830,8 @@
           "rec": 3.6,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Ankle \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Ankle \u00b7 Questionable"
           },
           "log": "CLE|00-0040784",
           "ts": 13.6,
@@ -7690,8 +7682,8 @@
           "ag": 10.4,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Groin \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Groin \u00b7 Out"
           },
           "log": "HOU|00-0035685",
           "cs": 44.4
@@ -7824,8 +7816,8 @@
           "rec": 2.33,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Groin \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Groin \u00b7 Out"
           },
           "log": "HOU|00-0035685",
           "ts": 4.1,
@@ -8332,6 +8324,10 @@
           "ya": 2.0,
           "ag": 1.0,
           "pos": "TE",
+          "inj": {
+            "s": "Q",
+            "note": "Groin \u00b7 Questionable"
+          },
           "log": "IND|00-0040128",
           "cs": 2.2
         }
@@ -8355,6 +8351,10 @@
           "yr": 7.1,
           "rec": 6.0,
           "pos": "TE",
+          "inj": {
+            "s": "Q",
+            "note": "Groin \u00b7 Questionable"
+          },
           "log": "IND|00-0040128",
           "ts": 21.7,
           "ts3": 22.4
@@ -9525,8 +9525,8 @@
           "rec": 4.33,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "KC|00-0039067",
           "ts": 14.4,
@@ -10116,6 +10116,10 @@
           "yr": 11.2,
           "rec": 5.0,
           "pos": "TE",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
+          },
           "log": "LA|00-0033110",
           "ts": 11.9,
           "ts3": 15.0
@@ -10624,8 +10628,8 @@
           "cmp": 0.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "LAC|00-0040727"
         }
@@ -10688,10 +10692,6 @@
           "ya": 1.5,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Chest \u00b7 Limited Participation in Practice"
-          },
           "log": "LAC|00-0038544",
           "cs": 1.4
         }
@@ -10704,10 +10704,6 @@
           "yr": 15.2,
           "rec": 3.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Foot \u00b7 Limited Participation in Practice"
-          },
           "log": "LAC|00-0039915",
           "ts": 12.3,
           "ts3": 8.2
@@ -10720,8 +10716,8 @@
           "rec": 3.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "LAC|00-0040727",
           "ts": 18.1,
@@ -10771,10 +10767,6 @@
           "yr": 15.4,
           "rec": 1.75,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Chest \u00b7 Limited Participation in Practice"
-          },
           "log": "LAC|00-0038544",
           "ts": 13.8,
           "ts3": 9.4
@@ -13077,8 +13069,8 @@
           "ag": 10.5,
           "pos": "RB",
           "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Ankle \u00b7 Questionable"
           },
           "log": "NE|00-0040734",
           "cs": 27.8
@@ -13188,8 +13180,8 @@
           "rec": 3.0,
           "pos": "WR",
           "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Ankle \u00b7 Questionable"
           },
           "log": "NE|00-0035676",
           "ts": 2.7,
@@ -13678,8 +13670,8 @@
           "ag": 7.0,
           "pos": "RB",
           "inj": {
-            "s": "LP",
-            "note": "Back \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Back \u00b7 Questionable"
           },
           "log": "NO|00-0033906",
           "cs": 24.1
@@ -13734,8 +13726,8 @@
           "rec": 7.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Illness \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Illness \u00b7 Questionable"
           },
           "log": "NO|00-0037239",
           "ts": 27.7,
@@ -13804,8 +13796,8 @@
           "rec": 3.25,
           "pos": "RB",
           "inj": {
-            "s": "LP",
-            "note": "Back \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Back \u00b7 Questionable"
           },
           "log": "NO|00-0033906",
           "ts": 8.2,
@@ -14410,8 +14402,8 @@
           "rec": 1.0,
           "pos": "TE",
           "inj": {
-            "s": "LP",
-            "note": "Neck \u00b7 Limited Participation in Practice"
+            "s": "O",
+            "note": "Neck \u00b7 Out"
           },
           "log": "NYG|00-0039847",
           "ts": 5.5,
@@ -14879,8 +14871,8 @@
           "ag": 17.0,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Quadricep \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Quadricep \u00b7 Out"
           },
           "log": "NYJ|00-0038120",
           "cs": 38.9
@@ -14933,8 +14925,8 @@
           "ag": 1.0,
           "pos": "TE",
           "inj": {
-            "s": "LP",
-            "note": "Concussion \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Concussion \u00b7 Questionable"
           },
           "log": "NYJ|00-0041032",
           "cs": 0.8
@@ -14960,8 +14952,8 @@
           "rec": 4.5,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Finger \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Finger \u00b7 Out"
           },
           "log": "NYJ|00-0039890",
           "ts": 10.8,
@@ -14975,8 +14967,8 @@
           "rec": 3.33,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Quadricep \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Quadricep \u00b7 Out"
           },
           "log": "NYJ|00-0038120",
           "ts": 7.2,
@@ -15001,8 +14993,8 @@
           "rec": 1.0,
           "pos": "WR",
           "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Ankle \u00b7 Questionable"
           },
           "log": "NYJ|00-0041511",
           "ts": 0.7,
@@ -15016,8 +15008,8 @@
           "rec": 2.8,
           "pos": "TE",
           "inj": {
-            "s": "LP",
-            "note": "Concussion \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Concussion \u00b7 Questionable"
           },
           "log": "NYJ|00-0041032",
           "ts": 15.1,
@@ -15485,8 +15477,8 @@
           "cmp": 17.8,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Calf \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Calf \u00b7 Out"
           },
           "log": "PHI|00-0036389"
         },
@@ -15509,8 +15501,8 @@
           "ag": 9.0,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "PHI|00-0034844",
           "cs": 29.8
@@ -15533,8 +15525,8 @@
           "ag": 4.6,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Calf \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Calf \u00b7 Out"
           },
           "log": "PHI|00-0036389",
           "cs": 19.0
@@ -15547,8 +15539,8 @@
           "ag": 5.0,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Foot \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Foot \u00b7 Out"
           },
           "log": "PHI|00-0039746",
           "cs": 16.5
@@ -15570,10 +15562,6 @@
           "ya": 6.0,
           "ag": 2.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
-          },
           "log": "PHI|00-0035662",
           "cs": 1.7
         }
@@ -15586,10 +15574,6 @@
           "yr": 12.4,
           "rec": 6.33,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Hamstring \u00b7 Limited Participation in Practice"
-          },
           "log": "PHI|00-0036912",
           "ts": 18.9,
           "ts3": 9.2
@@ -15601,10 +15585,6 @@
           "yr": 15.3,
           "rec": 3.4,
           "pos": "WR",
-          "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
-          },
           "log": "PHI|00-0038393",
           "ts": 19.6,
           "ts3": 20.7
@@ -15661,8 +15641,8 @@
           "rec": 1.0,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Foot \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Foot \u00b7 Out"
           },
           "log": "PHI|00-0039746",
           "ts": 5.6,
@@ -16157,6 +16137,10 @@
           "ya": 2.5,
           "ag": 7.5,
           "pos": "RB",
+          "inj": {
+            "s": "Q",
+            "note": "Toe \u00b7 Questionable"
+          },
           "log": "PIT|00-0036139",
           "cs": 13.9
         },
@@ -16167,6 +16151,10 @@
           "ya": 11.0,
           "ag": 1.0,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Illness \u00b7 Did Not Participate In Practice"
+          },
           "log": "PIT|00-0035640",
           "cs": 0.9
         },
@@ -16220,6 +16208,10 @@
           "yr": 11.8,
           "rec": 3.8,
           "pos": "WR",
+          "inj": {
+            "s": "DNP",
+            "note": "Illness \u00b7 Did Not Participate In Practice"
+          },
           "log": "PIT|00-0035640",
           "ts": 21.3,
           "ts3": 18.0
@@ -16232,8 +16224,8 @@
           "rec": 2.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Finger \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Finger \u00b7 Out"
           },
           "log": "PIT|00-0039739",
           "ts": 14.4,
@@ -16257,6 +16249,10 @@
           "yr": 8.9,
           "rec": 3.8,
           "pos": "TE",
+          "inj": {
+            "s": "Q",
+            "note": "Calf \u00b7 Questionable"
+          },
           "log": "PIT|00-0036894",
           "ts": 14.9,
           "ts3": 16.0
@@ -17363,10 +17359,6 @@
           "ya": 4.7,
           "ag": 12.2,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
-          },
           "log": "SF|00-0033280",
           "cs": 43.9
         },
@@ -17377,6 +17369,10 @@
           "ya": 3.7,
           "ag": 7.4,
           "pos": "RB",
+          "inj": {
+            "s": "DNP",
+            "note": "Not injury related - personal matter \u00b7 Did Not Participate In Practice"
+          },
           "log": "SF|00-0041052",
           "cs": 26.6
         },
@@ -17398,8 +17394,8 @@
           "ag": 1.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "SF|00-0035719",
           "cs": 6.5
@@ -17434,8 +17430,8 @@
           "rec": 4.8,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Ribs \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Ribs \u00b7 Questionable"
           },
           "log": "SF|00-0031408",
           "ts": 24.8,
@@ -17482,8 +17478,8 @@
           "rec": 4.0,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Hamstring \u00b7 Out"
           },
           "log": "SF|00-0035719",
           "ts": 14.6,
@@ -17496,10 +17492,6 @@
           "yr": 7.2,
           "rec": 3.8,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
-          },
           "log": "SF|00-0033280",
           "ts": 18.2,
           "ts3": 15.9
@@ -17511,10 +17503,6 @@
           "yr": 13.8,
           "rec": 1.33,
           "pos": "FB",
-          "inj": {
-            "s": "LP",
-            "note": "Knee \u00b7 Limited Participation in Practice"
-          },
           "log": "SF|00-0029892",
           "ts": 4.4,
           "ts3": 4.9
@@ -17970,8 +17958,8 @@
           "cmp": 20.3,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Thumb \u00b7 Out"
           },
           "log": "TB|00-0034855"
         },
@@ -18014,8 +18002,8 @@
           "ag": 3.7,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Thumb \u00b7 Out"
           },
           "log": "TB|00-0034855",
           "cs": 8.1
@@ -18028,8 +18016,8 @@
           "ag": 4.0,
           "pos": "RB",
           "inj": {
-            "s": "LP",
-            "note": "Quadricep \u00b7 Limited Participation in Practice"
+            "s": "Q",
+            "note": "Quadricep \u00b7 Questionable"
           },
           "log": "TB|00-0038951",
           "cs": 5.9
@@ -18605,8 +18593,8 @@
           "ag": 3.4,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Knee \u00b7 Questionable"
           },
           "log": "TEN|00-0039032",
           "cs": 15.7
@@ -18705,8 +18693,8 @@
           "rec": 3.5,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Knee \u00b7 Questionable"
           },
           "log": "TEN|00-0039032",
           "ts": 11.2,
@@ -19203,8 +19191,8 @@
           "cmp": 11.0,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Knee \u00b7 Out"
           },
           "log": "WAS|00-0032268"
         },
@@ -19246,8 +19234,8 @@
           "ag": 13.4,
           "pos": "RB",
           "inj": {
-            "s": "DNP",
-            "note": "Groin \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Groin \u00b7 Out"
           },
           "log": "WAS|00-0040242",
           "cs": 45.3
@@ -19259,6 +19247,10 @@
           "ya": 4.1,
           "ag": 7.2,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Shoulder \u00b7 Limited Participation in Practice"
+          },
           "log": "WAS|00-0037256",
           "cs": 19.6
         },
@@ -19270,8 +19262,8 @@
           "ag": 2.3,
           "pos": "QB",
           "inj": {
-            "s": "DNP",
-            "note": "Knee \u00b7 Did Not Participate In Practice"
+            "s": "O",
+            "note": "Knee \u00b7 Out"
           },
           "log": "WAS|00-0032268",
           "cs": 4.7
@@ -19325,8 +19317,8 @@
           "rec": 4.5,
           "pos": "WR",
           "inj": {
-            "s": "DNP",
-            "note": "Hamstring \u00b7 Did Not Participate In Practice"
+            "s": "Q",
+            "note": "Hamstring \u00b7 Questionable"
           },
           "log": "WAS|00-0031588",
           "ts": 20.4,
@@ -19387,6 +19379,10 @@
           "yr": 5.3,
           "rec": 2.5,
           "pos": "RB",
+          "inj": {
+            "s": "LP",
+            "note": "Shoulder \u00b7 Limited Participation in Practice"
+          },
           "log": "WAS|00-0037256",
           "ts": 6.6,
           "ts3": 2.2
