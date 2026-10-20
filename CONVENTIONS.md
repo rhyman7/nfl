@@ -116,7 +116,24 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - PDFs are built by `scripts/build_pdfs.py` (headless Chromium via Playwright) in the
   **Build matchup PDFs** Action, which runs when the data, the print layout or the EPA page
   change. `pdf/manifest.json` says which week the PDFs are for; the Download PDF links only
-  show when it matches the week on the page. Don't hand-edit anything in `pdf/`.
+  show when it matches the week on the page. Don't hand-edit anything in `pdf/`. The same
+  Action also builds the game packets below, and runs daily after the NFL value board updates.
+- **Game packets** (`packets.js`, `scripts/build_report.py`, `scripts/build_packets.py`,
+  `scripts/report.css`, `vendor/pdf-lib.min.js`). For every game, four parts back to back:
+  the Weekly Matchup Report page, the printed matchup, the EPA matchup page and the value
+  board's matchup. This Week's Matchups has **Print all packets / Save all packets** and
+  **Print report / Save report**; each matchup page has **Print packet / Save packet**.
+  `build_packets.py` writes `pdf/report.pdf`, `pdf/matchups.pdf`, `pdf/value-board.pdf` and
+  `pdf/packets.json` (which pages of each file belong to each game); `packets.js` assembles the
+  packet in the browser with pdf-lib, so each week's pages are stored once. The buttons only
+  show when `packets.json` is for the week on the page. A part with no page for a game is left
+  out of that packet and listed under `missing`.
+- The **Weekly Matchup Report** is rule-based and built from `data/data.json` only (good and
+  tough spots per game, Best Overall Matchups, Most Likely to Score a TD). `build_report.py`,
+  `build_packets.py` and `report.css` are **identical in both repos**; change them in both.
+- The value board's pages come from a checkout of rhyman7/fb-value-board (its Matchups view,
+  Print all). If that board's print layout or game ids change, check the packets still map
+  every game (the Action log prints the counts and any missing parts).
 - If you change the print layout, check the page count still comes out right.
 
 ## Cache busting

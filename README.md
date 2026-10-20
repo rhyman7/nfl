@@ -28,6 +28,15 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   `pdf/epa.pdf` (the EPA page's Print all) and `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
   `data/data.json` or the print layout changes. The links only show when the PDFs are
   for the week on the page. `print.html?game=<id>` prints a single game.
+- **Game packets** — on This Week's Matchups, **Print all packets / Save all packets** gives
+  every game's packet in one PDF, and **Print report / Save report** gives the Weekly Matchup
+  Report on its own; each matchup page has **Print packet / Save packet** for that game. A
+  packet is four parts back to back: the game's Weekly Matchup Report page (good and tough
+  spots, from `scripts/build_report.py`), the printed matchup, the EPA matchup page and the
+  value board's matchup (rhyman7/fb-value-board). `scripts/build_packets.py` builds the source
+  PDFs and `pdf/packets.json` in the **Build matchup PDFs** workflow; `packets.js` stitches the pages
+  together in the browser (pdf-lib, `vendor/`). The buttons show once the packets are for the
+  week on the page; a game the value board doesn't model gets a three-part packet.
 - **EPA** (`epa.html`, `epa.js`) — opponent-adjusted EPA, linked left of Weekly Edges.
   Pick a game for Head to Head panels (adjusted EPA / play, pass and rush EPA, early-down
   pass EPA, success rate, with the same rank bars as the matchup page) and both teams'
