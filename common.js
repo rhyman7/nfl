@@ -55,6 +55,7 @@ async function loadData() {
     const p = pr.ok ? await pr.json() : null;
     if (p && p.season === DATA.season && p.week === LIVE_WEEK && p.games) PROPS = p;
   } catch (e) { /* props are optional */ }
+  try { await applyEspnInjuries(); } catch (e) { /* ESPN injuries are optional */ }
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
@@ -774,12 +775,72 @@ window.addEventListener("afterprint", () => {
 });
 
 /* ---------------- Injury tags + player index ---------------- */
-// r.inj = { s: "O" | "D" | "Q" | "DNP" | "LP", note } from the nflverse injury report (DATA.injuryWeek).
+// r.inj = { s: "O" | "D" | "Q" | "DNP" | "LP", note } from the nflverse injury report (DATA.injuryWeek),
+// or { s, note, src: "espn", date } when ESPN's injury feed has a newer game status (applyEspnInjuries).
 const INJ_LABEL = { O: "Out", D: "Doubtful", Q: "Questionable", DNP: "Did not practice", LP: "Limited practice" };
+function injSource(inj) {
+  if (inj && inj.src === "espn") {
+    const d = inj.date ? new Date(inj.date) : null;
+    return "ESPN injury update" + (d && !isNaN(d) ? ", " + d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "");
+  }
+  return `Week ${DATA.injuryWeek} injury report`;
+}
 function injTag(inj) {
   if (!inj || !inj.s) return "";
-  const title = `Week ${DATA.injuryWeek} injury report: ${INJ_LABEL[inj.s] || inj.s}${inj.note ? " (" + inj.note + ")" : ""}`;
+  const title = `${injSource(inj)}: ${INJ_LABEL[inj.s] || inj.s}${inj.note ? " (" + inj.note + ")" : ""}`;
   return ` <span class="inj inj-${inj.s}" title="${escapeHtml(title)}">${escapeHtml(inj.s)}</span>`;
+}
+
+// ESPN's league injury feed, read in the viewer's browser. Game statuses there (Out, Doubtful,
+// Questionable, injured reserve) usually appear days before the official report the weekly data
+// uses, so they replace that player's tag. Practice tags (DNP/LP) from the official report stay
+// when ESPN has no game status for the player. If ESPN is slow, fails or looks different, the
+// page keeps the weekly data's tags.
+const ESPN_INJURIES_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries";
+const ESPN_INJ_TIMEOUT_MS = 3000;
+function espnInjCode(inj) {
+  const st = String(inj.status || "").toLowerCase();
+  const ab = String((inj.type && inj.type.abbreviation) || "").toUpperCase();
+  if (st === "out" || st.includes("injured reserve") || st.includes("physically unable") || ab === "O" || ab === "IR") return "O";
+  if (st === "doubtful" || ab === "D") return "D";
+  if (st === "questionable" || ab === "Q") return "Q";
+  return null;   // Active, Probable, Day-to-day and anything else: leave the weekly tag
+}
+async function applyEspnInjuries() {
+  if (!DATA || !DATA.teams) return;
+  const ctl = typeof AbortController === "function" ? new AbortController() : null;
+  const timer = ctl ? setTimeout(() => ctl.abort(), ESPN_INJ_TIMEOUT_MS) : null;
+  let feed;
+  try {
+    const res = await fetch(ESPN_INJURIES_URL, { cache: "no-store", signal: ctl ? ctl.signal : undefined });
+    if (!res.ok) return;
+    feed = await res.json();
+  } finally { if (timer) clearTimeout(timer); }
+  if (!feed || !Array.isArray(feed.injuries)) return;
+  // team name or ESPN abbreviation -> our team
+  const byAbbr = {};
+  for (const t of Object.values(DATA.teams)) byAbbr[(ESPN_ABBR[t.abbr] || t.abbr).toUpperCase()] = t;
+  let tagged = 0;
+  for (const grp of feed.injuries) {
+    for (const inj of (grp && grp.injuries) || []) {
+      const s = espnInjCode(inj || {});
+      const a = (inj && inj.athlete) || {};
+      if (!s) continue;
+      const team = DATA.teams[grp.displayName] || (a.team && byAbbr[String(a.team.abbreviation || "").toUpperCase()]);
+      const name = normName(a.displayName || [a.firstName, a.lastName].filter(Boolean).join(" "));
+      if (!team || !name) continue;
+      const what = (inj.details && inj.details.type) || "";
+      const tag = { s, note: what || String(inj.status || ""), src: "espn", date: inj.date || null };
+      let hit = false;
+      for (const kind of ["passing", "rushing", "receiving"]) {
+        for (const r of team[kind] || []) {
+          if (normName(r.player) === name) { r.inj = tag; hit = true; }
+        }
+      }
+      if (hit) tagged++;
+    }
+  }
+  DATA.espnInjuries = { tagged, at: feed.timestamp || null };
 }
 
 let PLAYER_INDEX = null;  // log key -> { key, name, pos, team, abbr, inj, kind }
@@ -869,7 +930,7 @@ function tooltipHtml(name, kind, log, inj) {
   const head = `<th>Wk</th><th>Opp</th>${cols.map(([l]) => `<th class="num">${l}</th>`).join("")}<th class="num">FPts</th>`;
   const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
   return `<div class="ptip-head"><b>${name}${inj ? injTag(inj) : ""}</b><span>${fpAvg(log)} FPts/G</span></div>
-    ${inj && inj.note ? `<div class="ptip-inj">Week ${DATA.injuryWeek} report: ${escapeHtml(inj.note)}</div>` : ""}
+    ${inj && inj.note ? `<div class="ptip-inj">${escapeHtml(injSource(inj))}: ${escapeHtml(inj.note)}</div>` : ""}
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
     <div class="ptip-foot">Click for full game log and prop check</div>`;
 }
@@ -987,7 +1048,7 @@ function panelHtml(name, key, log, kind) {
     <div class="plog-top">
       <div>
         <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
-        ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">Week ${DATA.injuryWeek} injury report: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
+        ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">${escapeHtml(injSource(pinfo.inj))}: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
         <div class="plog-sub">${pinfo && pinfo.pos ? escapeHtml(pinfo.pos) + ", " : ""}${t ? escapeHtml(t.team) + ", " : ""}${log.length} game${log.length === 1 ? "" : "s"}, ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
       </div>
       <button type="button" class="plog-close" aria-label="Close">✕</button>

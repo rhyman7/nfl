@@ -58,8 +58,8 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - Each page has `<body data-page="…">`; scripts branch on it.
 - Escape anything from data before putting it in HTML (`escapeHtml()` in `common.js`).
 - Wrap `localStorage` reads and writes in try/catch; the page has to work without it.
-- Live scores, current lines (ESPN) and forecasts (Open-Meteo) are fetched in the viewer's
-  browser. If either service fails, the page leaves that part out or shows a short note and
+- Live scores, current lines and injury game statuses (ESPN) and forecasts (Open-Meteo) are
+  fetched in the viewer's browser. If either service fails, the page leaves that part out or shows a short note and
   falls back to the weekly data. Never let a failed fetch break a page.
 
 ## Nav and page names
@@ -148,6 +148,12 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   counts, advanced stats) and **Pro-Football-Reference.com** (standings, SoS / SRS / OSRS / DSRS,
   and pressure rate via nflverse advanced stats). Lines: ESPN in the browser, nflverse in the
   weekly data.
+- **Injury tags (NFL only):** the weekly data's tags come from the official report (nflverse
+  `injuries`). In the browser, `applyEspnInjuries()` in `common.js` reads ESPN's injury feed
+  and an ESPN game status (Out, Doubtful, Questionable; injured reserve and PUP show as O)
+  replaces that player's tag; DNP/LP practice tags stay when ESPN has none. The CFB site
+  keeps its own injury source (Ryan, Oct 2026). Match on team and player name only, and
+  keep the fetch on a short timeout so it never holds up the page.
 - **Build:** `python scripts/build_from_nflverse.py --season 2026 --src <download folder>`
   writes `data/data.json`, `data/epa.json` (via `scripts/epa_ratings.py`),
   `data/season.json` and the `data/weeks/<N>.json` that changed. `scripts/situational.py`
