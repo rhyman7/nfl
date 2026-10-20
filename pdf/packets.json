@@ -1,0 +1,302 @@
+{
+ "season": 2026,
+ "week": 7,
+ "league": "nfl",
+ "title": "NFL Week 7 Matchup Report",
+ "dataGeneratedAt": "2026-10-20T15:51:01.479693+00:00",
+ "generatedAt": "2026-10-20T19:13:45Z",
+ "files": {
+  "report": "report.pdf",
+  "matchup": "matchups.pdf",
+  "epa": "epa.pdf",
+  "value": "value-board.pdf"
+ },
+ "parts": [
+  "Matchup Report",
+  "Printed matchup",
+  "EPA",
+  "Value board"
+ ],
+ "games": [
+  {
+   "id": "2026_07_NE_CHI",
+   "label": "NE @ CHI",
+   "file": "NFL_Week7_NE-CHI_packet",
+   "pages": {
+    "matchup": [
+     0,
+     1
+    ],
+    "epa": [
+     0
+    ],
+    "value": [
+     0
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_PIT_NO",
+   "label": "PIT vs NO",
+   "file": "NFL_Week7_PIT-NO_packet",
+   "pages": {
+    "matchup": [
+     2,
+     3
+    ],
+    "epa": [
+     1
+    ],
+    "value": [
+     1
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_CIN_BAL",
+   "label": "CIN @ BAL",
+   "file": "NFL_Week7_CIN-BAL_packet",
+   "pages": {
+    "matchup": [
+     4,
+     5
+    ],
+    "epa": [
+     2
+    ],
+    "value": [
+     2
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_CLE_TEN",
+   "label": "CLE @ TEN",
+   "file": "NFL_Week7_CLE-TEN_packet",
+   "pages": {
+    "matchup": [
+     6,
+     7
+    ],
+    "epa": [
+     3
+    ],
+    "value": [
+     3
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_IND_MIN",
+   "label": "IND @ MIN",
+   "file": "NFL_Week7_IND-MIN_packet",
+   "pages": {
+    "matchup": [
+     8,
+     9
+    ],
+    "epa": [
+     4
+    ],
+    "value": [
+     4
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_MIA_NYJ",
+   "label": "MIA @ NYJ",
+   "file": "NFL_Week7_MIA-NYJ_packet",
+   "pages": {
+    "matchup": [
+     10,
+     11
+    ],
+    "epa": [
+     5
+    ],
+    "value": [
+     5
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_NYG_HOU",
+   "label": "NYG @ HOU",
+   "file": "NFL_Week7_NYG-HOU_packet",
+   "pages": {
+    "matchup": [
+     12,
+     13
+    ],
+    "epa": [
+     6
+    ],
+    "value": [
+     6
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_SF_ATL",
+   "label": "SF @ ATL",
+   "file": "NFL_Week7_SF-ATL_packet",
+   "pages": {
+    "matchup": [
+     14,
+     15
+    ],
+    "epa": [
+     7
+    ],
+    "value": [
+     7
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_TB_CAR",
+   "label": "TB @ CAR",
+   "file": "NFL_Week7_TB-CAR_packet",
+   "pages": {
+    "matchup": [
+     16,
+     17
+    ],
+    "epa": [
+     8
+    ],
+    "value": [
+     8
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_DEN_ARI",
+   "label": "DEN @ ARI",
+   "file": "NFL_Week7_DEN-ARI_packet",
+   "pages": {
+    "matchup": [
+     18,
+     19
+    ],
+    "epa": [
+     9
+    ],
+    "value": [
+     9
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_GB_DET",
+   "label": "GB @ DET",
+   "file": "NFL_Week7_GB-DET_packet",
+   "pages": {
+    "matchup": [
+     20,
+     21
+    ],
+    "epa": [
+     10
+    ],
+    "value": [
+     10
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_LA_LV",
+   "label": "LA @ LV",
+   "file": "NFL_Week7_LA-LV_packet",
+   "pages": {
+    "matchup": [
+     22,
+     23
+    ],
+    "epa": [
+     11
+    ],
+    "value": [
+     11
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_KC_SEA",
+   "label": "KC @ SEA",
+   "file": "NFL_Week7_KC-SEA_packet",
+   "pages": {
+    "matchup": [
+     24,
+     25
+    ],
+    "epa": [
+     12
+    ],
+    "value": [
+     12
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  },
+  {
+   "id": "2026_07_DAL_PHI",
+   "label": "DAL @ PHI",
+   "file": "NFL_Week7_DAL-PHI_packet",
+   "pages": {
+    "matchup": [
+     26,
+     27
+    ],
+    "epa": [
+     13
+    ],
+    "value": [
+     13
+    ]
+   },
+   "missing": [
+    "Matchup Report"
+   ]
+  }
+ ]
+}
