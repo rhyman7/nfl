@@ -238,7 +238,7 @@ function learnSections(g, a, h) {
           <p class="learn-prop">Rec yds line ${line}: <b>over in ${over} of ${log.length} games</b></p></div>
       </div>`,
       [["Per-game averages", `Yards, touchdowns and catches per game the player actually played for this team.${missed > 0 ? ` ${escapeHtml(r.player)} has missed ${plural(missed, "game")}, so his averages cover ${log.length}.` : ""}`],
-       ["Injury tags", `From this week's injury report: O, D and Q are game statuses (out, doubtful, questionable); DNP and LP are practice reports (did not practice, limited).${inj ? ` ${escapeHtml(r.player)} is tagged ${inj.s}: ${injWhat}${inj.note ? ` (${escapeHtml(inj.note.split(" · ")[0].toLowerCase())})` : ""}.` : ""}`],
+       ["Injury tags", `From this week's injury report, with newer game statuses from ESPN's injury feed: O, D and Q are game statuses (out, doubtful, questionable; injured reserve shows as O); DNP and LP are practice reports (did not practice, limited). Hover a tag to see which source it came from.${inj ? ` ${escapeHtml(r.player)} is tagged ${inj.s}: ${injWhat}${inj.note ? ` (${escapeHtml(inj.note.split(" · ")[0].toLowerCase())})` : ""}.` : ""}`],
        ["Game log", "Hover a player's name for his game-by-game line (shown here); click it to open the full log. Try it on the names in this table."],
        ["Prop check", `In the full log you can type any line and it counts the games he went over it, and shows what his next opponent allows. At ${line} receiving yards, ${escapeHtml(r.player)} went over in ${over} of ${log.length} games.`]]));
   }

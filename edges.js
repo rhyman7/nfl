@@ -13,7 +13,7 @@ async function init() {
     .slice().sort((a, b) => gameStart(a) - gameStart(b));
   document.getElementById("edgesTitle").textContent = `Week ${DATA.schedule.week} Edges`;
   document.getElementById("edgesSub").textContent =
-    `${games.length} games. Stats through Week ${DATA.throughWeek}.` + (DATA.injuryWeek ? ` Week ${DATA.injuryWeek} injury report.` : "");
+    `${games.length} games. Stats through Week ${DATA.throughWeek}.` + (DATA.injuryWeek ? ` Week ${DATA.injuryWeek} injury report${DATA.espnInjuries ? ", with ESPN updates" : ""}.` : "");
   const draw = () => {
     document.getElementById("gameBoard").innerHTML = gameBoard(games);
     document.getElementById("propBoards").innerHTML = propBoards(games);

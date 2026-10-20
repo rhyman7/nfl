@@ -104,8 +104,12 @@ opponent allows for that stat (from the defense and defense-vs-position numbers)
 Each player row carries `pos` for this.
 
 **Injury tags.** Player names carry a tag from the nflverse injury report for the
-current week (O, D, Q, or DNP/LP from practice); hover it for the injury. The report
-fills in Wednesday–Friday, which is why there's a Friday refresh.
+current week (O, D, Q, or DNP/LP from practice); hover it for the injury and its source.
+The report fills in Wednesday–Friday, so the page also reads ESPN's injury feed in the
+browser (`applyEspnInjuries()` in `common.js`): an ESPN game status (Out, Doubtful,
+Questionable; injured reserve shows as O) replaces that player's tag, usually days before
+the official report has it. Practice tags stay when ESPN has no game status for the player.
+If ESPN can't be reached within 3 seconds, the weekly tags show as before.
 
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
