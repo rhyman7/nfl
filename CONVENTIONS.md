@@ -50,8 +50,8 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   | Print all | `print.html` | `print.js` | `printall` |
 
 - Shared by every page: `style.css`, `teamcolors.js`, `common.js` (data loading, lines,
-  forecast, game header, Head to Head, team cards, game logs, search, week strip, prop book
-  buttons) and `live.js` (ESPN live scores and current lines). `weather.js` loads on the
+  forecast, game header, Head to Head, team cards, game logs, search, week strip) and
+  `live.js` (ESPN live scores and current lines). `weather.js` loads on the
   pages that show a forecast. Put shared logic in `common.js`, not in a page script.
 - Load order at the bottom of each page: `teamcolors.js`, `common.js`, `live.js`,
   `weather.js` (if used), then the page script.
@@ -159,9 +159,9 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - About 105 credits a week (7 markets × ~15 games); the script skips games already under way
   and stops before the last 25 credits. Check the credit math before adding markets, books
   or runs. `--dry-run` shows the cost without spending credits.
-- DraftKings and FanDuel only. The chosen book is remembered in `localStorage` `propBook`
-  (DraftKings by default). Without `data/props.json` for this week, pages fall back to how
-  they worked before props.
+- DraftKings and FanDuel only. The lines aren't displayed on any page (no book buttons, no
+  prop-line columns); `data/props.json` is only read for the header QB below. Without it for
+  this week, pages fall back to nflverse.
 - The matchup header's "X at QB" before kickoff is the team's player with the highest
   passing-yards prop (`heroQb()` in `common.js`); without QB props, and once the game is
   final, it is nflverse's starter.

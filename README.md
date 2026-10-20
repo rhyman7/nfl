@@ -319,20 +319,7 @@ and a `teams` map putting each player on one of the game's two teams from nflver
 rosters (team defenses left out). `python scripts/fetch_props.py --tag-teams` redoes that map
 without the API key or any credits.
 
-**Which book.** Every prop line on the site shows one sportsbook at a time. The DraftKings and
-FanDuel buttons (`bookButtons()` in `common.js`, logos in `img/`) switch every line on the page and
-the choice is remembered in the browser (`localStorage` `propBook`, DraftKings by default):
-
-- Matchup pages (current week only): the buttons sit under the Run game / Pass game ranks on each
-  team card. Passing gets the yards line next to Yds/G and the TD over/under next to TD; Rushing
-  the yards line next to Yds/G and the attempts line after A/G; Receiving the yards line next to
-  Yds/G and the receptions line after Rec/G, each with its over/under prices. With these columns
-  Passing runs across the top and Rushing and Receiving sit side by side under it. An Anytime TD
-  block (shortest price first, up to four columns of four) sits between the tables and Usage.
-  "—" means that book has no line for the player (FanDuel posts no rush-attempt lines). Printing
-  shows the chosen book without the buttons.
-- Weekly Edges: the buttons sit above the prop tables; the Line column (with Adj minus the line)
-  shows the chosen book.
-- The game-log panel's prop check starts from the chosen book's line and shows its prices.
-
-Without the file (or for another week) all of these fall back to how they worked before.
+**Where it's used.** The sportsbook lines aren't shown anywhere on the site (the DraftKings /
+FanDuel buttons and prop-line columns were removed in Oct 2026). The file is only used for the
+matchup header's quarterback before kickoff: the team's player with the highest passing-yards
+prop (`heroQb()` in `common.js`). Without the file it falls back to nflverse's starter.
