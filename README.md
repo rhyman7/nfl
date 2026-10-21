@@ -103,9 +103,11 @@ went over, the average, the last 3 results, each game marked O/U, and what next 
 opponent allows for that stat (from the defense and defense-vs-position numbers).
 Each player row carries `pos` for this.
 
-**Injury tags.** Player names carry a tag from the nflverse injury report for the
-current week (O, D, Q, or DNP/LP from practice); hover it for the injury. The report
-fills in Wednesday–Friday, which is why there's a Friday refresh.
+**Injury tags.** Player names carry a tag from ESPN's injury report (the feed behind
+espn.com/nfl/injuries), fetched by the viewer's browser when the page loads, so it is
+always current: O, D, Q, IR (injured reserve), PUP or SUSP; hover it for the injury.
+If ESPN can't be reached the tables show no tags (or, for an older data file, the
+nflverse tags it was built with). The daily build no longer downloads the nflverse injury file.
 
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
@@ -181,8 +183,9 @@ python scripts/build_from_nflverse.py --season 2026 --src <download folder>
 
 A second scheduled task reruns the same build Friday at about 5 PM ET to pick up the
 final injury report, referee assignments and line moves. The download folder also needs
-`play_by_play_2026.csv.gz` and `injuries_2026.csv` from the nflverse-data releases
-(`pbp` and `injuries`); without them the build leaves EPA or injury tags out.
+`play_by_play_2026.csv.gz` from the nflverse-data releases (`pbp`); without it the
+build leaves EPA out. Injury tags come from ESPN in the browser, so `injuries_2026.csv`
+is left out on purpose (the build then notes that injury tags are left out).
 
 and pushes the new `data/data.json` along with `data/season.json` and `data/weeks/`,
 which the same build rewrites for the week strip (only the weeks that changed; a week

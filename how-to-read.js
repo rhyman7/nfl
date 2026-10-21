@@ -230,7 +230,7 @@ function learnSections(g, a, h) {
     const line = Math.max(0.5, Math.floor(r.ydsG) - 0.5);
     const over = log.filter(e => (e.recYds || 0) > line).length;
     const inj = r.inj;
-    const injWhat = inj ? { O: "out", D: "doubtful", Q: "questionable", DNP: "did not practice", LP: "limited in practice" }[inj.s] : null;
+    const injWhat = inj ? { O: "out", D: "doubtful", Q: "questionable", IR: "on injured reserve", PUP: "on the PUP list", SUSP: "suspended", DNP: "did not practice", LP: "limited in practice" }[inj.s] : null;
     parts.push(section(6, "Player tables and game logs", "Per-game averages, injury tags and every game a player has played",
       `<div class="learn-split">
         <div class="team-card learn-card" style="${style}">${playerTable("Receiving", a.receiving.slice(0, 3), [["Player", "player", "text"], ["Yds/G", "ydsG", "num"], ["TD", "td", "num"], ["Y/R", "yr", "num"], ["Rec/G", "rec", "num"]]).replace('class="table-block"', 'class="table-block learn-table"')}</div>
@@ -238,7 +238,7 @@ function learnSections(g, a, h) {
           <p class="learn-prop">Rec yds line ${line}: <b>over in ${over} of ${log.length} games</b></p></div>
       </div>`,
       [["Per-game averages", `Yards, touchdowns and catches per game the player actually played for this team.${missed > 0 ? ` ${escapeHtml(r.player)} has missed ${plural(missed, "game")}, so his averages cover ${log.length}.` : ""}`],
-       ["Injury tags", `From this week's injury report: O, D and Q are game statuses (out, doubtful, questionable); DNP and LP are practice reports (did not practice, limited).${inj ? ` ${escapeHtml(r.player)} is tagged ${inj.s}: ${injWhat}${inj.note ? ` (${escapeHtml(inj.note.split(" · ")[0].toLowerCase())})` : ""}.` : ""}`],
+       ["Injury tags", `From ESPN's injury report, loaded when the page opens: O, D and Q are game statuses (out, doubtful, questionable); IR is injured reserve, PUP the physically-unable-to-perform list, SUSP suspended.${inj ? ` ${escapeHtml(r.player)} is tagged ${inj.s}: ${injWhat}${inj.note ? ` (${escapeHtml(inj.note.split(" · ")[0].toLowerCase())})` : ""}.` : ""}`],
        ["Game log", "Hover a player's name for his game-by-game line (shown here); click it to open the full log. Try it on the names in this table."],
        ["Prop check", `In the full log you can type any line and it counts the games he went over it, and shows what his next opponent allows. At ${line} receiving yards, ${escapeHtml(r.player)} went over in ${over} of ${log.length} games.`]]));
   }
@@ -291,10 +291,10 @@ function learnSections(g, a, h) {
   }
   const hurt = [];
   for (const t of [a, h]) for (const tab of ["passing", "rushing", "receiving"]) for (const p of t[tab] || []) {
-    if (p.inj && (["O", "D", "Q"].includes(p.inj.s) || (p.pos === "QB" && p.inj.s === "DNP")) && !hurt.some(x => x.p === p.player))
+    if (p.inj && (["O", "D", "Q", "IR", "PUP", "SUSP"].includes(p.inj.s) || (p.pos === "QB" && p.inj.s === "DNP")) && !hurt.some(x => x.p === p.player))
       hurt.push({ p: p.player, t, s: p.inj.s, what: (p.inj.note || "").split(" · ")[0].toLowerCase() });
   }
-  if (hurt.length) sum.push("On the injury report: " + hurt.slice(0, 3).map(x => `${escapeHtml(x.p)} (${escapeHtml(x.t.abbr)}, ${x.s === "DNP" ? "missed practice" : { O: "out", D: "doubtful", Q: "questionable" }[x.s]}${x.what ? ", " + escapeHtml(x.what) : ""})`).join("; ") + ".");
+  if (hurt.length) sum.push("On the injury report: " + hurt.slice(0, 3).map(x => `${escapeHtml(x.p)} (${escapeHtml(x.t.abbr)}, ${x.s === "DNP" ? "missed practice" : { O: "out", D: "doubtful", Q: "questionable", IR: "on injured reserve", PUP: "on the PUP list", SUSP: "suspended" }[x.s]}${x.what ? ", " + escapeHtml(x.what) : ""})`).join("; ") + ".");
   parts.push(`<section class="learn-sum">
     <div><b>Put it together</b><p>${sum.join(" ") || "Open the matchup to see every number for this game."}</p></div>
     <a class="learn-btn" href="matchup.html?game=${encodeURIComponent(g.id)}">Open ${escapeHtml(a.abbr)} ${g.neutral ? "vs" : "at"} ${escapeHtml(h.abbr)}</a>

@@ -758,7 +758,7 @@ body.plog-open { overflow: hidden; }
   vertical-align: 1px;
   cursor: help;
 }
-.inj-O, .inj-D { background: var(--neg-bg); color: #fca5a5; }
+.inj-O, .inj-D, .inj-IR, .inj-PUP, .inj-SUSP { background: var(--neg-bg); color: #fca5a5; }
 .inj-Q { background: rgba(234, 179, 8, 0.2); color: #fde047; }
 .inj-DNP, .inj-LP { background: var(--track); color: var(--text-dim); }
 .ptip-inj, .plog-inj { margin: -2px 0 6px; font-size: 0.78rem; color: #fde047; }

@@ -13,7 +13,7 @@ async function init() {
     .slice().sort((a, b) => gameStart(a) - gameStart(b));
   document.getElementById("edgesTitle").textContent = `Week ${DATA.schedule.week} Edges`;
   document.getElementById("edgesSub").textContent =
-    `${games.length} games. Stats through Week ${DATA.throughWeek}.` + (DATA.injuryWeek ? ` Week ${DATA.injuryWeek} injury report.` : "");
+    `${games.length} games. Stats through Week ${DATA.throughWeek}.` + (injSource() ? ` ${injSource()}.` : "");
   const draw = () => {
     document.getElementById("gameBoard").innerHTML = gameBoard(games);
     document.getElementById("propBoards").innerHTML = propBoards(games);
@@ -114,7 +114,7 @@ function propBoards(games) {
       const o = opp[t.team];
       if (!o || isFinalFor(t.team, games)) continue;
       for (const r of t[table] || []) {
-        if (!positions.includes((r.pos || "").toUpperCase()) || r.ydsG < minAvg || (r.inj && r.inj.s === "O")) continue;
+        if (!positions.includes((r.pos || "").toUpperCase()) || r.ydsG < minAvg || (r.inj && INJ_OUT.includes(r.inj.s))) continue;
         const f = lg ? allowed(o.t) / lg : 1;
         if (f <= 1) continue;
         rows.push({ r, t, o, f, adj: r.ydsG * f, kind: table });

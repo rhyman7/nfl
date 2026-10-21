@@ -55,10 +55,78 @@ async function loadData() {
     const p = pr.ok ? await pr.json() : null;
     if (p && p.season === DATA.season && p.week === LIVE_WEEK && p.games) PROPS = p;
   } catch (e) { /* props are optional */ }
+  await loadEspnInjuries();
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
 }
+
+/* ---------------- Injury tags from ESPN (fetched in the viewer's browser) ---------------- */
+// ESPN's public injuries feed (the data behind espn.com/nfl/injuries). Each listed player in the
+// stat tables gets r.inj = { s, note }. The feed is unofficial: if it fails, is slow or looks
+// different, the tables just show no injury tags.
+const ESPN_INJURIES_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries";
+const ESPN_INJ_STATUS = { "out": "O", "doubtful": "D", "questionable": "Q", "injured reserve": "IR",
+  "physically unable to perform": "PUP", "pup": "PUP", "suspension": "SUSP", "suspended": "SUSP" };
+let INJ_SOURCE = null;   // "ESPN injury report" once the feed has loaded
+async function loadEspnInjuries() {
+  if (!DATA || !DATA.teams) return;
+  let feed;
+  try {
+    const ctl = typeof AbortController === "function" ? new AbortController() : null;
+    const timer = ctl ? setTimeout(() => ctl.abort(), 5000) : null;
+    const r = await fetch(ESPN_INJURIES_URL, { cache: "no-store", signal: ctl ? ctl.signal : undefined });
+    if (timer) clearTimeout(timer);
+    if (!r.ok) return;
+    feed = await r.json();
+  } catch (e) { return; }
+  const groups = feed && Array.isArray(feed.injuries) ? feed.injuries : null;
+  if (!groups) return;
+  const byTeam = {};   // full team name -> { normalized player name -> inj }
+  const anyTeam = {};  // normalized name -> [inj, ...] for rows whose team can't be read
+  const abbrToName = {};
+  Object.values(DATA.teams).forEach(t => {
+    abbrToName[String(t.abbr).toUpperCase()] = t.team;
+    abbrToName[espnAbbrOf(t.team).toUpperCase()] = t.team;
+  });
+  const teamName = obj => {
+    if (!obj) return null;
+    if (obj.displayName && DATA.teams[obj.displayName]) return obj.displayName;
+    const ab = String(obj.abbreviation || "").toUpperCase();
+    return abbrToName[ab] || null;
+  };
+  let count = 0;
+  groups.forEach(grp => {
+    const gTeam = teamName(grp) || teamName(grp && grp.team);
+    (Array.isArray(grp && grp.injuries) ? grp.injuries : []).forEach(it => {
+      const a = (it && it.athlete) || {};
+      const name = normName(a.displayName || [a.firstName, a.lastName].filter(Boolean).join(" "));
+      const status = String(it.status || (it.type && it.type.description) || "").trim();
+      const s = ESPN_INJ_STATUS[status.toLowerCase()];
+      if (!name || !s) return;
+      const what = it.details && typeof it.details.type === "string" ? it.details.type : "";
+      const inj = { s, note: [what, status].filter(Boolean).join(" · ") };
+      const team = gTeam || teamName(a.team);
+      if (team) (byTeam[team] = byTeam[team] || {})[name] = inj;
+      else (anyTeam[name] = anyTeam[name] || []).push(inj);
+      count++;
+    });
+  });
+  if (!count) return;
+  Object.values(DATA.teams).forEach(t => {
+    ["passing", "rushing", "receiving"].forEach(k => (t[k] || []).forEach(r => {
+      const n = normName(r.player);
+      const hit = (byTeam[t.team] || {})[n] || (anyTeam[n] && anyTeam[n].length === 1 ? anyTeam[n][0] : null);
+      if (hit) r.inj = hit; else delete r.inj;
+    }));
+  });
+  INJ_SOURCE = "ESPN injury report";
+}
+// "ESPN injury report" when the feed loaded, else the nflverse week (older data files), else null.
+function injSource() {
+  return INJ_SOURCE || (DATA && DATA.injuryWeek ? `Week ${DATA.injuryWeek} injury report` : null);
+}
+const INJ_OUT = ["O", "IR", "PUP", "SUSP"];   // won't play
 
 /* ---------------- Player prop lines (data/props.json) ---------------- */
 let PROPS = null;
@@ -774,11 +842,13 @@ window.addEventListener("afterprint", () => {
 });
 
 /* ---------------- Injury tags + player index ---------------- */
-// r.inj = { s: "O" | "D" | "Q" | "DNP" | "LP", note } from the nflverse injury report (DATA.injuryWeek).
-const INJ_LABEL = { O: "Out", D: "Doubtful", Q: "Questionable", DNP: "Did not practice", LP: "Limited practice" };
+// r.inj = { s: "O" | "D" | "Q" | "IR" | "PUP" | "SUSP", note } from ESPN's injury report (loadEspnInjuries).
+// DNP and LP are practice tags that older nflverse-built data files carry.
+const INJ_LABEL = { O: "Out", D: "Doubtful", Q: "Questionable", IR: "Injured reserve", PUP: "Physically unable to perform",
+  SUSP: "Suspended", DNP: "Did not practice", LP: "Limited practice" };
 function injTag(inj) {
   if (!inj || !inj.s) return "";
-  const title = `Week ${DATA.injuryWeek} injury report: ${INJ_LABEL[inj.s] || inj.s}${inj.note ? " (" + inj.note + ")" : ""}`;
+  const title = `${injSource() || "Injury report"}: ${INJ_LABEL[inj.s] || inj.s}${inj.note ? " (" + inj.note + ")" : ""}`;
   return ` <span class="inj inj-${inj.s}" title="${escapeHtml(title)}">${escapeHtml(inj.s)}</span>`;
 }
 
@@ -869,7 +939,7 @@ function tooltipHtml(name, kind, log, inj) {
   const head = `<th>Wk</th><th>Opp</th>${cols.map(([l]) => `<th class="num">${l}</th>`).join("")}<th class="num">FPts</th>`;
   const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
   return `<div class="ptip-head"><b>${name}${inj ? injTag(inj) : ""}</b><span>${fpAvg(log)} FPts/G</span></div>
-    ${inj && inj.note ? `<div class="ptip-inj">Week ${DATA.injuryWeek} report: ${escapeHtml(inj.note)}</div>` : ""}
+    ${inj && inj.note ? `<div class="ptip-inj">${escapeHtml(injSource() || "Injury report")}: ${escapeHtml(inj.note)}</div>` : ""}
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
     <div class="ptip-foot">Click for full game log and prop check</div>`;
 }
@@ -987,7 +1057,7 @@ function panelHtml(name, key, log, kind) {
     <div class="plog-top">
       <div>
         <h3 id="plogTitle">${name}${pinfo && pinfo.inj ? injTag(pinfo.inj) : ""}</h3>
-        ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">Week ${DATA.injuryWeek} injury report: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
+        ${pinfo && pinfo.inj && pinfo.inj.note ? `<div class="plog-inj">${escapeHtml(injSource() || "Injury report")}: ${escapeHtml(pinfo.inj.note)}</div>` : ""}
         <div class="plog-sub">${pinfo && pinfo.pos ? escapeHtml(pinfo.pos) + ", " : ""}${t ? escapeHtml(t.team) + ", " : ""}${log.length} game${log.length === 1 ? "" : "s"}, ${total.toFixed(1)} FPts (${fpAvg(log)}/G)</div>
       </div>
       <button type="button" class="plog-close" aria-label="Close">✕</button>
