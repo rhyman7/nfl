@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T15:51:01.479693+00:00",
+  "generatedAt": "2026-10-21T14:52:48.994928+00:00",
   "season": 2026,
   "throughWeek": 6,
   "schedule": {
@@ -78,7 +78,7 @@
         "home": "Baltimore Ravens",
         "awayScore": null,
         "homeScore": null,
-        "spread": 2.5,
+        "spread": 3.0,
         "total": 51.5,
         "stadium": "M&T Bank Stadium",
         "roof": "outdoors",
@@ -111,7 +111,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -1.5,
-        "total": 38.5,
+        "total": 37.5,
         "stadium": "Nissan Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -175,7 +175,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 4.5,
-        "total": 38.5,
+        "total": 39.5,
         "stadium": "MetLife Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -367,7 +367,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -4.5,
-        "total": 47.5,
+        "total": 48.5,
         "stadium": "Allegiant Stadium",
         "roof": "dome",
         "divisional": false,
@@ -469,10 +469,10 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": -0.6,
-        "srs": -9.2,
-        "osrs": -2.4,
-        "dsrs": -6.8
+        "sos": -1.1,
+        "srs": -9.8,
+        "osrs": -2.5,
+        "dsrs": -7.2
       },
       "offense": {
         "ppg": 21.0,
@@ -524,10 +524,6 @@
           "ya": 3.7,
           "ag": 13.4,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Ankle \u00b7 Out"
-          },
           "log": "ARI|00-0041027",
           "cs": 42.7
         },
@@ -962,8 +958,8 @@
             "rank": 8
           },
           "pressureRate": {
-            "v": 18.4,
-            "rank": 12
+            "v": 20.8,
+            "rank": 11
           }
         },
         "def": {
@@ -992,8 +988,8 @@
             "rank": 11
           },
           "pressureRate": {
-            "v": 16.5,
-            "rank": 25
+            "v": 20.6,
+            "rank": 26
           }
         },
         "rzTrips": 24
@@ -1091,9 +1087,9 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": 2.5,
-        "srs": 0.6,
-        "osrs": 0.4,
+        "sos": 2.7,
+        "srs": 0.8,
+        "osrs": 0.6,
         "dsrs": 0.2
       },
       "offense": {
@@ -1204,10 +1200,6 @@
           "ya": 2.0,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Hip \u00b7 Limited Participation in Practice"
-          },
           "log": "ATL|00-0037238",
           "cs": 1.1
         },
@@ -1230,10 +1222,6 @@
           "yr": 17.7,
           "rec": 5.17,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Hip \u00b7 Limited Participation in Practice"
-          },
           "log": "ATL|00-0037238",
           "ts": 28.7,
           "ts3": 31.0
@@ -1626,8 +1614,8 @@
             "rank": 26
           },
           "pressureRate": {
-            "v": 13.5,
-            "rank": 2
+            "v": 17.6,
+            "rank": 3
           }
         },
         "def": {
@@ -1656,8 +1644,8 @@
             "rank": 20
           },
           "pressureRate": {
-            "v": 22.8,
-            "rank": 12
+            "v": 26.2,
+            "rank": 7
           }
         },
         "rzTrips": 20
@@ -1755,10 +1743,10 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": -3.6,
-        "srs": 0.4,
-        "osrs": 1.0,
-        "dsrs": -0.6
+        "sos": -3.3,
+        "srs": 0.7,
+        "osrs": 1.1,
+        "dsrs": -0.4
       },
       "offense": {
         "ppg": 26.0,
@@ -1790,10 +1778,6 @@
           "int": 0.25,
           "cmp": 17.0,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Ankle \u00b7 Out"
-          },
           "log": "BAL|00-0034796"
         },
         {
@@ -1824,10 +1808,6 @@
           "ya": 7.6,
           "ag": 4.8,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Ankle \u00b7 Out"
-          },
           "log": "BAL|00-0034796",
           "cs": 10.3
         },
@@ -1858,10 +1838,6 @@
           "ya": 11.3,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Toe \u00b7 Limited Participation in Practice"
-          },
           "log": "BAL|00-0039064",
           "cs": 1.6
         }
@@ -1874,10 +1850,6 @@
           "yr": 14.7,
           "rec": 6.4,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Toe \u00b7 Limited Participation in Practice"
-          },
           "log": "BAL|00-0039064",
           "ts": 25.6,
           "ts3": 33.0
@@ -1922,10 +1894,6 @@
           "yr": 10.2,
           "rec": 2.5,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Wrist \u00b7 Questionable"
-          },
           "log": "BAL|00-0040870",
           "ts": 4.9,
           "ts3": 5.5
@@ -1937,10 +1905,6 @@
           "yr": 14.0,
           "rec": 1.67,
           "pos": "TE",
-          "inj": {
-            "s": "O",
-            "note": "Hand \u00b7 Out"
-          },
           "log": "BAL|00-0040879",
           "ts": 3.0,
           "ts3": 2.2
@@ -2278,8 +2242,8 @@
             "rank": 22
           },
           "pressureRate": {
-            "v": 16.2,
-            "rank": 6
+            "v": 21.2,
+            "rank": 15
           }
         },
         "def": {
@@ -2308,8 +2272,8 @@
             "rank": 16
           },
           "pressureRate": {
-            "v": 16.7,
-            "rank": 24
+            "v": 21.9,
+            "rank": 23
           }
         },
         "rzTrips": 24
@@ -2407,10 +2371,10 @@
         "w": 5,
         "l": 1,
         "t": 0,
-        "sos": -0.2,
-        "srs": 4.1,
+        "sos": -0.4,
+        "srs": 3.9,
         "osrs": 10.0,
-        "dsrs": -5.9
+        "dsrs": -6.1
       },
       "offense": {
         "ppg": 32.8,
@@ -2503,10 +2467,6 @@
           "ya": 2.5,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Shoulder \u00b7 Questionable"
-          },
           "log": "BUF|00-0034827",
           "cs": 1.1
         }
@@ -2519,10 +2479,6 @@
           "yr": 14.8,
           "rec": 4.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Shoulder \u00b7 Questionable"
-          },
           "log": "BUF|00-0034827",
           "ts": 12.5,
           "ts3": 2.6
@@ -2578,10 +2534,6 @@
           "yr": 29.2,
           "rec": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Shoulder \u00b7 Questionable"
-          },
           "log": "BUF|00-0036988",
           "ts": 6.9,
           "ts3": 7.7
@@ -2919,8 +2871,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 15.8,
-            "rank": 5
+            "v": 18.7,
+            "rank": 4
           }
         },
         "def": {
@@ -2949,8 +2901,8 @@
             "rank": 26
           },
           "pressureRate": {
-            "v": 22.3,
-            "rank": 14
+            "v": 24.6,
+            "rank": 13
           }
         },
         "rzTrips": 33
@@ -3048,10 +3000,10 @@
         "w": 3,
         "l": 2,
         "t": 0,
-        "sos": 1.1,
-        "srs": 5.7,
-        "osrs": 7.1,
-        "dsrs": -1.4
+        "sos": 1.3,
+        "srs": 5.9,
+        "osrs": 7.2,
+        "dsrs": -1.2
       },
       "offense": {
         "ppg": 29.2,
@@ -3123,10 +3075,6 @@
           "ya": 2.5,
           "ag": 4.2,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Ankle \u00b7 Out"
-          },
           "log": "CAR|00-0036265",
           "cs": 13.3
         },
@@ -3525,8 +3473,8 @@
             "rank": 15
           },
           "pressureRate": {
-            "v": 27.3,
-            "rank": 30
+            "v": 31.8,
+            "rank": 32
           }
         },
         "def": {
@@ -3555,8 +3503,8 @@
             "rank": 21
           },
           "pressureRate": {
-            "v": 20.3,
-            "rank": 17
+            "v": 26.3,
+            "rank": 6
           }
         },
         "rzTrips": 24
@@ -3654,10 +3602,10 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 2.0,
-        "srs": 7.2,
-        "osrs": 4.2,
-        "dsrs": 3.0
+        "sos": 2.2,
+        "srs": 7.4,
+        "osrs": 4.3,
+        "dsrs": 3.1
       },
       "offense": {
         "ppg": 25.0,
@@ -3689,10 +3637,6 @@
           "int": 0.33,
           "cmp": 22.0,
           "pos": "QB",
-          "inj": {
-            "s": "Q",
-            "note": "Hamstring \u00b7 Questionable"
-          },
           "log": "CHI|00-0039918"
         },
         {
@@ -3723,8 +3667,8 @@
           "ag": 15.0,
           "pos": "RB",
           "inj": {
-            "s": "O",
-            "note": "Thumb \u00b7 Out"
+            "s": "DNP",
+            "note": "Thumb \u00b7 Did Not Participate In Practice"
           },
           "log": "CHI|00-0040236",
           "cs": 27.8
@@ -3746,10 +3690,6 @@
           "ya": 5.8,
           "ag": 6.3,
           "pos": "QB",
-          "inj": {
-            "s": "Q",
-            "note": "Hamstring \u00b7 Questionable"
-          },
           "log": "CHI|00-0039918",
           "cs": 8.8
         },
@@ -3859,8 +3799,8 @@
           "rec": 1.67,
           "pos": "RB",
           "inj": {
-            "s": "O",
-            "note": "Thumb \u00b7 Out"
+            "s": "DNP",
+            "note": "Thumb \u00b7 Did Not Participate In Practice"
           },
           "log": "CHI|00-0040236",
           "ts": 2.6,
@@ -4188,8 +4128,8 @@
             "rank": 20
           },
           "pressureRate": {
-            "v": 17.2,
-            "rank": 9
+            "v": 21.0,
+            "rank": 13
           }
         },
         "def": {
@@ -4218,8 +4158,8 @@
             "rank": 2
           },
           "pressureRate": {
-            "v": 25.0,
-            "rank": 7
+            "v": 29.2,
+            "rank": 5
           }
         },
         "rzTrips": 32
@@ -4762,7 +4702,7 @@
           },
           "pressureRate": {
             "v": 22.1,
-            "rank": 27
+            "rank": 17
           }
         },
         "def": {
@@ -4890,9 +4830,9 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 2.9,
-        "srs": 0.3,
-        "osrs": -4.5,
+        "sos": 3.1,
+        "srs": 0.4,
+        "osrs": -4.4,
         "dsrs": 4.8
       },
       "offense": {
@@ -4945,10 +4885,6 @@
           "ya": 3.0,
           "ag": 14.6,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "CLE|00-0040784",
           "cs": 47.1
         },
@@ -5011,10 +4947,6 @@
           "yr": 20.3,
           "rec": 2.83,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Foot \u00b7 Limited Participation in Practice"
-          },
           "log": "CLE|00-0041037",
           "ts": 19.8,
           "ts3": 21.1
@@ -5070,10 +5002,6 @@
           "yr": 5.7,
           "rec": 3.6,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "CLE|00-0040784",
           "ts": 11.6,
           "ts3": 12.2
@@ -5411,8 +5339,8 @@
             "rank": 32
           },
           "pressureRate": {
-            "v": 21.6,
-            "rank": 25
+            "v": 25.7,
+            "rank": 27
           }
         },
         "def": {
@@ -5441,8 +5369,8 @@
             "rank": 5
           },
           "pressureRate": {
-            "v": 17.6,
-            "rank": 23
+            "v": 22.7,
+            "rank": 22
           }
         },
         "rzTrips": 17
@@ -5540,9 +5468,9 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": -2.7,
-        "srs": -4.0,
-        "osrs": 0.7,
+        "sos": -2.1,
+        "srs": -3.4,
+        "osrs": 1.3,
         "dsrs": -4.7
       },
       "offense": {
@@ -6040,8 +5968,8 @@
             "rank": 1
           },
           "pressureRate": {
-            "v": 19.4,
-            "rank": 17
+            "v": 23.1,
+            "rank": 20
           }
         },
         "def": {
@@ -6070,8 +5998,8 @@
             "rank": 29
           },
           "pressureRate": {
-            "v": 18.0,
-            "rank": 22
+            "v": 23.4,
+            "rank": 19
           }
         },
         "rzTrips": 24
@@ -6169,10 +6097,10 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 3.0,
-        "srs": 1.2,
-        "osrs": -2.1,
-        "dsrs": 3.3
+        "sos": 2.4,
+        "srs": 0.5,
+        "osrs": -2.3,
+        "dsrs": 2.8
       },
       "offense": {
         "ppg": 19.0,
@@ -6670,7 +6598,7 @@
           },
           "pressureRate": {
             "v": 22.1,
-            "rank": 27
+            "rank": 17
           }
         },
         "def": {
@@ -6700,7 +6628,7 @@
           },
           "pressureRate": {
             "v": 25.5,
-            "rank": 6
+            "rank": 9
           }
         },
         "rzTrips": 19
@@ -6800,7 +6728,7 @@
         "t": 0,
         "sos": -0.6,
         "srs": 2.6,
-        "osrs": 6.2,
+        "osrs": 6.1,
         "dsrs": -3.5
       },
       "offense": {
@@ -7233,7 +7161,7 @@
           },
           "pressureRate": {
             "v": 18.8,
-            "rank": 14
+            "rank": 5
           }
         },
         "def": {
@@ -7263,7 +7191,7 @@
           },
           "pressureRate": {
             "v": 25.7,
-            "rank": 5
+            "rank": 8
           }
         },
         "rzTrips": 25
@@ -7361,10 +7289,10 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 2.0,
-        "srs": 2.3,
-        "osrs": -0.2,
-        "dsrs": 2.5
+        "sos": 2.2,
+        "srs": 2.5,
+        "osrs": -0.1,
+        "dsrs": 2.6
       },
       "offense": {
         "ppg": 21.2,
@@ -7447,10 +7375,6 @@
           "ya": 4.5,
           "ag": 2.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "GB|00-0040009",
           "cs": 1.6
         },
@@ -7506,10 +7430,6 @@
           "yr": 8.0,
           "rec": 4.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "GB|00-0040009",
           "ts": 1.8,
           "ts3": 4.0
@@ -7869,8 +7789,8 @@
             "rank": 14
           },
           "pressureRate": {
-            "v": 19.5,
-            "rank": 19
+            "v": 24.1,
+            "rank": 25
           }
         },
         "def": {
@@ -7899,8 +7819,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 20.4,
-            "rank": 16
+            "v": 24.9,
+            "rank": 11
           }
         },
         "rzTrips": 26
@@ -7998,10 +7918,10 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": -0.1,
-        "srs": 0.0,
+        "sos": 0.1,
+        "srs": 0.2,
         "osrs": -1.0,
-        "dsrs": 1.1
+        "dsrs": 1.2
       },
       "offense": {
         "ppg": 24.0,
@@ -8073,10 +7993,6 @@
           "ya": 2.7,
           "ag": 10.4,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Groin \u00b7 Out"
-          },
           "log": "HOU|00-0035685",
           "cs": 36.6
         },
@@ -8107,10 +8023,6 @@
           "ya": 6.0,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
-          },
           "log": "HOU|00-0036554",
           "cs": 1.4
         }
@@ -8123,10 +8035,6 @@
           "yr": 14.7,
           "rec": 5.5,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
-          },
           "log": "HOU|00-0036554",
           "ts": 14.8,
           "ts3": 22.0
@@ -8149,10 +8057,6 @@
           "yr": 9.9,
           "rec": 4.67,
           "pos": "TE",
-          "inj": {
-            "s": "LP",
-            "note": "Not injury related - resting player \u00b7 Limited Participation in Practice"
-          },
           "log": "HOU|00-0034383",
           "ts": 18.2,
           "ts3": 13.2
@@ -8523,8 +8427,8 @@
             "rank": 17
           },
           "pressureRate": {
-            "v": 18.1,
-            "rank": 11
+            "v": 18.9,
+            "rank": 6
           }
         },
         "def": {
@@ -8553,8 +8457,8 @@
             "rank": 10
           },
           "pressureRate": {
-            "v": 23.4,
-            "rank": 9
+            "v": 25.0,
+            "rank": 10
           }
         },
         "rzTrips": 26
@@ -8652,10 +8556,10 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": -1.7,
-        "srs": -5.1,
-        "osrs": 0.4,
-        "dsrs": -5.4
+        "sos": -1.3,
+        "srs": -4.6,
+        "osrs": 1.0,
+        "dsrs": -5.5
       },
       "offense": {
         "ppg": 24.0,
@@ -8748,10 +8652,6 @@
           "ya": 2.0,
           "ag": 1.0,
           "pos": "TE",
-          "inj": {
-            "s": "Q",
-            "note": "Groin \u00b7 Questionable"
-          },
           "log": "IND|00-0040128",
           "cs": 1.8
         }
@@ -8786,10 +8686,6 @@
           "yr": 7.1,
           "rec": 6.0,
           "pos": "TE",
-          "inj": {
-            "s": "Q",
-            "note": "Groin \u00b7 Questionable"
-          },
           "log": "IND|00-0040128",
           "ts": 17.6,
           "ts3": 12.7
@@ -9160,8 +9056,8 @@
             "rank": 19
           },
           "pressureRate": {
-            "v": 14.2,
-            "rank": 3
+            "v": 22.2,
+            "rank": 19
           }
         },
         "def": {
@@ -9190,8 +9086,8 @@
             "rank": 22
           },
           "pressureRate": {
-            "v": 16.3,
-            "rank": 26
+            "v": 18.3,
+            "rank": 31
           }
         },
         "rzTrips": 20
@@ -9292,7 +9188,7 @@
         "sos": 1.3,
         "srs": 9.6,
         "osrs": 5.6,
-        "dsrs": 4.0
+        "dsrs": 4.1
       },
       "offense": {
         "ppg": 25.7,
@@ -9789,8 +9685,8 @@
             "rank": 10
           },
           "pressureRate": {
-            "v": 18.4,
-            "rank": 13
+            "v": 20.4,
+            "rank": 10
           }
         },
         "def": {
@@ -9819,8 +9715,8 @@
             "rank": 24
           },
           "pressureRate": {
-            "v": 23.6,
-            "rank": 8
+            "v": 24.5,
+            "rank": 14
           }
         },
         "rzTrips": 24
@@ -9918,9 +9814,9 @@
         "w": 5,
         "l": 0,
         "t": 0,
-        "sos": -3.9,
-        "srs": 7.5,
-        "osrs": 3.8,
+        "sos": -4.2,
+        "srs": 7.2,
+        "osrs": 3.5,
         "dsrs": 3.7
       },
       "offense": {
@@ -10016,10 +9912,6 @@
           "yr": 14.6,
           "rec": 4.33,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "KC|00-0039067",
           "ts": 11.6,
           "ts3": 11.4
@@ -10376,8 +10268,8 @@
             "rank": 3
           },
           "pressureRate": {
-            "v": 17.7,
-            "rank": 10
+            "v": 19.4,
+            "rank": 7
           }
         },
         "def": {
@@ -10406,8 +10298,8 @@
             "rank": 27
           },
           "pressureRate": {
-            "v": 19.3,
-            "rank": 20
+            "v": 24.3,
+            "rank": 16
           }
         },
         "rzTrips": 26
@@ -10505,10 +10397,10 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": -1.2,
-        "srs": -1.7,
-        "osrs": -2.2,
-        "dsrs": 0.5
+        "sos": -1.8,
+        "srs": -2.3,
+        "osrs": -2.3,
+        "dsrs": 0.1
       },
       "offense": {
         "ppg": 22.5,
@@ -10644,10 +10536,6 @@
           "yr": 10.2,
           "rec": 4.8,
           "pos": "TE",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - resting player \u00b7 Did Not Participate In Practice"
-          },
           "log": "LA|00-0033110",
           "ts": 12.0,
           "ts3": 11.8
@@ -11018,8 +10906,8 @@
             "rank": 5
           },
           "pressureRate": {
-            "v": 13.2,
-            "rank": 1
+            "v": 16.5,
+            "rank": 2
           }
         },
         "def": {
@@ -11048,8 +10936,8 @@
             "rank": 28
           },
           "pressureRate": {
-            "v": 18.2,
-            "rank": 21
+            "v": 21.2,
+            "rank": 24
           }
         },
         "rzTrips": 28
@@ -11147,10 +11035,10 @@
         "w": 0,
         "l": 6,
         "t": 0,
-        "sos": 1.0,
-        "srs": -9.2,
-        "osrs": -9.5,
-        "dsrs": 0.4
+        "sos": 0.6,
+        "srs": -9.5,
+        "osrs": -9.8,
+        "dsrs": 0.3
       },
       "offense": {
         "ppg": 15.0,
@@ -11191,10 +11079,6 @@
           "int": 0.0,
           "cmp": 0.0,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "LAC|00-0040727"
         }
       ],
@@ -11268,10 +11152,6 @@
           "yr": 15.0,
           "rec": 3.0,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "LAC|00-0040727",
           "ts": 14.4,
           "ts3": 10.2
@@ -11294,10 +11174,6 @@
           "yr": 11.7,
           "rec": 3.0,
           "pos": "FB",
-          "inj": {
-            "s": "DNP",
-            "note": "Shoulder \u00b7 Did Not Participate In Practice"
-          },
           "log": "LAC|00-0035125",
           "ts": 2.3,
           "ts3": 0.0
@@ -11331,10 +11207,6 @@
           "yr": 6.4,
           "rec": 5.0,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Hamstring \u00b7 Questionable"
-          },
           "log": "LAC|00-0040184",
           "ts": 5.2,
           "ts3": 10.2
@@ -11672,7 +11544,7 @@
             "rank": 31
           },
           "pressureRate": {
-            "v": 22.7,
+            "v": 26.8,
             "rank": 29
           }
         },
@@ -11702,8 +11574,8 @@
             "rank": 19
           },
           "pressureRate": {
-            "v": 22.8,
-            "rank": 13
+            "v": 24.3,
+            "rank": 15
           }
         },
         "rzTrips": 17
@@ -11801,10 +11673,10 @@
         "w": 3,
         "l": 3,
         "t": 0,
-        "sos": -0.1,
-        "srs": -0.1,
-        "osrs": 4.0,
-        "dsrs": -4.0
+        "sos": -0.3,
+        "srs": -0.3,
+        "osrs": 3.8,
+        "dsrs": -4.1
       },
       "offense": {
         "ppg": 27.0,
@@ -12310,7 +12182,7 @@
             "rank": 4
           },
           "pressureRate": {
-            "v": 21.5,
+            "v": 24.0,
             "rank": 24
           }
         },
@@ -12340,8 +12212,8 @@
             "rank": 13
           },
           "pressureRate": {
-            "v": 30.3,
-            "rank": 3
+            "v": 33.0,
+            "rank": 2
           }
         },
         "rzTrips": 29
@@ -12439,10 +12311,10 @@
         "w": 0,
         "l": 5,
         "t": 0,
-        "sos": 6.2,
-        "srs": -6.2,
+        "sos": 5.6,
+        "srs": -6.8,
         "osrs": -6.5,
-        "dsrs": 0.3
+        "dsrs": -0.4
       },
       "offense": {
         "ppg": 14.0,
@@ -12904,7 +12776,7 @@
           },
           "pressureRate": {
             "v": 28.0,
-            "rank": 31
+            "rank": 30
           }
         },
         "def": {
@@ -12934,7 +12806,7 @@
           },
           "pressureRate": {
             "v": 19.7,
-            "rank": 19
+            "rank": 28
           }
         },
         "rzTrips": 14
@@ -13035,7 +12907,7 @@
         "sos": -0.1,
         "srs": 8.9,
         "osrs": -1.3,
-        "dsrs": 10.1
+        "dsrs": 10.2
       },
       "offense": {
         "ppg": 21.8,
@@ -13506,7 +13378,7 @@
           },
           "pressureRate": {
             "v": 20.0,
-            "rank": 20
+            "rank": 9
           }
         },
         "def": {
@@ -13634,9 +13506,9 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 3.1,
+        "sos": 3.0,
         "srs": 6.9,
-        "osrs": -0.6,
+        "osrs": -0.7,
         "dsrs": 7.6
       },
       "offense": {
@@ -13708,10 +13580,6 @@
           "ya": 4.0,
           "ag": 9.8,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "NE|00-0040734",
           "cs": 26.2
         },
@@ -13820,8 +13688,8 @@
           "rec": 3.0,
           "pos": "WR",
           "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
+            "s": "LP",
+            "note": "Ankle \u00b7 Limited Participation in Practice"
           },
           "log": "NE|00-0035676",
           "ts": 7.8,
@@ -14160,8 +14028,8 @@
             "rank": 9
           },
           "pressureRate": {
-            "v": 21.2,
-            "rank": 23
+            "v": 24.3,
+            "rank": 26
           }
         },
         "def": {
@@ -14190,8 +14058,8 @@
             "rank": 15
           },
           "pressureRate": {
-            "v": 20.2,
-            "rank": 18
+            "v": 23.9,
+            "rank": 17
           }
         },
         "rzTrips": 25
@@ -14289,9 +14157,9 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": 0.9,
-        "srs": -3.5,
-        "osrs": 2.1,
+        "sos": 1.0,
+        "srs": -3.4,
+        "osrs": 2.2,
         "dsrs": -5.6
       },
       "offense": {
@@ -14355,10 +14223,6 @@
           "ya": 3.4,
           "ag": 7.0,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Back \u00b7 Questionable"
-          },
           "log": "NO|00-0033906",
           "cs": 22.7
         },
@@ -14401,10 +14265,6 @@
           "yr": 13.5,
           "rec": 7.17,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Illness \u00b7 Questionable"
-          },
           "log": "NO|00-0037239",
           "ts": 27.1,
           "ts3": 24.8
@@ -14460,10 +14320,6 @@
           "yr": 5.1,
           "rec": 3.0,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Back \u00b7 Questionable"
-          },
           "log": "NO|00-0033906",
           "ts": 8.9,
           "ts3": 12.9
@@ -14801,7 +14657,7 @@
             "rank": 12
           },
           "pressureRate": {
-            "v": 19.1,
+            "v": 21.5,
             "rank": 16
           }
         },
@@ -14831,7 +14687,7 @@
             "rank": 14
           },
           "pressureRate": {
-            "v": 15.0,
+            "v": 19.4,
             "rank": 29
           }
         },
@@ -14930,9 +14786,9 @@
         "w": 3,
         "l": 2,
         "t": 1,
-        "sos": -6.6,
-        "srs": -7.3,
-        "osrs": -4.7,
+        "sos": -6.3,
+        "srs": -7.0,
+        "osrs": -4.4,
         "dsrs": -2.6
       },
       "offense": {
@@ -15448,8 +15304,8 @@
             "rank": 25
           },
           "pressureRate": {
-            "v": 16.4,
-            "rank": 7
+            "v": 19.7,
+            "rank": 8
           }
         },
         "def": {
@@ -15478,8 +15334,8 @@
             "rank": 30
           },
           "pressureRate": {
-            "v": 14.6,
-            "rank": 30
+            "v": 17.8,
+            "rank": 32
           }
         },
         "rzTrips": 21
@@ -15577,9 +15433,9 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": 1.6,
-        "srs": -0.1,
-        "osrs": -2.1,
+        "sos": 1.7,
+        "srs": 0.0,
+        "osrs": -2.0,
         "dsrs": 2.0
       },
       "offense": {
@@ -15623,10 +15479,6 @@
           "ya": 3.2,
           "ag": 17.0,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Quadricep \u00b7 Out"
-          },
           "log": "NYJ|00-0038120",
           "cs": 32.3
         },
@@ -15677,10 +15529,6 @@
           "ya": 3.0,
           "ag": 1.0,
           "pos": "TE",
-          "inj": {
-            "s": "Q",
-            "note": "Concussion \u00b7 Questionable"
-          },
           "log": "NYJ|00-0041032",
           "cs": 0.6
         }
@@ -15704,10 +15552,6 @@
           "yr": 19.0,
           "rec": 3.5,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Ankle \u00b7 Questionable"
-          },
           "log": "NYJ|00-0041511",
           "ts": 4.8,
           "ts3": 9.6
@@ -15719,10 +15563,6 @@
           "yr": 13.7,
           "rec": 4.5,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Finger \u00b7 Out"
-          },
           "log": "NYJ|00-0039890",
           "ts": 8.9,
           "ts3": 0.0
@@ -15734,10 +15574,6 @@
           "yr": 10.2,
           "rec": 3.33,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Quadricep \u00b7 Out"
-          },
           "log": "NYJ|00-0038120",
           "ts": 6.0,
           "ts3": 0.0
@@ -15760,10 +15596,6 @@
           "yr": 10.5,
           "rec": 2.5,
           "pos": "TE",
-          "inj": {
-            "s": "Q",
-            "note": "Concussion \u00b7 Questionable"
-          },
           "log": "NYJ|00-0041032",
           "ts": 14.3,
           "ts3": 13.7
@@ -16101,8 +15933,8 @@
             "rank": 30
           },
           "pressureRate": {
-            "v": 19.4,
-            "rank": 18
+            "v": 23.3,
+            "rank": 22
           }
         },
         "def": {
@@ -16131,8 +15963,8 @@
             "rank": 6
           },
           "pressureRate": {
-            "v": 21.2,
-            "rank": 15
+            "v": 24.8,
+            "rank": 12
           }
         },
         "rzTrips": 21
@@ -16230,10 +16062,10 @@
         "w": 2,
         "l": 4,
         "t": 0,
-        "sos": 0.0,
-        "srs": -5.2,
-        "osrs": -5.9,
-        "dsrs": 0.7
+        "sos": 0.4,
+        "srs": -4.8,
+        "osrs": -5.4,
+        "dsrs": 0.6
       },
       "offense": {
         "ppg": 17.7,
@@ -16274,10 +16106,6 @@
           "int": 0.6,
           "cmp": 17.8,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Calf \u00b7 Out"
-          },
           "log": "PHI|00-0036389"
         },
         {
@@ -16298,10 +16126,6 @@
           "ya": 5.1,
           "ag": 9.0,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "PHI|00-0034844",
           "cs": 26.9
         },
@@ -16332,10 +16156,6 @@
           "ya": 4.7,
           "ag": 4.6,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Calf \u00b7 Out"
-          },
           "log": "PHI|00-0036389",
           "cs": 17.2
         },
@@ -16346,10 +16166,6 @@
           "ya": 2.9,
           "ag": 5.0,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Foot \u00b7 Out"
-          },
           "log": "PHI|00-0039746",
           "cs": 14.9
         },
@@ -16764,8 +16580,8 @@
             "rank": 21
           },
           "pressureRate": {
-            "v": 21.1,
-            "rank": 22
+            "v": 26.3,
+            "rank": 28
           }
         },
         "def": {
@@ -16794,8 +16610,8 @@
             "rank": 31
           },
           "pressureRate": {
-            "v": 15.9,
-            "rank": 27
+            "v": 20.9,
+            "rank": 25
           }
         },
         "rzTrips": 19
@@ -16893,10 +16709,10 @@
         "w": 4,
         "l": 2,
         "t": 0,
-        "sos": 1.2,
-        "srs": 2.7,
+        "sos": 1.3,
+        "srs": 2.8,
         "osrs": 1.1,
-        "dsrs": 1.6
+        "dsrs": 1.7
       },
       "offense": {
         "ppg": 22.8,
@@ -16967,10 +16783,6 @@
           "ya": 3.5,
           "ag": 7.3,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Toe \u00b7 Questionable"
-          },
           "log": "PIT|00-0036139",
           "cs": 16.9
         },
@@ -16981,10 +16793,6 @@
           "ya": 11.0,
           "ag": 1.0,
           "pos": "WR",
-          "inj": {
-            "s": "DNP",
-            "note": "Illness \u00b7 Did Not Participate In Practice"
-          },
           "log": "PIT|00-0035640",
           "cs": 0.8
         },
@@ -17027,10 +16835,6 @@
           "yr": 10.6,
           "rec": 5.0,
           "pos": "WR",
-          "inj": {
-            "s": "DNP",
-            "note": "Illness \u00b7 Did Not Participate In Practice"
-          },
           "log": "PIT|00-0035640",
           "ts": 23.9,
           "ts3": 24.8
@@ -17064,10 +16868,6 @@
           "yr": 13.4,
           "rec": 2.8,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Finger \u00b7 Out"
-          },
           "log": "PIT|00-0039739",
           "ts": 11.5,
           "ts3": 6.2
@@ -17079,10 +16879,6 @@
           "yr": 8.6,
           "rec": 3.5,
           "pos": "TE",
-          "inj": {
-            "s": "Q",
-            "note": "Calf \u00b7 Questionable"
-          },
           "log": "PIT|00-0036894",
           "ts": 13.3,
           "ts3": 13.3
@@ -17431,8 +17227,8 @@
             "rank": 24
           },
           "pressureRate": {
-            "v": 17.2,
-            "rank": 8
+            "v": 21.1,
+            "rank": 14
           }
         },
         "def": {
@@ -17461,8 +17257,8 @@
             "rank": 12
           },
           "pressureRate": {
-            "v": 14.1,
-            "rank": 32
+            "v": 19.4,
+            "rank": 29
           }
         },
         "rzTrips": 21
@@ -17560,10 +17356,10 @@
         "w": 3,
         "l": 3,
         "t": 0,
-        "sos": -1.9,
-        "srs": 2.4,
-        "osrs": 1.3,
-        "dsrs": 1.2
+        "sos": -2.2,
+        "srs": 2.1,
+        "osrs": 1.6,
+        "dsrs": 0.5
       },
       "offense": {
         "ppg": 24.7,
@@ -17595,10 +17391,6 @@
           "int": 0.0,
           "cmp": 17.5,
           "pos": "QB",
-          "inj": {
-            "s": "LP",
-            "note": "Forearm \u00b7 Limited Participation in Practice"
-          },
           "log": "SEA|00-0035704"
         },
         {
@@ -17678,10 +17470,6 @@
           "ya": 6.5,
           "ag": 2.0,
           "pos": "QB",
-          "inj": {
-            "s": "LP",
-            "note": "Forearm \u00b7 Limited Participation in Practice"
-          },
           "log": "SEA|00-0035704",
           "cs": 1.2
         }
@@ -18087,7 +17875,7 @@
           },
           "pressureRate": {
             "v": 31.1,
-            "rank": 32
+            "rank": 31
           }
         },
         "def": {
@@ -18117,7 +17905,7 @@
           },
           "pressureRate": {
             "v": 31.8,
-            "rank": 2
+            "rank": 3
           }
         },
         "rzTrips": 25
@@ -18215,10 +18003,10 @@
         "w": 6,
         "l": 0,
         "t": 0,
-        "sos": -2.7,
-        "srs": 9.5,
-        "osrs": 7.4,
-        "dsrs": 2.1
+        "sos": -4.2,
+        "srs": 7.0,
+        "osrs": 4.7,
+        "dsrs": 2.3
       },
       "offense": {
         "ppg": 29.5,
@@ -18271,10 +18059,6 @@
           "ya": 3.8,
           "ag": 7.5,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Not injury related - personal matter \u00b7 Did Not Participate In Practice"
-          },
           "log": "SF|00-0041052",
           "cs": 26.8
         },
@@ -18295,10 +18079,6 @@
           "ya": 8.7,
           "ag": 1.8,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "SF|00-0035719",
           "cs": 5.4
         },
@@ -18331,10 +18111,6 @@
           "yr": 15.6,
           "rec": 4.5,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Ribs \u00b7 Questionable"
-          },
           "log": "SF|00-0031408",
           "ts": 23.5,
           "ts3": 27.1
@@ -18390,10 +18166,6 @@
           "yr": 7.9,
           "rec": 4.0,
           "pos": "WR",
-          "inj": {
-            "s": "O",
-            "note": "Hamstring \u00b7 Out"
-          },
           "log": "SF|00-0035719",
           "ts": 12.0,
           "ts3": 10.6
@@ -18732,7 +18504,7 @@
           },
           "pressureRate": {
             "v": 14.7,
-            "rank": 4
+            "rank": 1
           }
         },
         "def": {
@@ -18762,7 +18534,7 @@
           },
           "pressureRate": {
             "v": 23.1,
-            "rank": 11
+            "rank": 21
           }
         },
         "rzTrips": 26
@@ -18860,9 +18632,9 @@
         "w": 1,
         "l": 5,
         "t": 0,
-        "sos": 2.5,
-        "srs": -0.7,
-        "osrs": -0.8,
+        "sos": 2.6,
+        "srs": -0.5,
+        "osrs": -0.7,
         "dsrs": 0.1
       },
       "offense": {
@@ -18895,10 +18667,6 @@
           "int": 0.67,
           "cmp": 20.3,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Thumb \u00b7 Out"
-          },
           "log": "TB|00-0034855"
         },
         {
@@ -18939,10 +18707,6 @@
           "ya": 5.9,
           "ag": 3.7,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Thumb \u00b7 Out"
-          },
           "log": "TB|00-0034855",
           "cs": 6.8
         },
@@ -18953,10 +18717,6 @@
           "ya": 3.5,
           "ag": 4.0,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Quadricep \u00b7 Questionable"
-          },
           "log": "TB|00-0038951",
           "cs": 5.0
         },
@@ -19381,8 +19141,8 @@
             "rank": 29
           },
           "pressureRate": {
-            "v": 19.1,
-            "rank": 15
+            "v": 23.2,
+            "rank": 21
           }
         },
         "def": {
@@ -19411,8 +19171,8 @@
             "rank": 23
           },
           "pressureRate": {
-            "v": 15.6,
-            "rank": 28
+            "v": 19.9,
+            "rank": 27
           }
         },
         "rzTrips": 21
@@ -19510,10 +19270,10 @@
         "w": 1,
         "l": 5,
         "t": 0,
-        "sos": -2.9,
-        "srs": -10.4,
+        "sos": -2.6,
+        "srs": -10.1,
         "osrs": -9.9,
-        "dsrs": -0.4
+        "dsrs": -0.2
       },
       "offense": {
         "ppg": 14.0,
@@ -19576,10 +19336,6 @@
           "ya": 3.7,
           "ag": 3.0,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Knee \u00b7 Questionable"
-          },
           "log": "TEN|00-0039032",
           "cs": 13.7
         },
@@ -19666,10 +19422,6 @@
           "yr": 5.0,
           "rec": 3.0,
           "pos": "RB",
-          "inj": {
-            "s": "Q",
-            "note": "Knee \u00b7 Questionable"
-          },
           "log": "TEN|00-0039032",
           "ts": 10.3,
           "ts3": 12.9
@@ -20018,8 +19770,8 @@
             "rank": 11
           },
           "pressureRate": {
-            "v": 22.0,
-            "rank": 26
+            "v": 24.0,
+            "rank": 23
           }
         },
         "def": {
@@ -20048,8 +19800,8 @@
             "rank": 7
           },
           "pressureRate": {
-            "v": 14.6,
-            "rank": 30
+            "v": 23.5,
+            "rank": 18
           }
         },
         "rzTrips": 15
@@ -20147,10 +19899,10 @@
         "w": 1,
         "l": 4,
         "t": 1,
-        "sos": -3.9,
-        "srs": -10.7,
-        "osrs": -2.3,
-        "dsrs": -8.4
+        "sos": -1.8,
+        "srs": -8.4,
+        "osrs": -2.7,
+        "dsrs": -5.8
       },
       "offense": {
         "ppg": 22.0,
@@ -20200,10 +19952,6 @@
           "int": 0.0,
           "cmp": 11.0,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Knee \u00b7 Out"
-          },
           "log": "WAS|00-0032268"
         },
         {
@@ -20243,10 +19991,6 @@
           "ya": 3.6,
           "ag": 13.4,
           "pos": "RB",
-          "inj": {
-            "s": "O",
-            "note": "Groin \u00b7 Out"
-          },
           "log": "WAS|00-0040242",
           "cs": 40.6
         },
@@ -20257,10 +20001,6 @@
           "ya": 4.0,
           "ag": 7.2,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Shoulder \u00b7 Limited Participation in Practice"
-          },
           "log": "WAS|00-0037256",
           "cs": 21.8
         },
@@ -20271,10 +20011,6 @@
           "ya": 7.0,
           "ag": 2.3,
           "pos": "QB",
-          "inj": {
-            "s": "O",
-            "note": "Knee \u00b7 Out"
-          },
           "log": "WAS|00-0032268",
           "cs": 4.2
         },
@@ -20307,10 +20043,6 @@
           "yr": 15.3,
           "rec": 3.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Hamstring \u00b7 Limited Participation in Practice"
-          },
           "log": "WAS|00-0035659",
           "ts": 14.4,
           "ts3": 5.3
@@ -20322,10 +20054,6 @@
           "yr": 8.9,
           "rec": 4.8,
           "pos": "WR",
-          "inj": {
-            "s": "Q",
-            "note": "Hamstring \u00b7 Questionable"
-          },
           "log": "WAS|00-0031588",
           "ts": 20.3,
           "ts3": 17.0
@@ -20359,10 +20087,6 @@
           "yr": 16.9,
           "rec": 1.8,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Shoulder \u00b7 Limited Participation in Practice"
-          },
           "log": "WAS|00-0037742",
           "ts": 9.1,
           "ts3": 14.9
@@ -20374,10 +20098,6 @@
           "yr": 5.9,
           "rec": 2.8,
           "pos": "RB",
-          "inj": {
-            "s": "LP",
-            "note": "Shoulder \u00b7 Limited Participation in Practice"
-          },
           "log": "WAS|00-0037256",
           "ts": 8.0,
           "ts3": 6.4
@@ -20716,7 +20436,7 @@
           },
           "pressureRate": {
             "v": 20.8,
-            "rank": 21
+            "rank": 12
           }
         },
         "def": {
@@ -20746,7 +20466,7 @@
           },
           "pressureRate": {
             "v": 23.2,
-            "rank": 10
+            "rank": 20
           }
         },
         "rzTrips": 22
@@ -39280,7 +39000,7 @@
       }
     ]
   },
-  "injuryWeek": 6,
+  "injuryWeek": 7,
   "referees": {
     "Adrian Hill": {
       "g": 51,
