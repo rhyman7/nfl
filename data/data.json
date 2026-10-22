@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:52:48.994928+00:00",
+  "generatedAt": "2026-10-22T14:53:58.672274+00:00",
   "season": 2026,
   "throughWeek": 6,
   "schedule": {
@@ -78,8 +78,8 @@
         "home": "Baltimore Ravens",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
-        "total": 51.5,
+        "spread": -1.5,
+        "total": 48.5,
         "stadium": "M&T Bank Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -206,12 +206,12 @@
         "home": "Houston Texans",
         "awayScore": null,
         "homeScore": null,
-        "spread": 10.0,
+        "spread": 10.5,
         "total": 42.5,
         "stadium": "Reliant Stadium",
         "roof": null,
         "divisional": false,
-        "awayQb": "Jameis Winston",
+        "awayQb": "J.J. McCarthy",
         "homeQb": "C.J. Stroud",
         "referee": null,
         "awayRest": 7,
@@ -238,8 +238,8 @@
         "home": "Atlanta Falcons",
         "awayScore": null,
         "homeScore": null,
-        "spread": -3.0,
-        "total": 50.5,
+        "spread": -2.5,
+        "total": 49.5,
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
@@ -270,7 +270,7 @@
         "home": "Carolina Panthers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.5,
+        "spread": 3.0,
         "total": 44.5,
         "stadium": "Bank of America Stadium",
         "roof": "outdoors",
@@ -366,7 +366,7 @@
         "home": "Las Vegas Raiders",
         "awayScore": null,
         "homeScore": null,
-        "spread": -4.5,
+        "spread": -3.5,
         "total": 48.5,
         "stadium": "Allegiant Stadium",
         "roof": "dome",
@@ -398,7 +398,7 @@
         "home": "Seattle Seahawks",
         "awayScore": null,
         "homeScore": null,
-        "spread": 2.5,
+        "spread": 3.0,
         "total": 42.5,
         "stadium": "Lumen Field",
         "roof": "outdoors",
@@ -1645,7 +1645,7 @@
           },
           "pressureRate": {
             "v": 26.2,
-            "rank": 7
+            "rank": 8
           }
         },
         "rzTrips": 20
@@ -2243,7 +2243,7 @@
           },
           "pressureRate": {
             "v": 21.2,
-            "rank": 15
+            "rank": 14
           }
         },
         "def": {
@@ -2902,7 +2902,7 @@
           },
           "pressureRate": {
             "v": 24.6,
-            "rank": 13
+            "rank": 14
           }
         },
         "rzTrips": 33
@@ -3504,7 +3504,7 @@
           },
           "pressureRate": {
             "v": 26.3,
-            "rank": 6
+            "rank": 7
           }
         },
         "rzTrips": 24
@@ -3666,10 +3666,6 @@
           "ya": 5.4,
           "ag": 15.0,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
-          },
           "log": "CHI|00-0040236",
           "cs": 27.8
         },
@@ -3798,10 +3794,6 @@
           "yr": 7.8,
           "rec": 1.67,
           "pos": "RB",
-          "inj": {
-            "s": "DNP",
-            "note": "Thumb \u00b7 Did Not Participate In Practice"
-          },
           "log": "CHI|00-0040236",
           "ts": 2.6,
           "ts3": 1.0
@@ -4129,7 +4121,7 @@
           },
           "pressureRate": {
             "v": 21.0,
-            "rank": 13
+            "rank": 12
           }
         },
         "def": {
@@ -4702,7 +4694,7 @@
           },
           "pressureRate": {
             "v": 22.1,
-            "rank": 17
+            "rank": 16
           }
         },
         "def": {
@@ -5969,7 +5961,7 @@
           },
           "pressureRate": {
             "v": 23.1,
-            "rank": 20
+            "rank": 19
           }
         },
         "def": {
@@ -5999,7 +5991,7 @@
           },
           "pressureRate": {
             "v": 23.4,
-            "rank": 19
+            "rank": 21
           }
         },
         "rzTrips": 24
@@ -6598,7 +6590,7 @@
           },
           "pressureRate": {
             "v": 22.1,
-            "rank": 17
+            "rank": 16
           }
         },
         "def": {
@@ -6628,7 +6620,7 @@
           },
           "pressureRate": {
             "v": 25.5,
-            "rank": 9
+            "rank": 10
           }
         },
         "rzTrips": 19
@@ -7191,7 +7183,7 @@
           },
           "pressureRate": {
             "v": 25.7,
-            "rank": 8
+            "rank": 9
           }
         },
         "rzTrips": 25
@@ -7790,7 +7782,7 @@
           },
           "pressureRate": {
             "v": 24.1,
-            "rank": 25
+            "rank": 24
           }
         },
         "def": {
@@ -7820,7 +7812,7 @@
           },
           "pressureRate": {
             "v": 24.9,
-            "rank": 11
+            "rank": 12
           }
         },
         "rzTrips": 26
@@ -8458,7 +8450,7 @@
           },
           "pressureRate": {
             "v": 25.0,
-            "rank": 10
+            "rank": 11
           }
         },
         "rzTrips": 26
@@ -9057,7 +9049,7 @@
           },
           "pressureRate": {
             "v": 22.2,
-            "rank": 19
+            "rank": 18
           }
         },
         "def": {
@@ -9716,7 +9708,7 @@
           },
           "pressureRate": {
             "v": 24.5,
-            "rank": 14
+            "rank": 15
           }
         },
         "rzTrips": 24
@@ -10299,7 +10291,7 @@
           },
           "pressureRate": {
             "v": 24.3,
-            "rank": 16
+            "rank": 18
           }
         },
         "rzTrips": 26
@@ -11575,7 +11567,7 @@
           },
           "pressureRate": {
             "v": 24.3,
-            "rank": 15
+            "rank": 17
           }
         },
         "rzTrips": 17
@@ -12183,7 +12175,7 @@
           },
           "pressureRate": {
             "v": 24.0,
-            "rank": 24
+            "rank": 23
           }
         },
         "def": {
@@ -13687,10 +13679,6 @@
           "yr": 8.8,
           "rec": 3.0,
           "pos": "WR",
-          "inj": {
-            "s": "LP",
-            "note": "Ankle \u00b7 Limited Participation in Practice"
-          },
           "log": "NE|00-0035676",
           "ts": 7.8,
           "ts3": 10.3
@@ -14029,7 +14017,7 @@
           },
           "pressureRate": {
             "v": 24.3,
-            "rank": 26
+            "rank": 25
           }
         },
         "def": {
@@ -14059,7 +14047,7 @@
           },
           "pressureRate": {
             "v": 23.9,
-            "rank": 17
+            "rank": 19
           }
         },
         "rzTrips": 25
@@ -14658,7 +14646,7 @@
           },
           "pressureRate": {
             "v": 21.5,
-            "rank": 16
+            "rank": 15
           }
         },
         "def": {
@@ -15934,7 +15922,7 @@
           },
           "pressureRate": {
             "v": 23.3,
-            "rank": 22
+            "rank": 21
           }
         },
         "def": {
@@ -15964,7 +15952,7 @@
           },
           "pressureRate": {
             "v": 24.8,
-            "rank": 12
+            "rank": 13
           }
         },
         "rzTrips": 21
@@ -17228,7 +17216,7 @@
           },
           "pressureRate": {
             "v": 21.1,
-            "rank": 14
+            "rank": 13
           }
         },
         "def": {
@@ -18503,7 +18491,7 @@
             "rank": 2
           },
           "pressureRate": {
-            "v": 14.7,
+            "v": 16.2,
             "rank": 1
           }
         },
@@ -18533,8 +18521,8 @@
             "rank": 17
           },
           "pressureRate": {
-            "v": 23.1,
-            "rank": 21
+            "v": 28.2,
+            "rank": 6
           }
         },
         "rzTrips": 26
@@ -19142,7 +19130,7 @@
           },
           "pressureRate": {
             "v": 23.2,
-            "rank": 21
+            "rank": 20
           }
         },
         "def": {
@@ -19771,7 +19759,7 @@
           },
           "pressureRate": {
             "v": 24.0,
-            "rank": 23
+            "rank": 22
           }
         },
         "def": {
@@ -19801,7 +19789,7 @@
           },
           "pressureRate": {
             "v": 23.5,
-            "rank": 18
+            "rank": 20
           }
         },
         "rzTrips": 15
@@ -20435,8 +20423,8 @@
             "rank": 16
           },
           "pressureRate": {
-            "v": 20.8,
-            "rank": 12
+            "v": 25.4,
+            "rank": 26
           }
         },
         "def": {
@@ -20465,8 +20453,8 @@
             "rank": 25
           },
           "pressureRate": {
-            "v": 23.2,
-            "rank": 20
+            "v": 24.4,
+            "rank": 16
           }
         },
         "rzTrips": 22
@@ -39000,7 +38988,7 @@
       }
     ]
   },
-  "injuryWeek": 7,
+  "injuryWeek": null,
   "referees": {
     "Adrian Hill": {
       "g": 51,
