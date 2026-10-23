@@ -3,8 +3,8 @@
  "week": 7,
  "league": "nfl",
  "title": "NFL Week 7 Matchup Report",
- "dataGeneratedAt": "2026-10-22T16:30:21.258660+00:00",
- "generatedAt": "2026-10-22T17:39:24Z",
+ "dataGeneratedAt": "2026-10-23T14:56:45.364010+00:00",
+ "generatedAt": "2026-10-23T14:59:23Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,33 +19,12 @@
  ],
  "games": [
   {
-   "id": "2026_07_NE_CHI",
-   "label": "NE @ CHI",
-   "file": "NFL_Week7_NE-CHI_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ],
-    "value": [
-     0
-    ]
-   },
-   "missing": []
-  },
-  {
    "id": "2026_07_PIT_NO",
    "label": "PIT vs NO",
    "file": "NFL_Week7_PIT-NO_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -55,7 +34,7 @@
      1
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -66,7 +45,7 @@
    "file": "NFL_Week7_CIN-BAL_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -76,7 +55,7 @@
      2
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -87,7 +66,7 @@
    "file": "NFL_Week7_CLE-TEN_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -97,7 +76,7 @@
      3
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -108,7 +87,7 @@
    "file": "NFL_Week7_IND-MIN_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -118,7 +97,7 @@
      4
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -129,7 +108,7 @@
    "file": "NFL_Week7_MIA-NYJ_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -139,7 +118,7 @@
      5
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -150,7 +129,7 @@
    "file": "NFL_Week7_NYG-HOU_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -160,7 +139,7 @@
      6
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -171,7 +150,7 @@
    "file": "NFL_Week7_SF-ATL_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -181,7 +160,7 @@
      7
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -192,7 +171,7 @@
    "file": "NFL_Week7_TB-CAR_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -202,7 +181,7 @@
      8
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -213,7 +192,7 @@
    "file": "NFL_Week7_DEN-ARI_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -223,7 +202,7 @@
      9
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -234,7 +213,7 @@
    "file": "NFL_Week7_GB-DET_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -244,7 +223,7 @@
      10
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -255,7 +234,7 @@
    "file": "NFL_Week7_LA-LV_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -265,7 +244,7 @@
      11
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -276,7 +255,7 @@
    "file": "NFL_Week7_KC-SEA_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
@@ -286,7 +265,7 @@
      12
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
@@ -297,7 +276,7 @@
    "file": "NFL_Week7_DAL-PHI_packet",
    "pages": {
     "report": [
-     15
+     14
     ],
     "matchup": [
      26,
@@ -307,7 +286,7 @@
      13
     ],
     "value": [
-     13
+     12
     ]
    },
    "missing": []
