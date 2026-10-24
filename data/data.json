@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T13:10:26.671369+00:00",
+  "generatedAt": "2026-10-24T14:52:30.485415+00:00",
   "season": 2026,
   "throughWeek": 6,
   "schedule": {
@@ -79,7 +79,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -1.5,
-        "total": 48.5,
+        "total": 47.5,
         "stadium": "M&T Bank Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -206,7 +206,7 @@
         "home": "Houston Texans",
         "awayScore": null,
         "homeScore": null,
-        "spread": 10.5,
+        "spread": 10.0,
         "total": 42.5,
         "stadium": "Reliant Stadium",
         "roof": null,
