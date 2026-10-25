@@ -103,11 +103,15 @@ went over, the average, the last 3 results, each game marked O/U, and what next 
 opponent allows for that stat (from the defense and defense-vs-position numbers).
 Each player row carries `pos` for this.
 
-**Injury tags.** Player names carry a tag from ESPN's injury report (the feed behind
-espn.com/nfl/injuries), fetched by the viewer's browser when the page loads, so it is
-always current: O, D, Q, IR (injured reserve), PUP or SUSP; hover it for the injury.
-If ESPN can't be reached the tables show no tags (or, for an older data file, the
-nflverse tags it was built with). The daily build no longer downloads the nflverse injury file.
+**Injury tags.** Player names carry a tag from ESPN's injury report: O, D, Q, IR (injured
+reserve), PUP or SUSP; hover it for the injury. The **Fetch injuries** Action
+(`.github/workflows/fetch-injuries.yml`, every 3 hours in season, or by hand) runs
+`scripts/fetch_espn_injuries.py`, which reads ESPN's per-team injury lists (core API), keeps
+each player's latest entry and writes `data/injuries.json` in the same shape as ESPN's
+league feed. The pages read that file; if it is missing or more than 2 days old they try
+ESPN's league feed (site.api.espn.com/.../nfl/injuries) in the browser instead. That league
+feed went stale in October 2026 (one team, a week old), which is why the file exists. If
+neither loads, the tables show no tags. The daily build doesn't download the nflverse injury file.
 
 **Player search.** The search box in the top bar finds any player in the team tables
 and opens his game log and prop check.
@@ -184,7 +188,7 @@ python scripts/build_from_nflverse.py --season 2026 --src <download folder>
 A second scheduled task reruns the same build Friday at about 5 PM ET to pick up the
 final injury report, referee assignments and line moves. The download folder also needs
 `play_by_play_2026.csv.gz` from the nflverse-data releases (`pbp`); without it the
-build leaves EPA out. Injury tags come from ESPN in the browser, so `injuries_2026.csv`
+build leaves EPA out. Injury tags come from `data/injuries.json` (Fetch injuries Action), so `injuries_2026.csv`
 is left out on purpose (the build then notes that injury tags are left out).
 
 and pushes the new `data/data.json` along with `data/season.json` and `data/weeks/`,
