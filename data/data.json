@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T12:50:42.549209+00:00",
+  "generatedAt": "2026-10-25T14:51:56.746624+00:00",
   "season": 2026,
   "throughWeek": 6,
   "schedule": {
@@ -47,7 +47,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -3.0,
-        "total": 42.5,
+        "total": 43.5,
         "stadium": "Stade de France",
         "roof": "dome",
         "divisional": false,
@@ -110,7 +110,7 @@
         "home": "Tennessee Titans",
         "awayScore": null,
         "homeScore": null,
-        "spread": -1.5,
+        "spread": -2.5,
         "total": 36.5,
         "stadium": "Nissan Stadium",
         "roof": "outdoors",
@@ -142,7 +142,7 @@
         "home": "Minnesota Vikings",
         "awayScore": null,
         "homeScore": null,
-        "spread": 6.5,
+        "spread": 7.0,
         "total": 41.5,
         "stadium": "U.S. Bank Stadium",
         "roof": "dome",
