@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # to start Build matchup PDFs after a change (pushes made with this token don't trigger it)
 
 concurrency:
   group: fetch-injuries
@@ -32,6 +33,7 @@ jobs:
         run: python scripts/fetch_espn_injuries.py
 
       - name: Commit injuries
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -39,7 +41,14 @@ jobs:
           if git diff --staged --quiet; then exit 0; fi
           git commit -m "Update injuries (ESPN)"
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            git pull --rebase origin main && git push && echo "pushed=true" >> "$GITHUB_OUTPUT" && exit 0
             sleep 5
           done
           exit 1
+
+      # The report and printed matchups in the game packets show these tags, so rebuild them
+      - name: Rebuild the PDFs
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build-pdfs.yml --ref main
