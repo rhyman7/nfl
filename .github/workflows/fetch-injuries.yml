@@ -1,0 +1,45 @@
+name: Fetch injuries
+
+# Pulls ESPN's current injury designations for every team (scripts/fetch_espn_injuries.py) into
+# data/injuries.json, which the pages read for the O / D / Q / IR tags next to player names.
+# Every 3 hours; commits only when a designation changed. Run it by hand from the Actions tab
+# for an immediate refresh.
+on:
+  schedule:
+    - cron: "17 */3 * 8-12,1-2 *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-injuries
+  cancel-in-progress: false
+
+jobs:
+  injuries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch injuries
+        run: python scripts/fetch_espn_injuries.py
+
+      - name: Commit injuries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/injuries.json
+          if git diff --staged --quiet; then exit 0; fi
+          git commit -m "Update injuries (ESPN)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

@@ -28,8 +28,8 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **Out of scope here:** prediction and betting-model work belongs in the separate CFB/NFL
   Model project, not in this repo.
 - **What does commit straight to `main`** (automated, not hand edits): the weekly data
-  update (`data/`), the **Build matchup PDFs** Action (`pdf/`) and the **Fetch player props**
-  Action (`data/props.json`). Everything else goes through a PR.
+  update (`data/`), the **Build matchup PDFs** Action (`pdf/`), the **Fetch player props**
+  Action (`data/props.json`) and the **Fetch injuries** Action (`data/injuries.json`). Everything else goes through a PR.
 - **Task merges are pre-approved.** `.claude/settings.json` lets Claude sessions, including the
   scheduled tasks, merge their own PRs (`gh api -X PUT repos/rhyman7/nfl/pulls/<n>/merge`)
   without stopping to ask. The checks above still decide whether a PR is merged. Keep it in
@@ -148,7 +148,7 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 
 ## Data
 
-- **Sources:** nflverse (player and team stats, schedule, play-by-play, injuries, snap
+- **Sources:** nflverse (player and team stats, schedule, play-by-play, snap
   counts, advanced stats) and **Pro-Football-Reference.com** (standings, SoS / SRS / OSRS / DSRS,
   and pressure rate via nflverse advanced stats). Lines: ESPN in the browser, nflverse in the
   weekly data.
@@ -156,9 +156,13 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   writes `data/data.json`, `data/epa.json` (via `scripts/epa_ratings.py`),
   `data/season.json` and the `data/weeks/<N>.json` that changed. `scripts/situational.py`
   is called from it.
-- **The weekly update is manual and done together**, not fully automated: a scheduled task
-  runs Wednesday morning, and a second run Friday around 5 PM ET picks up the final injury
-  report, referees and line moves. The README's "Weekly update (current)" section has the steps.
+- **Injury tags** come only from ESPN: the **Fetch injuries** Action writes
+  `data/injuries.json` from ESPN's per-team injury lists every 3 hours (`scripts/fetch_espn_injuries.py`);
+  the pages fall back to ESPN's league feed in the browser when that file is missing or over
+  2 days old. The data update never builds injury data (no nflverse injury file, no `inj` keys).
+- **The data update is manual and done together**, not fully automated: a scheduled task
+  runs daily at 10:50 AM ET (new-week update after the week's last game, otherwise a refresh
+  of referees and lines). The README's "Weekly update (current)" section has the steps.
 - **When a change touches the scheduled data-update tasks** (new or renamed pages, data
   files or keys), check that the tasks' wording still matches the site, and update them.
 - `data.json` keys are read by the pages. Adding a key is fine; renaming or removing one

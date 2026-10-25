@@ -69,18 +69,26 @@ const ESPN_INJURIES_URL = "https://site.api.espn.com/apis/site/v2/sports/footbal
 const ESPN_INJ_STATUS = { "out": "O", "doubtful": "D", "questionable": "Q", "injured reserve": "IR",
   "physically unable to perform": "PUP", "pup": "PUP", "suspension": "SUSP", "suspended": "SUSP" };
 let INJ_SOURCE = null;   // "ESPN injury report" once the feed has loaded
-async function loadEspnInjuries() {
-  if (!DATA || !DATA.teams) return;
-  let feed;
+// First choice is data/injuries.json, written every few hours by the "Fetch injuries" Action from
+// ESPN's per-team lists (scripts/fetch_espn_injuries.py), same shape as ESPN's feed. If that file
+// is missing or more than 2 days old, the page tries ESPN's league feed directly.
+async function fetchInjuryFeed(url, opts) {
   try {
     const ctl = typeof AbortController === "function" ? new AbortController() : null;
     const timer = ctl ? setTimeout(() => ctl.abort(), 5000) : null;
-    const r = await fetch(ESPN_INJURIES_URL, { cache: "no-store", signal: ctl ? ctl.signal : undefined });
+    const r = await fetch(url, Object.assign({ signal: ctl ? ctl.signal : undefined }, opts));
     if (timer) clearTimeout(timer);
-    if (!r.ok) return;
-    feed = await r.json();
-  } catch (e) { return; }
-  const groups = feed && Array.isArray(feed.injuries) ? feed.injuries : null;
+    if (!r.ok) return null;
+    const feed = await r.json();
+    return feed && Array.isArray(feed.injuries) ? feed : null;
+  } catch (e) { return null; }
+}
+async function loadEspnInjuries() {
+  if (!DATA || !DATA.teams) return;
+  let feed = await fetchInjuryFeed("data/injuries.json", { cache: "no-cache" });
+  const age = feed && feed.generatedAt ? Date.now() - Date.parse(feed.generatedAt) : Infinity;
+  if (!feed || !(age < 2 * 864e5)) feed = (await fetchInjuryFeed(ESPN_INJURIES_URL, { cache: "no-store" })) || feed;
+  const groups = feed ? feed.injuries : null;
   if (!groups) return;
   const byTeam = {};   // full team name -> { normalized player name -> inj }
   const anyTeam = {};  // normalized name -> [inj, ...] for rows whose team can't be read
