@@ -107,6 +107,16 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - Head to Head: league rank bars, and the edge goes to the side that ranks **6 or more spots**
   better (out of 32). The side with the edge shows in its team color.
 - Betting trends and the live box score are screen-only (left out of print).
+- **Defense dial popups.** On every team card, the Defense **Pass Yds/G** and **Rush Yds/G**
+  dials open a popup of this season's games (hover on a computer, tap on a phone, Enter from
+  the keyboard). Passing: week, opponent, each quarterback faced with C/Att and yards, and the
+  team total. Rushing: week, opponent, rushing yards allowed and the top running back;
+  hovering or tapping a game opens a second popup with every running back, then the other
+  rushers, so the lines add up to the game's total. Data: `allowed` on each game in
+  each team's `games` (`team_game_list()` in the build). The game totals must stay the same numbers the
+  dials average; change both together. Popups are screen-only (`no-print`).
+- **Passing table columns:** Player, Yds/G, TD, Int, Cmp/G, **Avg/C** (season passing yards
+  per completion, the row's `ypc`; `withAvgC()` works it out for data built without it).
 
 ## Printing and PDFs
 

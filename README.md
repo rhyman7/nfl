@@ -97,6 +97,15 @@ browser fetches from ESPN using the game's `espnId`. If ESPN can't be reached th
 says so and links to the game on ESPN. The list is `games` on each team in
 `data/data.json`.
 
+**Defense by game.** Hovering the Defense **Pass Yds/G** dial on a team card (tap on a
+phone) shows every game this season: the quarterbacks the defense faced, their
+completions/attempts and passing yards, and the team total. The **Rush Yds/G** dial shows
+the rushing yards allowed in each game; hover or tap a game for a second popup with the
+opponent's running backs (carries and yards) and any other rushers. The data is `allowed`
+on each entry in `games` ({pass, rush, passers: [{n, pos, yds, cmp, att}], rushers: [{n,
+pos, yds, car}]}), built from nflverse's player and team stats, so the totals match the dials.
+The Passing table's **Avg/C** column is passing yards per completion (`ypc`).
+
 **Prop check.** The game log panel has a prop tool: pick a stat (pass/rush/rec yards,
 receptions, TDs, combos, fantasy points), type a line, and it shows how many games he
 went over, the average, the last 3 results, each game marked O/U, and what next week's
