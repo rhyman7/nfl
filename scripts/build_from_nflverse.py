@@ -237,13 +237,14 @@ def gauge_range(series):
     return {"min": 0, "max": int(math.ceil((hi + pad) / 5) * 5)}
 
 
-def team_game_list(done, ps):
+def team_game_list(done, ps, ts=None):
     """Each team's completed games in order: opponent, result, the ESPN id (for the box
     score the site fetches) and that team's top passer, rusher and receiver by yards.
 
-    Returns {abbr: [{w, opp, at, res, espnId, pass, rush, rec}]}. pass = {n, yds, td, cmp,
+    Returns {abbr: [{w, opp, at, res, espnId, pass, rush, rec, allowed}]}. pass = {n, yds, td, cmp,
     att}, rush = {n, yds, td, car}, rec = {n, yds, td, rec}; a leader is left out when the
-    team has no player with an attempt, carry or catch in that game's stats."""
+    team has no player with an attempt, carry or catch in that game's stats. allowed is what the
+    team's defense gave up that game (see faced() below; the Defense dial popups read it)."""
     def n0(x):
         return 0 if pd.isna(x) else int(x)
 
@@ -255,7 +256,27 @@ def team_game_list(done, ps):
         return {"n": r.player_display_name, "yds": n0(r[yds]), "td": n0(r[td]),
                 **{k: n0(r[col]) for k, col in extra.items()}}
 
+    def faced(rows, team_row):
+        """What this team's defense allowed in one game, from the opponent's stats:
+        pass and rush = the opponent's team passing and rushing yards (the same totals as the
+        Defense dials), passers = [{n, pos, yds, cmp, att}] with a pass attempt, rushers =
+        [{n, pos, yds, car}] with a carry, most yards first."""
+        if rows is None:
+            return None
+        p = rows[rows.attempts.fillna(0) > 0].sort_values("passing_yards", ascending=False)
+        r = rows[rows.carries.fillna(0) > 0].sort_values(["rushing_yards", "carries"], ascending=False)
+        tot = lambda col: n0(team_row[col].iloc[0]) if team_row is not None and len(team_row) else n0(rows[col].sum())
+        return {
+            "pass": tot("passing_yards"), "rush": tot("rushing_yards"),
+            "passers": [{"n": x.player_display_name, "pos": "" if pd.isna(x.position) else x.position,
+                         "yds": n0(x.passing_yards), "cmp": n0(x.completions), "att": n0(x.attempts)}
+                        for x in p.itertuples()],
+            "rushers": [{"n": x.player_display_name, "pos": "" if pd.isna(x.position) else x.position,
+                         "yds": n0(x.rushing_yards), "car": n0(x.carries)} for x in r.itertuples()],
+        }
+
     by_team_week = {k: v for k, v in ps.groupby(["team", "week"])}
+    ts_by_team_week = {k: v for k, v in ts.groupby(["team", "week"])} if ts is not None else {}
     out = {}
     for _, g in done.sort_values(["week", "gameday", "game_id"]).iterrows():
         for side, other in (("home", "away"), ("away", "home")):
@@ -266,6 +287,10 @@ def team_game_list(done, ps):
                      "at": side == "away" and str(g.location) != "Neutral",
                      "res": f"{res} {us}-{them}",
                      "espnId": None if pd.isna(g.espn) else str(int(g.espn))}
+            allowed = faced(by_team_week.get((g[f"{other}_team"], int(g.week))),
+                            ts_by_team_week.get((g[f"{other}_team"], int(g.week))))
+            if allowed:
+                entry["allowed"] = allowed
             rows = by_team_week.get((team, int(g.week)))
             if rows is not None:
                 for key, args in (
@@ -545,7 +570,7 @@ def main():
                                                         td=("passing_tds", "sum"), i=("passing_interceptions", "sum"),
                                                         cmp=("completions", "sum"))
             rows = [{"player": n, "ydsG": r1(a.yds / a.g), "td": r2(a.td / a.g), "int": r2(a.i / a.g),
-                     "cmp": r1(a.cmp / a.g)} for n, a in agg.iterrows()]
+                     "cmp": r1(a.cmp / a.g), "ypc": r1(a.yds / a.cmp) if a.cmp else None} for n, a in agg.iterrows()]
             n = 6
         elif kind == "rushing":
             sub = sub[sub.carries > 0]
@@ -591,7 +616,7 @@ def main():
         return r1(s[key]) if s else 0.0
 
     # ---- each team's games so far, with the game's top passer, rusher and receiver ----
-    team_games = team_game_list(done, ps)
+    team_games = team_game_list(done, ps, ts)
 
     # ---- red zone, 3rd down, big plays, pressure, pace and usage (scripts/situational.py) ----
     extra = situational.build(src, season, through_week, ps, teams, notes)
