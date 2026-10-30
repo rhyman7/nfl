@@ -3,8 +3,8 @@
  "week": 8,
  "league": "nfl",
  "title": "NFL Week 8 Matchup Report",
- "dataGeneratedAt": "2026-10-29T15:07:19.556220+00:00",
- "generatedAt": "2026-10-30T10:00:03Z",
+ "dataGeneratedAt": "2026-10-30T15:11:24.477599+00:00",
+ "generatedAt": "2026-10-30T15:13:48Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,32 +19,12 @@
  ],
  "games": [
   {
-   "id": "2026_08_CAR_GB",
-   "label": "CAR @ GB",
-   "file": "NFL_Week8_CAR-GB_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
    "id": "2026_08_ARI_DAL",
    "label": "ARI @ DAL",
    "file": "NFL_Week8_ARI-DAL_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -65,7 +45,7 @@
    "file": "NFL_Week8_ATL-TB_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -86,7 +66,7 @@
    "file": "NFL_Week8_BAL-BUF_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -107,7 +87,7 @@
    "file": "NFL_Week8_CLE-PIT_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -128,7 +108,7 @@
    "file": "NFL_Week8_IND-JAX_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -149,7 +129,7 @@
    "file": "NFL_Week8_LV-NYJ_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -170,7 +150,7 @@
    "file": "NFL_Week8_MIN-DET_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -191,7 +171,7 @@
    "file": "NFL_Week8_TEN-CIN_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -212,7 +192,7 @@
    "file": "NFL_Week8_LAC-LA_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -233,7 +213,7 @@
    "file": "NFL_Week8_KC-DEN_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -254,7 +234,7 @@
    "file": "NFL_Week8_NE-MIA_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -275,7 +255,7 @@
    "file": "NFL_Week8_PHI-WAS_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
@@ -296,7 +276,7 @@
    "file": "NFL_Week8_CHI-SEA_packet",
    "pages": {
     "report": [
-     15
+     14
     ],
     "matchup": [
      26,
