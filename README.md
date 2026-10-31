@@ -337,7 +337,8 @@ The **Fetch player props** workflow (`.github/workflows/fetch-props.yml`, Thursd
 and by hand from the Actions tab) runs `scripts/fetch_props.py`, which pulls seven markets for this
 week's games from The Odds API at DraftKings and FanDuel only: pass yds, pass TD, rush yds, rush
 attempts, rec yds, receptions and anytime TD. The key is the `ODDS_API_KEY` repository secret. Each
-game costs 7 credits (about 105 a week, roughly 450 a month against the free plan's 500); games
+game costs 7 credits (about 105 a week, roughly 450 a month, out of the account's 20,000 a month
+shared with rhyman7/fb-value-board); games
 already under way are skipped (and kept from the week's earlier pull), and the run stops before
 using the last 25 credits. The file keeps each book's own line and prices per player (`dk`, `fd`),
 and a `teams` map putting each player on one of the game's two teams from nflverse's weekly
