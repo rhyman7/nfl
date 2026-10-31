@@ -191,8 +191,11 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 
 ## Player props (NFL first)
 
-- Player prop odds come from **The Odds API on the free plan** (500 credits a month), and are
-  being tested on this site first; the CFB site gets them later.
+- Player prop odds come from **The Odds API**, and are being tested on this site first; the
+  CFB site gets them later. The account (and the key) is shared with rhyman7/fb-value-board:
+  20,000 credits a month (100,000 for the one month from Oct 30, 2026, for that repo's
+  backfills; back to 20,000 after). The value boards use most of it, so this site's pull
+  stays small.
 - `scripts/fetch_props.py` runs in the **Fetch player props** Action (Thursdays 15:07 UTC, or
   by hand). The key is the `ODDS_API_KEY` repository secret; never put it in a file or a page.
 - About 105 credits a week (7 markets × ~15 games); the script skips games already under way

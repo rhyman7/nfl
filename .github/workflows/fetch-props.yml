@@ -1,8 +1,9 @@
 name: Fetch player props
 
 # Pulls this week's NFL player prop lines (DraftKings and FanDuel) from The Odds API into data/props.json.
-# The key is the ODDS_API_KEY repository secret. Once a week on the free plan (500 credits a
-# month, about 105 a pull); run it by hand from the Actions tab for an extra refresh.
+# The key is the ODDS_API_KEY repository secret. Once a week, about 105 credits a pull, out of the
+# account's 20,000 a month shared with rhyman7/fb-value-board (100,000 for the one month from
+# Oct 30, 2026); run it by hand from the Actions tab for an extra refresh.
 on:
   schedule:
     - cron: "7 15 * * 4"   # Thursdays 15:07 UTC (11:07 am ET in daylight time, 10:07 am in winter)
