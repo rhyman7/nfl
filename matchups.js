@@ -18,8 +18,6 @@ async function init() {
   const games = (sched && sched.games) || [];
   const mode = weekMode();
   if (mode !== "current") {
-    // Print all and the PDF are this week's matchups
-    document.getElementById("printAllBtn").hidden = true;
     document.getElementById("weekTitle").textContent = `Week ${sched.week}`;
     document.title = `Week ${sched.week} · NFL Matchups`;
   }
@@ -27,7 +25,6 @@ async function init() {
     gameList.innerHTML = mode === "current"
       ? `<div class="empty-note">This week's schedule shows up after the next weekly update. In the meantime, <a href="compare.html">compare any two teams</a>.</div>`
       : `<div class="empty-note">Week ${sched.week} isn't available right now. <a href="index.html">See this week's matchups</a>.</div>`;
-    updatePrintAll(0);
     return;
   }
 
@@ -38,9 +35,13 @@ async function init() {
     : mode === "upcoming" ? `${count} on the schedule. Full matchups open when Week ${sched.week} is the current week.`
     : `${count}. Team stats through Week ${DATA.throughWeek}. Pick a game for the full matchup.`;
 
+  const confSel = document.getElementById("confFilter");
+  confSel.innerHTML = `<option value="">Conferences</option>` + ["AFC", "NFC"].map(c =>
+    `<option value="${c}">${c}</option>` +
+    ["East", "South", "North", "West"].map(d => `<option value="${c} ${d}">\u00a0\u00a0\u00a0${c} ${d}</option>`).join("")).join("");
   const rerender = () => renderWeek(games);
+  [confSel, document.getElementById("teamSearch")].forEach(el => el.addEventListener("input", rerender));
   rerender();
-  updatePrintAll(games.length);
   if (typeof startLiveWeek === "function") startLiveWeek(games, rerender);
   if (typeof startWeather === "function") startWeather(games, rerender);
 }
@@ -48,7 +49,34 @@ async function init() {
 // Games are grouped by day and kickoff hour. A group whose games all start at the same
 // time is labeled with that time (1:00 PM); one that mixes times within the hour
 // (4:05 and 4:25) is labeled with the hour (4:00 PM).
-function renderWeek(games) {
+// The conference / division dropdown and Find a team: a game shows when either team matches.
+const DIVISIONS = {
+  "AFC East": ["BUF", "MIA", "NE", "NYJ"], "AFC North": ["BAL", "CIN", "CLE", "PIT"],
+  "AFC South": ["HOU", "IND", "JAX", "TEN"], "AFC West": ["DEN", "KC", "LAC", "LV"],
+  "NFC East": ["DAL", "NYG", "PHI", "WAS"], "NFC North": ["CHI", "DET", "GB", "MIN"],
+  "NFC South": ["ATL", "CAR", "NO", "TB"], "NFC West": ["ARI", "LA", "SEA", "SF"],
+};
+function teamInGroup(abbr, group) {
+  return Object.keys(DIVISIONS).some(d => (d === group || d.startsWith(group + " ")) && DIVISIONS[d].includes(abbr));
+}
+
+function filterGames(games) {
+  const conf = document.getElementById("confFilter").value;
+  const q = document.getElementById("teamSearch").value.trim().toLowerCase();
+  return games.filter(g => {
+    const sides = [g.away, g.home];
+    if (conf && !sides.some(n => teamInGroup(abbrOf(n), conf))) return false;
+    if (q && !sides.some(n => n.toLowerCase().includes(q) || abbrOf(n).toLowerCase() === q)) return false;
+    return true;
+  });
+}
+
+function renderWeek(allGames) {
+  const games = filterGames(allGames);
+  if (!games.length) {
+    gameList.innerHTML = `<div class="empty-note">No games match those filters.</div>`;
+    return;
+  }
   // live games get their own group at the top
   const groups = [];
   const live = games.filter(g => (liveFor(g) || {}).state === "in");
@@ -80,18 +108,6 @@ function renderWeek(games) {
       <h2 class="day-label">${grp.live ? '<span class="live-dot"></span>' : ""}${escapeHtml(grp.label)}${grp.games.length > 1 ? ` <span class="day-count">${grp.games.length} games</span>` : ""}</h2>
       ${grp.games.map(g => gameRow(g, grp)).join("")}
     </section>`).join("") + byeNote(DATA.schedule.byes);
-}
-
-function updatePrintAll(n) {
-  const btn = document.getElementById("printAllBtn");
-  if (!btn) return;
-  btn.disabled = !n;
-  btn.textContent = `Print all ${n}`;
-  if (!btn.dataset.wired) {
-    btn.dataset.wired = "1";
-    btn.addEventListener("click", () => window.open("print.html", "_blank"));
-    showPdfLink(document.getElementById("pdfAllBtn"));
-  }
 }
 
 function kickoff(g) {

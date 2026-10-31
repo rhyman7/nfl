@@ -12,25 +12,28 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   in fixed columns so the lines read straight down. A spread or total that has moved
   shows what it opened at underneath. The venue line carries the kickoff forecast
   ("Indoors" for domes and closed roofs). Once a game starts, scores join the teams and
-  the implied column shows the game's status. Click a row to open the game. "Print all"
-  prints every matchup, two landscape pages each.
+  the implied column shows the game's status. Click a row to open the game. Find a team and the
+  Conferences dropdown (AFC/NFC and their divisions) filter the list.
 - **Matchup** (`matchup.html?game=<id>`) — one game: kickoff, venue, roof, kickoff
   forecast, current spread and O/U; a Head to Head table (each
   offense against the other defense, with league ranks and edges); then both teams'
   full stat cards. Prints on two landscape pages.
-- **Print all** (`print.html`) — opened by the "Print all" button: every game this week,
-  two landscape pages per matchup, and brings up the print dialog. Each team card still
+- **Print all** (`print.html`) — every game this week, two landscape pages per matchup, and
+  brings up the print dialog. No button links to it anymore; the PDF build uses it for the
+  packets' printed matchups, so keep it. Each team card still
   has its own Print button (one team per portrait page).
-- **Download PDF** — "Download PDF" on This Week's Matchups (every game) and "Download PDF" on
-  each matchup page (that game). The PDFs are the print layout rendered by headless
+- **Download PDF** — "Download PDF" on each matchup page (that game). The PDFs are the print layout rendered by headless
   Chrome, so they come out the same whatever browser or printer you use.
   `scripts/build_pdfs.py` writes `pdf/matchups.pdf`, `pdf/games/<game id>.pdf`,
   `pdf/epa.pdf` (the EPA page's Print all) and `pdf/manifest.json`; the **Build matchup PDFs** workflow reruns it whenever
   `data/data.json` or the print layout changes. The links only show when the PDFs are
   for the week on the page. `print.html?game=<id>` prints a single game.
-- **Game packets** — on This Week's Matchups, **Print all packets / Save all packets** gives
-  every game's packet in one PDF, and **Print report / Save report** gives the Weekly Matchup
-  Report on its own; each matchup page has **Print packet / Save packet** for that game. A
+- **Game packets** — on This Week's Matchups, **Print Packets / Save Packets** puts a
+  checkbox beside each game (with Select all); the Print/Save button at the bottom then asks
+  which of six reports to include: the four per-game parts below, plus the Weekly Matchup
+  Report's two whole-week rankings (Best Overall Matchups, Likeliest TD Scorers), added once
+  at the end. **Print All / Save All** includes all six. Each matchup page has
+  **Print packet / Save packet** for that game. A
   packet is four parts back to back: the game's Weekly Matchup Report page (good and tough
   spots, from `scripts/build_report.py`), the printed matchup, the EPA matchup page and the
   value board's matchup (rhyman7/fb-value-board). `scripts/build_packets.py` builds the source

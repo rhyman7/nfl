@@ -77,6 +77,14 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - The top bar's right side links to the other dashboard (`league-link`, `/cfb/`).
 - The CFB site uses the same order and labels. Change both together.
 
+## This Week's Matchups filters
+
+- Same spot as CFB, left of the packet buttons: **Find a team** (`#teamSearch`, matches a
+  name or an exact abbreviation) and the **Conferences** dropdown (`#confFilter`): Conferences
+  (every game), then AFC, AFC East, AFC South, AFC North, AFC West, NFC and its four divisions
+  in the same order. A game shows when either team matches. Divisions are the `DIVISIONS` map
+  in `matchups.js` (by `abbr`); update it if a team's abbreviation changes.
+
 ## Look
 
 - Graphite dark theme. Colors are CSS custom properties on `:root` in `style.css`
@@ -123,11 +131,13 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - Anything screen-only gets `class="no-print"`; print rules live in `@media print` blocks in
   `style.css`.
 - A matchup prints on **two landscape pages** (header, Head to Head and pace; then both team
-  cards with usage). Print all (`print.html`) is every game this week, two pages each.
+  cards with usage). `print.html` is every game this week, two pages each (`?game=<id>` /
+  `?games=<ids>` for some). **It has no button anymore, but don't remove it**: the Build
+  matchup PDFs Action renders it into `pdf/matchups.pdf`, the packets' "Printed matchup".
 - The **EPA page always has both "Print all" and "Download PDF"** buttons (`epaPrintBtn`,
   `epaPdfBtn`). Print all is every game (one landscape page each), then the board and the
   ratings; Download PDF is `pdf/epa.pdf`.
-- This Week's Matchups and each matchup page also have Download PDF.
+- Each matchup page also has Download PDF. This Week's Matchups has only the packet buttons.
 - PDFs are built by `scripts/build_pdfs.py` (headless Chromium via Playwright) in the
   **Build matchup PDFs** Action, which runs when the data, the print layout or the EPA page
   change. `pdf/manifest.json` says which week the PDFs are for; the Download PDF links only
@@ -136,8 +146,17 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **Game packets** (`packets.js`, `scripts/build_report.py`, `scripts/build_packets.py`,
   `scripts/report.css`, `vendor/pdf-lib.min.js`). For every game, four parts back to back:
   the Weekly Matchup Report page, the printed matchup, the EPA matchup page and the value
-  board's matchup. This Week's Matchups has **Print all packets / Save all packets** and
-  **Print report / Save report**; each matchup page has **Print packet / Save packet**.
+  board's matchup. Each matchup page has **Print packet / Save packet** (that game's four parts).
+- This Week's Matchups has only **Print Packets / Save Packets** (no Print all, Download PDF or
+  report buttons). Pressing one puts a checkbox to the left of every game that has a packet
+  (all unticked), **Select all** above the list (it ticks the games the filters show) and a
+  **Print / Save** button at the bottom left, under the checkboxes. Ticks survive filtering
+  and live redraws. That button opens a dialog listing six reports, all unticked: the four
+  per-game parts, then the report's two whole-week rankings, **Best Overall Matchups** and
+  **Likeliest TD Scorers** ("Most Likely to Score a TD" in the report), added once at the end.
+  **Print / Save** builds the ticked reports for the ticked games; **Print All / Save All**
+  builds all six. `build_packets.py` records the rankings' report pages in `packets.json`
+  under `slate` (`best`, `td`); until a build has written it, those two rows are disabled.
   `build_packets.py` writes `pdf/report.pdf`, `pdf/matchups.pdf`, `pdf/value-board.pdf` and
   `pdf/packets.json` (which pages of each file belong to each game); `packets.js` assembles the
   packet in the browser with pdf-lib, so each week's pages are stored once. The buttons only
