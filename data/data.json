@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T15:11:24.477599+00:00",
+  "generatedAt": "2026-10-31T14:52:08.057891+00:00",
   "season": 2026,
   "throughWeek": 7,
   "schedule": {
@@ -79,7 +79,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 2.5,
-        "total": 44.5,
+        "total": 43.5,
         "stadium": "Raymond James Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -115,7 +115,7 @@
         "stadium": "Highmark Stadium",
         "roof": "outdoors",
         "divisional": false,
-        "awayQb": "Tyler Huntley",
+        "awayQb": "Lamar Jackson",
         "homeQb": "Josh Allen",
         "referee": null,
         "awayRest": 7,
@@ -143,7 +143,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 3.5,
-        "total": 39.5,
+        "total": 38.5,
         "stadium": "Acrisure Stadium",
         "roof": "outdoors",
         "divisional": true,
