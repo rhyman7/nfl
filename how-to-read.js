@@ -136,8 +136,8 @@ function learnSections(g, a, h) {
   } else if (it) {
     impNote = ["Implied team totals", `With no favorite, each team's share of the total is half: ${it.away} apiece.`];
   }
-  const o = g.lineOpen;
-  let moveNote = ["Line move", "How far the spread and total have moved since this week's first update. It appears once the line has moved at least half a point, until kickoff."];
+  const o = openFor(g);
+  let moveNote = ["Line move", "How far the spread and total have moved since they opened (the value board's first line, often the week before; otherwise this site's first update of the week). It appears once the line has moved at least half a point, until kickoff."];
   if (o && ln && !isFinal(g)) {
     const cur = ln.pick ? 0 : ln.fav === "home" ? ln.spread : ln.fav === "away" ? -ln.spread : null;   // + = home favored
     const bits = [];

@@ -379,3 +379,11 @@ Weekly Matchup Report uses it too ("4.5 yds/carry (his 5.8; 4.7 capped)"). Why a
 median or a standard-deviation rule: on NFL play-by-play 2023-2025, first-half capped yards per carry
 predicted second-half yards per carry a little better than the plain average (0.365 against 0.342
 correlation), receivers showed no difference, and the median did much worse (0.24 and 0.19).
+
+**Cleanup (Nov 2026).** Line moves are measured from the opener in the value board's feed (its line
+history, often the week before) when that's older than this site's first price of the week. Weekly
+Edges leaves out the Referee column until a referee is known (they're only in the data after a
+game, and crews predicted nothing against the closing total when tested). Betting trends on the
+matchup page are collapsed by default with a caution: a few games of ATS record don't predict the
+next one. The Fetch player props workflow no longer runs on a schedule (about 105 Odds API credits a
+week); the header QB falls back to the value board's projected starter.
