@@ -164,6 +164,9 @@ function gameRow(g, grp) {
     status = `<div class="gr-big">${escapeHtml((L && L.state === "post" && L.detail) || "Final")}</div>`;
   } else {
     status = it ? `<span class="imp-pre">Implied </span>${escapeHtml(abbrOf(g.away))} ${it.away}, ${escapeHtml(abbrOf(g.home))} ${it.home}` : "";
+    const bg = boardGame(g);   // the value board's projected line and any bet it flags
+    if (bg) status += `<div class="gr-board">Board <b>${escapeHtml(boardSpreadText(g, bg))}</b>, ${bg.total.toFixed(1)}`
+      + bg.bets.map(b => ` <span class="vb-bet">${escapeHtml(boardBetText(b))}</span>`).join("") + `</div>`;
   }
 
   // second line under the stadium: kickoff time when the group's label doesn't give it,

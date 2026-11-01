@@ -59,9 +59,10 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   EPA from `data/epa.json`; the rest of the page is static.
 - **Weekly Edges** (`edges.html`) — a game board for the week (current spread and O/U,
   implied team totals, line move since the week's first update, net EPA edge, referee
-  and his over/under record) and prop matchup tables by position (QB pass yds, RB rush
-  yds, WR/TE/RB rec yds) listing players whose opponent allows more than the league
-  average at their position, with a matchup factor and an adjusted average.
+  and his over/under record) and prop tables by position (QB pass yds, RB rush
+  yds, WR/TE/RB rec yds) listing players the value board projects above their season
+  average, with the board's projection, the books' main line and what the opponent allows
+  (raw, as context).
 - **Compare Any Two Teams** (`compare.html`) — the original dashboard: pick any two teams
   and compare them side by side. Links like `compare.html?t1=Buffalo%20Bills&t2=Miami%20Dolphins` preselect teams.
 - **Ratings Explained** (`ratings.html`) — plain-language definitions of SoS, OSRS,
@@ -352,3 +353,18 @@ without the API key or any credits.
 FanDuel buttons and prop-line columns were removed in Oct 2026). The file is only used for the
 matchup header's quarterback before kickoff: the team's player with the highest passing-yards
 prop (`heroQb()` in `common.js`). Without the file it falls back to nflverse's starter.
+
+**The value board on the dashboard (Nov 2026).** The pages read a small feed from the value
+board (rhyman7/fb-value-board, `docs/feed/nfl.json`, same site, so no extra requests to
+other domains): each game's projected line and total and the bets on its Bet sheet, and each
+player's projection, with the books' main prop line. The week board shows the board's line under the implied score
+(with any bet-sheet pick), the matchup header has a "Value board" strip with links to the game
+on the board and to the parlay tool (hidden in print), and Weekly Edges builds its prop tables
+from the player projections. If the feed is missing or for another week, those pieces hide.
+
+**Head to Head rows and the edge rule (Nov 2026).** EPA / play, Pass EPA and Rush EPA are the
+opponent-adjusted ratings from `data/epa.json` (the EPA page's), loaded with the data; Success %
+and the per-game rows are raw. Touchdowns per game sit in their own on-screen group. An edge is
+called when one side is at least one league standard deviation better than the other (each value
+scaled by the whole league's spread), so the size of the gap counts, not rank spots; the EPA page,
+How to Read and EPA Explained use the same rule.

@@ -91,52 +91,59 @@ function shareCells(t, r, kind) {
   return `<td class="num share-cell"><b>${x.s.toFixed(1)}%</b><span class="trend ${cls}">${cls === "up" ? "↑" : cls === "down" ? "↓" : "L3"} ${x.l3.toFixed(1)}</span></td>`;
 }
 
-// board: [title, player table, positions, min avg, opponent-allowed getter, label for what the defense allows]
+// board: [title, player table, positions, min avg, opponent-allowed getter, rank getter, label, board stat]
 const PROP_BOARDS = [
-  ["QB pass yds", "passing", ["QB"], 150, d => d.defense.passYdsG, d => d.defense.passYdsGRank, "pass yds/G"],
-  ["RB rush yds", "rushing", ["RB", "FB"], 30, d => d.defVsPosition.rb.yds, d => d.defVsPosition.rb.rank, "RB rush yds/G"],
-  ["WR rec yds", "receiving", ["WR"], 30, d => d.defVsPosition.wr.yds, d => d.defVsPosition.wr.rank, "WR rec yds/G"],
-  ["TE rec yds", "receiving", ["TE"], 20, d => d.defVsPosition.te.yds, d => d.defVsPosition.te.rank, "TE rec yds/G"],
-  ["RB rec yds", "receiving", ["RB", "FB"], 15, d => d.defVsPosition.recRb.yds, d => d.defVsPosition.recRb.rank, "RB rec yds/G"],
+  ["QB pass yds", "passing", ["QB"], 150, d => d.defense.passYdsG, d => d.defense.passYdsGRank, "pass yds/G", "pass_yds"],
+  ["RB rush yds", "rushing", ["RB", "FB"], 30, d => d.defVsPosition.rb.yds, d => d.defVsPosition.rb.rank, "RB rush yds/G", "rush_yds"],
+  ["WR rec yds", "receiving", ["WR"], 30, d => d.defVsPosition.wr.yds, d => d.defVsPosition.wr.rank, "WR rec yds/G", "rec_yds"],
+  ["TE rec yds", "receiving", ["TE"], 20, d => d.defVsPosition.te.yds, d => d.defVsPosition.te.rank, "TE rec yds/G", "rec_yds"],
+  ["RB rec yds", "receiving", ["RB", "FB"], 15, d => d.defVsPosition.recRb.yds, d => d.defVsPosition.recRb.rank, "RB rec yds/G", "rec_yds"],
 ];
 
+// Each table lists the players the value board projects above their season average this week,
+// biggest projection first. The board's projection already counts the opponent, at the size that has
+// held up in testing: a defense's position split is mostly noise (about a quarter of a WR split
+// and a tenth of a TE split carries into the next game), so the raw "allowed" figure stays only as
+// context. Line is the books' main line; vs line is the board's projection minus it.
 function propBoards(games) {
+  if (!BOARD) return `<div class="empty-note">The value board's projections aren't available right now, so the prop tables are hidden. They come back once its feed for Week ${escapeHtml(String(LIVE_WEEK))} loads.</div>`;
   const opp = {};  // team name -> { opp team, at }
   for (const g of games) {
     opp[g.away] = { t: DATA.teams[g.home], at: !g.neutral };
     opp[g.home] = { t: DATA.teams[g.away], at: false };
   }
   const teams = Object.values(DATA.teams);
-  return PROP_BOARDS.map(([title, table, positions, minAvg, allowed, allowedRank, what]) => {
-    const lg = teams.reduce((a, t) => a + allowed(t), 0) / teams.length;
+  return PROP_BOARDS.map(([title, table, positions, minAvg, allowed, allowedRank, what, stat]) => {
     const rows = [];
     for (const t of teams) {
       const o = opp[t.team];
       if (!o || isFinalFor(t.team, games)) continue;
       for (const r of t[table] || []) {
         if (!positions.includes((r.pos || "").toUpperCase()) || r.ydsG < minAvg || (r.inj && INJ_OUT.includes(r.inj.s))) continue;
-        const f = lg ? allowed(o.t) / lg : 1;
-        if (f <= 1) continue;
-        rows.push({ r, t, o, f, adj: r.ydsG * f, kind: table });
+        const bp = boardPlayer(t.abbr, r.player);
+        const proj = bp && bp.p ? bp.p[stat] : null;
+        if (proj == null || proj <= r.ydsG) continue;   // the board has him at or under his average, or not playing
+        rows.push({ r, t, o, proj, d: proj - r.ydsG, ln: bp.L ? bp.L[stat] : null, kind: table });
       }
     }
-    rows.sort((x, y) => y.adj - x.adj);
-    const body = rows.slice(0, 10).map(({ r, t, o, f, adj, kind }) => `<tr>
+    rows.sort((x, y) => y.proj - x.proj);   // biggest projections first; "vs avg" says how unusual the week is
+    const body = rows.slice(0, 10).map(({ r, t, o, proj, d, ln, kind }) => `<tr>
       <td><button type="button" class="plink" data-log="${escapeHtml(r.log)}" data-kind="${kind}" data-pos="${escapeHtml(r.pos || "")}" data-name="${escapeHtml(r.player)}">${escapeHtml(r.player)}</button>${injTag(r.inj)}</td>
       <td>${escapeHtml(t.abbr)} ${o.at ? "@" : "vs"} ${escapeHtml(o.t.abbr)}</td>
       <td class="num">${r.ydsG}</td>
       <td class="num">${allowed(o.t)} <span class="rk">#${allowedRank(o.t)}</span></td>
-      <td class="num"><span class="tag W">+${Math.round((f - 1) * 100)}%</span></td>
-      <td class="num"><b>${adj.toFixed(1)}</b></td>
+      <td class="num"><b>${proj.toFixed(1)}</b></td>
+      <td class="num"><span class="tag W">+${d.toFixed(1)}</span>${proj >= 1.5 * r.ydsG ? `<div class="rk" title="Projected at 1.5 times his season average or more: usually a new starter or a bigger role">new role</div>` : ""}</td>
+      <td class="num">${ln ? ln.L : "—"}</td>
+      <td class="num">${ln ? `${proj - ln.L >= 0 ? "+" : MINUS}${Math.abs(proj - ln.L).toFixed(1)}` : "—"}</td>
       ${kind === "passing" ? "" : shareCells(t, r, kind)}
     </tr>`).join("");
     const shareHead = table === "passing" ? "" : table === "rushing" ? `<th class="num" title="Share of the team's carries">Carry %</th>`
       : `<th class="num" title="Share of the team's targets this season, with the last three games under it (arrow when it moved 2 points or more)">Tgt %</th>`;
     return `<div class="table-block">
       <h4>${escapeHtml(title)}</h4>
-      ${body ? `<table><thead><tr><th>Player</th><th>Game</th><th class="num">Avg</th><th class="num" title="${escapeHtml("Opponent allows " + what + "; rank out of 32, #1 = fewest")}">Opp allows</th><th class="num">Matchup</th><th class="num">Adj</th>${shareHead}</tr></thead><tbody>${body}</tbody></table>`
-        : `<div class="empty-note">No favorable matchups this week.</div>`}
-      <p class="bet-note">League average allowed: ${lg.toFixed(1)} ${escapeHtml(what)}.${table === "receiving" ? " Tgt % = share of team targets; the figure under it is the last three games." : table === "rushing" ? " Carry % = share of team carries." : ""}</p>
+      ${body ? `<table><thead><tr><th>Player</th><th>Game</th><th class="num">Avg</th><th class="num" title="${escapeHtml("Opponent allows " + what + ", not adjusted for schedule; rank out of 32, #1 = fewest")}">Opp allows</th><th class="num" title="The value board's projection for this game">Board</th><th class="num" title="Board projection minus his season average">vs avg</th><th class="num" title="The books' main line (DraftKings and FanDuel)">Line</th><th class="num" title="Board projection minus the line">vs line</th>${shareHead}</tr></thead><tbody>${body}</tbody></table>`
+        : `<div class="empty-note">The board has nobody above his average here this week.</div>`}
     </div>`;
   }).join("");
 }
