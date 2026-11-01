@@ -55,10 +55,53 @@ async function loadData() {
     const p = pr.ok ? await pr.json() : null;
     if (p && p.season === DATA.season && p.week === LIVE_WEEK && p.games) PROPS = p;
   } catch (e) { /* props are optional */ }
+  await Promise.all([loadBoard(), loadAdjEpa()]);
   await loadEspnInjuries();
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   try { initWeekNav(); } catch (e) { /* so is the week strip */ }
   return DATA;
+}
+
+/* ---------------- The value board (rhyman7/fb-value-board) ---------------- */
+// The board publishes a small feed for this site (docs/feed/nfl.json): each game's projected
+// line and total, the bets it flags, and each player's projection with the books' main prop line.
+// Same site, so it loads directly. Missing or for another week: everything it feeds just hides.
+const VB_ROOT = "/fb-value-board/docs/";
+let BOARD = null;
+async function loadBoard() {
+  try {
+    const r = await fetch(VB_ROOT + "feed/nfl.json", { cache: "no-cache" });
+    const b = r.ok ? await r.json() : null;
+    if (b && b.season === DATA.season && b.week === LIVE_WEEK) BOARD = b;
+  } catch (e) { /* the board is optional */ }
+}
+function vbNorm(name) {
+  return String(name).toLowerCase().replace(/-/g, " ").replace(/[^a-z ]/g, "").split(/\s+/)
+    .filter(w => w && !["jr", "sr", "ii", "iii", "iv", "v"].includes(w)).join(" ");
+}
+function boardGame(g) { return BOARD && weekMode() === "current" && g ? BOARD.games[g.id] || null : null; }
+function boardPlayer(abbr, name) { return BOARD ? BOARD.players[`${abbr}|${vbNorm(name)}`] || null : null; }
+function boardGameUrl(g) { return `${VB_ROOT}#matchups/${encodeURIComponent(g.id)}`; }
+const PARLAY_URL = VB_ROOT + "parlays.html";
+// "DAL −7.6": the board's projected margin as a spread, favorite first.
+function boardSpreadText(g, bg) {
+  if (!bg || bg.margin == null) return "";
+  if (Math.abs(bg.margin) < 0.05) return "Pick'em";
+  const fav = bg.margin > 0 ? g.home : g.away;
+  return `${abbrOf(fav)} ${MINUS}${Math.abs(bg.margin).toFixed(1)}`;
+}
+function boardBetText(b) {
+  return `${b.pick.replace(/ -(?=\d)/, " " + MINUS)}${b.odds != null ? ` (${b.odds > 0 ? "+" : MINUS}${Math.abs(b.odds)})` : ""}`;
+}
+
+// Opponent-adjusted EPA (data/epa.json, the EPA page's ratings) for Head to Head.
+async function loadAdjEpa() {
+  try {
+    const r = await fetch("data/epa.json", { cache: "no-cache" });
+    const e = r.ok ? await r.json() : null;
+    if (!e || e.season !== DATA.season || !e.teams) return;
+    for (const [name, t] of Object.entries(DATA.teams)) if (e.teams[name]) t.adj = e.teams[name];
+  } catch (e) { /* Head to Head falls back to raw EPA */ }
 }
 
 /* ---------------- Injury tags from ESPN (fetched in the viewer's browser) ---------------- */
@@ -387,7 +430,7 @@ function renderMatchupParts(g) {
       ${edgePanel(home, away)}
     </div>
     ${pacePanel(away, home)}
-    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side ranks at least 6 spots better; Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side is better by at least one league standard deviation (so it counts how big the gap is, not just rank spots). Adj. rows are adjusted for the offenses and defenses each team has faced, as on the EPA page; the per-game rows are not, so a soft or hard schedule shows in them. Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
   const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -421,7 +464,27 @@ function renderHero(g, away, home) {
     ${heroTeam(home, g.neutral ? "Team 2" : "Home", final ? g.homeScore : null, final ? g.awayScore : null, "home", heroQb(g, g.home, g.homeQb), g.homeRecord)}
   </div>
   <div class="hero-facts">${facts.join("")}</div>
-  ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}`;
+  ${refText(g) ? `<div class="hero-ref">${escapeHtml(refText(g))}</div>` : ""}
+  ${heroBoard(g)}`;
+}
+
+// The value board's view of this game, under the header: its projected line and total next to
+// the market's, any bet it flags, and links to the game on the board and to the parlay tool.
+function heroBoard(g) {
+  const bg = boardGame(g);
+  if (!bg || isFinal(g)) return "";
+  const gap = bg.mkt_spread != null ? bg.margin - bg.mkt_spread : null;
+  const lean = gap == null || Math.abs(gap) < 0.5 ? "" : ` (${abbrOf(gap > 0 ? g.home : g.away)} side by ${Math.abs(gap).toFixed(1)})`;
+  const bets = bg.bets.length
+    ? bg.bets.map(b => `<span class="vb-bet">Bet sheet: ${escapeHtml(boardBetText(b))}</span>`).join(" ")
+    : `<span class="vb-none">Not on the bet sheet</span>`;
+  return `<div class="hero-board">
+    <span class="vb-lbl">Value board</span>
+    <span>Line <b>${escapeHtml(boardSpreadText(g, bg))}</b>${escapeHtml(lean)}</span>
+    <span>Total <b>${bg.total.toFixed(1)}</b></span>
+    ${bets}
+    <span class="vb-links"><a href="${boardGameUrl(g)}">Open on the value board</a> · <a href="${PARLAY_URL}">Parlay tool</a></span>
+  </div>`;
 }
 
 // Fill the current line and the forecast into a header that is already on the page.
@@ -459,11 +522,14 @@ const EDGE_ROWS = [
   // label, offense getter, defense getter, offense higher-better, defense higher-better, number format (optional)
   ["Points / G", t => t.offense.ppg, t => t.defense.papg, true, false],
   ["Rush Yds / G", t => t.offense.rushYdsG, t => t.defense.rushYdsG, true, false],
-  ["Rush TD / G", t => t.offense.rushTdG, t => t.defense.rushTdG, true, false],
   ["Pass Yds / G", t => t.offense.passYdsG, t => t.defense.passYdsG, true, false],
-  ["Pass TD / G", t => t.offense.passTdG, t => t.defense.passTdG, true, false],
   ["INT / G", t => t.offense.int, t => t.defense.int, false, true],
 ];
+// Touchdowns per game: few per game, so noisy; on screen only, under their own label.
+const TD_GROUP = ["Touchdowns (per game)", [
+  ["Rush TD / G", t => t.offense.rushTdG, t => t.defense.rushTdG, true, false],
+  ["Pass TD / G", t => t.offense.passTdG, t => t.defense.passTdG, true, false],
+]];
 
 // Yards per rush attempt, on the row under Rush Yds / G (left out if the data file predates it).
 const YPA_ROW = ["Rush Yds / Att", t => t.offense.rushYdsAtt, t => t.defense.rushYdsAtt, true, false, v => v.toFixed(2)];
@@ -472,6 +538,15 @@ const EFF_ROWS = [
   ["EPA / play", t => t.eff.off.epa, t => t.eff.def.epa, true, false],
   ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
 ];
+// The same, adjusted for the offenses and defenses each team has faced (data/epa.json).
+const f3 = v => (v >= 0 ? "+" : "") + v.toFixed(3);
+const ADJ_ROWS = [
+  ["EPA / play, adj.", t => t.adj.off.adj, t => t.adj.def.adj, true, false, f3],
+  ["Pass EPA, adj.", t => t.adj.off.pass, t => t.adj.def.pass, true, false, f3],
+  ["Rush EPA, adj.", t => t.adj.off.rush, t => t.adj.def.rush, true, false, f3],
+  ["Success %", t => t.eff.off.sr, t => t.eff.def.sr, true, false],
+];
+function hasAdj() { return Object.values(DATA.teams).every(t => t.adj && t.adj.off && t.adj.def && t.eff); }
 // Red zone, 3rd down, big plays and pass rush (t.situ, from scripts/situational.py), in labeled groups
 // under the rows above. A row is shown only when every team has the number.
 const sv = (side, key) => t => t.situ && t.situ[side][key] ? t.situ[side][key].v : null;
@@ -495,7 +570,9 @@ function edgeRows() {
   const teams = Object.values(DATA.teams);
   const rows = EDGE_ROWS.slice();
   if (teams.every(t => typeof t.offense.rushYdsAtt === "number" && typeof t.defense.rushYdsAtt === "number")) rows.splice(2, 0, YPA_ROW);
-  if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
+  if (hasAdj()) rows.splice(1, 0, ...ADJ_ROWS);
+  else if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
+  rows.push(TD_GROUP[0], ...TD_GROUP[1]);
   if (hasSitu()) {
     for (const [group, list] of SITU_GROUPS) {
       const ok = list.filter(([, og, dg]) => teams.every(t => og(t) != null && dg(t) != null));
@@ -503,6 +580,17 @@ function edgeRows() {
     }
   }
   return rows;
+}
+
+// How far a value sits from the league average, in standard deviations, signed so better is positive.
+// The edge goes to a side that is at least EDGE_SD better than the other after that scaling, so a
+// gap counts by its size: #1 against #4 can be a big gap, #14 against #20 a trivial one.
+const EDGE_SD = 1.0;
+function zScore(getter, value, higherIsBetter) {
+  const all = Object.values(DATA.teams).map(getter).filter(v => typeof v === "number");
+  const m = all.reduce((a, b) => a + b, 0) / all.length;
+  const sd = Math.sqrt(all.reduce((a, b) => a + (b - m) ** 2, 0) / Math.max(1, all.length - 1)) || 1;
+  return (higherIsBetter ? 1 : -1) * (value - m) / sd;
 }
 
 // One offense against the other defense, stat by stat. Each side's bar grows from the
@@ -518,8 +606,8 @@ function edgePanel(offTeam, defTeam) {
     const show = v => dispNum(fmt ? fmt(v) : v);
     const o = offGet(offTeam), d = defGet(defTeam);
     const or = leagueRank(offGet, o, offHi), dr = leagueRank(defGet, d, defHi);
-    const diff = dr - or;
-    const side = diff >= 6 ? "off" : diff <= -6 ? "def" : "";
+    const gap = zScore(offGet, o, offHi) - zScore(defGet, d, defHi);
+    const side = gap >= EDGE_SD ? "off" : gap <= -EDGE_SD ? "def" : "";
     const w = r => Math.round(((n + 1 - r) / n) * 100);
     const edge = side === "off" ? `<b class="tc" style="${ov}">${oa}</b>`
       : side === "def" ? `<b class="tc" style="${dv}">${da}</b>` : `<span class="even">Even</span>`;
