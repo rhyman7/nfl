@@ -230,7 +230,19 @@ function bookQb(g, teamName) {
 // Header QB: before kickoff, the books' expected starter when there is one; otherwise
 // nflverse's (the actual starter once a game is played, the most recent starter before).
 function heroQb(g, teamName, nflverseQb) {
-  return (!isFinal(g) && bookQb(g, teamName)) || nflverseQb;
+  return (!isFinal(g) && (bookQb(g, teamName) || boardQb(g, teamName))) || nflverseQb;
+}
+// The value board's projected starter (its feed): the team's QB with the most projected attempts.
+// Used before the books post QB props, so a starter on IR doesn't stay in the header all week.
+function boardQb(g, teamName) {
+  const t = DATA.teams[teamName];
+  if (!boardGame(g) || !t) return null;
+  let best = null;
+  for (const [k, v] of Object.entries(BOARD.players)) {
+    if (!k.startsWith(t.abbr + "|") || v.pos !== "QB" || !(v.p && v.p.pass_att > 0)) continue;
+    if (!best || v.p.pass_att > best.p.pass_att) best = v;
+  }
+  return best ? best.n : null;
 }
 
 // The week strip in the top bar, just left of the player search: one link per week,
