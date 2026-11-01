@@ -401,7 +401,7 @@ function impliedText(g) {
   return it ? `Implied ${abbrOf(g.away)} ${it.away}, ${abbrOf(g.home)} ${it.home}` : "";
 }
 
-// Line movement since this week's first update (g.lineOpen, nflverse sign: positive = home favored).
+// Line movement since the opener (openFor: the board's first line, else g.lineOpen; + = home favored).
 function spreadLabel(g, homeSpread) {
   if (homeSpread == null) return null;
   if (homeSpread === 0) return "PK";
@@ -409,11 +409,19 @@ function spreadLabel(g, homeSpread) {
 }
 // What the line opened at, for whichever of the spread and total has moved since:
 // { when: "Wed", spread: "LA −3" or null, total: 43.5 or null }. null when there is nothing to compare.
+// The opener: the value board's first line for the game (its line history, often the week before)
+// when it is older than this site's first price of the week (g.lineOpen); same sign (+ = home favored).
+function openFor(g) {
+  const bg = boardGame(g), o = bg && bg.open;
+  if (o && o.at && (!g.lineOpen || !g.lineOpen.at || o.at < g.lineOpen.at)) return { spread: o.spread, total: o.total, at: o.at, board: true };
+  return g.lineOpen;
+}
 function lineMove(g) {
-  const o = g.lineOpen, ln = lineFor(g);
+  const o = openFor(g), ln = lineFor(g);
   if (!o || !ln || isFinal(g)) return null;
   const cur = ln.pick ? 0 : ln.fav === "home" ? ln.spread : ln.fav === "away" ? -ln.spread : null;
-  const when = o.at ? new Date(o.at + "T12:00:00").toLocaleDateString(undefined, { weekday: "short" }) : "earlier";
+  const d = o.at ? new Date(o.at + "T12:00:00") : null;
+  const when = !d ? "earlier" : d.toLocaleDateString(undefined, o.board ? { month: "short", day: "numeric" } : { weekday: "short" });
   return {
     when,
     spread: cur != null && o.spread != null && Math.abs(cur - o.spread) >= 0.5 ? spreadLabel(g, o.spread) : null,
@@ -731,13 +739,16 @@ function usageBlock(t) {
 // t.betting = { ats, fav, dog, home, away: {w,l,p}, ou: {o,u,p}, games: [{ w, opp, at, line, score, ats, total, ou }] }
 // line is the team's own closing spread from nflverse (negative = favored).
 
+// Collapsed by default: a team's record against the spread over a few games doesn't predict the
+// next one (the closing line already prices what's behind it), so it's there to look up, not lead.
 function renderBetting(a, b) {
   if (!a || !b || !a.betting || !b.betting) return "";
-  return `<div class="bet-section no-print">
-    <h3 class="section-title">Betting trends</h3>
+  return `<details class="bet-section bet-fold no-print">
+    <summary><h3 class="section-title">Betting trends</h3><span class="bet-fold-note">ATS and over/under records, game by game. Show</span></summary>
+    <p class="edge-key bet-caution">A record against the spread over a handful of games doesn't predict the next one: the closing line already prices what's behind it. Use these to look up results, not to pick sides.</p>
     <div class="edge-grid">${bettingPanel(a)}${bettingPanel(b)}</div>
-    <p class="edge-key">Against the spread (ATS) and over/under records use each game's closing line from nflverse. W-L-P = wins, losses and pushes. Small samples early in the season can mislead.</p>
-  </div>`;
+    <p class="edge-key">Against the spread (ATS) and over/under records use each game's closing line from nflverse. W-L-P = wins, losses and pushes.</p>
+  </details>`;
 }
 
 function fmtLine(x) {

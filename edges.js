@@ -28,6 +28,9 @@ function netEpa(t) {
 
 function gameBoard(games) {
   if (!games.length) return `<div class="empty-note">No games this week.</div>`;
+  // Referees are only in the data once a game is played, so the column is left out until one is known.
+  // (A crew's over/under record also predicted nothing against the closing total in testing.)
+  const showRef = games.some(g => g.referee);
   const rows = games.map(g => {
     const a = DATA.teams[g.away], h = DATA.teams[g.home];
     const ln = lineFor(g), it = impliedTotals(g);
@@ -41,8 +44,8 @@ function gameBoard(games) {
       epa = `${escapeHtml(better.abbr)} +${gap.toFixed(2)}`;
     }
     const r = g.referee && DATA.referees ? DATA.referees[g.referee] : null;
-    const ref = !g.referee ? `<span class="rk">TBA</span>`
-      : r ? `${escapeHtml(g.referee)} <span class="rk">O ${r.o}-${r.u}, ${r.ppg} pts</span>` : escapeHtml(g.referee);
+    const ref = !showRef ? "" : `<td>${!g.referee ? `<span class="rk">TBA</span>`
+      : r ? `${escapeHtml(g.referee)} <span class="rk">O ${r.o}-${r.u}, ${r.ppg} pts</span>` : escapeHtml(g.referee)}</td>`;
     const pace = paceCells(a, h);
     const d = gameStart(g);
     const when = isFinal(g) ? "Final" : d.toLocaleDateString(undefined, { weekday: "short" }) + " " + (g.gametime ? d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) : "TBD");
@@ -55,11 +58,11 @@ function gameBoard(games) {
       <td class="num move">${escapeHtml(move)}</td>
       <td class="num">${epa}</td>
       ${pace}
-      <td>${ref}</td>
+      ${ref}
     </tr>`;
   }).join("");
   return `<table>
-    <thead><tr><th>Kickoff</th><th>Game</th><th class="num">Spread</th><th class="num">O/U</th><th class="num">Implied</th><th class="num">Line move</th><th class="num">Net EPA edge</th>${hasPace() ? `<th class="num" title="Both teams' plays per game added together; the colored figure is the difference from the league average of ${leaguePlays().toFixed(1)}">Plays / G</th><th class="num" title="Early-down pass rate over expected, neutral situations">Pass o/e</th>` : ""}<th>Referee (${escapeHtml(DATA.refereeSeasons || "")})</th></tr></thead>
+    <thead><tr><th>Kickoff</th><th>Game</th><th class="num">Spread</th><th class="num">O/U</th><th class="num">Implied</th><th class="num">Line move</th><th class="num">Net EPA edge</th>${hasPace() ? `<th class="num" title="Both teams' plays per game added together; the colored figure is the difference from the league average of ${leaguePlays().toFixed(1)}">Plays / G</th><th class="num" title="Early-down pass rate over expected, neutral situations">Pass o/e</th>` : ""}${showRef ? `<th>Referee (${escapeHtml(DATA.refereeSeasons || "")})</th>` : ""}</tr></thead>
     <tbody>${rows}</tbody></table>`;
 }
 

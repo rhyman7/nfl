@@ -5,8 +5,9 @@ name: Fetch player props
 # account's 20,000 a month shared with rhyman7/fb-value-board (100,000 for the one month from
 # Oct 30, 2026); run it by hand from the Actions tab for an extra refresh.
 on:
-  schedule:
-    - cron: "7 15 * * 4"   # Thursdays 15:07 UTC (11:07 am ET in daylight time, 10:07 am in winter)
+  # No schedule since Nov 2026: the value board (rhyman7/fb-value-board) pulls the same props many
+  # times a week, and this site's only use of data/props.json was naming the header QB, which now
+  # falls back to the board's projected starter. Run by hand if you want the books' QB again.
   workflow_dispatch:
     inputs:
       dry_run:
