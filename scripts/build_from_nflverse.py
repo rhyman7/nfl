@@ -337,6 +337,22 @@ def write_epa(pfile, done, season, through_week, sched_week, out_dir):
           + (f"; walk-forward miss on {bt['games']} games: line {bt['lineM']}, EPA {bt['modelM']}" if bt else ""))
 
 
+def write_capped(pfile, season, through_week, out_dir):
+    """data/capped.json: each player's big-play-capped share of his yards (scripts/capped.py)."""
+    import capped
+    cols = ["season_type", "week", "game_id", "posteam", "complete_pass", "two_point_attempt", "passing_yards",
+            "rushing_yards", "receiving_yards", "passer_player_id", "rusher_player_id", "receiver_player_id"]
+    p = pd.read_csv(pfile, low_memory=False, usecols=cols)
+    p = p[(p.season_type == "REG") & (p.week <= through_week) & (p.two_point_attempt != 1) & p.posteam.notna()]
+    comp = p[p.complete_pass == 1]
+    rush = p[p.rusher_player_id.notna() & p.rushing_yards.notna()]
+    frame = lambda d, pid, yds, kind: pd.DataFrame({"key": d.posteam + "|" + d[pid], "kind": kind, "game": d.game_id, "yds": d[yds]})
+    plays = pd.concat([frame(comp[comp.passer_player_id.notna()], "passer_player_id", "passing_yards", "pass"),
+                       frame(comp[comp.receiver_player_id.notna()], "receiver_player_id", "receiving_yards", "rec"),
+                       frame(rush, "rusher_player_id", "rushing_yards", "rush")], ignore_index=True)
+    capped.write(plays, season, through_week, out_dir / "capped.json")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--season", type=int, required=True)
@@ -713,6 +729,7 @@ def main():
           + ("updated " + ", ".join(f"Week {w}" for w in wrote) if wrote else "no changes"))
     if pfile.exists():
         write_epa(pfile, done, season, through_week, sched_week, Path(args.out).parent)
+        write_capped(pfile, season, through_week, Path(args.out).parent)
     for n in notes:
         print("NOTE:", n)
 
