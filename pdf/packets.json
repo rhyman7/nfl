@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 8 Matchup Report",
  "dataGeneratedAt": "2026-11-02T16:21:21.893711+00:00",
- "generatedAt": "2026-11-02T16:25:12Z",
+ "generatedAt": "2026-11-02T18:48:44Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -42,7 +42,7 @@
      13
     ],
     "value": [
-     4
+     0
     ]
    },
    "missing": []
