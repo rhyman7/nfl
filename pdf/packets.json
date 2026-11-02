@@ -3,8 +3,8 @@
  "week": 8,
  "league": "nfl",
  "title": "NFL Week 8 Matchup Report",
- "dataGeneratedAt": "2026-11-01T15:51:56.952283+00:00",
- "generatedAt": "2026-11-02T11:01:48Z",
+ "dataGeneratedAt": "2026-11-02T16:21:21.893711+00:00",
+ "generatedAt": "2026-11-02T16:25:12Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,264 +19,20 @@
  ],
  "slate": {
   "best": [
-   15
+   3
   ],
   "td": [
-   16
+   4
   ]
  },
  "games": [
-  {
-   "id": "2026_08_ARI_DAL",
-   "label": "ARI @ DAL",
-   "file": "NFL_Week8_ARI-DAL_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     2,
-     3
-    ],
-    "epa": [
-     1
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_ATL_TB",
-   "label": "ATL @ TB",
-   "file": "NFL_Week8_ATL-TB_packet",
-   "pages": {
-    "report": [
-     3
-    ],
-    "matchup": [
-     4,
-     5
-    ],
-    "epa": [
-     2
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_BAL_BUF",
-   "label": "BAL @ BUF",
-   "file": "NFL_Week8_BAL-BUF_packet",
-   "pages": {
-    "report": [
-     4
-    ],
-    "matchup": [
-     6,
-     7
-    ],
-    "epa": [
-     3
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_CLE_PIT",
-   "label": "CLE @ PIT",
-   "file": "NFL_Week8_CLE-PIT_packet",
-   "pages": {
-    "report": [
-     5
-    ],
-    "matchup": [
-     8,
-     9
-    ],
-    "epa": [
-     4
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_IND_JAX",
-   "label": "IND @ JAX",
-   "file": "NFL_Week8_IND-JAX_packet",
-   "pages": {
-    "report": [
-     6
-    ],
-    "matchup": [
-     10,
-     11
-    ],
-    "epa": [
-     5
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_LV_NYJ",
-   "label": "LV @ NYJ",
-   "file": "NFL_Week8_LV-NYJ_packet",
-   "pages": {
-    "report": [
-     7
-    ],
-    "matchup": [
-     12,
-     13
-    ],
-    "epa": [
-     6
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_MIN_DET",
-   "label": "MIN @ DET",
-   "file": "NFL_Week8_MIN-DET_packet",
-   "pages": {
-    "report": [
-     8
-    ],
-    "matchup": [
-     14,
-     15
-    ],
-    "epa": [
-     7
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_TEN_CIN",
-   "label": "TEN @ CIN",
-   "file": "NFL_Week8_TEN-CIN_packet",
-   "pages": {
-    "report": [
-     9
-    ],
-    "matchup": [
-     16,
-     17
-    ],
-    "epa": [
-     8
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
-  {
-   "id": "2026_08_LAC_LA",
-   "label": "LAC @ LA",
-   "file": "NFL_Week8_LAC-LA_packet",
-   "pages": {
-    "report": [
-     10
-    ],
-    "matchup": [
-     18,
-     19
-    ],
-    "epa": [
-     9
-    ],
-    "value": [
-     0
-    ]
-   },
-   "missing": []
-  },
-  {
-   "id": "2026_08_KC_DEN",
-   "label": "KC @ DEN",
-   "file": "NFL_Week8_KC-DEN_packet",
-   "pages": {
-    "report": [
-     11
-    ],
-    "matchup": [
-     20,
-     21
-    ],
-    "epa": [
-     10
-    ],
-    "value": [
-     1
-    ]
-   },
-   "missing": []
-  },
-  {
-   "id": "2026_08_NE_MIA",
-   "label": "NE @ MIA",
-   "file": "NFL_Week8_NE-MIA_packet",
-   "pages": {
-    "report": [
-     12
-    ],
-    "matchup": [
-     22,
-     23
-    ],
-    "epa": [
-     11
-    ],
-    "value": [
-     2
-    ]
-   },
-   "missing": []
-  },
-  {
-   "id": "2026_08_PHI_WAS",
-   "label": "PHI @ WAS",
-   "file": "NFL_Week8_PHI-WAS_packet",
-   "pages": {
-    "report": [
-     13
-    ],
-    "matchup": [
-     24,
-     25
-    ],
-    "epa": [
-     12
-    ],
-    "value": [
-     3
-    ]
-   },
-   "missing": []
-  },
   {
    "id": "2026_08_CHI_SEA",
    "label": "CHI @ SEA",
    "file": "NFL_Week8_CHI-SEA_packet",
    "pages": {
     "report": [
-     14
+     2
     ],
     "matchup": [
      26,
