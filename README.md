@@ -190,7 +190,8 @@ tags in every HTML page so browsers pick up the new version.
 
 ## Weekly update (current)
 
-A Claude scheduled task runs every Wednesday morning during the season. It
+A Claude scheduled task runs every day at 10:50 AM ET during the season (a new-week
+update after the week's last game, otherwise a refresh of referees and lines). It
 downloads the current season's nflverse data, gets standings/SRS from
 Pro-Football-Reference, runs:
 
@@ -198,8 +199,8 @@ Pro-Football-Reference, runs:
 python scripts/build_from_nflverse.py --season 2026 --src <download folder>
 ```
 
-A second scheduled task reruns the same build Friday at about 5 PM ET to pick up the
-final injury report, referee assignments and line moves. The download folder also needs
+Each run adds a dated entry to `UPDATE_LOG.md` (newest first) and commits it with the
+data. The download folder also needs
 `play_by_play_2026.csv.gz` from the nflverse-data releases (`pbp`); without it the
 build leaves EPA out. Injury tags come from `data/injuries.json` (Fetch injuries Action), so `injuries_2026.csv`
 is left out on purpose (the build then notes that injury tags are left out).

@@ -32,7 +32,7 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **Out of scope here:** prediction and betting-model work belongs in the separate CFB/NFL
   Model project, not in this repo.
 - **What does commit straight to `main`** (automated, not hand edits): the weekly data
-  update (`data/`), the **Build matchup PDFs** Action (`pdf/`), the **Fetch player props**
+  update (`data/` and `UPDATE_LOG.md`), the **Build matchup PDFs** Action (`pdf/`), the **Fetch player props**
   Action (`data/props.json`) and the **Fetch injuries** Action (`data/injuries.json`). Everything else goes through a PR.
 - **Task merges are pre-approved.** `.claude/settings.json` lets Claude sessions, including the
   scheduled tasks, merge their own PRs (`gh api -X PUT repos/rhyman7/nfl/pulls/<n>/merge`)
@@ -203,6 +203,11 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **The data update is manual and done together**, not fully automated: a scheduled task
   runs daily at 10:50 AM ET (new-week update after the week's last game, otherwise a refresh
   of referees and lines). The README's "Weekly update (current)" section has the steps.
+  Each run writes a dated entry at the top of **`UPDATE_LOG.md`** (newest first: which run,
+  the commit, through-week and schedule week, fallbacks, line moves, and the week's opening
+  lines on a new-week update) and commits it with the data. The log is the record a later
+  run reads for a week's opening lines when an earlier run built but couldn't push. Before
+  Nov 5, 2026 it was a Claude project doc (`claude/weekly-update-log.md`); don't write there.
 - **When a change touches the scheduled data-update tasks** (new or renamed pages, data
   files or keys), check that the tasks' wording still matches the site, and update them.
 - `data.json` keys are read by the pages. Adding a key is fine; renaming or removing one
