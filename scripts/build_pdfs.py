@@ -60,7 +60,7 @@ def main():
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
-            page = browser.new_page(viewport={"width": 1280, "height": 900})
+            page = browser.new_page(viewport={"width": 1280, "height": 900}, timezone_id="America/New_York", locale="en-US")   # GitHub runners are UTC; kickoffs print in ET
             page.add_init_script("window.print = () => {}")
             render(page, f"{base}/print.html?auto=0", OUT / "matchups.pdf")
             for g in games:

@@ -145,7 +145,8 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   `epaPdfBtn`). Print all is every game (one landscape page each), then the board and the
   ratings; Download PDF is `pdf/epa.pdf`.
 - Each matchup page also has Download PDF. This Week's Matchups has only the packet buttons.
-- PDFs are built by `scripts/build_pdfs.py` (headless Chromium via Playwright) in the
+- PDFs are built by `scripts/build_pdfs.py` (headless Chromium via Playwright; the page runs in
+  `America/New_York` with locale en-US, since GitHub's runners are on UTC, so kickoff times print in ET) in the
   **Build matchup PDFs** Action, which runs when the data, the print layout or the EPA page
   change. `pdf/manifest.json` says which week the PDFs are for; the Download PDF links only
   show when it matches the week on the page. Don't hand-edit anything in `pdf/`. The same
