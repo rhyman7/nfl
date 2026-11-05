@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-05 (10:50 AM ET) — daily refresh, Week 9
+- Commit "Week 9 daily refresh (2026-11-05)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; JAX@BAL is tonight's TNF). Published.
+- Lines moved vs 11-04 publish (home spread / total): DAL@IND spread −6.0 → −5.5; DEN@CAR total 43.5 → 44.5; LA@WAS −5.5/47.5 → −4.5/48.5; NYG@PHI total 39.5 → 38.5; NYJ@KC spread 9.5 → 10.0; ARI@SEA 12.5/41.5 → 8.5/39.5; GB@NE 3.0/46.5 → 3.5/45.5.
+- Referees: 0 of 15 games assigned (still blank in nflverse games.csv).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv (through Week 8, match published); SoS/SRS/OSRS/DSRS reused from the published 2026 file (unchanged).
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-03). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-04 (10:50 AM ET) — daily refresh, Week 9
 - Commit f56d81b "Week 9 daily refresh (2026-11-04)". Through Week 8, schedule Week 9. Published (the
   run's own log entry went to the old project doc; this line was added when the log moved here).

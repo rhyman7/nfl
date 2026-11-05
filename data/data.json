@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T15:52:20.623962+00:00",
+  "generatedAt": "2026-11-05T15:56:30.360166+00:00",
   "season": 2026,
   "throughWeek": 8,
   "schedule": {
@@ -20,7 +20,7 @@
         "roof": "outdoors",
         "divisional": false,
         "awayQb": "Trevor Lawrence",
-        "homeQb": "Tyler Huntley",
+        "homeQb": "Joe Fagnano",
         "referee": null,
         "awayRest": 4,
         "homeRest": 4,
@@ -83,7 +83,7 @@
         "stadium": "Caesars Superdome",
         "roof": "dome",
         "divisional": false,
-        "awayQb": "Deshaun Watson",
+        "awayQb": "Shedeur Sanders",
         "homeQb": "Tyler Shough",
         "referee": null,
         "awayRest": 7,
@@ -110,7 +110,7 @@
         "home": "Indianapolis Colts",
         "awayScore": null,
         "homeScore": null,
-        "spread": -6.0,
+        "spread": -5.5,
         "total": 51.5,
         "stadium": "Lucas Oil Stadium",
         "roof": null,
@@ -143,7 +143,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -2.5,
-        "total": 43.5,
+        "total": 44.5,
         "stadium": "Bank of America Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -206,8 +206,8 @@
         "home": "Washington Commanders",
         "awayScore": null,
         "homeScore": null,
-        "spread": -5.5,
-        "total": 47.5,
+        "spread": -4.5,
+        "total": 48.5,
         "stadium": "Northwest Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -239,12 +239,12 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -3.5,
-        "total": 39.5,
+        "total": 38.5,
         "stadium": "Lincoln Financial Field",
         "roof": "outdoors",
         "divisional": true,
         "awayQb": "J.J. McCarthy",
-        "homeQb": "Tanner McKee",
+        "homeQb": "Joe Milton III",
         "referee": null,
         "awayRest": 14,
         "homeRest": 7,
@@ -270,7 +270,7 @@
         "home": "Kansas City Chiefs",
         "awayScore": null,
         "homeScore": null,
-        "spread": 9.5,
+        "spread": 10.0,
         "total": 47.5,
         "stadium": "GEHA Field at Arrowhead Stadium",
         "roof": "outdoors",
@@ -366,13 +366,13 @@
         "home": "Seattle Seahawks",
         "awayScore": null,
         "homeScore": null,
-        "spread": 12.5,
-        "total": 41.5,
+        "spread": 8.5,
+        "total": 39.5,
         "stadium": "Lumen Field",
         "roof": "outdoors",
         "divisional": true,
         "awayQb": "Gardner Minshew",
-        "homeQb": "Sam Darnold",
+        "homeQb": "Drew Lock",
         "referee": null,
         "awayRest": 7,
         "homeRest": 6,
@@ -398,8 +398,8 @@
         "home": "New England Patriots",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
-        "total": 46.5,
+        "spread": 3.5,
+        "total": 45.5,
         "stadium": "Gillette Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -1383,7 +1383,7 @@
           },
           "pressureRate": {
             "v": 25.2,
-            "rank": 28
+            "rank": 27
           }
         },
         "def": {
@@ -2458,7 +2458,7 @@
           },
           "pressureRate": {
             "v": 25.6,
-            "rank": 10
+            "rank": 11
           }
         },
         "rzTrips": 27
@@ -3475,7 +3475,7 @@
           },
           "pressureRate": {
             "v": 24.5,
-            "rank": 24
+            "rank": 23
           }
         },
         "def": {
@@ -4404,7 +4404,7 @@
           },
           "pressureRate": {
             "v": 18.7,
-            "rank": 5
+            "rank": 4
           }
         },
         "def": {
@@ -4434,7 +4434,7 @@
           },
           "pressureRate": {
             "v": 28.5,
-            "rank": 3
+            "rank": 4
           }
         },
         "rzTrips": 38
@@ -6372,8 +6372,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 17.9,
-            "rank": 4
+            "v": 19.5,
+            "rank": 7
           }
         },
         "def": {
@@ -6402,8 +6402,8 @@
             "rank": 2
           },
           "pressureRate": {
-            "v": 23.6,
-            "rank": 17
+            "v": 27.7,
+            "rank": 6
           }
         },
         "rzTrips": 41
@@ -7345,7 +7345,7 @@
           },
           "pressureRate": {
             "v": 28.4,
-            "rank": 4
+            "rank": 5
           }
         },
         "rzTrips": 36
@@ -8321,7 +8321,7 @@
           },
           "pressureRate": {
             "v": 25.8,
-            "rank": 29
+            "rank": 28
           }
         },
         "def": {
@@ -9423,7 +9423,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 7
+            "rank": 8
           }
         },
         "rzTrips": 36
@@ -10431,7 +10431,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 8
+            "rank": 9
           }
         },
         "rzTrips": 27
@@ -11319,7 +11319,7 @@
           },
           "pressureRate": {
             "v": 19.0,
-            "rank": 6
+            "rank": 5
           }
         },
         "def": {
@@ -11349,7 +11349,7 @@
           },
           "pressureRate": {
             "v": 25.5,
-            "rank": 11
+            "rank": 12
           }
         },
         "rzTrips": 35
@@ -13302,7 +13302,7 @@
           },
           "pressureRate": {
             "v": 19.0,
-            "rank": 6
+            "rank": 5
           }
         },
         "def": {
@@ -13332,7 +13332,7 @@
           },
           "pressureRate": {
             "v": 24.8,
-            "rank": 15
+            "rank": 16
           }
         },
         "rzTrips": 28
@@ -15400,7 +15400,7 @@
           },
           "pressureRate": {
             "v": 25.2,
-            "rank": 13
+            "rank": 14
           }
         },
         "rzTrips": 30
@@ -18280,7 +18280,7 @@
           },
           "pressureRate": {
             "v": 25.0,
-            "rank": 26
+            "rank": 25
           }
         },
         "def": {
@@ -20265,7 +20265,7 @@
           },
           "pressureRate": {
             "v": 26.4,
-            "rank": 31
+            "rank": 30
           }
         },
         "def": {
@@ -22319,7 +22319,7 @@
           },
           "pressureRate": {
             "v": 24.1,
-            "rank": 16
+            "rank": 17
           }
         },
         "rzTrips": 33
@@ -25196,7 +25196,7 @@
           },
           "pressureRate": {
             "v": 24.9,
-            "rank": 14
+            "rank": 15
           }
         },
         "rzTrips": 32
@@ -26194,7 +26194,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 30
+            "rank": 29
           }
         },
         "def": {
@@ -28233,8 +28233,8 @@
             "rank": 20
           },
           "pressureRate": {
-            "v": 24.2,
-            "rank": 23
+            "v": 27.7,
+            "rank": 31
           }
         },
         "def": {
@@ -28263,8 +28263,8 @@
             "rank": 15
           },
           "pressureRate": {
-            "v": 26.9,
-            "rank": 5
+            "v": 28.7,
+            "rank": 3
           }
         },
         "rzTrips": 35
@@ -29228,7 +29228,7 @@
           },
           "pressureRate": {
             "v": 25.4,
-            "rank": 12
+            "rank": 13
           }
         },
         "rzTrips": 29
@@ -31262,7 +31262,7 @@
           },
           "pressureRate": {
             "v": 25.0,
-            "rank": 26
+            "rank": 25
           }
         },
         "def": {
@@ -31292,7 +31292,7 @@
           },
           "pressureRate": {
             "v": 26.2,
-            "rank": 6
+            "rank": 7
           }
         },
         "rzTrips": 25
@@ -32248,7 +32248,7 @@
           },
           "pressureRate": {
             "v": 24.9,
-            "rank": 25
+            "rank": 24
           }
         },
         "def": {
@@ -32278,7 +32278,7 @@
           },
           "pressureRate": {
             "v": 25.6,
-            "rank": 9
+            "rank": 10
           }
         },
         "rzTrips": 25
