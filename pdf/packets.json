@@ -3,8 +3,8 @@
  "week": 9,
  "league": "nfl",
  "title": "NFL Week 9 Matchup Report",
- "dataGeneratedAt": "2026-11-05T15:56:30.360166+00:00",
- "generatedAt": "2026-11-06T06:42:13Z",
+ "dataGeneratedAt": "2026-11-06T15:52:04.756658+00:00",
+ "generatedAt": "2026-11-06T15:54:57Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,42 +19,21 @@
  ],
  "slate": {
   "best": [
-   17
+   16
   ],
   "td": [
-   18,
-   19
+   17,
+   18
   ]
  },
  "games": [
-  {
-   "id": "2026_09_JAX_BAL",
-   "label": "JAX @ BAL",
-   "file": "NFL_Week9_JAX-BAL_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ],
-    "value": [
-     0
-    ]
-   },
-   "missing": []
-  },
   {
    "id": "2026_09_CIN_ATL",
    "label": "CIN vs ATL",
    "file": "NFL_Week9_CIN-ATL_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -64,7 +43,7 @@
      1
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -75,7 +54,7 @@
    "file": "NFL_Week9_CLE-NO_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -85,7 +64,7 @@
      2
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -96,7 +75,7 @@
    "file": "NFL_Week9_DAL-IND_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -106,7 +85,7 @@
      3
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -117,7 +96,7 @@
    "file": "NFL_Week9_DEN-CAR_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -127,7 +106,7 @@
      4
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -138,7 +117,7 @@
    "file": "NFL_Week9_DET-MIA_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -148,7 +127,7 @@
      5
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -159,7 +138,7 @@
    "file": "NFL_Week9_LA-WAS_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -169,7 +148,7 @@
      6
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -180,7 +159,7 @@
    "file": "NFL_Week9_NYG-PHI_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -190,7 +169,7 @@
      7
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -201,7 +180,7 @@
    "file": "NFL_Week9_NYJ-KC_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -211,7 +190,7 @@
      8
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -222,7 +201,7 @@
    "file": "NFL_Week9_HOU-LAC_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -232,7 +211,7 @@
      9
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -243,7 +222,7 @@
    "file": "NFL_Week9_LV-SF_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -253,7 +232,7 @@
      10
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -264,7 +243,7 @@
    "file": "NFL_Week9_ARI-SEA_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -274,7 +253,7 @@
      11
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -285,7 +264,7 @@
    "file": "NFL_Week9_GB-NE_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
@@ -295,7 +274,7 @@
      12
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
@@ -306,7 +285,7 @@
    "file": "NFL_Week9_TB-CHI_packet",
    "pages": {
     "report": [
-     15
+     14
     ],
     "matchup": [
      26,
@@ -316,7 +295,7 @@
      13
     ],
     "value": [
-     13
+     12
     ]
    },
    "missing": []
@@ -327,7 +306,7 @@
    "file": "NFL_Week9_BUF-MIN_packet",
    "pages": {
     "report": [
-     16
+     15
     ],
     "matchup": [
      28,
@@ -337,7 +316,7 @@
      14
     ],
     "value": [
-     14
+     13
     ]
    },
    "missing": []
