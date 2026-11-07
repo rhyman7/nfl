@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-07 (10:50 AM ET) — daily refresh, Week 9
+- Commit "Week 9 daily refresh (2026-11-07)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; JAX@BAL final). Published.
+- Lines moved vs 11-06 publish (home spread / total): CLE@NO spread 3.0 → 3.5; DAL@IND spread −5.5 → −4.5; DEN@CAR spread −2.5 → −3.0; DET@MIA total 50.5 → 49.5; LA@WAS total 48.5 → 47.5; NYG@PHI spread −3.5 → −3.0; NYJ@KC spread 9.5 → 8.5; BUF@MIN total 44.5 → 43.5.
+- Referees: 0 of 15 games assigned (still blank in nflverse games.csv on Saturday; flagged).
+- Fallback: PFR standings fetch failed (permission request timed out). Records from games.csv (through Week 8, match published); SoS/SRS/OSRS/DSRS reused from the published 2026 file (unchanged).
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-03). All data checks and headless page tests passed.
+
 ## 2026-11-06 (10:50 AM ET) — daily refresh, Week 9
 - Commit "Week 9 daily refresh (2026-11-06)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; JAX@BAL final, JAX won 33-10). Published.
 - Lines moved vs 11-05 publish (home spread / total): JAX@BAL closing −10.0/39.5 → −8.5/40.5; DET@MIA spread −7.0 → −6.5; NYJ@KC spread 10.0 → 9.5; HOU@LAC spread −4.5 → −6.0; LV@SF total 52.5 → 51.5; GB@NE 3.5/45.5 → 3.0/44.5; BUF@MIN −3.5/45.5 → −3.0/44.5.
