@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 9 Matchup Report",
  "dataGeneratedAt": "2026-11-08T15:54:09.546401+00:00",
- "generatedAt": "2026-11-08T15:57:25Z",
+ "generatedAt": "2026-11-08T17:56:42Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -45,12 +45,11 @@
     ],
     "epa": [
      1
-    ],
-    "value": [
-     0
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_CLE_NO",
@@ -68,7 +67,7 @@
      2
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -89,7 +88,7 @@
      3
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -110,7 +109,7 @@
      4
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -131,7 +130,7 @@
      5
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -152,7 +151,7 @@
      6
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -173,7 +172,7 @@
      7
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -194,7 +193,7 @@
      8
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -215,7 +214,7 @@
      9
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -236,7 +235,7 @@
      10
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -257,7 +256,7 @@
      11
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -278,7 +277,7 @@
      12
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -299,7 +298,7 @@
      13
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
@@ -320,7 +319,7 @@
      14
     ],
     "value": [
-     13
+     12
     ]
    },
    "missing": []
