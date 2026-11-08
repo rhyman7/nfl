@@ -10,7 +10,7 @@ project doc; those entries were moved here unchanged.
 - Referees: 0 of 15 games assigned (still blank in nflverse games.csv on Sunday; flagged).
 - Fallback: PFR standings fetch failed (permission request timed out). Records from games.csv (through Week 8, match published); SoS/SRS/OSRS/DSRS reused from the published 2026 file (unchanged).
 - data/capped.json: only generatedAt changed, not committed.
-- lineOpen unchanged (set 2026-11-03). All data checks and headless page tests passed.
+- lineOpen unchanged (set 2026-11-03). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
 
 ## 2026-11-07 (10:50 AM ET) — daily refresh, Week 9
 - Commit "Week 9 daily refresh (2026-11-07)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; JAX@BAL final). Published.
