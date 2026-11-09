@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-09 (10:50 AM ET) — daily refresh, Week 9
+- Commit "Week 9 daily refresh (2026-11-09)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; 14 final, BUF@MIN is tonight). Published.
+- Lines moved vs 11-08 publish (home spread / total): CLE@NO 3.0/42.5 → 4.5/43.5; DEN@CAR spread −2.5 → −3.0; DET@MIA total 50.5 → 49.5; LA@WAS total 47.5 → 48.5; LV@SF spread 9.5 → 8.5; TB@CHI spread 6.0 → 6.5; BUF@MIN total 43.5 → 44.5.
+- Referees: 0 of 15 games assigned (still blank in nflverse games.csv on Monday; flagged).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv (through Week 8, match published); SoS/SRS/OSRS/DSRS reused from the published 2026 file (unchanged).
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-03). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-08 (10:50 AM ET) — daily refresh, Week 9
 - Commit "Week 9 daily refresh (2026-11-08)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; JAX@BAL final, today's games not yet in). Published.
 - Lines moved vs 11-07 publish (home spread / total): CLE@NO spread 3.5 → 3.0; DEN@CAR spread −3.0 → −2.5; DET@MIA total 49.5 → 50.5; NYJ@KC spread 8.5 → 9.5; HOU@LAC spread −6.0 → −5.5; LV@SF spread 10.0 → 9.5.
