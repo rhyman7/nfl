@@ -116,6 +116,7 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   - indoor games show only the roof, `Dome` (or `Roof closed` for a closed retractable roof);
   - outdoor games show the kickoff forecast itself (conditions, temperature, rain chance,
     wind), with **no "Forecast" label**.
+- Head to Head has a **Pass Yds / Comp** row under Pass Yds / G (`passYdsComp` on `offense` and `defense`: season passing yards before sacks ÷ completions, 2 decimals; hidden until every team has it).
 - Head to Head: league rank bars, and the edge goes to the side that ranks **6 or more spots**
   better (out of 32). The side with the edge shows in its team color.
 - Betting trends and the live box score are screen-only (left out of print).
@@ -127,7 +128,7 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   rushers, so the lines add up to the game's total. Data: `allowed` on each game in
   each team's `games` (`team_game_list()` in the build). The game totals must stay the same numbers the
   dials average; change both together. Popups are screen-only (`no-print`).
-- **Passing table columns:** Player, Yds/G, TD, Int, Cmp/G, **Avg/C** (season passing yards
+- **Passing table columns:** Player, Yds/G, TD, Int, Cmp/G, **Pass Yds / Comp** (season passing yards
   per completion, the row's `ypc`; `withAvgC()` works it out for data built without it).
 - **Position tags:** in the Rushing and Receiving tables each player's name is followed by his
   position (`posTag()`, class `pt-pos`, small and gray, from the row's `pos`). Passing has none

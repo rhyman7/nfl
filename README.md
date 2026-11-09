@@ -108,7 +108,7 @@ the rushing yards allowed in each game; hover or tap a game for a second popup w
 opponent's running backs (carries and yards) and any other rushers. The data is `allowed`
 on each entry in `games` ({pass, rush, passers: [{n, pos, yds, cmp, att}], rushers: [{n,
 pos, yds, car}]}), built from nflverse's player and team stats, so the totals match the dials.
-The Passing table's **Avg/C** column is passing yards per completion (`ypc`).
+The Passing table's **Pass Yds / Comp** column is passing yards per completion (`ypc`).
 
 **Prop check.** The game log panel has a prop tool: pick a stat (pass/rush/rec yards,
 receptions, TDs, combos, fantasy points), type a line, and it shows how many games he
@@ -154,6 +154,11 @@ offense and defense, from nflverse play-by-play (`eff` on each team).
 rush attempts for the offense, and the same for what the defense has allowed
 (`rushYdsAtt` on each team's `offense` and `defense`, from nflverse team stats). For a
 defense, lower is better.
+
+**Pass yards per completion.** Head to Head also has a Pass Yds / Comp row under Pass
+Yds / G: passing yards before sacks divided by completions for the offense, and the same
+for what the defense has allowed (`passYdsComp` on each team's `offense` and `defense`).
+For a defense, lower is better.
 
 **Referee.** When nflverse has the week's referee assignment, the matchup header and
 Weekly Edges show the referee with his over/under record and points per game. These

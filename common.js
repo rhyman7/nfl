@@ -577,6 +577,7 @@ const TD_GROUP = ["Touchdowns (per game)", [
 ]];
 
 // Yards per rush attempt, on the row under Rush Yds / G (left out if the data file predates it).
+const PASS_COMP_ROW = ["Pass Yds / Comp", t => t.offense.passYdsComp, t => t.defense.passYdsComp, true, false, v => v.toFixed(2)];
 const YPA_ROW = ["Rush Yds / Att", t => t.offense.rushYdsAtt, t => t.defense.rushYdsAtt, true, false, v => v.toFixed(2)];
 
 const EFF_ROWS = [
@@ -615,6 +616,7 @@ function edgeRows() {
   const teams = Object.values(DATA.teams);
   const rows = EDGE_ROWS.slice();
   if (teams.every(t => typeof t.offense.rushYdsAtt === "number" && typeof t.defense.rushYdsAtt === "number")) rows.splice(2, 0, YPA_ROW);
+  if (teams.every(t => typeof t.offense.passYdsComp === "number" && typeof t.defense.passYdsComp === "number")) rows.splice(rows.findIndex(r => r[0] === "Pass Yds / G") + 1, 0, PASS_COMP_ROW);
   if (hasAdj()) rows.splice(1, 0, ...ADJ_ROWS);
   else if (teams.every(t => t.eff)) rows.splice(1, 0, ...EFF_ROWS);
   rows.push(TD_GROUP[0], ...TD_GROUP[1]);
@@ -846,7 +848,7 @@ function renderTeamCard(t) {
         ["TD", "td", "num"],
         ["Int", "int", "num"],
         ["Cmp/G", "cmp", "num"],
-        ["Avg/C", "ypc", "num"],
+        ["Pass<br>Yds /<br>Comp", "ypc", "num"],
       ])}
       ${playerTable("Rushing", t.rushing, [
         ["Player", "player", "text"],
@@ -905,7 +907,7 @@ function defPosBlock(title, d) {
   </div>`;
 }
 
-// Avg/C = passing yards per completion: the data's ypc, or season yards ÷ completions
+// Pass Yds / Comp = passing yards per completion: the data's ypc, or season yards ÷ completions
 // worked out from the per-game numbers (data built before ypc was added)
 function withAvgC(rows) {
   return (rows || []).map(r => r.ypc != null ? r : { ...r, ypc: r.cmp > 0 ? Math.round((10 * r.ydsG) / r.cmp) / 10 : null });
