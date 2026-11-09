@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 9 Matchup Report",
  "dataGeneratedAt": "2026-11-08T15:54:09.546401+00:00",
- "generatedAt": "2026-11-08T22:03:09Z",
+ "generatedAt": "2026-11-09T06:23:50Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -65,12 +65,11 @@
     ],
     "epa": [
      2
-    ],
-    "value": [
-     0
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_DAL_IND",
@@ -86,12 +85,11 @@
     ],
     "epa": [
      3
-    ],
-    "value": [
-     1
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_DEN_CAR",
@@ -107,12 +105,11 @@
     ],
     "epa": [
      4
-    ],
-    "value": [
-     2
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_DET_MIA",
@@ -128,12 +125,11 @@
     ],
     "epa": [
      5
-    ],
-    "value": [
-     3
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_LA_WAS",
@@ -149,12 +145,11 @@
     ],
     "epa": [
      6
-    ],
-    "value": [
-     4
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_NYG_PHI",
@@ -170,12 +165,11 @@
     ],
     "epa": [
      7
-    ],
-    "value": [
-     5
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_NYJ_KC",
@@ -191,12 +185,11 @@
     ],
     "epa": [
      8
-    ],
-    "value": [
-     6
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_HOU_LAC",
@@ -212,12 +205,11 @@
     ],
     "epa": [
      9
-    ],
-    "value": [
-     7
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_LV_SF",
@@ -233,12 +225,11 @@
     ],
     "epa": [
      10
-    ],
-    "value": [
-     8
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_ARI_SEA",
@@ -254,12 +245,11 @@
     ],
     "epa": [
      11
-    ],
-    "value": [
-     9
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_GB_NE",
@@ -275,12 +265,11 @@
     ],
     "epa": [
      12
-    ],
-    "value": [
-     10
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_09_TB_CHI",
@@ -298,7 +287,7 @@
      13
     ],
     "value": [
-     11
+     0
     ]
    },
    "missing": []
@@ -319,7 +308,7 @@
      14
     ],
     "value": [
-     12
+     1
     ]
    },
    "missing": []
