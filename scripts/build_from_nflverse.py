@@ -398,11 +398,11 @@ def main():
     off = ts.groupby("team").agg(
         gp=("week", "nunique"), rush_yds=("rushing_yards", "sum"), rush_td=("rushing_tds", "sum"),
         rush_att=("carries", "sum"), pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"),
-        int_thrown=("passing_interceptions", "sum"), int_made=("def_interceptions", "sum"),
+        pass_cmp=("completions", "sum"), int_thrown=("passing_interceptions", "sum"), int_made=("def_interceptions", "sum"),
     )
     allowed = ts.groupby("opponent_team").agg(
         rush_yds=("rushing_yards", "sum"), rush_td=("rushing_tds", "sum"), rush_att=("carries", "sum"),
-        pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"),
+        pass_yds=("pass_yds", "sum"), pass_td=("passing_tds", "sum"), pass_cmp=("completions", "sum"),
     )
     teams = sorted(off.index)
     if len(teams) != 32:
@@ -411,13 +411,13 @@ def main():
     gp = off["gp"]
     o = pd.DataFrame({
         "rushYdsG": off.rush_yds / gp, "rushTdG": off.rush_td / gp, "rushYdsAtt": off.rush_yds / off.rush_att,
-        "passYdsG": off.pass_yds / gp, "passTdG": off.pass_td / gp,
+        "passYdsG": off.pass_yds / gp, "passYdsComp": off.pass_yds / off.pass_cmp, "passTdG": off.pass_td / gp,
         "int": off.int_thrown / gp, "ppg": rec.pf / rec.gp,
     })
     d = pd.DataFrame({
         "rushYdsG": allowed.rush_yds / gp, "rushTdG": allowed.rush_td / gp,
         "rushYdsAtt": allowed.rush_yds / allowed.rush_att,
-        "passYdsG": allowed.pass_yds / gp, "passTdG": allowed.pass_td / gp,
+        "passYdsG": allowed.pass_yds / gp, "passYdsComp": allowed.pass_yds / allowed.pass_cmp, "passTdG": allowed.pass_td / gp,
         "int": off.int_made / gp, "papg": rec.pa / rec.gp,
     })
     o["rushRk"], o["passRk"] = rank(o.rushYdsG, False), rank(o.passYdsG, False)
@@ -653,10 +653,10 @@ def main():
                        "osrs": rating(name, "OSRS"), "dsrs": rating(name, "DSRS")},
             "offense": {"ppg": r1(o.ppg[abbr]), "rushYdsG": r1(o.rushYdsG[abbr]), "rushYdsGRank": int(o.rushRk[abbr]),
                         "rushYdsAtt": r2(o.rushYdsAtt[abbr]), "rushTdG": r2(o.rushTdG[abbr]), "passYdsG": r1(o.passYdsG[abbr]),
-                        "passYdsGRank": int(o.passRk[abbr]), "passTdG": r2(o.passTdG[abbr]), "int": r2(o["int"][abbr])},
+                        "passYdsGRank": int(o.passRk[abbr]), "passYdsComp": r2(o.passYdsComp[abbr]), "passTdG": r2(o.passTdG[abbr]), "int": r2(o["int"][abbr])},
             "defense": {"papg": r1(d.papg[abbr]), "rushYdsG": r1(d.rushYdsG[abbr]), "rushYdsGRank": int(d.rushRk[abbr]),
                         "rushYdsAtt": r2(d.rushYdsAtt[abbr]), "rushTdG": r2(d.rushTdG[abbr]), "passYdsG": r1(d.passYdsG[abbr]),
-                        "passYdsGRank": int(d.passRk[abbr]), "passTdG": r2(d.passTdG[abbr]), "int": r2(d["int"][abbr])},
+                        "passYdsGRank": int(d.passRk[abbr]), "passYdsComp": r2(d.passYdsComp[abbr]), "passTdG": r2(d.passTdG[abbr]), "int": r2(d["int"][abbr])},
             "passing": players(abbr, "passing"),
             "rushing": players(abbr, "rushing"),
             "receiving": players(abbr, "receiving"),
