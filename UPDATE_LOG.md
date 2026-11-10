@@ -4,6 +4,15 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-10 (10:50 AM ET) — new-week update, Week 10
+- Commit "Week 10 data update (through Week 9, 2026)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB). Published.
+- Referees: 0 of 14 games assigned (normal on Tuesday).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv (through Week 9); SoS/SRS/OSRS/DSRS reused from the published 2026 file, so they're still through Week 7.
+- PFR passing page also failed (client error), so the 5-QB cross-check was skipped.
+- data/capped.json committed too (moved to through Week 9, 506 players).
+- No earlier run had listed Week 10 opening lines, so lineOpen was set from today's lines. All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+- lineOpen (set 2026-11-10), home spread / total: WAS@NYG 2.5/41.5, NE@DET 2.5/51.5, BUF@NYJ −8.5/50.5, CAR@NO 1.5/48.5, HOU@CLE −4.5/39.5, JAX@TEN −10.5/46.5, KC@ATL −3.5/45.5, MIA@IND 2.5/40.5, MIN@GB 4.5/42.5, LA@ARI −9.5/40.5, SEA@LV −3.5/43.5, SF@DAL −4.5/55.5, PIT@CIN 3.5/48.5, LAC@BAL 5.5/38.5.
+
 ## 2026-11-09 (10:50 AM ET) — daily refresh, Week 9
 - Commit "Week 9 daily refresh (2026-11-09)". Through Week 8, schedule Week 9 (15 games; byes PIT, TEN; 14 final, BUF@MIN is tonight). Published.
 - Lines moved vs 11-08 publish (home spread / total): CLE@NO 3.0/42.5 → 4.5/43.5; DEN@CAR spread −2.5 → −3.0; DET@MIA total 50.5 → 49.5; LA@WAS total 47.5 → 48.5; LV@SF spread 9.5 → 8.5; TB@CHI spread 6.0 → 6.5; BUF@MIN total 43.5 → 44.5.
