@@ -7,7 +7,8 @@ Inputs (downloaded each week into a working folder, not committed):
     stats_team_week_<season>.csv    github.com/nflverse/nflverse-data releases (stats_team)
     games.csv                       raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv
     standings.json                  list of {Tm, W, L, T, SoS, SRS, OSRS, DSRS} from
-                                    pro-football-reference.com/years/<season>/ (optional)
+                                    pro-football-reference.com/years/<season>/ (optional; without
+                                    it SoS/SRS/OSRS/DSRS are computed from the scores, scripts/srs.py)
     play_by_play_<season>.csv.gz    github.com/nflverse/nflverse-data releases (pbp) -- EPA and
                                     success rate, and data/epa.json for the EPA page (optional;
                                     left out if missing)
@@ -49,6 +50,7 @@ import pandas as pd
 
 from epa_ratings import build_epa
 import situational
+import srs
 
 TEAM_NAMES = {
     "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
@@ -616,6 +618,15 @@ def main():
     if sfile.exists():
         for row in json.loads(sfile.read_text()):
             ratings[row["Tm"]] = row
+    else:
+        # no PFR standings: same SRS method, computed from this season's final scores
+        calc = srs.compute([(g.away_team, g.home_team, int(g.away_score), int(g.home_score))
+                            for g in done.itertuples()])
+        for abbr, v in calc.items():
+            ratings[TEAM_NAMES[abbr]] = {"Tm": TEAM_NAMES[abbr], "W": rec.w[abbr], "L": rec.l[abbr],
+                                         "T": rec.t[abbr], "SoS": v["sos"], "SRS": v["srs"],
+                                         "OSRS": v["osrs"], "DSRS": v["dsrs"]}
+        notes.append(f"no standings.json; SoS/SRS/OSRS/DSRS computed from game results through Week {through_week}")
     for abbr in teams:
         name = TEAM_NAMES[abbr]
         s = ratings.get(name)

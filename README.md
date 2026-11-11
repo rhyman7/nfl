@@ -198,7 +198,8 @@ tags in every HTML page so browsers pick up the new version.
 A Claude scheduled task runs every day at 10:50 AM ET during the season (a new-week
 update after the week's last game, otherwise a refresh of referees and lines). It
 downloads the current season's nflverse data, gets standings/SRS from
-Pro-Football-Reference, runs:
+Pro-Football-Reference when that page loads (otherwise the build computes SoS / SRS / OSRS / DSRS
+from the season's final scores with `scripts/srs.py`, the same method PFR uses), runs:
 
 ```bash
 python scripts/build_from_nflverse.py --season 2026 --src <download folder>

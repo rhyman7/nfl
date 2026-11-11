@@ -200,7 +200,9 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 
 - **Sources:** nflverse (player and team stats, schedule, play-by-play, snap
   counts, advanced stats) and **Pro-Football-Reference.com** (standings, SoS / SRS / OSRS / DSRS,
-  and pressure rate via nflverse advanced stats). Lines: ESPN in the browser, nflverse in the
+  and pressure rate via nflverse advanced stats). When the PFR page can't be fetched, leave
+  `standings.json` out of the download folder: the build then computes SoS / SRS / OSRS / DSRS
+  from the final scores (`scripts/srs.py`, PFR's method) instead of reusing stale values. Lines: ESPN in the browser, nflverse in the
   weekly data.
 - **Build:** `python scripts/build_from_nflverse.py --season 2026 --src <download folder>`
   writes `data/data.json`, `data/epa.json` (via `scripts/epa_ratings.py`),
