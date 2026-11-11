@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-11 (10:50 AM ET) — daily refresh, Week 10
+- Commit "Week 10 daily refresh (2026-11-11)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB). Published.
+- Lines moved vs 11-10 publish (home spread / total): CAR@NO spread 1.5 → 2.5; HOU@CLE spread −4.5 → −5.5; MIA@IND 2.5/40.5 → 3.5/38.5; MIN@GB 4.5/42.5 → 3.5/41.5; LA@ARI total 40.5 → 39.5; SEA@LV −3.5/43.5 → −6.5/40.5; SF@DAL spread −4.5 → −3.5; PIT@CIN total 48.5 → 49.5; LAC@BAL spread 5.5 → 4.5.
+- Referees: 0 of 14 games assigned (normal on Wednesday).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv (through Week 9); SoS/SRS/OSRS/DSRS reused from the published 2026 file (still through Week 7).
+- Small nflverse stat corrections in Week 9 game logs (e.g. J. Daniels 273 → 274 pass yds). data/capped.json and data/epa.json: only generatedAt changed; capped.json not committed.
+- lineOpen unchanged (set 2026-11-10). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-10 (10:50 AM ET) — new-week update, Week 10
 - Commit "Week 10 data update (through Week 9, 2026)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB). Published.
 - Referees: 0 of 14 games assigned (normal on Tuesday).
