@@ -106,8 +106,7 @@ phone) shows every game this season: the quarterbacks the defense faced, their
 completions/attempts and passing yards, and the team total. The **Rush Yds/G** dial shows
 the rushing yards allowed in each game; hover or tap a game for a second popup with the
 opponent's running backs (carries and yards) and any other rushers. The data is `allowed`
-on each entry in `games` ({pass, rush, passers: [{n, pos, yds, cmp, att}], rushers: [{n,
-pos, yds, car}]}), built from nflverse's player and team stats, so the totals match the dials.
+on each entry in `games` ({pass, rush, passers: [{n, pos, yds, cmp, att}], rushers: [{n, pos, yds, car, td, g}], receivers: [{n, pos, yds, rec, td, g}]}; `g` is the Defense vs position group ("RB", "TE", "WR") behind the Defense vs position popups), built from nflverse's player and team stats, so the totals match the dials.
 The Passing table's **Pass Yds / Comp** column is passing yards per completion (`ypc`).
 
 **Prop check.** The game log panel has a prop tool: pick a stat (pass/rush/rec yards,

@@ -239,6 +239,10 @@ def gauge_range(series):
     return {"min": 0, "max": int(math.ceil((hi + pad) / 5) * 5)}
 
 
+# Defense vs position groups (vs_pos() in main and the per-game lines in team_game_list)
+POS_GROUP = {"RB": "RB", "FB": "RB", "TE": "TE", "WR": "WR"}
+
+
 def team_game_list(done, ps, ts=None):
     """Each team's completed games in order: opponent, result, the ESPN id (for the box
     score the site fetches) and that team's top passer, rusher and receiver by yards.
@@ -262,19 +266,28 @@ def team_game_list(done, ps, ts=None):
         """What this team's defense allowed in one game, from the opponent's stats:
         pass and rush = the opponent's team passing and rushing yards (the same totals as the
         Defense dials), passers = [{n, pos, yds, cmp, att}] with a pass attempt, rushers =
-        [{n, pos, yds, car}] with a carry, most yards first."""
+        [{n, pos, yds, car, td}] with a carry, receivers = [{n, pos, yds, rec, td}] with a catch,
+        most yards first. g on a rusher or receiver is the Defense vs position group it counts
+        toward ("RB", "TE" or "WR", the same positions as vs_pos() in main); the Defense vs
+        position popups add those lines up per game."""
         if rows is None:
             return None
         p = rows[rows.attempts.fillna(0) > 0].sort_values("passing_yards", ascending=False)
         r = rows[rows.carries.fillna(0) > 0].sort_values(["rushing_yards", "carries"], ascending=False)
+        c = rows[(rows.receptions.fillna(0) > 0) | (rows.receiving_yards.fillna(0) != 0)
+                 | (rows.receiving_tds.fillna(0) > 0)].sort_values(["receiving_yards", "receptions"], ascending=False)
+        pos = lambda x: "" if pd.isna(x.position) else x.position
+        grp = lambda x: ({"g": POS_GROUP[pos(x)]} if pos(x) in POS_GROUP else {})
         tot = lambda col: n0(team_row[col].iloc[0]) if team_row is not None and len(team_row) else n0(rows[col].sum())
         return {
             "pass": tot("passing_yards"), "rush": tot("rushing_yards"),
             "passers": [{"n": x.player_display_name, "pos": "" if pd.isna(x.position) else x.position,
                          "yds": n0(x.passing_yards), "cmp": n0(x.completions), "att": n0(x.attempts)}
                         for x in p.itertuples()],
-            "rushers": [{"n": x.player_display_name, "pos": "" if pd.isna(x.position) else x.position,
-                         "yds": n0(x.rushing_yards), "car": n0(x.carries)} for x in r.itertuples()],
+            "rushers": [{"n": x.player_display_name, "pos": pos(x), "yds": n0(x.rushing_yards),
+                         "car": n0(x.carries), "td": n0(x.rushing_tds), **grp(x)} for x in r.itertuples()],
+            "receivers": [{"n": x.player_display_name, "pos": pos(x), "yds": n0(x.receiving_yards),
+                           "rec": n0(x.receptions), "td": n0(x.receiving_tds), **grp(x)} for x in c.itertuples()],
         }
 
     by_team_week = {k: v for k, v in ps.groupby(["team", "week"])}
@@ -434,10 +447,10 @@ def main():
         return out
 
     dvp = {
-        "rb": vs_pos(["RB", "FB"], "rushing_yards", "rushing_tds"),
-        "recRb": vs_pos(["RB", "FB"], "receiving_yards", "receiving_tds"),
-        "te": vs_pos(["TE"], "receiving_yards", "receiving_tds"),
-        "wr": vs_pos(["WR"], "receiving_yards", "receiving_tds"),
+        "rb": vs_pos([p for p, g in POS_GROUP.items() if g == "RB"], "rushing_yards", "rushing_tds"),
+        "recRb": vs_pos([p for p, g in POS_GROUP.items() if g == "RB"], "receiving_yards", "receiving_tds"),
+        "te": vs_pos([p for p, g in POS_GROUP.items() if g == "TE"], "receiving_yards", "receiving_tds"),
+        "wr": vs_pos([p for p, g in POS_GROUP.items() if g == "WR"], "receiving_yards", "receiving_tds"),
     }
 
     # ---- efficiency from play-by-play: EPA per play and success rate (pass and run plays) ----
