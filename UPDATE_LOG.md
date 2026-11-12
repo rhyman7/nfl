@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-12 (10:50 AM ET) — daily refresh, Week 10
+- Commit "Week 10 daily refresh (2026-11-12)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB; TNF WAS@NYG tonight). Published.
+- Lines moved vs 11-11 publish (home spread / total): WAS@NYG total 41.5 → 40.5; HOU@CLE −5.5/39.5 → −4.5/41.5; KC@ATL spread −3.5 → −3.0; MIN@GB 3.5/41.5 → 3.0/42.5.
+- Referees: 0 of 14 games assigned (not yet in nflverse games.csv on Thursday).
+- Fallback: PFR standings fetch failed (permission request timed out). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 9 (scripts/srs.py).
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-10). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-11 (manual follow-up) — ratings fix, Week 10
 - Commit "Week 10 ratings update (2026-11-11)". Through Week 9, schedule Week 10. Published.
 - SoS/SRS/OSRS/DSRS now computed from final scores through Week 9 (scripts/srs.py, PR #36), replacing the Week 7 values reused since the PFR standings page started failing. Only the ratings changed; lineOpen unchanged (set 2026-11-10).

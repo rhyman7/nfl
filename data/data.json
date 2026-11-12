@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T17:31:12.929301+00:00",
+  "generatedAt": "2026-11-12T15:56:51.867212+00:00",
   "season": 2026,
   "throughWeek": 9,
   "schedule": {
@@ -15,7 +15,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 2.5,
-        "total": 41.5,
+        "total": 40.5,
         "stadium": "MetLife Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -142,8 +142,8 @@
         "home": "Cleveland Browns",
         "awayScore": null,
         "homeScore": null,
-        "spread": -5.5,
-        "total": 39.5,
+        "spread": -4.5,
+        "total": 41.5,
         "stadium": "Huntington Bank Field",
         "roof": "outdoors",
         "divisional": false,
@@ -206,8 +206,8 @@
         "home": "Atlanta Falcons",
         "awayScore": null,
         "homeScore": null,
-        "spread": -3.5,
-        "total": 45.5,
+        "spread": -3.0,
+        "total": 46.5,
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
@@ -270,8 +270,8 @@
         "home": "Green Bay Packers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.5,
-        "total": 41.5,
+        "spread": 3.0,
+        "total": 42.5,
         "stadium": "Lambeau Field",
         "roof": "outdoors",
         "divisional": true,
@@ -6948,8 +6948,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 16.2,
-            "rank": 3
+            "v": 20.2,
+            "rank": 9
           }
         },
         "def": {
@@ -6978,8 +6978,8 @@
             "rank": 21
           },
           "pressureRate": {
-            "v": 25.6,
-            "rank": 11
+            "v": 29.0,
+            "rank": 2
           }
         },
         "rzTrips": 42
@@ -10130,7 +10130,7 @@
           },
           "pressureRate": {
             "v": 20.1,
-            "rank": 10
+            "rank": 8
           }
         },
         "def": {
@@ -10160,7 +10160,7 @@
           },
           "pressureRate": {
             "v": 27.1,
-            "rank": 6
+            "rank": 7
           }
         },
         "rzTrips": 47
@@ -11709,7 +11709,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 9
+            "rank": 10
           }
         },
         "rzTrips": 41
@@ -15170,7 +15170,7 @@
           },
           "pressureRate": {
             "v": 25.7,
-            "rank": 10
+            "rank": 11
           }
         },
         "rzTrips": 40
@@ -16808,7 +16808,7 @@
           },
           "pressureRate": {
             "v": 20.3,
-            "rank": 11
+            "rank": 10
           }
         },
         "def": {
@@ -16838,7 +16838,7 @@
           },
           "pressureRate": {
             "v": 27.9,
-            "rank": 3
+            "rank": 4
           }
         },
         "rzTrips": 32
@@ -18376,7 +18376,7 @@
           },
           "pressureRate": {
             "v": 19.7,
-            "rank": 7
+            "rank": 5
           }
         },
         "def": {
@@ -18406,7 +18406,7 @@
           },
           "pressureRate": {
             "v": 26.5,
-            "rank": 7
+            "rank": 8
           }
         },
         "rzTrips": 39
@@ -20056,7 +20056,7 @@
           },
           "pressureRate": {
             "v": 21.3,
-            "rank": 15
+            "rank": 14
           }
         },
         "def": {
@@ -21633,7 +21633,7 @@
           },
           "pressureRate": {
             "v": 19.7,
-            "rank": 8
+            "rank": 6
           }
         },
         "def": {
@@ -21663,7 +21663,7 @@
           },
           "pressureRate": {
             "v": 27.1,
-            "rank": 5
+            "rank": 6
           }
         },
         "rzTrips": 35
@@ -24988,7 +24988,7 @@
           },
           "pressureRate": {
             "v": 19.3,
-            "rank": 6
+            "rank": 4
           }
         },
         "def": {
@@ -26549,7 +26549,7 @@
           },
           "pressureRate": {
             "v": 21.0,
-            "rank": 13
+            "rank": 12
           }
         },
         "def": {
@@ -31549,7 +31549,7 @@
           },
           "pressureRate": {
             "v": 28.8,
-            "rank": 2
+            "rank": 3
           }
         },
         "rzTrips": 43
@@ -34623,8 +34623,8 @@
             "rank": 26
           },
           "pressureRate": {
-            "v": 18.0,
-            "rank": 5
+            "v": 22.2,
+            "rank": 15
           }
         },
         "def": {
@@ -34653,7 +34653,7 @@
             "rank": 1
           },
           "pressureRate": {
-            "v": 33.2,
+            "v": 37.6,
             "rank": 1
           }
         },
@@ -37906,7 +37906,7 @@
           },
           "pressureRate": {
             "v": 21.1,
-            "rank": 14
+            "rank": 13
           }
         },
         "def": {
@@ -39486,7 +39486,7 @@
           },
           "pressureRate": {
             "v": 20.7,
-            "rank": 12
+            "rank": 11
           }
         },
         "def": {
@@ -44403,7 +44403,7 @@
           },
           "pressureRate": {
             "v": 20.0,
-            "rank": 9
+            "rank": 7
           }
         },
         "def": {
@@ -46104,7 +46104,7 @@
           },
           "pressureRate": {
             "v": 27.3,
-            "rank": 4
+            "rank": 5
           }
         },
         "rzTrips": 37
@@ -47679,7 +47679,7 @@
           },
           "pressureRate": {
             "v": 16.4,
-            "rank": 4
+            "rank": 3
           }
         },
         "def": {
@@ -50970,7 +50970,7 @@
           },
           "pressureRate": {
             "v": 26.2,
-            "rank": 8
+            "rank": 9
           }
         },
         "rzTrips": 25
