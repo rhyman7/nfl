@@ -225,6 +225,10 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   `data/injuries.json` from ESPN's per-team injury lists every 3 hours (`scripts/fetch_espn_injuries.py`);
   the pages fall back to ESPN's league feed in the browser when that file is missing or over
   2 days old. The data update never builds injury data (no nflverse injury file, no `inj` keys).
+  **Hand overrides: `data/injury_overrides.json`** (Nov 12, 2026). When ESPN is behind the news (a
+  player listed Out who is confirmed to play), add `{team, name, until, source}` to `clear`: the fetch
+  drops that player's tag through `until` (ET date, inclusive), then the row lapses by itself. `team`
+  is ESPN's abbreviation and `name` ESPN's spelling. Edits go through a PR; delete stale rows.
 - **The data update is manual and done together**, not fully automated: a scheduled task
   runs daily at 10:50 AM ET (new-week update after the week's last game, otherwise a refresh
   of referees and lines). The README's "Weekly update (current)" section has the steps.
