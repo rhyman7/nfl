@@ -13,6 +13,11 @@ The output uses the same shape as ESPN's league feed, so common.js parses either
   "injuries": [ { "status", "date", "athlete": { "displayName" }, "details": { "type" } } ] } ] }
 Only players whose latest status is a designation the site shows (Out, Doubtful, Questionable,
 Injured Reserve, PUP, Suspension) are kept. Standard library only.
+
+Hand overrides: data/injury_overrides.json clears a tag ESPN hasn't caught up on (e.g. a player
+listed Out who is confirmed to play). Each row {team, name, until, source} drops that player's
+ESPN entry through `until` (an ET date, inclusive); after that the row does nothing, so it lapses
+by itself. Delete stale rows when you see them.
 """
 import argparse
 import json
@@ -20,7 +25,7 @@ import sys
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -41,6 +46,16 @@ TEAMS = {
 }
 SHOWN = {"out", "doubtful", "questionable", "injured reserve", "physically unable to perform", "pup",
          "suspension", "suspended"}
+
+
+def load_overrides(path):
+    """(team abbreviation, lower-case name) pairs to clear today, from data/injury_overrides.json."""
+    if not path.exists():
+        return set()
+    today = (datetime.now(timezone.utc) - timedelta(hours=5)).date()   # ET (EST; close enough)
+    rows = json.loads(path.read_text()).get("clear", [])
+    return {(r["team"].upper(), r["name"].strip().lower()) for r in rows
+            if date.fromisoformat(r["until"]) >= today}
 
 
 def get(url, tries=4):
@@ -91,11 +106,15 @@ def main():
             if str(it.get("status") or (it.get("type") or {}).get("description") or "").strip().lower() in SHOWN}
     names = dict(zip(keep, pool.map(lambda k: get(k[1]).get("displayName", ""), keep)))
 
+    cleared = load_overrides(ROOT / "data" / "injury_overrides.json")
     groups = []
     for tid, (abbr, name) in TEAMS.items():
         rows = []
         for (t, aref), it in keep.items():
             if t != tid or not names.get((t, aref)):
+                continue
+            if (abbr, names[(t, aref)].strip().lower()) in cleared:
+                print(f"Override: cleared {names[(t, aref)]} ({abbr})")
                 continue
             status = str(it.get("status") or (it.get("type") or {}).get("description") or "").strip()
             det = it.get("details") or {}
