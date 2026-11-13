@@ -4,6 +4,15 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-13 (10:50 AM ET) — daily refresh, Week 10
+- Commit "Week 10 daily refresh (2026-11-13)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB; TNF final WAS 24, NYG 21). Published.
+- Lines moved vs 11-12 publish (home spread / total): WAS@NYG spread 2.5 → 1.5 (closing line, game final); NE@DET total 51.5 → 49.5; HOU@CLE total 41.5 → 40.5; KC@ATL total 46.5 → 47.5; MIN@GB total 42.5 → 41.5.
+- Referees: 0 of 14 games assigned (still blank in nflverse games.csv on Friday; flagged).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 9 (scripts/srs.py).
+- nflverse now spells Audric Estimé as "Audric Estime" (CLE and NO rushing tables, game lists). WAS and NYG records in the Week 11 file updated after TNF.
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-10). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-12 (10:50 AM ET) — daily refresh, Week 10
 - Commit "Week 10 daily refresh (2026-11-12)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB; TNF WAS@NYG tonight). Published.
 - Lines moved vs 11-11 publish (home spread / total): WAS@NYG total 41.5 → 40.5; HOU@CLE −5.5/39.5 → −4.5/41.5; KC@ATL spread −3.5 → −3.0; MIN@GB 3.5/41.5 → 3.0/42.5.

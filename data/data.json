@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T15:56:51.867212+00:00",
+  "generatedAt": "2026-11-13T15:52:07.617613+00:00",
   "season": 2026,
   "throughWeek": 9,
   "schedule": {
@@ -12,9 +12,9 @@
         "gametime": "20:15",
         "away": "Washington Commanders",
         "home": "New York Giants",
-        "awayScore": null,
-        "homeScore": null,
-        "spread": 2.5,
+        "awayScore": 24,
+        "homeScore": 21,
+        "spread": 1.5,
         "total": 40.5,
         "stadium": "MetLife Stadium",
         "roof": "outdoors",
@@ -47,7 +47,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 2.5,
-        "total": 51.5,
+        "total": 49.5,
         "stadium": "FC Bayern Munich Stadium",
         "roof": "dome",
         "divisional": false,
@@ -143,7 +143,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -4.5,
-        "total": 41.5,
+        "total": 40.5,
         "stadium": "Huntington Bank Field",
         "roof": "outdoors",
         "divisional": false,
@@ -207,7 +207,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -3.0,
-        "total": 46.5,
+        "total": 47.5,
         "stadium": "Mercedes-Benz Stadium",
         "roof": null,
         "divisional": false,
@@ -271,7 +271,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 3.0,
-        "total": 42.5,
+        "total": 41.5,
         "stadium": "Lambeau Field",
         "roof": "outdoors",
         "divisional": true,
@@ -4862,7 +4862,7 @@
                 "td": 0
               },
               {
-                "n": "Audric Estim\u00e9",
+                "n": "Audric Estime",
                 "pos": "RB",
                 "yds": 19,
                 "car": 9,
@@ -11910,7 +11910,7 @@
           "cs": 4.7
         },
         {
-          "player": "Audric Estim\u00e9",
+          "player": "Audric Estime",
           "ydsG": 19.0,
           "td": 1.0,
           "ya": 2.1,
@@ -13226,7 +13226,7 @@
             ],
             "rushers": [
               {
-                "n": "Audric Estim\u00e9",
+                "n": "Audric Estime",
                 "pos": "RB",
                 "yds": 72,
                 "car": 15,
@@ -13315,7 +13315,7 @@
                 "g": "TE"
               },
               {
-                "n": "Audric Estim\u00e9",
+                "n": "Audric Estime",
                 "pos": "RB",
                 "yds": 5,
                 "rec": 1,
@@ -36567,7 +36567,7 @@
       ],
       "rushing": [
         {
-          "player": "Audric Estim\u00e9",
+          "player": "Audric Estime",
           "ydsG": 72.0,
           "td": 1.0,
           "ya": 4.8,
@@ -37865,7 +37865,7 @@
             "att": 35
           },
           "rush": {
-            "n": "Audric Estim\u00e9",
+            "n": "Audric Estime",
             "yds": 72,
             "td": 1,
             "car": 15
