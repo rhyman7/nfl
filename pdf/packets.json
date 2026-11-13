@@ -3,8 +3,8 @@
  "week": 10,
  "league": "nfl",
  "title": "NFL Week 10 Matchup Report",
- "dataGeneratedAt": "2026-11-12T15:56:51.867212+00:00",
- "generatedAt": "2026-11-13T06:42:54Z",
+ "dataGeneratedAt": "2026-11-13T15:52:07.617613+00:00",
+ "generatedAt": "2026-11-13T15:54:50Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,46 +19,25 @@
  ],
  "slate": {
   "best": [
-   16
+   15
   ],
   "td": [
-   17,
-   18
+   16,
+   17
   ],
   "floors": [
-   19,
-   20
+   18,
+   19
   ]
  },
  "games": [
-  {
-   "id": "2026_10_WAS_NYG",
-   "label": "WAS @ NYG",
-   "file": "NFL_Week10_WAS-NYG_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ],
-    "value": [
-     0
-    ]
-   },
-   "missing": []
-  },
   {
    "id": "2026_10_NE_DET",
    "label": "NE vs DET",
    "file": "NFL_Week10_NE-DET_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -79,7 +58,7 @@
    "file": "NFL_Week10_BUF-NYJ_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -100,7 +79,7 @@
    "file": "NFL_Week10_CAR-NO_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -121,7 +100,7 @@
    "file": "NFL_Week10_HOU-CLE_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -142,7 +121,7 @@
    "file": "NFL_Week10_JAX-TEN_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -163,7 +142,7 @@
    "file": "NFL_Week10_KC-ATL_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -184,7 +163,7 @@
    "file": "NFL_Week10_MIA-IND_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -205,7 +184,7 @@
    "file": "NFL_Week10_MIN-GB_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -226,7 +205,7 @@
    "file": "NFL_Week10_LA-ARI_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -247,7 +226,7 @@
    "file": "NFL_Week10_SEA-LV_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -268,7 +247,7 @@
    "file": "NFL_Week10_SF-DAL_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -289,7 +268,7 @@
    "file": "NFL_Week10_PIT-CIN_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
@@ -310,7 +289,7 @@
    "file": "NFL_Week10_LAC-BAL_packet",
    "pages": {
     "report": [
-     15
+     14
     ],
     "matchup": [
      26,
