@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T15:52:07.617613+00:00",
+  "generatedAt": "2026-11-14T15:51:39.755446+00:00",
   "season": 2026,
   "throughWeek": 9,
   "schedule": {
@@ -270,8 +270,8 @@
         "home": "Green Bay Packers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
-        "total": 41.5,
+        "spread": 2.5,
+        "total": 42.5,
         "stadium": "Lambeau Field",
         "roof": "outdoors",
         "divisional": true,
@@ -366,7 +366,7 @@
         "home": "Dallas Cowboys",
         "awayScore": null,
         "homeScore": null,
-        "spread": -3.5,
+        "spread": -4.5,
         "total": 55.5,
         "stadium": "AT&T Stadium",
         "roof": null,
@@ -79540,6 +79540,488 @@
     "defPassYdsG": {
       "min": 0,
       "max": 290
+    }
+  },
+  "byeTrends": {
+    "since": 2002,
+    "recent": 2016,
+    "season": 2026,
+    "periods": [
+      {
+        "key": "cur",
+        "label": "2026"
+      },
+      {
+        "key": "recent",
+        "label": "2016\u201325"
+      },
+      {
+        "key": "all",
+        "label": "2002\u201325"
+      }
+    ],
+    "splits": {
+      "all": {
+        "cur": {
+          "w": 13,
+          "l": 1,
+          "t": 0,
+          "aw": 10,
+          "al": 4,
+          "ap": 0
+        },
+        "recent": {
+          "w": 173,
+          "l": 146,
+          "t": 1,
+          "aw": 151,
+          "al": 157,
+          "ap": 12
+        },
+        "all": {
+          "w": 410,
+          "l": 354,
+          "t": 4,
+          "aw": 384,
+          "al": 363,
+          "ap": 21
+        }
+      },
+      "rested": {
+        "cur": {
+          "w": 13,
+          "l": 1,
+          "t": 0,
+          "aw": 10,
+          "al": 4,
+          "ap": 0
+        },
+        "recent": {
+          "w": 147,
+          "l": 120,
+          "t": 1,
+          "aw": 127,
+          "al": 133,
+          "ap": 8
+        },
+        "all": {
+          "w": 355,
+          "l": 299,
+          "t": 2,
+          "aw": 330,
+          "al": 309,
+          "ap": 17
+        }
+      },
+      "both": {
+        "cur": {
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "aw": 0,
+          "al": 0,
+          "ap": 0
+        },
+        "recent": {
+          "w": 26,
+          "l": 26,
+          "t": 0,
+          "aw": 24,
+          "al": 24,
+          "ap": 4
+        },
+        "all": {
+          "w": 55,
+          "l": 55,
+          "t": 2,
+          "aw": 54,
+          "al": 54,
+          "ap": 4
+        }
+      },
+      "fav": {
+        "cur": {
+          "w": 12,
+          "l": 0,
+          "t": 0,
+          "aw": 9,
+          "al": 3,
+          "ap": 0
+        },
+        "recent": {
+          "w": 109,
+          "l": 45,
+          "t": 0,
+          "aw": 70,
+          "al": 77,
+          "ap": 7
+        },
+        "all": {
+          "w": 258,
+          "l": 105,
+          "t": 0,
+          "aw": 187,
+          "al": 164,
+          "ap": 12
+        }
+      },
+      "dog": {
+        "cur": {
+          "w": 1,
+          "l": 1,
+          "t": 0,
+          "aw": 1,
+          "al": 1,
+          "ap": 0
+        },
+        "recent": {
+          "w": 38,
+          "l": 75,
+          "t": 1,
+          "aw": 57,
+          "al": 56,
+          "ap": 1
+        },
+        "all": {
+          "w": 97,
+          "l": 193,
+          "t": 2,
+          "aw": 143,
+          "al": 144,
+          "ap": 5
+        }
+      },
+      "home": {
+        "cur": {
+          "w": 8,
+          "l": 0,
+          "t": 0,
+          "aw": 5,
+          "al": 3,
+          "ap": 0
+        },
+        "recent": {
+          "w": 82,
+          "l": 53,
+          "t": 0,
+          "aw": 60,
+          "al": 68,
+          "ap": 7
+        },
+        "all": {
+          "w": 201,
+          "l": 127,
+          "t": 1,
+          "aw": 158,
+          "al": 161,
+          "ap": 10
+        }
+      },
+      "road": {
+        "cur": {
+          "w": 5,
+          "l": 1,
+          "t": 0,
+          "aw": 5,
+          "al": 1,
+          "ap": 0
+        },
+        "recent": {
+          "w": 64,
+          "l": 66,
+          "t": 1,
+          "aw": 66,
+          "al": 64,
+          "ap": 1
+        },
+        "all": {
+          "w": 153,
+          "l": 169,
+          "t": 1,
+          "aw": 171,
+          "al": 145,
+          "ap": 7
+        }
+      },
+      "fav_home": {
+        "cur": {
+          "w": 8,
+          "l": 0,
+          "t": 0,
+          "aw": 5,
+          "al": 3,
+          "ap": 0
+        },
+        "recent": {
+          "w": 70,
+          "l": 25,
+          "t": 0,
+          "aw": 41,
+          "al": 48,
+          "ap": 6
+        },
+        "all": {
+          "w": 168,
+          "l": 66,
+          "t": 0,
+          "aw": 113,
+          "al": 113,
+          "ap": 8
+        }
+      },
+      "fav_road": {
+        "cur": {
+          "w": 4,
+          "l": 0,
+          "t": 0,
+          "aw": 4,
+          "al": 0,
+          "ap": 0
+        },
+        "recent": {
+          "w": 38,
+          "l": 20,
+          "t": 0,
+          "aw": 28,
+          "al": 29,
+          "ap": 1
+        },
+        "all": {
+          "w": 89,
+          "l": 38,
+          "t": 0,
+          "aw": 73,
+          "al": 50,
+          "ap": 4
+        }
+      },
+      "dog_home": {
+        "cur": {
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "aw": 0,
+          "al": 0,
+          "ap": 0
+        },
+        "recent": {
+          "w": 12,
+          "l": 28,
+          "t": 0,
+          "aw": 19,
+          "al": 20,
+          "ap": 1
+        },
+        "all": {
+          "w": 33,
+          "l": 60,
+          "t": 1,
+          "aw": 45,
+          "al": 47,
+          "ap": 2
+        }
+      },
+      "dog_road": {
+        "cur": {
+          "w": 1,
+          "l": 1,
+          "t": 0,
+          "aw": 1,
+          "al": 1,
+          "ap": 0
+        },
+        "recent": {
+          "w": 26,
+          "l": 46,
+          "t": 1,
+          "aw": 38,
+          "al": 35,
+          "ap": 0
+        },
+        "all": {
+          "w": 64,
+          "l": 131,
+          "t": 1,
+          "aw": 98,
+          "al": 95,
+          "ap": 3
+        }
+      }
+    },
+    "games": [
+      {
+        "w": 6,
+        "team": "CAR",
+        "opp": "PHI",
+        "home": false,
+        "neutral": false,
+        "line": -3.0,
+        "pf": 25,
+        "pa": 14,
+        "ats": "W"
+      },
+      {
+        "w": 6,
+        "team": "KC",
+        "opp": "LAC",
+        "home": true,
+        "neutral": false,
+        "line": -7.5,
+        "pf": 22,
+        "pa": 6,
+        "ats": "W"
+      },
+      {
+        "w": 7,
+        "team": "CIN",
+        "opp": "BAL",
+        "home": false,
+        "neutral": false,
+        "line": -3.0,
+        "pf": 35,
+        "pa": 13,
+        "ats": "W"
+      },
+      {
+        "w": 7,
+        "team": "DET",
+        "opp": "GB",
+        "home": true,
+        "neutral": false,
+        "line": -3.5,
+        "pf": 20,
+        "pa": 17,
+        "ats": "L"
+      },
+      {
+        "w": 7,
+        "team": "MIA",
+        "opp": "NYJ",
+        "home": false,
+        "neutral": false,
+        "line": 3.5,
+        "pf": 28,
+        "pa": 25,
+        "ats": "W"
+      },
+      {
+        "w": 7,
+        "team": "MIN",
+        "opp": "IND",
+        "home": true,
+        "neutral": false,
+        "line": -6.5,
+        "pf": 16,
+        "pa": 10,
+        "ats": "L"
+      },
+      {
+        "w": 8,
+        "team": "BUF",
+        "opp": "BAL",
+        "home": true,
+        "neutral": false,
+        "line": -3.0,
+        "pf": 36,
+        "pa": 10,
+        "ats": "W"
+      },
+      {
+        "w": 8,
+        "team": "JAX",
+        "opp": "IND",
+        "home": true,
+        "neutral": false,
+        "line": -10.0,
+        "pf": 42,
+        "pa": 7,
+        "ats": "W"
+      },
+      {
+        "w": 8,
+        "team": "LAC",
+        "opp": "LA",
+        "home": false,
+        "neutral": false,
+        "line": 6.5,
+        "pf": 9,
+        "pa": 24,
+        "ats": "L"
+      },
+      {
+        "w": 8,
+        "team": "WAS",
+        "opp": "PHI",
+        "home": true,
+        "neutral": false,
+        "line": -6.0,
+        "pf": 27,
+        "pa": 10,
+        "ats": "W"
+      },
+      {
+        "w": 9,
+        "team": "HOU",
+        "opp": "LAC",
+        "home": false,
+        "neutral": false,
+        "line": -5.5,
+        "pf": 44,
+        "pa": 22,
+        "ats": "W"
+      },
+      {
+        "w": 9,
+        "team": "NO",
+        "opp": "CLE",
+        "home": true,
+        "neutral": false,
+        "line": -4.5,
+        "pf": 23,
+        "pa": 22,
+        "ats": "L"
+      },
+      {
+        "w": 9,
+        "team": "NYG",
+        "opp": "PHI",
+        "home": false,
+        "neutral": false,
+        "line": -3.0,
+        "pf": 19,
+        "pa": 11,
+        "ats": "W"
+      },
+      {
+        "w": 9,
+        "team": "SF",
+        "opp": "LV",
+        "home": true,
+        "neutral": false,
+        "line": -8.5,
+        "pf": 38,
+        "pa": 17,
+        "ats": "W"
+      }
+    ],
+    "thisWeek": {
+      "week": 10,
+      "teams": [
+        {
+          "id": "2026_10_JAX_TEN",
+          "team": "TEN",
+          "home": true,
+          "neutral": false,
+          "oppBye": false
+        },
+        {
+          "id": "2026_10_PIT_CIN",
+          "team": "PIT",
+          "home": false,
+          "neutral": false,
+          "oppBye": false
+        }
+      ]
     }
   }
 }
