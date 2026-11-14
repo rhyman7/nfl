@@ -21,10 +21,11 @@ Inputs (downloaded each week into a working folder, not committed):
 Usage:
     python scripts/build_from_nflverse.py --season 2026 --src <folder> [--out data/data.json]
 
-Only the given season's regular-season games are used, with one exception: referee
+Only the given season's regular-season games are used, with two exceptions: referee
 tendencies (over/under record, points per game) use the given season plus the three
 before it, because a single season gives each crew only a handful of games. The site
-labels them that way. The Wednesday line for this week's games (lineOpen) is kept from
+labels them that way; and the Coming Off a Bye records (data.json's byeTrends,
+scripts/bye_trends.py) use every season since 2002. The Wednesday line for this week's games (lineOpen) is kept from
 the file already at --out when it covers the same week, so line movement is measured
 from the first update of the week.
 
@@ -51,6 +52,7 @@ import pandas as pd
 from epa_ratings import build_epa
 import situational
 import srs
+from bye_trends import bye_trends
 
 TEAM_NAMES = {
     "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
@@ -745,6 +747,11 @@ def main():
         "gaugeRanges": {"offRushYdsG": gauge_range(o.rushYdsG), "offPassYdsG": gauge_range(o.passYdsG),
                         "defRushYdsG": gauge_range(d.rushYdsG), "defPassYdsG": gauge_range(d.passYdsG)},
     }
+    # Coming Off a Bye records for the Weekly Matchup Report (scripts/bye_trends.py); every season in games.csv
+    try:
+        data["byeTrends"] = bye_trends(all_games, season, sched_week)
+    except Exception as e:  # the report leaves the page out without it; never fail the data build over it
+        notes.append(f"byeTrends left out: {e}")
     Path(args.out).write_text(json.dumps(data, indent=2))
     print(f"Wrote {args.out}: season {season}, through Week {through_week}, schedule Week {sched_week} "
           f"({len(schedule_games)} games, {len(byes)} byes)")
