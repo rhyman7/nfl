@@ -173,25 +173,37 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   report buttons). Pressing one puts a checkbox to the left of every game that has a packet
   (all unticked), **Select all** above the list (it ticks the games the filters show) and a
   **Print / Save** button at the bottom left, under the checkboxes. Ticks survive filtering
-  and live redraws. That button opens a dialog listing seven reports, all unticked: the four
-  per-game parts, then the report's three whole-week rankings, **Best Overall Matchups**,
-  **Likeliest TD Scorers** ("Most Likely to Score a TD" in the report, with the TD tracker after it)
-  and **Highest Floors** (Nov 7, 2026), added once at the end.
+  and live redraws. That button opens a dialog listing eight reports, all unticked: the four
+  per-game parts, then the report's four whole-week pages, **Best Overall Matchups**,
+  **Likeliest TD Scorers** ("Most Likely to Score a TD" in the report, with the TD tracker after it),
+  **Highest Floors** (Nov 7, 2026) and **Coming Off a Bye** (Nov 13, 2026), added once at the end.
   **Print / Save** builds the ticked reports for the ticked games; **Print All / Save All**
-  builds all seven. `build_packets.py` records the rankings' report pages in `packets.json`
-  under `slate` (`best`, `td`, `floors`); until a build has written one, its row is disabled.
+  builds all eight (leaving out any whole-week page that isn't in the week's files).
+  `build_packets.py` records those pages in `packets.json` under `slate` (`best`, `td`, `floors`,
+  `bye`), finding each by its heading; until a build has written one, its row is disabled.
   `build_packets.py` writes `pdf/report.pdf`, `pdf/matchups.pdf`, `pdf/value-board.pdf` and
   `pdf/packets.json` (which pages of each file belong to each game); `packets.js` assembles the
   packet in the browser with pdf-lib, so each week's pages are stored once. The buttons only
   show when `packets.json` is for the week on the page. A part with no page for a game is left
   out of that packet and listed under `missing`.
-- **Highest Floors** (the report's last two pages, Nov 7, 2026): the 15 highest every-game floors
+- **Highest Floors** (two pages after the TD tracker, Nov 7, 2026): the 15 highest every-game floors
   at each position among the week's games, read from the value board's `players[].floor` in
   `docs/data.json` / `docs/cfb/data.json` (a checkout next to this repo, as for the feed): QB
   passing, QB rushing, RB rushing, RB rushing + receiving, WR receiving, TE receiving, each with
   player, team, floor and games. Quarterbacks are each team's projected starter (most projected
   pass attempts); players the board has ruled out are left out. Without the board's floors for
   the week the pages are skipped and the packet row stays disabled.
+- **Coming Off a Bye** (the report's last page, after Highest Floors; Nov 13, 2026): one landscape
+  page on teams playing their first game after a bye week. Cards for this week's post-bye teams
+  (line, the opponent's rest, and the record since 2002 of post-bye teams in the same spot:
+  favorite/underdog × home/road), a records table (straight up and against the spread, with
+  winning percentage) for this season, the last 10 seasons and since 2002, split by opponent also
+  off a bye, favorite/underdog and home/road, and this season's post-bye games with line, score and
+  cover. Data: `byeTrends` in `data.json`, written by the data build from `games.csv`
+  (`scripts/bye_trends.py`: regular season only, nflverse closing lines, "off a bye" = the team's
+  previous game was two or more weeks earlier). The page is left out (and the packet row disabled)
+  when no team is coming off a bye or `byeTrends` isn't for this week. The CFB site has no
+  `byeTrends` yet, so the shared `build_report.py` skips the page there.
 - The **Weekly Matchup Report** is rule-based and built from `data/data.json` plus the injury
   tags in `data/injuries.json` (good and tough spots per game, Best Overall Matchups, Most Likely
   to Score a TD). Players listed out, doubtful, IR, PUP or suspended are left out of the picks and
@@ -245,6 +257,8 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   run the build with the default `--out` so it can.
 - Stadiums and roof types live in `STADIUMS` at the top of `build_from_nflverse.py`. A new or
   international venue needs a row there, or that game has no forecast.
+- `byeTrends` (the Coming Off a Bye page) is the one `data.json` key built from every season in
+  `games.csv` since 2002, not just this one; a failure there is a NOTE, never a failed build.
 - `scripts/epa_ratings.py` is **identical in both repos**. Change it in both, or not at all.
 - The legacy Excel pipeline (`data/raw/*.xlsx`, `scripts/build_data.py`,
   `.github/workflows/rebuild-data.yml`) is no longer used. Leave it alone unless asked.

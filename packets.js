@@ -11,14 +11,14 @@
 //   #packetAll  (This Week's Matchups)  Print Packets / Save Packets (data-pick="print" | "save").
 //               Pressing one puts a checkbox beside each game in #gameList, with Select all
 //               above the list and a Print/Save button below it. That button opens a dialog
-//               for choosing which of the seven reports go in: the four per-game parts, plus the
-//               report's three whole-slate rankings (packets.json "slate"), added once at the end.
+//               for choosing which of the eight reports go in: the four per-game parts, plus the
+//               report's four whole-slate pages (packets.json "slate"), added once at the end.
 //   #packetOne  (one matchup)           buttons with data-packet="game" and data-act="print" | "save"
 //               (that game's four parts).
 (function () {
   const PART_ORDER = ["report", "matchup", "epa", "value"];
-  const SLATE_ORDER = ["best", "td", "floors"];
-  // the seven reports offered in the packet dialog, in the order they print
+  const SLATE_ORDER = ["best", "td", "floors", "bye"];
+  // the eight reports offered in the packet dialog, in the order they print
   const REPORTS = [
     { key: "report", label: "Matchup Report", note: "One page per game: the edges, key numbers and touchdown watch" },
     { key: "matchup", label: "Printed matchup", note: "The full matchup, two pages per game" },
@@ -27,6 +27,8 @@
     { key: "best", slate: true, label: "Best Overall Matchups", note: "Ranked across the whole week; one copy, at the end" },
     { key: "td", slate: true, label: "Likeliest TD Scorers", note: "Ranked across the whole week; one copy, at the end" },
     { key: "floors", slate: true, label: "Highest Floors", note: "Top 15 every-game floors at each position; one copy, at the end" },
+    { key: "bye", slate: true, label: "Coming Off a Bye", note: "Post-bye records, straight up and against the spread; one copy, at the end",
+      off: "No team is coming off a bye this week, or this week's files don't have the page yet." },
   ];
   let MAN = null, LIB = null;
   const FILES = {};
@@ -276,7 +278,7 @@
     const row = r => {
       const off = r.slate && !hasSlate(r.key);
       return `<label class="pk-rep${off ? " off" : ""}"><input type="checkbox" value="${r.key}"${off ? " disabled" : ""}>`
-        + `<span><b>${r.label}</b><small>${off ? "Not in this week's files yet. It's added at the next PDF build." : r.note}</small></span></label>`;
+        + `<span><b>${r.label}</b><small>${off ? (r.off || "Not in this week's files yet. It's added at the next PDF build.") : r.note}</small></span></label>`;
     };
     DLG = document.createElement("dialog");
     DLG.className = "pk-dialog";

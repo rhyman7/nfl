@@ -30,9 +30,11 @@ A static GitHub Pages site. Sister site: the [CFB Matchup Dashboard](https://git
   for the week on the page. `print.html?game=<id>` prints a single game.
 - **Game packets** — on This Week's Matchups, **Print Packets / Save Packets** puts a
   checkbox beside each game (with Select all); the Print/Save button at the bottom then asks
-  which of six reports to include: the four per-game parts below, plus the Weekly Matchup
-  Report's two whole-week rankings (Best Overall Matchups, Likeliest TD Scorers), added once
-  at the end. **Print All / Save All** includes all six. Each matchup page has
+  which of eight reports to include: the four per-game parts below, plus the Weekly Matchup
+  Report's four whole-week pages (Best Overall Matchups, Likeliest TD Scorers, Highest Floors,
+  and Coming Off a Bye: straight-up and against-the-spread records of teams playing their first
+  game after a bye, this season, the last 10 seasons and since 2002), added once at the end.
+  **Print All / Save All** includes all eight. Each matchup page has
   **Print packet / Save packet** for that game. A
   packet is four parts back to back: the game's Weekly Matchup Report page (good and tough
   spots, from `scripts/build_report.py`), the printed matchup, the EPA matchup page and the
@@ -213,7 +215,8 @@ is left out on purpose (the build then notes that injury tags are left out).
 and pushes the new `data/data.json` along with `data/season.json` and `data/weeks/`,
 which the same build rewrites for the week strip (only the weeks that changed; a week
 whose scores are missing there is filled in from ESPN in the browser). Besides team and player stats, the file
-holds `schedule` (the current week's games and byes), `season` and `throughWeek`.
+holds `schedule` (the current week's games and byes), `season`, `throughWeek` and
+`byeTrends` (the report's Coming Off a Bye page, from every season in `games.csv` since 2002).
 Each schedule game also carries `espnId` (for live scores), `start` (kickoff in UTC),
 `neutral`, and the venue's `city`, `lat`, `lon` and `indoor` flag.
 
