@@ -27,10 +27,11 @@
     { key: "best", slate: true, label: "Best Overall Matchups", note: "Ranked across the whole week; one copy, at the end" },
     { key: "td", slate: true, label: "Likeliest TD Scorers", note: "Ranked across the whole week; one copy, at the end" },
     { key: "floors", slate: true, label: "Highest Floors", note: "Top 15 every-game floors at each position; one copy, at the end" },
-    { key: "bye", slate: true, label: "Coming Off a Bye", note: "Post-bye records, straight up and against the spread; one copy, at the end",
+    // NFL only (Ryan, Nov 13, 2026): the row shows only on a site whose data.json has byeTrends
+    { key: "bye", slate: true, needs: "byeTrends", label: "Coming Off a Bye", note: "Post-bye records, straight up and against the spread; one copy, at the end",
       off: "No team is coming off a bye this week, or this week's files don't have the page yet." },
   ];
-  let MAN = null, LIB = null;
+  let MAN = null, LIB = null, HAS = {};
   const FILES = {};
 
   function weekOf(data) {
@@ -286,7 +287,7 @@
       <h3>${verb(act)} packets for ${plural(SEL.size)}</h3>
       <p class="pk-sub">Choose which reports to include.</p>
       <div class="pk-grp">For each game</div>${REPORTS.filter(r => !r.slate).map(row).join("")}
-      <div class="pk-grp">Whole week</div>${REPORTS.filter(r => r.slate).map(row).join("")}
+      <div class="pk-grp">Whole week</div>${REPORTS.filter(r => r.slate && (!r.needs || HAS[r.needs])).map(row).join("")}
       <p class="pk-status" aria-live="polite"></p>
       <div class="pk-dbar">
         <button class="print-btn pk-go" type="button" data-all="0" disabled>${verb(act)}</button>
@@ -301,7 +302,7 @@
     const status = DLG.querySelector(".pk-status");
     const say = t => { status.textContent = t || ""; };
     DLG.querySelectorAll("button[data-all]").forEach(btn => btn.addEventListener("click", async () => {
-      const keys = btn.dataset.all === "1" ? REPORTS.map(r => r.key) : reps.filter(b => b.checked).map(b => b.value);
+      const keys = btn.dataset.all === "1" ? REPORTS.filter(r => !r.needs || HAS[r.needs]).map(r => r.key) : reps.filter(b => b.checked).map(b => b.value);
       const parts = keys.filter(k => PART_ORDER.includes(k)), slateKeys = keys.filter(k => SLATE_ORDER.includes(k));
       const games = MAN.games.filter(g => SEL.has(g.id));   // kickoff order, as in the report
       const buttons = DLG.querySelectorAll("button");
@@ -341,6 +342,7 @@
       return;   // no packets yet: the buttons stay hidden
     }
     if (!MAN || MAN.week !== weekOf(data) || !MAN.games || !MAN.games.length) return;
+    HAS = { byeTrends: !!(data && data.byeTrends) };
     if (all) {
       all.hidden = false;
       const full = MAN.games.filter(g => !g.missing.length).length;
