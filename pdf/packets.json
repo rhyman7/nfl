@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 10 Matchup Report",
  "dataGeneratedAt": "2026-11-14T15:51:39.755446+00:00",
- "generatedAt": "2026-11-14T17:30:07Z",
+ "generatedAt": "2026-11-14T17:58:44Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -20,18 +20,20 @@
  "slate": {
   "best": [
    15,
-   16
-  ],
-  "td": [
+   16,
    17,
    18
   ],
-  "floors": [
+  "td": [
    19,
    20
   ],
+  "floors": [
+   21,
+   22
+  ],
   "bye": [
-   21
+   23
   ]
  },
  "games": [
