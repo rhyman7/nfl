@@ -1389,36 +1389,36 @@
      "log": "CIN|00-0036900",
      "kind": "rec",
      "avg": 80.9,
-     "proj": 96.2,
+     "proj": 93.5,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "DET": {
-     "rk": 2,
+     "rk": 3,
      "name": "Amon-Ra St. Brown",
      "pos": "WR",
      "opp": "NE",
      "log": "DET|00-0036963",
      "kind": "rec",
      "avg": 82.1,
-     "proj": 89.0,
+     "proj": 87.8,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "ARI": {
-     "rk": 3,
+     "rk": 4,
      "name": "Tyler Allgeier",
      "pos": "RB",
      "opp": "LA",
      "log": "ARI|00-0037263",
      "kind": "scrim",
      "avg": 55.2,
-     "proj": 66.4,
+     "proj": 65.7,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "ATL": {
-     "rk": 4,
+     "rk": 2,
      "name": "Kyle Pitts",
      "pos": "TE",
      "opp": "KC",
@@ -1427,22 +1427,22 @@
      "avg": 24.4,
      "proj": 36.9,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "TEN": {
-     "rk": 5,
+     "rk": 6,
      "name": "Wan'Dale Robinson",
      "pos": "WR",
      "opp": "JAX",
      "log": "TEN|00-0038117",
      "kind": "rec",
      "avg": 32.8,
-     "proj": 53.9,
+     "proj": 57.4,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "HOU": {
-     "rk": 6,
+     "rk": 9,
      "name": "Woody Marks",
      "pos": "RB",
      "opp": "CLE",
@@ -1451,55 +1451,55 @@
      "avg": 54.9,
      "proj": 66.2,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "NO": {
-     "rk": 7,
+     "rk": 8,
      "name": "Alvin Kamara",
      "pos": "RB",
      "opp": "CAR",
      "log": "NO|00-0033906",
      "kind": "scrim",
      "avg": 43.9,
-     "proj": 51.8,
+     "proj": 54.7,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "PIT": {
-     "rk": 8,
+     "rk": 12,
      "name": "Germie Bernard",
      "pos": "WR",
      "opp": "CIN",
      "log": "PIT|00-0041489",
      "kind": "rec",
      "avg": 40.6,
-     "proj": 46.2,
+     "proj": 45.4,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "CLE": {
-     "rk": 9,
+     "rk": 7,
      "name": "KC Concepcion",
      "pos": "WR",
      "opp": "HOU",
      "log": "CLE|00-0041547",
      "kind": "rec",
      "avg": 48.6,
-     "proj": 54.6,
+     "proj": 58.3,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "MIN": {
-     "rk": 10,
+     "rk": 11,
      "name": "Justin Jefferson",
      "pos": "WR",
      "opp": "GB",
      "log": "MIN|00-0036322",
      "kind": "rec",
      "avg": 56.1,
-     "proj": 61.1,
+     "proj": 61.8,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
     },
     "WAS": {
      "rk": 11,
@@ -1514,16 +1514,28 @@
      "at": "2026-11-13T01:15Z"
     },
     "DAL": {
-     "rk": 11,
+     "rk": 10,
      "name": "Ryan Flournoy",
      "pos": "WR",
      "opp": "SF",
      "log": "DAL|00-0039410",
      "kind": "rec",
      "avg": 43.9,
-     "proj": 49.9,
+     "proj": 51.9,
      "v": "board",
-     "at": "2026-11-14T16:47Z"
+     "at": "2026-11-14T17:16Z"
+    },
+    "MIA": {
+     "rk": 5,
+     "name": "Ollie Gordon II",
+     "pos": "RB",
+     "opp": "IND",
+     "log": "MIA|00-0040198",
+     "kind": "scrim",
+     "avg": 69.4,
+     "proj": 78.1,
+     "v": "board",
+     "at": "2026-11-14T17:16Z"
     }
    },
    "printed": {}
