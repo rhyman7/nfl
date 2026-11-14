@@ -202,8 +202,10 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   cover. Data: `byeTrends` in `data.json`, written by the data build from `games.csv`
   (`scripts/bye_trends.py`: regular season only, nflverse closing lines, "off a bye" = the team's
   previous game was two or more weeks earlier). The page is left out (and the packet row disabled)
-  when no team is coming off a bye or `byeTrends` isn't for this week. The CFB site has no
-  `byeTrends` yet, so the shared `build_report.py` skips the page there.
+  when no team is coming off a bye or `byeTrends` isn't for this week. **NFL only**: Ryan
+  decided on Nov 13, 2026 to leave it off the CFB report. The CFB data has no `byeTrends`, so the
+  shared `build_report.py` skips the page there, and `packets.js` hides the dialog row on any
+  site whose `data.json` has no `byeTrends` (the row's `needs`), so the CFB dialog is unchanged.
 - The **Weekly Matchup Report** is rule-based and built from `data/data.json` plus the injury
   tags in `data/injuries.json` (good and tough spots per game, Best Overall Matchups, Most Likely
   to Score a TD). Players listed out, doubtful, IR, PUP or suspended are left out of the picks and
