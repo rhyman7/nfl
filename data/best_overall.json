@@ -2610,9 +2610,9 @@
      "log": "CIN|00-0036900",
      "kind": "rec",
      "avg": 80.9,
-     "proj": 93.5,
+     "proj": 94.7,
      "v": "board",
-     "at": "2026-11-15T16:21Z",
+     "at": "2026-11-15T19:08Z",
      "lad": {
       "fd": [
        [
@@ -2753,16 +2753,16 @@
      }
     },
     "ARI": {
-     "rk": 4,
+     "rk": 2,
      "name": "Tyler Allgeier",
      "pos": "RB",
      "opp": "LA",
      "log": "ARI|00-0037263",
      "kind": "scrim",
      "avg": 55.2,
-     "proj": 65.3,
+     "proj": 66.3,
      "v": "board",
-     "at": "2026-11-15T16:21Z",
+     "at": "2026-11-15T19:08Z",
      "lad": {
       "dk": [
        [
@@ -2929,16 +2929,16 @@
      }
     },
     "DAL": {
-     "rk": 11,
+     "rk": 7,
      "name": "Ryan Flournoy",
      "pos": "WR",
      "opp": "SF",
      "log": "DAL|00-0039410",
      "kind": "rec",
      "avg": 43.9,
-     "proj": 51.9,
+     "proj": 53.0,
      "v": "board",
-     "at": "2026-11-15T16:21Z",
+     "at": "2026-11-15T19:08Z",
      "lad": {
       "fd": [
        [
@@ -3079,16 +3079,16 @@
      }
     },
     "PIT": {
-     "rk": 10,
+     "rk": 9,
      "name": "Germie Bernard",
      "pos": "WR",
      "opp": "CIN",
      "log": "PIT|00-0041489",
      "kind": "rec",
      "avg": 40.6,
-     "proj": 47.3,
+     "proj": 45.6,
      "v": "board",
-     "at": "2026-11-15T16:21Z",
+     "at": "2026-11-15T19:08Z",
      "lad": {
       "dk": [
        [
