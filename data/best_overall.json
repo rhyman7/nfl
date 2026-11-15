@@ -2603,16 +2603,16 @@
   "10": {
    "picks": {
     "CIN": {
-     "rk": 1,
+     "rk": 3,
      "name": "Ja'Marr Chase",
      "pos": "WR",
      "opp": "PIT",
      "log": "CIN|00-0036900",
      "kind": "rec",
      "avg": 80.9,
-     "proj": 94.7,
+     "proj": 91.5,
      "v": "board",
-     "at": "2026-11-15T19:08Z",
+     "at": "2026-11-15T22:48Z",
      "lad": {
       "fd": [
        [
@@ -3079,16 +3079,16 @@
      }
     },
     "PIT": {
-     "rk": 9,
+     "rk": 6,
      "name": "Germie Bernard",
      "pos": "WR",
      "opp": "CIN",
      "log": "PIT|00-0041489",
      "kind": "rec",
      "avg": 40.6,
-     "proj": 45.6,
+     "proj": 59.2,
      "v": "board",
-     "at": "2026-11-15T19:08Z",
+     "at": "2026-11-15T22:48Z",
      "lad": {
       "dk": [
        [
