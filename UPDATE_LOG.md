@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-15 (10:50 AM ET) — daily refresh, Week 10
+- Commit "Week 10 daily refresh (2026-11-15)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB; TNF final WAS 24, NYG 21; Sunday/Monday games not yet played). Published.
+- Lines moved vs 11-14 publish (home spread / total): NE@DET total 49.5 → 50.5; CAR@NO spread 2.5 → 1.5; HOU@CLE total 40.5 → 41.5; JAX@TEN total 46.5 → 45.5; MIA@IND 3.5/38.5 → 4.5/37.5; LA@ARI total 39.5 → 38.5.
+- Referees: 0 of 14 games assigned (still blank in nflverse games.csv on Sunday; flagged).
+- Fallback: PFR standings fetch failed (client error). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 9 (scripts/srs.py).
+- data/capped.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-10). All data checks and headless page tests passed.
+
 ## 2026-11-14 (10:50 AM ET) — daily refresh, Week 10
 - Commit "Week 10 daily refresh (2026-11-14)". Through Week 9, schedule Week 10 (14 games; byes CHI, DEN, PHI, TB; TNF final WAS 24, NYG 21). Published.
 - Lines moved vs 11-13 publish (home spread / total): MIN@GB 3.0/41.5 → 2.5/42.5; SF@DAL spread −3.5 → −4.5.
