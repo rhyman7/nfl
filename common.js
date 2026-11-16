@@ -487,7 +487,7 @@ function renderMatchupParts(g) {
     </div>
     ${pacePanel(away, home)}
     <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side is better by at least one league standard deviation (so it counts how big the gap is, not just rank spots). Adj. rows are adjusted for the offenses and defenses each team has faced, as on the EPA page; the per-game rows are not, so a soft or hard schedule shows in them. Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
-  const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away) + renderTeamCard(home);
+  const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away, heroQb(g, g.away, g.awayQb)) + renderTeamCard(home, heroQb(g, g.home, g.homeQb));
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
 
@@ -793,8 +793,25 @@ function bettingPanel(t) {
 
 /* ---------------- Team card ---------------- */
 
-function renderTeamCard(t) {
+// A starter who joined mid-season (a trade or signing) has no stats in his new team's tables, so the
+// matchup card adds his rows from his old team's tables, tagged "with ARI" (Nov 16, 2026).
+function newQbRows(t, qb) {
+  const out = { passing: null, rushing: null };
+  if (!qb || (t.passing || []).some(r => normName(r.player) === normName(qb))) return out;
+  for (const o of Object.values(DATA.teams)) {
+    if (o === t) continue;
+    for (const k of ["passing", "rushing"]) {
+      const r = (o[k] || []).find(x => normName(x.player) === normName(qb));
+      if (r && !out[k]) out[k] = { ...r, from: o.abbr };
+    }
+  }
+  return out;
+}
+
+function renderTeamCard(t, qb) {
   if (!t) return "";
+  const nq = newQbRows(t, qb);
+  const addQb = (rows, r) => r ? [r, ...(rows || [])] : rows;
   const avg = DATA.leagueAverage;
   const gr = DATA.gaugeRanges;
   const pop = kind => (dpHas(t) ? { team: t.team, kind } : null);
@@ -856,7 +873,7 @@ function renderTeamCard(t) {
     </div>
 
     <div class="tables-row">
-      ${playerTable("Passing", withAvgC(t.passing), [
+      ${playerTable("Passing", withAvgC(addQb(t.passing, nq.passing)), [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
         ["TD", "td", "num"],
@@ -864,7 +881,7 @@ function renderTeamCard(t) {
         ["Cmp/G", "cmp", "num"],
         ["Pass<br>Yds /<br>Comp", "ypc", "num"],
       ])}
-      ${playerTable("Rushing", t.rushing, [
+      ${playerTable("Rushing", addQb(t.rushing, nq.rushing), [
         ["Player", "player", "text"],
         ["Yds/G", "ydsG", "num"],
         ["TD", "td", "num"],
@@ -930,7 +947,8 @@ function withAvgC(rows) {
 }
 
 // Position after the player's name in the Rushing and Receiving tables (Passing is all QBs)
-const posTag = (r, kind) => kind !== "passing" && r.pos ? ` <span class="pt-pos">${escapeHtml(r.pos)}</span>` : "";
+const posTag = (r, kind) => (kind !== "passing" && r.pos ? ` <span class="pt-pos">${escapeHtml(r.pos)}</span>` : "")
+  + (r.from ? ` <span class="pt-pos pt-from" title="Season stats with ${escapeHtml(r.from)}; starting here">with ${escapeHtml(r.from)}</span>` : "");
 
 function playerTable(title, rows, cols) {
   if (!rows || rows.length === 0) {
