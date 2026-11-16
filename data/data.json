@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T15:52:04.088635+00:00",
+  "generatedAt": "2026-11-16T15:52:33.039963+00:00",
   "season": 2026,
   "throughWeek": 9,
   "schedule": {
@@ -44,8 +44,8 @@
         "gametime": "09:30",
         "away": "New England Patriots",
         "home": "Detroit Lions",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 10,
+        "homeScore": 35,
         "spread": 2.5,
         "total": 50.5,
         "stadium": "FC Bayern Munich Stadium",
@@ -76,8 +76,8 @@
         "gametime": "13:00",
         "away": "Buffalo Bills",
         "home": "New York Jets",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 31,
+        "homeScore": 12,
         "spread": -8.5,
         "total": 50.5,
         "stadium": "MetLife Stadium",
@@ -108,8 +108,8 @@
         "gametime": "13:00",
         "away": "Carolina Panthers",
         "home": "New Orleans Saints",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 20,
+        "homeScore": 17,
         "spread": 1.5,
         "total": 48.5,
         "stadium": "Caesars Superdome",
@@ -140,10 +140,10 @@
         "gametime": "13:00",
         "away": "Houston Texans",
         "home": "Cleveland Browns",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 24,
+        "homeScore": 27,
         "spread": -4.5,
-        "total": 41.5,
+        "total": 40.5,
         "stadium": "Huntington Bank Field",
         "roof": "outdoors",
         "divisional": false,
@@ -172,8 +172,8 @@
         "gametime": "13:00",
         "away": "Jacksonville Jaguars",
         "home": "Tennessee Titans",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 40,
+        "homeScore": 23,
         "spread": -10.5,
         "total": 45.5,
         "stadium": "Nissan Stadium",
@@ -204,12 +204,12 @@
         "gametime": "13:00",
         "away": "Kansas City Chiefs",
         "home": "Atlanta Falcons",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 35,
+        "homeScore": 13,
         "spread": -3.0,
         "total": 47.5,
         "stadium": "Mercedes-Benz Stadium",
-        "roof": null,
+        "roof": "closed",
         "divisional": false,
         "awayQb": "Patrick Mahomes",
         "homeQb": "Michael Penix Jr.",
@@ -236,14 +236,14 @@
         "gametime": "13:00",
         "away": "Miami Dolphins",
         "home": "Indianapolis Colts",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 22,
+        "homeScore": 24,
         "spread": 4.5,
         "total": 37.5,
         "stadium": "Lucas Oil Stadium",
-        "roof": null,
+        "roof": "closed",
         "divisional": false,
-        "awayQb": "Malik Willis",
+        "awayQb": "Kyle McCord",
         "homeQb": "Daniel Jones",
         "referee": null,
         "awayRest": 7,
@@ -268,8 +268,8 @@
         "gametime": "13:00",
         "away": "Minnesota Vikings",
         "home": "Green Bay Packers",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 30,
+        "homeScore": 10,
         "spread": 2.5,
         "total": 42.5,
         "stadium": "Lambeau Field",
@@ -300,12 +300,12 @@
         "gametime": "16:05",
         "away": "Los Angeles Rams",
         "home": "Arizona Cardinals",
-        "awayScore": null,
-        "homeScore": null,
-        "spread": -9.5,
+        "awayScore": 34,
+        "homeScore": 6,
+        "spread": -10.0,
         "total": 38.5,
         "stadium": "State Farm Stadium",
-        "roof": null,
+        "roof": "open",
         "divisional": true,
         "awayQb": "Matthew Stafford",
         "homeQb": "Gardner Minshew",
@@ -318,7 +318,7 @@
         "city": "Glendale, AZ",
         "lat": 33.528,
         "lon": -112.263,
-        "indoor": true,
+        "indoor": false,
         "lineOpen": {
           "spread": -9.5,
           "total": 40.5,
@@ -332,8 +332,8 @@
         "gametime": "16:05",
         "away": "Seattle Seahawks",
         "home": "Las Vegas Raiders",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 21,
+        "homeScore": 13,
         "spread": -6.5,
         "total": 40.5,
         "stadium": "Allegiant Stadium",
@@ -364,12 +364,12 @@
         "gametime": "16:25",
         "away": "San Francisco 49ers",
         "home": "Dallas Cowboys",
-        "awayScore": null,
-        "homeScore": null,
-        "spread": -4.5,
+        "awayScore": 46,
+        "homeScore": 40,
+        "spread": -3.5,
         "total": 55.5,
         "stadium": "AT&T Stadium",
-        "roof": null,
+        "roof": "closed",
         "divisional": false,
         "awayQb": "Brock Purdy",
         "homeQb": "Dak Prescott",
@@ -396,9 +396,9 @@
         "gametime": "20:20",
         "away": "Pittsburgh Steelers",
         "home": "Cincinnati Bengals",
-        "awayScore": null,
-        "homeScore": null,
-        "spread": 3.5,
+        "awayScore": 18,
+        "homeScore": 38,
+        "spread": 4.5,
         "total": 49.5,
         "stadium": "Paycor Stadium",
         "roof": "outdoors",
@@ -431,7 +431,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 4.5,
-        "total": 38.5,
+        "total": 39.5,
         "stadium": "M&T Bank Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -79564,10 +79564,10 @@
       "all": {
         "cur": {
           "w": 13,
-          "l": 1,
+          "l": 3,
           "t": 0,
           "aw": 10,
-          "al": 4,
+          "al": 6,
           "ap": 0
         },
         "recent": {
@@ -79590,10 +79590,10 @@
       "rested": {
         "cur": {
           "w": 13,
-          "l": 1,
+          "l": 3,
           "t": 0,
           "aw": 10,
-          "al": 4,
+          "al": 6,
           "ap": 0
         },
         "recent": {
@@ -79668,10 +79668,10 @@
       "dog": {
         "cur": {
           "w": 1,
-          "l": 1,
+          "l": 3,
           "t": 0,
           "aw": 1,
-          "al": 1,
+          "al": 3,
           "ap": 0
         },
         "recent": {
@@ -79694,10 +79694,10 @@
       "home": {
         "cur": {
           "w": 8,
-          "l": 0,
+          "l": 1,
           "t": 0,
           "aw": 5,
-          "al": 3,
+          "al": 4,
           "ap": 0
         },
         "recent": {
@@ -79720,10 +79720,10 @@
       "road": {
         "cur": {
           "w": 5,
-          "l": 1,
+          "l": 2,
           "t": 0,
           "aw": 5,
-          "al": 1,
+          "al": 2,
           "ap": 0
         },
         "recent": {
@@ -79798,10 +79798,10 @@
       "dog_home": {
         "cur": {
           "w": 0,
-          "l": 0,
+          "l": 1,
           "t": 0,
           "aw": 0,
-          "al": 0,
+          "al": 1,
           "ap": 0
         },
         "recent": {
@@ -79824,10 +79824,10 @@
       "dog_road": {
         "cur": {
           "w": 1,
-          "l": 1,
+          "l": 2,
           "t": 0,
           "aw": 1,
-          "al": 1,
+          "al": 2,
           "ap": 0
         },
         "recent": {
@@ -80002,6 +80002,28 @@
         "pf": 38,
         "pa": 17,
         "ats": "W"
+      },
+      {
+        "w": 10,
+        "team": "PIT",
+        "opp": "CIN",
+        "home": false,
+        "neutral": false,
+        "line": 4.5,
+        "pf": 18,
+        "pa": 38,
+        "ats": "L"
+      },
+      {
+        "w": 10,
+        "team": "TEN",
+        "opp": "JAX",
+        "home": true,
+        "neutral": false,
+        "line": 10.5,
+        "pf": 23,
+        "pa": 40,
+        "ats": "L"
       }
     ],
     "thisWeek": {
