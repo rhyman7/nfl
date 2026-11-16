@@ -168,7 +168,9 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   `America/New_York` with locale en-US, since GitHub's runners are on UTC, so kickoff times print in ET) in the
   **Build matchup PDFs** Action, which runs when the data, the print layout or the EPA page
   change. `pdf/manifest.json` says which week the PDFs are for; the Download PDF links only
-  show when it matches the week on the page. Don't hand-edit anything in `pdf/`. The same
+  show when it matches the week on the page. Don't hand-edit anything in `pdf/`. The build serves the
+  workflow's `_value-board` checkout at `/fb-value-board/` so the pages see the board's feed (the
+  header QB, the board panel) as they do on the site. The same
   Action also builds the game packets below, and runs daily after the NFL value board updates.
 - **Game packets** (`packets.js`, `scripts/build_report.py`, `scripts/build_packets.py`,
   `scripts/report.css`, `vendor/pdf-lib.min.js`). For every game, four parts back to back:
