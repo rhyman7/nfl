@@ -25,9 +25,10 @@ function startWeather(games, rerender) {
   const horizon = now + (WX_DAYS - 1) * 24 * 3600 * 1000;
   const todo = games.filter(g => !isFinal(g) && g.indoor !== true && g.lat != null && g.lon != null && g.gametime &&
     gameStart(g).getTime() > now - 6 * 3600 * 1000 && gameStart(g).getTime() < horizon);
-  if (!todo.length) return;
+  if (!todo.length) return Promise.resolve();
 
-  (async () => {
+  // returns a promise so the print page can wait for the forecast before laying out
+  return (async () => {
     // one entry per stadium; Open-Meteo takes several locations per request
     const places = [...new Map(todo.map(g => [`${g.lat},${g.lon}`, { lat: g.lat, lon: g.lon }])).entries()];
     const fc = {};
