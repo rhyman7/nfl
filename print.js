@@ -23,6 +23,11 @@ async function init() {
     return;
   }
 
+  // kickoff forecast for outdoor games (the header's info bar), waited for up to 8 seconds
+  if (typeof startWeather === "function") {
+    await Promise.race([startWeather(games, () => {}), new Promise(r => setTimeout(r, 8000))]).catch(() => {});
+  }
+
   wrap.innerHTML = games.map(g => {
     const p = renderMatchupParts(g);
     return `<section class="print-matchup">
