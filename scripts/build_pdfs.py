@@ -24,12 +24,22 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "pdf"
+VALUE_BOARD = ROOT / "_value-board"   # the workflow's checkout of rhyman7/fb-value-board
 
 
 def serve():
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *args):
             pass
+
+        # The pages read the value board's feed at /fb-value-board/docs/ (VB_ROOT in common.js), e.g.
+        # the header's starting QB. The workflow checks the board out to _value-board; serve it there,
+        # so the PDFs match the site (Nov 16, 2026: they printed nflverse's last starter instead).
+        def translate_path(self, path):
+            if path.startswith("/fb-value-board/") and VALUE_BOARD.is_dir():
+                rest = path[len("/fb-value-board/"):].split("?", 1)[0].split("#", 1)[0]
+                return str(VALUE_BOARD / rest)
+            return super().translate_path(path)
 
     handler = functools.partial(Quiet, directory=str(ROOT))
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
