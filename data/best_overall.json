@@ -3231,33 +3231,9 @@
      "log": "CHI|00-0040126",
      "kind": "rec",
      "avg": 40.3,
-     "proj": 49.1,
+     "proj": 47.7,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "DET": {
-     "rk": 5,
-     "name": "Amon-Ra St. Brown",
-     "pos": "WR",
-     "opp": "TB",
-     "log": "DET|00-0036963",
-     "kind": "rec",
-     "avg": 83.9,
-     "proj": 91.3,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "TEN": {
-     "rk": 7,
-     "name": "Tony Pollard",
-     "pos": "RB",
-     "opp": "DAL",
-     "log": "TEN|00-0035261",
-     "kind": "scrim",
-     "avg": 84.9,
-     "proj": 94.6,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     },
     "DAL": {
      "rk": 1,
@@ -3267,81 +3243,33 @@
      "log": "DAL|00-0036997",
      "kind": "scrim",
      "avg": 82.3,
-     "proj": 104.9,
+     "proj": 105.3,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     },
     "LAC": {
-     "rk": 6,
+     "rk": 4,
      "name": "Omarion Hampton",
      "pos": "RB",
      "opp": "NYJ",
      "log": "LAC|00-0040666",
      "kind": "scrim",
      "avg": 59.7,
-     "proj": 71.9,
+     "proj": 79.6,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "DEN": {
-     "rk": 11,
-     "name": "Jaylen Waddle",
-     "pos": "WR",
-     "opp": "LV",
-     "log": "DEN|00-0036613",
-     "kind": "rec",
-     "avg": 37.4,
-     "proj": 41.5,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "PIT": {
-     "rk": 9,
-     "name": "DK Metcalf",
-     "pos": "WR",
-     "opp": "PHI",
-     "log": "PIT|00-0035640",
-     "kind": "rec",
-     "avg": 48.0,
-     "proj": 54.3,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     },
     "PHI": {
-     "rk": 8,
+     "rk": 6,
      "name": "Makai Lemon",
      "pos": "WR",
      "opp": "PIT",
      "log": "PHI|00-0040867",
      "kind": "rec",
      "avg": 34.7,
-     "proj": 50.5,
+     "proj": 38.9,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "MIN": {
-     "rk": 4,
-     "name": "Justin Jefferson",
-     "pos": "WR",
-     "opp": "SF",
-     "log": "MIN|00-0036322",
-     "kind": "rec",
-     "avg": 58.4,
-     "proj": 70.4,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
-    },
-    "SF": {
-     "rk": 12,
-     "name": "Kaelon Black",
-     "pos": "RB",
-     "opp": "MIN",
-     "log": "SF|00-0041052",
-     "kind": "scrim",
-     "avg": 41.4,
-     "proj": 44.9,
-     "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     },
     "CIN": {
      "rk": 2,
@@ -3351,21 +3279,21 @@
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 76.3,
-     "proj": 106.4,
+     "proj": 103.2,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     },
     "WAS": {
-     "rk": 10,
+     "rk": 5,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "CIN",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 36.2,
-     "proj": 41.1,
+     "proj": 42.8,
      "v": "board",
-     "at": "2026-11-17T15:58Z"
+     "at": "2026-11-17T21:21Z"
     }
    }
   }
