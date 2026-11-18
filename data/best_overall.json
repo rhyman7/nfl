@@ -3231,9 +3231,9 @@
      "log": "CHI|00-0040126",
      "kind": "rec",
      "avg": 40.3,
-     "proj": 46.7,
+     "proj": 46.5,
      "v": "board",
-     "at": "2026-11-18T15:54Z",
+     "at": "2026-11-18T20:30Z",
      "lad": {
       "fd": [
        [
@@ -3256,16 +3256,16 @@
      }
     },
     "DAL": {
-     "rk": 1,
+     "rk": 2,
      "name": "Javonte Williams",
      "pos": "RB",
      "opp": "TEN",
      "log": "DAL|00-0036997",
      "kind": "scrim",
      "avg": 82.3,
-     "proj": 106.1,
+     "proj": 97.0,
      "v": "board",
-     "at": "2026-11-18T15:54Z",
+     "at": "2026-11-18T20:30Z",
      "lad": {
       "dk": [
        [
@@ -3301,33 +3301,33 @@
      "log": "LAC|00-0040666",
      "kind": "scrim",
      "avg": 59.7,
-     "proj": 81.5,
+     "proj": 78.6,
      "v": "board",
-     "at": "2026-11-18T15:54Z"
+     "at": "2026-11-18T20:30Z"
     },
     "PHI": {
-     "rk": 5,
+     "rk": 8,
      "name": "Makai Lemon",
      "pos": "WR",
      "opp": "PIT",
      "log": "PHI|00-0040867",
      "kind": "rec",
      "avg": 34.7,
-     "proj": 43.1,
+     "proj": 39.9,
      "v": "board",
-     "at": "2026-11-18T15:54Z"
+     "at": "2026-11-18T20:30Z"
     },
     "CIN": {
-     "rk": 2,
+     "rk": 1,
      "name": "Chase Brown",
      "pos": "RB",
      "opp": "WAS",
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 76.3,
-     "proj": 103.0,
+     "proj": 97.7,
      "v": "board",
-     "at": "2026-11-18T15:54Z",
+     "at": "2026-11-18T20:30Z",
      "lad": {
       "dk": [
        [
@@ -3368,16 +3368,16 @@
      }
     },
     "WAS": {
-     "rk": 6,
+     "rk": 7,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "CIN",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 36.2,
-     "proj": 45.0,
+     "proj": 43.5,
      "v": "board",
-     "at": "2026-11-18T15:54Z",
+     "at": "2026-11-18T20:30Z",
      "lad": {
       "dk": [
        [
@@ -3418,7 +3418,7 @@
      }
     },
     "KC": {
-     "rk": 9,
+     "rk": 10,
      "name": "Xavier Worthy",
      "pos": "WR",
      "opp": "ARI",
@@ -3427,31 +3427,31 @@
      "avg": 30.9,
      "proj": 33.5,
      "v": "board",
-     "at": "2026-11-18T15:54Z"
+     "at": "2026-11-18T20:30Z"
     },
     "PIT": {
-     "rk": 8,
+     "rk": 9,
      "name": "Germie Bernard",
      "pos": "WR",
      "opp": "PHI",
      "log": "PIT|00-0041489",
      "kind": "rec",
      "avg": 35.5,
-     "proj": 40.2,
+     "proj": 38.0,
      "v": "board",
-     "at": "2026-11-18T15:54Z"
+     "at": "2026-11-18T20:30Z"
     },
     "MIN": {
-     "rk": 7,
+     "rk": 5,
      "name": "Justin Jefferson",
      "pos": "WR",
      "opp": "SF",
      "log": "MIN|00-0036322",
      "kind": "rec",
      "avg": 58.4,
-     "proj": 62.1,
+     "proj": 65.6,
      "v": "board",
-     "at": "2026-11-18T15:54Z",
+     "at": "2026-11-18T20:30Z",
      "lad": {
       "fd": [
        [
@@ -3469,6 +3469,56 @@
        [
         59.5,
         -310
+       ]
+      ]
+     }
+    },
+    "MIA": {
+     "rk": 6,
+     "name": "Ollie Gordon II",
+     "pos": "RB",
+     "opp": "BUF",
+     "log": "MIA|00-0040198",
+     "kind": "scrim",
+     "avg": 75.1,
+     "proj": 81.1,
+     "v": "board",
+     "at": "2026-11-18T20:30Z",
+     "lad": {
+      "fd": [
+       [
+        56.5,
+        -114
+       ],
+       [
+        49.5,
+        -168
+       ],
+       [
+        39.5,
+        -320
+       ],
+       [
+        29.5,
+        -750
+       ]
+      ],
+      "dk": [
+       [
+        63.5,
+        -114
+       ],
+       [
+        59.5,
+        -139
+       ],
+       [
+        49.5,
+        -242
+       ],
+       [
+        39.5,
+        -499
        ]
       ]
      }
