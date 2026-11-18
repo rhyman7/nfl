@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T15:54:25.590888+00:00",
+  "generatedAt": "2026-11-18T15:51:58.158001+00:00",
   "season": 2026,
   "throughWeek": 10,
   "schedule": {
@@ -46,7 +46,7 @@
         "home": "Kansas City Chiefs",
         "awayScore": null,
         "homeScore": null,
-        "spread": 16.5,
+        "spread": 15.5,
         "total": 41.5,
         "stadium": "GEHA Field at Arrowhead Stadium",
         "roof": "outdoors",
@@ -79,7 +79,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 2.5,
-        "total": 43.5,
+        "total": 44.5,
         "stadium": "Bank of America Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -206,8 +206,8 @@
         "home": "Detroit Lions",
         "awayScore": null,
         "homeScore": null,
-        "spread": 6.5,
-        "total": 45.5,
+        "spread": 7.0,
+        "total": 43.5,
         "stadium": "Ford Field",
         "roof": "dome",
         "divisional": false,
@@ -271,7 +271,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 3.5,
-        "total": 40.5,
+        "total": 41.5,
         "stadium": "SoFi Stadium",
         "roof": "dome",
         "divisional": false,
@@ -367,7 +367,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 3.0,
-        "total": 46.5,
+        "total": 45.5,
         "stadium": "Estadio Banorte",
         "roof": "outdoors",
         "divisional": false,
@@ -399,7 +399,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": -6.5,
-        "total": 52.5,
+        "total": 54.5,
         "stadium": "Northwest Stadium",
         "roof": "outdoors",
         "divisional": false,
@@ -2095,8 +2095,8 @@
             "rank": 19
           },
           "pressureRate": {
-            "v": 22.9,
-            "rank": 25
+            "v": 24.1,
+            "rank": 24
           }
         },
         "def": {
@@ -2125,8 +2125,8 @@
             "rank": 15
           },
           "pressureRate": {
-            "v": 18.1,
-            "rank": 31
+            "v": 19.7,
+            "rank": 29
           }
         },
         "rzTrips": 37
@@ -3937,7 +3937,7 @@
             "rank": 12
           },
           "pressureRate": {
-            "v": 12.6,
+            "v": 15.6,
             "rank": 1
           }
         },
@@ -3967,8 +3967,8 @@
             "rank": 21
           },
           "pressureRate": {
-            "v": 22.5,
-            "rank": 14
+            "v": 26.6,
+            "rank": 9
           }
         },
         "rzTrips": 36
@@ -5839,7 +5839,7 @@
           },
           "pressureRate": {
             "v": 20.9,
-            "rank": 19
+            "rank": 12
           }
         },
         "def": {
@@ -5869,7 +5869,7 @@
           },
           "pressureRate": {
             "v": 18.8,
-            "rank": 28
+            "rank": 31
           }
         },
         "rzTrips": 36
@@ -7520,8 +7520,8 @@
             "rank": 15
           },
           "pressureRate": {
-            "v": 18.7,
-            "rank": 10
+            "v": 19.4,
+            "rank": 6
           }
         },
         "def": {
@@ -7550,8 +7550,8 @@
             "rank": 20
           },
           "pressureRate": {
-            "v": 25.3,
-            "rank": 5
+            "v": 28.5,
+            "rank": 4
           }
         },
         "rzTrips": 47
@@ -9196,7 +9196,7 @@
             "rank": 24
           },
           "pressureRate": {
-            "v": 27.2,
+            "v": 29.1,
             "rank": 32
           }
         },
@@ -9226,8 +9226,8 @@
             "rank": 32
           },
           "pressureRate": {
-            "v": 19.7,
-            "rank": 25
+            "v": 22.2,
+            "rank": 21
           }
         },
         "rzTrips": 37
@@ -9457,8 +9457,8 @@
           "rec": 5.44,
           "pos": "WR",
           "log": "CHI|00-0040735",
-          "ts": 22.3,
-          "ts3": 22.4
+          "ts": 22.5,
+          "ts3": 23.2
         },
         {
           "player": "Rome Odunze",
@@ -9468,8 +9468,8 @@
           "rec": 3.56,
           "pos": "WR",
           "log": "CHI|00-0039919",
-          "ts": 17.5,
-          "ts3": 18.4
+          "ts": 17.4,
+          "ts3": 18.2
         },
         {
           "player": "Colston Loveland",
@@ -9480,7 +9480,7 @@
           "pos": "TE",
           "log": "CHI|00-0040126",
           "ts": 19.5,
-          "ts3": 27.6
+          "ts3": 27.3
         },
         {
           "player": "Kalif Raymond",
@@ -9491,7 +9491,7 @@
           "pos": "WR",
           "log": "CHI|00-0032464",
           "ts": 14.0,
-          "ts3": 12.2
+          "ts3": 12.1
         },
         {
           "player": "Roschon Johnson",
@@ -9513,7 +9513,7 @@
           "pos": "RB",
           "log": "CHI|00-0036275",
           "ts": 9.9,
-          "ts3": 8.2
+          "ts3": 8.1
         },
         {
           "player": "Sam Roush",
@@ -10842,7 +10842,7 @@
           },
           "pressureRate": {
             "v": 20.1,
-            "rank": 13
+            "rank": 8
           }
         },
         "def": {
@@ -10872,7 +10872,7 @@
           },
           "pressureRate": {
             "v": 27.1,
-            "rank": 3
+            "rank": 6
           }
         },
         "rzTrips": 47
@@ -10897,9 +10897,9 @@
             "player": "Luther Burden III",
             "pos": "WR",
             "snap": null,
-            "ts": 22.3,
-            "as": 21.8,
-            "ts3": 22.4,
+            "ts": 22.5,
+            "as": 22.2,
+            "ts3": 23.2,
             "log": "CHI|00-0040735"
           },
           {
@@ -10907,17 +10907,17 @@
             "pos": "TE",
             "snap": 86,
             "ts": 19.5,
-            "as": 17.4,
-            "ts3": 27.6,
+            "as": 17.3,
+            "ts3": 27.3,
             "log": "CHI|00-0040126"
           },
           {
             "player": "Rome Odunze",
             "pos": "WR",
             "snap": 85,
-            "ts": 17.5,
-            "as": 32.8,
-            "ts3": 18.4,
+            "ts": 17.4,
+            "as": 32.7,
+            "ts3": 18.2,
             "log": "CHI|00-0039919"
           },
           {
@@ -10926,7 +10926,7 @@
             "snap": 64,
             "ts": 14.0,
             "as": 12.7,
-            "ts3": 12.2,
+            "ts3": 12.1,
             "log": "CHI|00-0032464"
           },
           {
@@ -10935,7 +10935,7 @@
             "snap": 64,
             "ts": 9.9,
             "as": 0.9,
-            "ts3": 8.2,
+            "ts3": 8.1,
             "log": "CHI|00-0036275"
           }
         ],
@@ -12568,8 +12568,8 @@
             "rank": 7
           },
           "pressureRate": {
-            "v": 20.8,
-            "rank": 18
+            "v": 22.4,
+            "rank": 15
           }
         },
         "def": {
@@ -12598,8 +12598,8 @@
             "rank": 9
           },
           "pressureRate": {
-            "v": 23.2,
-            "rank": 11
+            "v": 26.9,
+            "rank": 7
           }
         },
         "rzTrips": 47
@@ -14410,7 +14410,7 @@
             "rank": 32
           },
           "pressureRate": {
-            "v": 23.1,
+            "v": 25.6,
             "rank": 27
           }
         },
@@ -14440,8 +14440,8 @@
             "rank": 10
           },
           "pressureRate": {
-            "v": 20.1,
-            "rank": 23
+            "v": 22.0,
+            "rank": 22
           }
         },
         "rzTrips": 35
@@ -16309,8 +16309,8 @@
             "rank": 1
           },
           "pressureRate": {
-            "v": 20.2,
-            "rank": 14
+            "v": 23.2,
+            "rank": 21
           }
         },
         "def": {
@@ -16339,8 +16339,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 23.2,
-            "rank": 12
+            "v": 26.2,
+            "rank": 11
           }
         },
         "rzTrips": 45
@@ -17978,7 +17978,7 @@
           },
           "pressureRate": {
             "v": 20.3,
-            "rank": 16
+            "rank": 9
           }
         },
         "def": {
@@ -18008,7 +18008,7 @@
           },
           "pressureRate": {
             "v": 27.9,
-            "rank": 2
+            "rank": 5
           }
         },
         "rzTrips": 32
@@ -19717,8 +19717,8 @@
             "rank": 17
           },
           "pressureRate": {
-            "v": 17.7,
-            "rank": 6
+            "v": 19.8,
+            "rank": 7
           }
         },
         "def": {
@@ -19747,8 +19747,8 @@
             "rank": 4
           },
           "pressureRate": {
-            "v": 24.0,
-            "rank": 8
+            "v": 26.3,
+            "rank": 10
           }
         },
         "rzTrips": 45
@@ -21539,8 +21539,8 @@
             "rank": 16
           },
           "pressureRate": {
-            "v": 19.3,
-            "rank": 11
+            "v": 22.9,
+            "rank": 16
           }
         },
         "def": {
@@ -21569,8 +21569,8 @@
             "rank": 11
           },
           "pressureRate": {
-            "v": 21.6,
-            "rank": 16
+            "v": 22.8,
+            "rank": 18
           }
         },
         "rzTrips": 44
@@ -23264,7 +23264,7 @@
             "rank": 9
           },
           "pressureRate": {
-            "v": 17.4,
+            "v": 19.1,
             "rank": 5
           }
         },
@@ -23294,8 +23294,8 @@
             "rank": 2
           },
           "pressureRate": {
-            "v": 23.6,
-            "rank": 9
+            "v": 26.7,
+            "rank": 8
           }
         },
         "rzTrips": 38
@@ -25146,8 +25146,8 @@
             "rank": 21
           },
           "pressureRate": {
-            "v": 21.6,
-            "rank": 22
+            "v": 23.0,
+            "rank": 19
           }
         },
         "def": {
@@ -25176,8 +25176,8 @@
             "rank": 14
           },
           "pressureRate": {
-            "v": 20.3,
-            "rank": 22
+            "v": 22.7,
+            "rank": 20
           }
         },
         "rzTrips": 30
@@ -26930,7 +26930,7 @@
             "rank": 10
           },
           "pressureRate": {
-            "v": 16.8,
+            "v": 18.2,
             "rank": 4
           }
         },
@@ -26960,8 +26960,8 @@
             "rank": 24
           },
           "pressureRate": {
-            "v": 21.9,
-            "rank": 15
+            "v": 25.7,
+            "rank": 12
           }
         },
         "rzTrips": 41
@@ -28623,8 +28623,8 @@
             "rank": 3
           },
           "pressureRate": {
-            "v": 18.6,
-            "rank": 8
+            "v": 23.2,
+            "rank": 20
           }
         },
         "def": {
@@ -28653,8 +28653,8 @@
             "rank": 28
           },
           "pressureRate": {
-            "v": 17.3,
-            "rank": 32
+            "v": 20.4,
+            "rank": 27
           }
         },
         "rzTrips": 40
@@ -30437,8 +30437,8 @@
             "rank": 4
           },
           "pressureRate": {
-            "v": 15.0,
-            "rank": 3
+            "v": 16.2,
+            "rank": 2
           }
         },
         "def": {
@@ -30467,8 +30467,8 @@
             "rank": 19
           },
           "pressureRate": {
-            "v": 20.0,
-            "rank": 24
+            "v": 21.7,
+            "rank": 23
           }
         },
         "rzTrips": 47
@@ -32132,7 +32132,7 @@
           },
           "pressureRate": {
             "v": 24.8,
-            "rank": 30
+            "rank": 25
           }
         },
         "def": {
@@ -32162,7 +32162,7 @@
           },
           "pressureRate": {
             "v": 19.3,
-            "rank": 26
+            "rank": 30
           }
         },
         "rzTrips": 26
@@ -33964,8 +33964,8 @@
             "rank": 8
           },
           "pressureRate": {
-            "v": 20.9,
-            "rank": 20
+            "v": 25.9,
+            "rank": 29
           }
         },
         "def": {
@@ -33994,8 +33994,8 @@
             "rank": 16
           },
           "pressureRate": {
-            "v": 26.9,
-            "rank": 4
+            "v": 29.9,
+            "rank": 3
           }
         },
         "rzTrips": 46
@@ -35700,8 +35700,8 @@
             "rank": 29
           },
           "pressureRate": {
-            "v": 23.7,
-            "rank": 28
+            "v": 26.4,
+            "rank": 30
           }
         },
         "def": {
@@ -35730,8 +35730,8 @@
             "rank": 29
           },
           "pressureRate": {
-            "v": 20.6,
-            "rank": 21
+            "v": 22.8,
+            "rank": 18
           }
         },
         "rzTrips": 28
@@ -37386,8 +37386,8 @@
             "rank": 27
           },
           "pressureRate": {
-            "v": 19.5,
-            "rank": 12
+            "v": 20.9,
+            "rank": 11
           }
         },
         "def": {
@@ -37416,7 +37416,7 @@
             "rank": 1
           },
           "pressureRate": {
-            "v": 33.1,
+            "v": 37.7,
             "rank": 1
           }
         },
@@ -37428,7 +37428,7 @@
           "rank": 31
         },
         "spp": {
-          "v": 30.3,
+          "v": 30.2,
           "rank": 17
         },
         "proe": {
@@ -39312,8 +39312,8 @@
             "rank": 20
           },
           "pressureRate": {
-            "v": 21.3,
-            "rank": 21
+            "v": 23.5,
+            "rank": 22
           }
         },
         "def": {
@@ -39342,7 +39342,7 @@
             "rank": 6
           },
           "pressureRate": {
-            "v": 21.6,
+            "v": 23.8,
             "rank": 16
           }
         },
@@ -40954,8 +40954,8 @@
             "rank": 14
           },
           "pressureRate": {
-            "v": 18.7,
-            "rank": 9
+            "v": 21.0,
+            "rank": 13
           }
         },
         "def": {
@@ -40984,8 +40984,8 @@
             "rank": 5
           },
           "pressureRate": {
-            "v": 18.9,
-            "rank": 27
+            "v": 21.0,
+            "rank": 25
           }
         },
         "rzTrips": 33
@@ -42675,7 +42675,7 @@
           },
           "pressureRate": {
             "v": 20.6,
-            "rank": 17
+            "rank": 10
           }
         },
         "def": {
@@ -42705,7 +42705,7 @@
           },
           "pressureRate": {
             "v": 18.5,
-            "rank": 29
+            "rank": 32
           }
         },
         "rzTrips": 31
@@ -44498,8 +44498,8 @@
             "rank": 28
           },
           "pressureRate": {
-            "v": 20.2,
-            "rank": 15
+            "v": 23.5,
+            "rank": 23
           }
         },
         "def": {
@@ -44528,8 +44528,8 @@
             "rank": 12
           },
           "pressureRate": {
-            "v": 23.1,
-            "rank": 13
+            "v": 23.7,
+            "rank": 17
           }
         },
         "rzTrips": 36
@@ -46178,7 +46178,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 31
+            "rank": 28
           }
         },
         "def": {
@@ -46208,7 +46208,7 @@
           },
           "pressureRate": {
             "v": 21.1,
-            "rank": 18
+            "rank": 24
           }
         },
         "rzTrips": 25
@@ -47896,8 +47896,8 @@
             "rank": 23
           },
           "pressureRate": {
-            "v": 17.9,
-            "rank": 7
+            "v": 21.6,
+            "rank": 14
           }
         },
         "def": {
@@ -47926,8 +47926,8 @@
             "rank": 8
           },
           "pressureRate": {
-            "v": 18.2,
-            "rank": 30
+            "v": 19.9,
+            "rank": 28
           }
         },
         "rzTrips": 34
@@ -49731,8 +49731,8 @@
             "rank": 18
           },
           "pressureRate": {
-            "v": 24.4,
-            "rank": 29
+            "v": 26.8,
+            "rank": 31
           }
         },
         "def": {
@@ -49761,8 +49761,8 @@
             "rank": 7
           },
           "pressureRate": {
-            "v": 24.3,
-            "rank": 7
+            "v": 30.4,
+            "rank": 2
           }
         },
         "rzTrips": 41
@@ -51514,8 +51514,8 @@
             "rank": 6
           },
           "pressureRate": {
-            "v": 14.4,
-            "rank": 2
+            "v": 17.8,
+            "rank": 3
           }
         },
         "def": {
@@ -51544,8 +51544,8 @@
             "rank": 31
           },
           "pressureRate": {
-            "v": 20.8,
-            "rank": 19
+            "v": 24.8,
+            "rank": 14
           }
         },
         "rzTrips": 42
@@ -53194,7 +53194,7 @@
           },
           "pressureRate": {
             "v": 22.9,
-            "rank": 24
+            "rank": 17
           }
         },
         "def": {
@@ -53224,7 +53224,7 @@
           },
           "pressureRate": {
             "v": 20.6,
-            "rank": 20
+            "rank": 26
           }
         },
         "rzTrips": 35
@@ -54937,8 +54937,8 @@
             "rank": 5
           },
           "pressureRate": {
-            "v": 21.7,
-            "rank": 23
+            "v": 25.4,
+            "rank": 26
           }
         },
         "def": {
@@ -54967,8 +54967,8 @@
             "rank": 17
           },
           "pressureRate": {
-            "v": 23.4,
-            "rank": 10
+            "v": 24.9,
+            "rank": 13
           }
         },
         "rzTrips": 27
@@ -56651,7 +56651,7 @@
           },
           "pressureRate": {
             "v": 22.9,
-            "rank": 26
+            "rank": 18
           }
         },
         "def": {
@@ -56681,7 +56681,7 @@
           },
           "pressureRate": {
             "v": 24.7,
-            "rank": 6
+            "rank": 15
           }
         },
         "rzTrips": 30
@@ -60282,7 +60282,7 @@
         "opp": "TB",
         "at": false,
         "res": "W 27-24",
-        "tgt": 9,
+        "tgt": 10,
         "rec": 7,
         "recYds": 97,
         "recTd": 1,
