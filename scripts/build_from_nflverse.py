@@ -397,6 +397,19 @@ def main():
     ps = ps[(ps.season == season) & (ps.season_type == "REG") & (ps.week <= through_week)]
     ts = ts[(ts.season == season) & (ts.season_type == "REG") & (ts.week <= through_week)]
 
+    # Players who have since played for another team (a trade or release and signing) are left out of
+    # their old team's player and usage tables (Nov 19, 2026): only a team's last week counts. Team totals,
+    # game logs and the games' top-player lines still include what they did there.
+    last_wk = ps.groupby(["player_id", "team"]).week.max().reset_index()
+    newest = last_wk.groupby("player_id").week.transform("max")
+    gone = set(zip(last_wk[last_wk.week < newest].team, last_wk[last_wk.week < newest].player_id))
+    for t_, pid_ in sorted(gone):
+        r_ = ps[ps.player_id == pid_].iloc[-1]
+        if r_.position not in ("QB", "RB", "FB", "WR", "TE"):
+            continue
+        nm = r_.player_display_name
+        notes.append(f"{nm} has since played for another team; left out of {t_}'s player tables")
+
     # ---- points for / against per team (from game results) ----
     rows = []
     for _, g in done.iterrows():
@@ -595,6 +608,7 @@ def main():
     # ---- player tables ----
     def players(team, kind):
         sub = ps[ps.team == team]
+        sub = sub[[(team, x) not in gone for x in sub.player_id]]
         ids = sub.groupby("player_display_name").player_id.first()
         pos = sub.groupby("player_display_name").position.agg(lambda x: x.mode().iat[0] if x.notna().any() else "")
         if kind == "passing":
@@ -661,7 +675,7 @@ def main():
     team_games = team_game_list(done, ps, ts)
 
     # ---- red zone, 3rd down, big plays, pressure, pace and usage (scripts/situational.py) ----
-    extra = situational.build(src, season, through_week, ps, teams, notes)
+    extra = situational.build(src, season, through_week, ps, teams, notes, gone)
     for t, x in extra.items():
         u = x.get("usage")
         if u:
