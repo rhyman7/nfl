@@ -146,6 +146,11 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **Position tags:** in the Rushing and Receiving tables each player's name is followed by his
   position (`posTag()`, class `pt-pos`, small and gray, from the row's `pos`). Passing has none
   (every row is a QB).
+- **Players who have left a team** (Nov 19, 2026): once a player has played for another team (a trade, or a
+  release and signing), `build_from_nflverse.py` leaves him out of his old team's Passing, Rushing and
+  Receiving tables and its usage tables (`gone`, also passed to `situational.build`). Team totals, shares'
+  denominators, game logs and each game's top-player lines still count what he did there. A player cut
+  and not yet signed elsewhere still shows until he plays for someone else.
 - **A starter new to the team** (Nov 16, 2026): when the header's QB (`heroQb()`) has no row in his
   team's Passing table (a mid-season trade or signing), `newQbRows()` finds his rows in another
   team's Passing and Rushing tables and puts them first, tagged "with ARI" (`r.from`, class

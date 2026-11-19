@@ -73,7 +73,7 @@ def _pack(series, best_high, teams, digits=1):
     return out
 
 
-def build(src, season, through_week, ps, teams, notes):
+def build(src, season, through_week, ps, teams, notes, gone=frozenset()):
     """Returns {abbr: {"situ": {...}, "pace": {...}, "usage": {...}}}. Usage rows carry "pid" for the caller's game log."""
     src = Path(src)
     files = fetch_extras(src, season, notes)
@@ -175,8 +175,11 @@ def build(src, season, through_week, ps, teams, notes):
             tgt=("targets", "sum"), air=("receiving_air_yards", lambda x: x.fillna(0).clip(lower=0).sum()),
             car=("carries", "sum"))
         l3 = sub[sub.week.isin(weeks)].groupby("player_id").targets.sum()
+        # shares stay out of the whole team's totals, but a player who has since moved to another team
+        # isn't listed in his old team's usage tables (Nov 19, 2026)
+        here = g[[(t, x) not in gone for x in g.index]]
         rows = []
-        for pid, r in g[g.tgt > 0].sort_values("tgt", ascending=False).head(5).iterrows():
+        for pid, r in here[here.tgt > 0].sort_values("tgt", ascending=False).head(5).iterrows():
             snap = snaps.get((t, r.player))
             rows.append({"pid": pid, "player": r.player, "pos": r.pos,
                          "snap": None if snap is None else int(round(snap * 100)),
@@ -184,7 +187,7 @@ def build(src, season, through_week, ps, teams, notes):
                          "as": round(r.air / air_all * 100, 1) if air_all else 0.0,
                          "ts3": round(l3.get(pid, 0) / tgt_l3 * 100, 1) if tgt_l3 else 0.0})
         carries = [{"pid": pid, "player": r.player, "cs": round(r.car / car_all * 100, 1)}
-                   for pid, r in g[g.car > 0].sort_values("car", ascending=False).head(3).iterrows()] if car_all else []
+                   for pid, r in here[here.car > 0].sort_values("car", ascending=False).head(3).iterrows()] if car_all else []
         res[t]["usage"] = {"targets": rows, "carries": carries, "weeks": [int(w) for w in weeks]}
         # every player's shares, for the player tables (Weekly Edges reads them from there)
         res[t]["shares"] = {pid: {"ts": round(r.tgt / tgt_all * 100, 1) if tgt_all else 0.0,
