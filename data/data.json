@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T15:51:52.186929+00:00",
+  "generatedAt": "2026-11-19T19:26:17.398571+00:00",
   "season": 2026,
   "throughWeek": 10,
   "schedule": {
@@ -15,7 +15,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 12.5,
-        "total": 43.5,
+        "total": 44.5,
         "stadium": "Reliant Stadium",
         "roof": null,
         "divisional": true,
@@ -78,7 +78,7 @@
         "home": "Carolina Panthers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 2.5,
+        "spread": 3.0,
         "total": 43.5,
         "stadium": "Bank of America Stadium",
         "roof": "outdoors",
@@ -143,7 +143,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 16.5,
-        "total": 45.5,
+        "total": 44.5,
         "stadium": "Highmark Stadium",
         "roof": "outdoors",
         "divisional": true,
@@ -206,8 +206,8 @@
         "home": "Detroit Lions",
         "awayScore": null,
         "homeScore": null,
-        "spread": 7.0,
-        "total": 43.5,
+        "spread": 6.0,
+        "total": 45.5,
         "stadium": "Ford Field",
         "roof": "dome",
         "divisional": false,
@@ -239,7 +239,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 8.5,
-        "total": 54.5,
+        "total": 55.5,
         "stadium": "AT&T Stadium",
         "roof": null,
         "divisional": false,
@@ -470,16 +470,6 @@
       },
       "passing": [
         {
-          "player": "Jacoby Brissett",
-          "ydsG": 214.9,
-          "td": 1.25,
-          "int": 0.88,
-          "cmp": 24.1,
-          "ypc": 8.9,
-          "pos": "QB",
-          "log": "ARI|00-0033119"
-        },
-        {
           "player": "Gardner Minshew",
           "ydsG": 177.0,
           "td": 1.5,
@@ -552,16 +542,6 @@
           "cs": 1.3
         },
         {
-          "player": "Jacoby Brissett",
-          "ydsG": 10.9,
-          "td": 0.12,
-          "ya": 3.0,
-          "ag": 3.6,
-          "pos": "QB",
-          "log": "ARI|00-0033119",
-          "cs": 12.2
-        },
-        {
           "player": "Gardner Minshew",
           "ydsG": 4.0,
           "td": 0.0,
@@ -569,6 +549,16 @@
           "ag": 1.0,
           "pos": "QB",
           "log": "ARI|00-0035289",
+          "cs": 0.4
+        },
+        {
+          "player": "Carson Beck",
+          "ydsG": 1.0,
+          "td": 0.0,
+          "ya": 1.0,
+          "ag": 1.0,
+          "pos": "QB",
+          "log": "ARI|00-0041561",
           "cs": 0.4
         }
       ],
@@ -618,17 +608,6 @@
           "ts3": 6.8
         },
         {
-          "player": "Marvin Harrison Jr.",
-          "ydsG": 21.2,
-          "td": 0.25,
-          "yr": 17.0,
-          "rec": 1.25,
-          "pos": "WR",
-          "log": "ARI|00-0039849",
-          "ts": 3.6,
-          "ts3": 0.0
-        },
-        {
           "player": "Jalen Brooks",
           "ydsG": 20.2,
           "td": 0.0,
@@ -649,6 +628,17 @@
           "log": "ARI|00-0036331",
           "ts": 1.9,
           "ts3": 8.0
+        },
+        {
+          "player": "Reggie Virgil",
+          "ydsG": 18.0,
+          "td": 0.0,
+          "yr": 18.0,
+          "rec": 1.0,
+          "pos": "WR",
+          "log": "ARI|00-0041070",
+          "ts": 3.1,
+          "ts3": 6.8
         }
       ],
       "defVsPosition": {
@@ -2126,7 +2116,7 @@
           },
           "pressureRate": {
             "v": 19.7,
-            "rank": 29
+            "rank": 31
           }
         },
         "rzTrips": 37
@@ -5838,8 +5828,8 @@
             "rank": 22
           },
           "pressureRate": {
-            "v": 20.9,
-            "rank": 12
+            "v": 23.8,
+            "rank": 23
           }
         },
         "def": {
@@ -5868,8 +5858,8 @@
             "rank": 22
           },
           "pressureRate": {
-            "v": 18.8,
-            "rank": 31
+            "v": 21.1,
+            "rank": 26
           }
         },
         "rzTrips": 36
@@ -9227,7 +9217,7 @@
           },
           "pressureRate": {
             "v": 22.2,
-            "rank": 21
+            "rank": 22
           }
         },
         "rzTrips": 37
@@ -12569,7 +12559,7 @@
           },
           "pressureRate": {
             "v": 22.4,
-            "rank": 15
+            "rank": 14
           }
         },
         "def": {
@@ -12800,13 +12790,13 @@
           "cs": 7.4
         },
         {
-          "player": "Audric Estime",
-          "ydsG": 19.0,
-          "td": 1.0,
-          "ya": 2.1,
-          "ag": 9.0,
+          "player": "Raheim Sanders",
+          "ydsG": 8.6,
+          "td": 0.0,
+          "ya": 4.8,
+          "ag": 1.8,
           "pos": "RB",
-          "log": "CLE|00-0039373",
+          "log": "CLE|00-0040466",
           "cs": 3.5
         }
       ],
@@ -14411,7 +14401,7 @@
           },
           "pressureRate": {
             "v": 25.6,
-            "rank": 27
+            "rank": 26
           }
         },
         "def": {
@@ -14441,7 +14431,7 @@
           },
           "pressureRate": {
             "v": 22.0,
-            "rank": 22
+            "rank": 23
           }
         },
         "rzTrips": 35
@@ -14622,16 +14612,6 @@
           "cs": 0.8
         },
         {
-          "player": "Emari Demercado",
-          "ydsG": 7.5,
-          "td": 0.0,
-          "ya": 3.0,
-          "ag": 2.5,
-          "pos": "RB",
-          "log": "DAL|00-0038705",
-          "cs": 1.9
-        },
-        {
           "player": "KaVontae Turpin",
           "ydsG": 6.3,
           "td": 0.33,
@@ -14640,6 +14620,16 @@
           "pos": "WR",
           "log": "DAL|00-0037801",
           "cs": 1.2
+        },
+        {
+          "player": "Hunter Luepke",
+          "ydsG": 5.0,
+          "td": 0.0,
+          "ya": 5.0,
+          "ag": 1.0,
+          "pos": "RB",
+          "log": "DAL|00-0038738",
+          "cs": 1.9
         }
       ],
       "receiving": [
@@ -16310,7 +16300,7 @@
           },
           "pressureRate": {
             "v": 23.2,
-            "rank": 21
+            "rank": 20
           }
         },
         "def": {
@@ -21540,7 +21530,7 @@
           },
           "pressureRate": {
             "v": 22.9,
-            "rank": 16
+            "rank": 15
           }
         },
         "def": {
@@ -21859,15 +21849,15 @@
           "ts3": 7.9
         },
         {
-          "player": "Jared Wayne",
-          "ydsG": 21.7,
-          "td": 0.0,
-          "yr": 16.2,
-          "rec": 1.33,
+          "player": "Marvin Harrison Jr.",
+          "ydsG": 20.0,
+          "td": 0.33,
+          "yr": 10.0,
+          "rec": 2.0,
           "pos": "WR",
-          "log": "HOU|00-0038728",
-          "ts": 3.9,
-          "ts3": 0.0
+          "log": "HOU|00-0039849",
+          "ts": 3.6,
+          "ts3": 6.9
         }
       ],
       "defVsPosition": {
@@ -23496,39 +23486,17 @@
           "cs": 11.7
         },
         {
-          "player": "Josh Downs",
-          "ydsG": 7.0,
+          "player": "Anthony Richardson",
+          "ydsG": 4.0,
           "td": 0.0,
-          "ya": 7.0,
-          "ag": 1.0,
-          "pos": "WR",
-          "log": "IND|00-0038997",
-          "cs": 0.4
+          "ya": 2.0,
+          "ag": 2.0,
+          "pos": "QB",
+          "log": "IND|00-0039164",
+          "cs": 0.7
         }
       ],
       "receiving": [
-        {
-          "player": "Keenan Allen",
-          "ydsG": 43.9,
-          "td": 0.12,
-          "yr": 8.8,
-          "rec": 5.0,
-          "pos": "WR",
-          "log": "IND|00-0030279",
-          "ts": 18.8,
-          "ts3": 18.1
-        },
-        {
-          "player": "Josh Downs",
-          "ydsG": 39.3,
-          "td": 0.11,
-          "yr": 10.7,
-          "rec": 3.67,
-          "pos": "WR",
-          "log": "IND|00-0038997",
-          "ts": 18.5,
-          "ts3": 13.3
-        },
         {
           "player": "Alec Pierce",
           "ydsG": 36.0,
@@ -23583,6 +23551,28 @@
           "log": "IND|00-0032951",
           "ts": 10.4,
           "ts3": 7.2
+        },
+        {
+          "player": "Anthony Gould",
+          "ydsG": 22.0,
+          "td": 0.0,
+          "yr": 14.7,
+          "rec": 1.5,
+          "pos": "WR",
+          "log": "IND|00-0039816",
+          "ts": 1.6,
+          "ts3": 6.0
+        },
+        {
+          "player": "Will Mallory",
+          "ydsG": 10.0,
+          "td": 0.0,
+          "yr": 10.0,
+          "rec": 1.0,
+          "pos": "TE",
+          "log": "IND|00-0038394",
+          "ts": 2.9,
+          "ts3": 0.0
         }
       ],
       "defVsPosition": {
@@ -25147,7 +25137,7 @@
           },
           "pressureRate": {
             "v": 23.0,
-            "rank": 19
+            "rank": 18
           }
         },
         "def": {
@@ -25199,24 +25189,6 @@
       "usage": {
         "targets": [
           {
-            "player": "Keenan Allen",
-            "pos": "WR",
-            "snap": 58,
-            "ts": 18.8,
-            "as": 20.3,
-            "ts3": 18.1,
-            "log": "IND|00-0030279"
-          },
-          {
-            "player": "Josh Downs",
-            "pos": "WR",
-            "snap": 81,
-            "ts": 18.5,
-            "as": 24.0,
-            "ts3": 13.3,
-            "log": "IND|00-0038997"
-          },
-          {
             "player": "Tyler Warren",
             "pos": "TE",
             "snap": 87,
@@ -25242,6 +25214,24 @@
             "as": 15.9,
             "ts3": 7.2,
             "log": "IND|00-0032951"
+          },
+          {
+            "player": "Ashton Dulin",
+            "pos": "WR",
+            "snap": 22,
+            "ts": 3.6,
+            "as": 5.3,
+            "ts3": 4.8,
+            "log": "IND|00-0035021"
+          },
+          {
+            "player": "Deion Burks",
+            "pos": "WR",
+            "snap": 20,
+            "ts": 3.6,
+            "as": 7.9,
+            "ts3": 4.8,
+            "log": "IND|00-0041132"
           }
         ],
         "carries": [
@@ -28624,7 +28614,7 @@
           },
           "pressureRate": {
             "v": 23.2,
-            "rank": 20
+            "rank": 19
           }
         },
         "def": {
@@ -28654,7 +28644,7 @@
           },
           "pressureRate": {
             "v": 20.4,
-            "rank": 27
+            "rank": 29
           }
         },
         "rzTrips": 40
@@ -30468,7 +30458,7 @@
           },
           "pressureRate": {
             "v": 21.7,
-            "rank": 23
+            "rank": 24
           }
         },
         "rzTrips": 47
@@ -32131,8 +32121,8 @@
             "rank": 31
           },
           "pressureRate": {
-            "v": 24.8,
-            "rank": 25
+            "v": 27.2,
+            "rank": 31
           }
         },
         "def": {
@@ -32161,8 +32151,8 @@
             "rank": 26
           },
           "pressureRate": {
-            "v": 19.3,
-            "rank": 30
+            "v": 22.6,
+            "rank": 21
           }
         },
         "rzTrips": 26
@@ -32290,16 +32280,6 @@
         "int": 0.7
       },
       "passing": [
-        {
-          "player": "Kirk Cousins",
-          "ydsG": 260.0,
-          "td": 2.22,
-          "int": 0.89,
-          "cmp": 22.4,
-          "ypc": 11.6,
-          "pos": "QB",
-          "log": "LV|00-0029604"
-        },
         {
           "player": "Fernando Mendoza",
           "ydsG": 95.5,
@@ -33965,7 +33945,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 29
+            "rank": 28
           }
         },
         "def": {
@@ -34074,9 +34054,9 @@
             "log": "LV|00-0040878"
           },
           {
-            "player": "Kirk Cousins",
-            "cs": 8.9,
-            "log": "LV|00-0029604"
+            "player": "Fernando Mendoza",
+            "cs": 2.8,
+            "log": "LV|00-0041562"
           }
         ],
         "weeks": [
@@ -35701,7 +35681,7 @@
           },
           "pressureRate": {
             "v": 26.4,
-            "rank": 30
+            "rank": 29
           }
         },
         "def": {
@@ -39313,7 +39293,7 @@
           },
           "pressureRate": {
             "v": 23.5,
-            "rank": 22
+            "rank": 21
           }
         },
         "def": {
@@ -40955,7 +40935,7 @@
           },
           "pressureRate": {
             "v": 21.0,
-            "rank": 13
+            "rank": 12
           }
         },
         "def": {
@@ -40985,7 +40965,7 @@
           },
           "pressureRate": {
             "v": 21.0,
-            "rank": 25
+            "rank": 27
           }
         },
         "rzTrips": 33
@@ -44499,7 +44479,7 @@
           },
           "pressureRate": {
             "v": 23.5,
-            "rank": 23
+            "rank": 22
           }
         },
         "def": {
@@ -46178,7 +46158,7 @@
           },
           "pressureRate": {
             "v": 25.9,
-            "rank": 28
+            "rank": 27
           }
         },
         "def": {
@@ -46208,7 +46188,7 @@
           },
           "pressureRate": {
             "v": 21.1,
-            "rank": 24
+            "rank": 25
           }
         },
         "rzTrips": 25
@@ -47897,7 +47877,7 @@
           },
           "pressureRate": {
             "v": 21.6,
-            "rank": 14
+            "rank": 13
           }
         },
         "def": {
@@ -47927,7 +47907,7 @@
           },
           "pressureRate": {
             "v": 19.9,
-            "rank": 28
+            "rank": 30
           }
         },
         "rzTrips": 34
@@ -49732,7 +49712,7 @@
           },
           "pressureRate": {
             "v": 26.8,
-            "rank": 31
+            "rank": 30
           }
         },
         "def": {
@@ -53194,7 +53174,7 @@
           },
           "pressureRate": {
             "v": 22.9,
-            "rank": 17
+            "rank": 16
           }
         },
         "def": {
@@ -53224,7 +53204,7 @@
           },
           "pressureRate": {
             "v": 20.6,
-            "rank": 26
+            "rank": 28
           }
         },
         "rzTrips": 35
@@ -54938,7 +54918,7 @@
           },
           "pressureRate": {
             "v": 25.4,
-            "rank": 26
+            "rank": 25
           }
         },
         "def": {
@@ -56651,7 +56631,7 @@
           },
           "pressureRate": {
             "v": 22.9,
-            "rank": 18
+            "rank": 17
           }
         },
         "def": {
@@ -65736,184 +65716,6 @@
         "fp": 20.4
       }
     ],
-    "IND|00-0030279": [
-      {
-        "w": 1,
-        "opp": "BAL",
-        "at": false,
-        "res": "L 23-41",
-        "tgt": 6,
-        "rec": 6,
-        "recYds": 32,
-        "fp": 9.2
-      },
-      {
-        "w": 2,
-        "opp": "KC",
-        "at": true,
-        "res": "L 30-33",
-        "tgt": 5,
-        "rec": 1,
-        "recYds": 5,
-        "fp": 1.5
-      },
-      {
-        "w": 3,
-        "opp": "HOU",
-        "at": false,
-        "res": "W 19-17",
-        "tgt": 9,
-        "rec": 6,
-        "recYds": 63,
-        "recTd": 1,
-        "fp": 18.3
-      },
-      {
-        "w": 5,
-        "opp": "PIT",
-        "at": true,
-        "res": "L 22-34",
-        "tgt": 9,
-        "rec": 5,
-        "recYds": 45,
-        "fp": 9.5
-      },
-      {
-        "w": 6,
-        "opp": "TEN",
-        "at": false,
-        "res": "L 20-26",
-        "tgt": 11,
-        "rec": 8,
-        "recYds": 82,
-        "fp": 16.2
-      },
-      {
-        "w": 7,
-        "opp": "MIN",
-        "at": true,
-        "res": "L 10-16",
-        "tgt": 3,
-        "rec": 3,
-        "recYds": 31,
-        "fp": 6.1
-      },
-      {
-        "w": 8,
-        "opp": "JAX",
-        "at": true,
-        "res": "L 7-42",
-        "tgt": 7,
-        "rec": 7,
-        "recYds": 67,
-        "fp": 13.7
-      },
-      {
-        "w": 9,
-        "opp": "DAL",
-        "at": false,
-        "res": "L 23-27",
-        "tgt": 8,
-        "rec": 4,
-        "recYds": 26,
-        "fp": 6.6
-      }
-    ],
-    "IND|00-0038997": [
-      {
-        "w": 1,
-        "opp": "BAL",
-        "at": false,
-        "res": "L 23-41",
-        "tgt": 4,
-        "rec": 2,
-        "recYds": 37,
-        "fp": 5.7
-      },
-      {
-        "w": 2,
-        "opp": "KC",
-        "at": true,
-        "res": "L 30-33",
-        "tgt": 9,
-        "rec": 7,
-        "recYds": 72,
-        "fp": 14.2
-      },
-      {
-        "w": 3,
-        "opp": "HOU",
-        "at": false,
-        "res": "W 19-17",
-        "tgt": 11,
-        "rec": 5,
-        "recYds": 77,
-        "fp": 12.7
-      },
-      {
-        "w": 4,
-        "opp": "WAS",
-        "at": false,
-        "res": "W 30-13",
-        "tgt": 4,
-        "rec": 3,
-        "recYds": 16,
-        "fp": 4.6
-      },
-      {
-        "w": 5,
-        "opp": "PIT",
-        "at": true,
-        "res": "L 22-34",
-        "tgt": 6,
-        "rec": 3,
-        "recYds": 47,
-        "fp": 7.7
-      },
-      {
-        "w": 6,
-        "opp": "TEN",
-        "at": false,
-        "res": "L 20-26",
-        "car": 1,
-        "rYds": 7,
-        "tgt": 8,
-        "rec": 4,
-        "recYds": 40,
-        "fp": 8.7
-      },
-      {
-        "w": 7,
-        "opp": "MIN",
-        "at": true,
-        "res": "L 10-16",
-        "tgt": 4,
-        "rec": 2,
-        "recYds": 18,
-        "fp": 3.8
-      },
-      {
-        "w": 8,
-        "opp": "JAX",
-        "at": true,
-        "res": "L 7-42",
-        "tgt": 5,
-        "rec": 4,
-        "recYds": 23,
-        "recTd": 1,
-        "fp": 12.3
-      },
-      {
-        "w": 9,
-        "opp": "DAL",
-        "at": false,
-        "res": "L 23-27",
-        "tgt": 6,
-        "rec": 3,
-        "recYds": 24,
-        "fp": 5.4
-      }
-    ],
     "IND|00-0040128": [
       {
         "w": 1,
@@ -66235,6 +66037,143 @@
         "recYds": 24,
         "recTd": 1,
         "fp": 11.4
+      }
+    ],
+    "IND|00-0035021": [
+      {
+        "w": 1,
+        "opp": "BAL",
+        "at": false,
+        "res": "L 23-41",
+        "tgt": 1,
+        "fp": 0.0
+      },
+      {
+        "w": 4,
+        "opp": "WAS",
+        "at": false,
+        "res": "W 30-13",
+        "tgt": 6,
+        "rec": 3,
+        "recYds": 29,
+        "fp": 5.9
+      },
+      {
+        "w": 7,
+        "opp": "MIN",
+        "at": true,
+        "res": "L 10-16",
+        "fp": 0.0
+      },
+      {
+        "w": 8,
+        "opp": "JAX",
+        "at": true,
+        "res": "L 7-42",
+        "car": 1,
+        "rYds": 3,
+        "fp": 0.3
+      },
+      {
+        "w": 9,
+        "opp": "DAL",
+        "at": false,
+        "res": "L 23-27",
+        "car": 1,
+        "rYds": 3,
+        "tgt": 2,
+        "rec": 1,
+        "recYds": 55,
+        "recTd": 1,
+        "fp": 12.8
+      },
+      {
+        "w": 10,
+        "opp": "MIA",
+        "at": false,
+        "res": "W 24-22",
+        "tgt": 2,
+        "rec": 1,
+        "recYds": 30,
+        "fp": 4.0
+      }
+    ],
+    "IND|00-0041132": [
+      {
+        "w": 2,
+        "opp": "KC",
+        "at": true,
+        "res": "L 30-33",
+        "car": 2,
+        "rYds": 14,
+        "fp": 1.4
+      },
+      {
+        "w": 4,
+        "opp": "WAS",
+        "at": false,
+        "res": "W 30-13",
+        "tgt": 2,
+        "rec": 1,
+        "recYds": 6,
+        "fp": 1.6
+      },
+      {
+        "w": 5,
+        "opp": "PIT",
+        "at": true,
+        "res": "L 22-34",
+        "tgt": 2,
+        "fp": 0.0
+      },
+      {
+        "w": 6,
+        "opp": "TEN",
+        "at": false,
+        "res": "L 20-26",
+        "car": 1,
+        "rYds": 7,
+        "tgt": 2,
+        "rec": 2,
+        "recYds": 41,
+        "fp": 6.8
+      },
+      {
+        "w": 7,
+        "opp": "MIN",
+        "at": true,
+        "res": "L 10-16",
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 11,
+        "fp": 2.1
+      },
+      {
+        "w": 8,
+        "opp": "JAX",
+        "at": true,
+        "res": "L 7-42",
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 2,
+        "fp": 1.2
+      },
+      {
+        "w": 9,
+        "opp": "DAL",
+        "at": false,
+        "res": "L 23-27",
+        "tgt": 1,
+        "rec": 1,
+        "fp": 1.0
+      },
+      {
+        "w": 10,
+        "opp": "MIA",
+        "at": false,
+        "res": "W 24-22",
+        "tgt": 2,
+        "fp": 0.0
       }
     ],
     "IND|00-0041125": [
@@ -69668,123 +69607,31 @@
         "fp": 3.7
       }
     ],
-    "LV|00-0029604": [
-      {
-        "w": 1,
-        "opp": "MIA",
-        "at": false,
-        "res": "W 27-13",
-        "cmp": 21,
-        "att": 30,
-        "pYds": 160,
-        "pTd": 3,
-        "int": 2,
-        "car": 5,
-        "rYds": -6,
-        "fp": 13.8
-      },
-      {
-        "w": 2,
-        "opp": "LAC",
-        "at": true,
-        "res": "W 26-14",
-        "cmp": 19,
-        "att": 29,
-        "pYds": 253,
-        "pTd": 3,
-        "int": 1,
-        "car": 4,
-        "rYds": 1,
-        "fp": 20.2
-      },
-      {
-        "w": 3,
-        "opp": "NO",
-        "at": true,
-        "res": "W 35-27",
-        "cmp": 22,
-        "att": 33,
-        "pYds": 248,
-        "pTd": 3,
-        "car": 3,
-        "rYds": 3,
-        "fp": 22.2
-      },
-      {
-        "w": 4,
-        "opp": "KC",
-        "at": false,
-        "res": "L 27-30",
-        "cmp": 31,
-        "att": 52,
-        "pYds": 365,
-        "pTd": 2,
-        "int": 1,
-        "fp": 22.6
-      },
+    "LV|00-0041562": [
       {
         "w": 5,
         "opp": "NE",
         "at": true,
         "res": "L 17-45",
-        "cmp": 19,
-        "att": 28,
-        "pYds": 243,
-        "pTd": 1,
-        "fp": 13.7
-      },
-      {
-        "w": 6,
-        "opp": "BUF",
-        "at": false,
-        "res": "L 30-33",
-        "cmp": 23,
-        "att": 41,
-        "pYds": 313,
-        "pTd": 2,
-        "int": 1,
-        "fp": 18.5
-      },
-      {
-        "w": 7,
-        "opp": "LA",
-        "at": false,
-        "res": "L 21-35",
-        "cmp": 26,
-        "att": 44,
-        "pYds": 295,
-        "pTd": 2,
-        "car": 3,
-        "rYds": 6,
-        "fp": 20.4
-      },
-      {
-        "w": 8,
-        "opp": "NYJ",
-        "at": true,
-        "res": "W 38-33",
-        "cmp": 19,
-        "att": 26,
-        "pYds": 247,
-        "pTd": 3,
-        "car": 5,
+        "cmp": 6,
+        "att": 8,
+        "pYds": 48,
+        "car": 1,
         "rYds": 3,
-        "rTd": 1,
-        "fp": 28.2
+        "fp": 2.2
       },
       {
-        "w": 9,
-        "opp": "SF",
-        "at": true,
-        "res": "L 17-38",
-        "cmp": 22,
-        "att": 32,
-        "pYds": 216,
-        "pTd": 1,
-        "int": 3,
-        "car": 2,
+        "w": 10,
+        "opp": "SEA",
+        "at": false,
+        "res": "L 13-21",
+        "cmp": 17,
+        "att": 29,
+        "pYds": 143,
+        "car": 6,
+        "rYds": 22,
         "rTd": 1,
-        "fp": 12.6
+        "fp": 13.9
       }
     ],
     "MIA|00-0039880": [
@@ -78029,119 +77876,6 @@
         "fp": 20.8
       }
     ],
-    "ARI|00-0033119": [
-      {
-        "w": 1,
-        "opp": "LAC",
-        "at": true,
-        "res": "W 26-14",
-        "cmp": 27,
-        "att": 37,
-        "pYds": 277,
-        "pTd": 1,
-        "car": 6,
-        "rYds": 14,
-        "fp": 16.5
-      },
-      {
-        "w": 2,
-        "opp": "SEA",
-        "at": false,
-        "res": "L 7-31",
-        "cmp": 17,
-        "att": 28,
-        "pYds": 95,
-        "pTd": 1,
-        "int": 1,
-        "car": 1,
-        "rYds": 7,
-        "fp": 6.5
-      },
-      {
-        "w": 3,
-        "opp": "SF",
-        "at": true,
-        "res": "L 30-36",
-        "cmp": 38,
-        "att": 52,
-        "pYds": 280,
-        "pTd": 2,
-        "car": 4,
-        "rYds": 4,
-        "rTd": 1,
-        "fp": 25.6
-      },
-      {
-        "w": 4,
-        "opp": "NYG",
-        "at": true,
-        "res": "L 24-36",
-        "cmp": 21,
-        "att": 35,
-        "pYds": 166,
-        "pTd": 2,
-        "int": 3,
-        "car": 4,
-        "rYds": 18,
-        "fp": 10.4
-      },
-      {
-        "w": 5,
-        "opp": "DET",
-        "at": false,
-        "res": "L 21-45",
-        "cmp": 29,
-        "att": 47,
-        "pYds": 292,
-        "pTd": 3,
-        "int": 1,
-        "car": 2,
-        "rYds": 19,
-        "tgt": 1,
-        "rec": 1,
-        "recYds": 7,
-        "fp": 25.3
-      },
-      {
-        "w": 6,
-        "opp": "LA",
-        "at": true,
-        "res": "W 18-16",
-        "cmp": 24,
-        "att": 35,
-        "pYds": 218,
-        "int": 1,
-        "car": 2,
-        "rYds": 2,
-        "fp": 6.9
-      },
-      {
-        "w": 7,
-        "opp": "DEN",
-        "at": false,
-        "res": "L 16-30",
-        "cmp": 27,
-        "att": 48,
-        "pYds": 272,
-        "pTd": 1,
-        "car": 7,
-        "rYds": 16,
-        "fp": 16.5
-      },
-      {
-        "w": 8,
-        "opp": "DAL",
-        "at": true,
-        "res": "W 33-30",
-        "cmp": 10,
-        "att": 23,
-        "pYds": 119,
-        "int": 1,
-        "car": 3,
-        "rYds": 7,
-        "fp": 3.5
-      }
-    ],
     "ARI|00-0035289": [
       {
         "w": 8,
@@ -78180,47 +77914,6 @@
         "car": 1,
         "rYds": 1,
         "fp": 0.4
-      }
-    ],
-    "ARI|00-0039849": [
-      {
-        "w": 1,
-        "opp": "LAC",
-        "at": true,
-        "res": "W 26-14",
-        "tgt": 3,
-        "rec": 1,
-        "recYds": 33,
-        "fp": 4.3
-      },
-      {
-        "w": 2,
-        "opp": "SEA",
-        "at": false,
-        "res": "L 7-31",
-        "tgt": 1,
-        "fp": 0.0
-      },
-      {
-        "w": 3,
-        "opp": "SF",
-        "at": true,
-        "res": "L 30-36",
-        "tgt": 5,
-        "rec": 3,
-        "recYds": 40,
-        "fp": 7.0
-      },
-      {
-        "w": 4,
-        "opp": "NYG",
-        "at": true,
-        "res": "L 24-36",
-        "tgt": 4,
-        "rec": 1,
-        "recYds": 12,
-        "recTd": 1,
-        "fp": 8.2
       }
     ],
     "ARI|00-0038640": [
@@ -78356,6 +78049,36 @@
         "rec": 2,
         "recYds": 35,
         "fp": 5.5
+      }
+    ],
+    "ARI|00-0041070": [
+      {
+        "w": 5,
+        "opp": "DET",
+        "at": false,
+        "res": "L 21-45",
+        "tgt": 5,
+        "rec": 2,
+        "recYds": 29,
+        "fp": 4.9
+      },
+      {
+        "w": 8,
+        "opp": "DAL",
+        "at": true,
+        "res": "W 33-30",
+        "tgt": 2,
+        "fp": 0.0
+      },
+      {
+        "w": 9,
+        "opp": "SEA",
+        "at": true,
+        "res": "L 3-17",
+        "tgt": 4,
+        "rec": 1,
+        "recYds": 25,
+        "fp": 3.5
       }
     ],
     "ATL|00-0033662": [
@@ -79910,16 +79633,66 @@
         "fp": 0.0
       }
     ],
-    "CLE|00-0039373": [
+    "CLE|00-0040466": [
       {
-        "w": 6,
-        "opp": "BAL",
+        "w": 1,
+        "opp": "JAX",
+        "at": true,
+        "res": "L 10-34",
+        "car": 1,
+        "rYds": 1,
+        "tgt": 3,
+        "rec": 3,
+        "recYds": 25,
+        "fp": 5.6
+      },
+      {
+        "w": 2,
+        "opp": "TB",
+        "at": true,
+        "res": "W 23-19",
+        "car": 2,
+        "rYds": 4,
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 7,
+        "fp": 2.1
+      },
+      {
+        "w": 3,
+        "opp": "CAR",
         "at": false,
-        "res": "W 13-10",
-        "car": 9,
-        "rYds": 19,
-        "rTd": 1,
-        "fp": 7.9
+        "res": "W 21-18",
+        "car": 1,
+        "rYds": 17,
+        "tgt": 5,
+        "rec": 4,
+        "recYds": 34,
+        "fp": 9.1
+      },
+      {
+        "w": 4,
+        "opp": "PIT",
+        "at": false,
+        "res": "W 27-24",
+        "car": 2,
+        "rYds": 9,
+        "tgt": 2,
+        "rec": 2,
+        "recYds": 7,
+        "fp": 3.6
+      },
+      {
+        "w": 5,
+        "opp": "NYJ",
+        "at": true,
+        "res": "L 12-17",
+        "car": 3,
+        "rYds": 12,
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 1,
+        "fp": 2.3
       }
     ],
     "CLE|00-0040782": [
@@ -79987,26 +79760,6 @@
         "rec": 1,
         "recYds": 2,
         "fp": 2.0
-      }
-    ],
-    "DAL|00-0038705": [
-      {
-        "w": 1,
-        "opp": "NYG",
-        "at": true,
-        "res": "L 20-28",
-        "car": 2,
-        "rYds": 7,
-        "fp": 0.7
-      },
-      {
-        "w": 2,
-        "opp": "WAS",
-        "at": false,
-        "res": "W 37-20",
-        "car": 3,
-        "rYds": 8,
-        "fp": 0.8
       }
     ],
     "DAL|00-0037801": [
@@ -80077,6 +79830,83 @@
         "rec": 1,
         "recYds": 10,
         "fp": 2.9
+      }
+    ],
+    "DAL|00-0038738": [
+      {
+        "w": 1,
+        "opp": "NYG",
+        "at": true,
+        "res": "L 20-28",
+        "car": 1,
+        "rYds": 7,
+        "fp": 0.7
+      },
+      {
+        "w": 2,
+        "opp": "WAS",
+        "at": false,
+        "res": "W 37-20",
+        "car": 1,
+        "rYds": 1,
+        "fp": 0.1
+      },
+      {
+        "w": 4,
+        "opp": "HOU",
+        "at": true,
+        "res": "W 34-30",
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 2,
+        "fp": 1.2
+      },
+      {
+        "w": 5,
+        "opp": "TB",
+        "at": false,
+        "res": "L 16-24",
+        "car": 1,
+        "rYds": 5,
+        "fp": 0.5
+      },
+      {
+        "w": 6,
+        "opp": "GB",
+        "at": true,
+        "res": "L 13-23",
+        "tgt": 3,
+        "rec": 3,
+        "recYds": 9,
+        "fp": 3.9
+      },
+      {
+        "w": 7,
+        "opp": "PHI",
+        "at": true,
+        "res": "W 38-21",
+        "car": 1,
+        "rYds": 3,
+        "fp": 0.3
+      },
+      {
+        "w": 8,
+        "opp": "ARI",
+        "at": false,
+        "res": "L 30-33",
+        "fp": 0.0
+      },
+      {
+        "w": 10,
+        "opp": "SF",
+        "at": false,
+        "res": "L 40-46",
+        "car": 1,
+        "rYds": 9,
+        "tgt": 1,
+        "rec": 1,
+        "recYds": 6,
+        "fp": 2.5
       }
     ],
     "DAL|00-0039530": [
@@ -80887,43 +80717,37 @@
         "fp": 5.1
       }
     ],
-    "HOU|00-0038728": [
+    "HOU|00-0039849": [
       {
-        "w": 1,
-        "opp": "BUF",
+        "w": 6,
+        "opp": "JAX",
         "at": false,
-        "res": "L 31-36",
-        "tgt": 1,
-        "rec": 1,
-        "recYds": 12,
-        "fp": 2.2
+        "res": "W 34-31",
+        "tgt": 4,
+        "rec": 3,
+        "recYds": 34,
+        "fp": 6.4
       },
       {
-        "w": 2,
-        "opp": "CIN",
+        "w": 7,
+        "opp": "NYG",
         "at": false,
-        "res": "L 6-20",
-        "tgt": 7,
-        "rec": 2,
-        "recYds": 33,
-        "fp": 5.3
-      },
-      {
-        "w": 3,
-        "opp": "IND",
-        "at": true,
-        "res": "L 17-19",
+        "res": "L 21-27",
         "tgt": 4,
         "rec": 1,
-        "recYds": 20,
-        "fp": 3.0
+        "recYds": 6,
+        "recTd": 1,
+        "fp": 7.6
       },
       {
-        "w": 5,
-        "opp": "TEN",
+        "w": 9,
+        "opp": "LAC",
         "at": true,
-        "res": "W 26-3",
-        "fp": 0.0
+        "res": "W 44-22",
+        "tgt": 3,
+        "rec": 2,
+        "recYds": 20,
+        "fp": 4.0
       }
     ],
     "IND|00-0039164": [
@@ -80951,84 +80775,6 @@
         "fp": 4.3
       }
     ],
-    "IND|00-0041132": [
-      {
-        "w": 2,
-        "opp": "KC",
-        "at": true,
-        "res": "L 30-33",
-        "car": 2,
-        "rYds": 14,
-        "fp": 1.4
-      },
-      {
-        "w": 4,
-        "opp": "WAS",
-        "at": false,
-        "res": "W 30-13",
-        "tgt": 2,
-        "rec": 1,
-        "recYds": 6,
-        "fp": 1.6
-      },
-      {
-        "w": 5,
-        "opp": "PIT",
-        "at": true,
-        "res": "L 22-34",
-        "tgt": 2,
-        "fp": 0.0
-      },
-      {
-        "w": 6,
-        "opp": "TEN",
-        "at": false,
-        "res": "L 20-26",
-        "car": 1,
-        "rYds": 7,
-        "tgt": 2,
-        "rec": 2,
-        "recYds": 41,
-        "fp": 6.8
-      },
-      {
-        "w": 7,
-        "opp": "MIN",
-        "at": true,
-        "res": "L 10-16",
-        "tgt": 1,
-        "rec": 1,
-        "recYds": 11,
-        "fp": 2.1
-      },
-      {
-        "w": 8,
-        "opp": "JAX",
-        "at": true,
-        "res": "L 7-42",
-        "tgt": 1,
-        "rec": 1,
-        "recYds": 2,
-        "fp": 1.2
-      },
-      {
-        "w": 9,
-        "opp": "DAL",
-        "at": false,
-        "res": "L 23-27",
-        "tgt": 1,
-        "rec": 1,
-        "fp": 1.0
-      },
-      {
-        "w": 10,
-        "opp": "MIA",
-        "at": false,
-        "res": "W 24-22",
-        "tgt": 2,
-        "fp": 0.0
-      }
-    ],
     "IND|00-0037664": [
       {
         "w": 1,
@@ -81051,13 +80797,19 @@
         "fp": 2.1
       }
     ],
-    "IND|00-0035021": [
+    "IND|00-0039816": [
       {
-        "w": 1,
-        "opp": "BAL",
+        "w": 2,
+        "opp": "KC",
+        "at": true,
+        "res": "L 30-33",
+        "fp": 0.0
+      },
+      {
+        "w": 3,
+        "opp": "HOU",
         "at": false,
-        "res": "L 23-41",
-        "tgt": 1,
+        "res": "W 19-17",
         "fp": 0.0
       },
       {
@@ -81065,49 +80817,61 @@
         "opp": "WAS",
         "at": false,
         "res": "W 30-13",
-        "tgt": 6,
-        "rec": 3,
-        "recYds": 29,
-        "fp": 5.9
-      },
-      {
-        "w": 7,
-        "opp": "MIN",
-        "at": true,
-        "res": "L 10-16",
         "fp": 0.0
       },
       {
-        "w": 8,
-        "opp": "JAX",
+        "w": 5,
+        "opp": "PIT",
         "at": true,
-        "res": "L 7-42",
-        "car": 1,
-        "rYds": 3,
-        "fp": 0.3
+        "res": "L 22-34",
+        "fp": 0.0
+      },
+      {
+        "w": 6,
+        "opp": "TEN",
+        "at": false,
+        "res": "L 20-26",
+        "fp": 0.0
       },
       {
         "w": 9,
         "opp": "DAL",
         "at": false,
         "res": "L 23-27",
-        "car": 1,
-        "rYds": 3,
-        "tgt": 2,
+        "tgt": 1,
         "rec": 1,
-        "recYds": 55,
-        "recTd": 1,
-        "fp": 12.8
+        "recYds": 16,
+        "fp": 2.6
       },
       {
         "w": 10,
         "opp": "MIA",
         "at": false,
         "res": "W 24-22",
-        "tgt": 2,
-        "rec": 1,
-        "recYds": 30,
+        "tgt": 4,
+        "rec": 2,
+        "recYds": 28,
+        "fp": 4.8
+      }
+    ],
+    "IND|00-0038394": [
+      {
+        "w": 6,
+        "opp": "TEN",
+        "at": false,
+        "res": "L 20-26",
+        "tgt": 6,
+        "rec": 2,
+        "recYds": 20,
         "fp": 4.0
+      },
+      {
+        "w": 7,
+        "opp": "MIN",
+        "at": true,
+        "res": "L 10-16",
+        "tgt": 3,
+        "fp": 0.0
       }
     ],
     "JAX|00-0040234": [
@@ -82155,33 +81919,6 @@
         "rec": 1,
         "recYds": 9,
         "fp": 1.9
-      }
-    ],
-    "LV|00-0041562": [
-      {
-        "w": 5,
-        "opp": "NE",
-        "at": true,
-        "res": "L 17-45",
-        "cmp": 6,
-        "att": 8,
-        "pYds": 48,
-        "car": 1,
-        "rYds": 3,
-        "fp": 2.2
-      },
-      {
-        "w": 10,
-        "opp": "SEA",
-        "at": false,
-        "res": "L 13-21",
-        "cmp": 17,
-        "att": 29,
-        "pYds": 143,
-        "car": 6,
-        "rYds": 22,
-        "rTd": 1,
-        "fp": 13.9
       }
     ],
     "LV|00-0035190": [

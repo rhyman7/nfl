@@ -4,6 +4,13 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-19 (2:30 PM ET) — hand rebuild after PR #58, Week 11
+- Commit "Week 11 rebuild: drop traded players from old teams (2026-11-19)". Through Week 10, schedule Week 11. Rebuilt by hand after PR #58 (players who have since played for another team are left out of their old team's player and usage tables).
+- Left out: ARI Jacoby Brissett, Marvin Harrison Jr.; CLE Audric Estime; DAL Emari Demercado; HOU Jared Wayne; IND Keenan Allen, Josh Downs; KC Nikko Remigio; LV Kirk Cousins; WAS Kaytron Allen.
+- Lines moved vs the 10:50 AM publish (home spread / total): IND@HOU total 43.5 → 44.5; BAL@CAR spread 2.5 → 3.0; MIA@BUF total 45.5 → 44.5; TB@DET 7.0/43.5 → 6.0/45.5; TEN@DAL total 54.5 → 55.5. Pressure rates refreshed from newer nflverse advanced stats.
+- Fallback: no standings.json; SoS/SRS/OSRS/DSRS computed from final scores through Week 10 (scripts/srs.py).
+- data/capped.json and data/epa.json: only generatedAt changed, not committed. lineOpen unchanged.
+
 ## 2026-11-19 (10:50 AM ET) — daily refresh, Week 11
 - Commit "Week 11 daily refresh (2026-11-19)". Through Week 10, schedule Week 11 (13 games; byes ATL, CLE, GB, LA, NE, SEA; TNF IND@HOU tonight, none played yet). Published.
 - Lines moved vs 11-18 publish (home spread / total): IND@HOU total 44.5 → 43.5; ARI@KC total 41.5 → 40.5; BAL@CAR total 44.5 → 43.5; NYJ@LAC spread 3.5 → 3.0; PIT@PHI total 38.5 → 37.5; MIN@SF total 45.5 → 46.5; CIN@WAS total 54.5 → 53.5.
