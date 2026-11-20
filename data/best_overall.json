@@ -3224,16 +3224,16 @@
   "11": {
    "picks": {
     "CHI": {
-     "rk": 3,
+     "rk": 2,
      "name": "Colston Loveland",
      "pos": "TE",
      "opp": "NO",
      "log": "CHI|00-0040126",
      "kind": "rec",
      "avg": 40.3,
-     "proj": 50.8,
+     "proj": 49.7,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3274,16 +3274,16 @@
      }
     },
     "DAL": {
-     "rk": 1,
+     "rk": 3,
      "name": "Javonte Williams",
      "pos": "RB",
      "opp": "TEN",
      "log": "DAL|00-0036997",
      "kind": "scrim",
      "avg": 82.3,
-     "proj": 102.5,
+     "proj": 98.8,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3331,9 +3331,9 @@
      "log": "LAC|00-0040666",
      "kind": "scrim",
      "avg": 59.7,
-     "proj": 77.5,
+     "proj": 79.3,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3374,28 +3374,28 @@
      }
     },
     "PHI": {
-     "rk": 6,
+     "rk": 8,
      "name": "Makai Lemon",
      "pos": "WR",
      "opp": "PIT",
      "log": "PHI|00-0040867",
      "kind": "rec",
      "avg": 34.7,
-     "proj": 40.3,
+     "proj": 39.3,
      "v": "board",
-     "at": "2026-11-20T15:55Z"
+     "at": "2026-11-20T20:15Z"
     },
     "CIN": {
-     "rk": 2,
+     "rk": 1,
      "name": "Chase Brown",
      "pos": "RB",
      "opp": "WAS",
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 76.3,
-     "proj": 101.1,
+     "proj": 112.2,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3436,16 +3436,16 @@
      }
     },
     "WAS": {
-     "rk": 10,
+     "rk": 9,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "CIN",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 36.2,
-     "proj": 38.7,
+     "proj": 41.9,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3486,16 +3486,16 @@
      }
     },
     "KC": {
-     "rk": 8,
+     "rk": 7,
      "name": "Xavier Worthy",
      "pos": "WR",
      "opp": "ARI",
      "log": "KC|00-0039894",
      "kind": "rec",
      "avg": 30.9,
-     "proj": 35.3,
+     "proj": 36.9,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3536,16 +3536,16 @@
      }
     },
     "PIT": {
-     "rk": 7,
+     "rk": 6,
      "name": "DK Metcalf",
      "pos": "WR",
      "opp": "PHI",
      "log": "PIT|00-0035640",
      "kind": "rec",
      "avg": 48.0,
-     "proj": 53.4,
+     "proj": 55.3,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
@@ -3593,9 +3593,9 @@
      "log": "MIN|00-0036322",
      "kind": "rec",
      "avg": 58.4,
-     "proj": 67.9,
+     "proj": 68.4,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "fd": [
        [
@@ -3618,16 +3618,16 @@
      }
     },
     "DEN": {
-     "rk": 9,
+     "rk": 10,
      "name": "Jaylen Waddle",
      "pos": "WR",
      "opp": "LV",
      "log": "DEN|00-0036613",
      "kind": "rec",
      "avg": 37.4,
-     "proj": 39.8,
+     "proj": 40.8,
      "v": "board",
-     "at": "2026-11-20T15:55Z",
+     "at": "2026-11-20T20:15Z",
      "lad": {
       "dk": [
        [
