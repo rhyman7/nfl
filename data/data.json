@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T19:26:17.398571+00:00",
+  "generatedAt": "2026-11-20T15:52:03.868149+00:00",
   "season": 2026,
   "throughWeek": 10,
   "schedule": {
@@ -12,12 +12,12 @@
         "gametime": "20:15",
         "away": "Indianapolis Colts",
         "home": "Houston Texans",
-        "awayScore": null,
-        "homeScore": null,
+        "awayScore": 3,
+        "homeScore": 26,
         "spread": 12.5,
         "total": 44.5,
         "stadium": "Reliant Stadium",
-        "roof": null,
+        "roof": "open",
         "divisional": true,
         "awayQb": "Daniel Jones",
         "homeQb": "C.J. Stroud",
@@ -30,7 +30,7 @@
         "city": "Houston, TX",
         "lat": 29.685,
         "lon": -95.411,
-        "indoor": true,
+        "indoor": false,
         "lineOpen": {
           "spread": 12.5,
           "total": 44.5,
@@ -46,7 +46,7 @@
         "home": "Kansas City Chiefs",
         "awayScore": null,
         "homeScore": null,
-        "spread": 15.5,
+        "spread": 16.5,
         "total": 40.5,
         "stadium": "GEHA Field at Arrowhead Stadium",
         "roof": "outdoors",
@@ -239,7 +239,7 @@
         "awayScore": null,
         "homeScore": null,
         "spread": 8.5,
-        "total": 55.5,
+        "total": 54.5,
         "stadium": "AT&T Stadium",
         "roof": null,
         "divisional": false,
@@ -302,7 +302,7 @@
         "home": "Denver Broncos",
         "awayScore": null,
         "homeScore": null,
-        "spread": 10.0,
+        "spread": 10.5,
         "total": 40.5,
         "stadium": "Empower Field at Mile High",
         "roof": "outdoors",
@@ -334,8 +334,8 @@
         "home": "Philadelphia Eagles",
         "awayScore": null,
         "homeScore": null,
-        "spread": -4.5,
-        "total": 37.5,
+        "spread": -3.5,
+        "total": 38.5,
         "stadium": "Lincoln Financial Field",
         "roof": "outdoors",
         "divisional": false,
@@ -366,7 +366,7 @@
         "home": "San Francisco 49ers",
         "awayScore": null,
         "homeScore": null,
-        "spread": 3.0,
+        "spread": 3.5,
         "total": 46.5,
         "stadium": "Estadio Banorte",
         "roof": "outdoors",
@@ -398,7 +398,7 @@
         "home": "Washington Commanders",
         "awayScore": null,
         "homeScore": null,
-        "spread": -6.5,
+        "spread": -6.0,
         "total": 53.5,
         "stadium": "Northwest Stadium",
         "roof": "outdoors",
@@ -2131,8 +2131,8 @@
           "rank": 22
         },
         "proe": {
-          "v": -0.1,
-          "rank": 15
+          "v": -1.6,
+          "rank": 20
         }
       },
       "usage": {
@@ -3974,7 +3974,7 @@
         },
         "proe": {
           "v": -5.7,
-          "rank": 29
+          "rank": 28
         }
       },
       "usage": {
@@ -5874,8 +5874,8 @@
           "rank": 32
         },
         "proe": {
-          "v": -1.3,
-          "rank": 19
+          "v": -0.7,
+          "rank": 17
         }
       },
       "usage": {
@@ -7556,8 +7556,8 @@
           "rank": 16
         },
         "proe": {
-          "v": -2.5,
-          "rank": 21
+          "v": -1.0,
+          "rank": 19
         }
       },
       "usage": {
@@ -9233,7 +9233,7 @@
         },
         "proe": {
           "v": 6.9,
-          "rank": 3
+          "rank": 4
         }
       },
       "usage": {
@@ -10877,8 +10877,8 @@
           "rank": 9
         },
         "proe": {
-          "v": 1.0,
-          "rank": 8
+          "v": 1.2,
+          "rank": 10
         }
       },
       "usage": {
@@ -12604,7 +12604,7 @@
           "rank": 28
         },
         "proe": {
-          "v": 10.8,
+          "v": 12.1,
           "rank": 1
         }
       },
@@ -14446,8 +14446,8 @@
           "rank": 3
         },
         "proe": {
-          "v": 0.8,
-          "rank": 10
+          "v": -0.0,
+          "rank": 16
         }
       },
       "usage": {
@@ -16345,8 +16345,8 @@
           "rank": 2
         },
         "proe": {
-          "v": -0.1,
-          "rank": 16
+          "v": 0.8,
+          "rank": 12
         }
       },
       "usage": {
@@ -18013,8 +18013,8 @@
           "rank": 14
         },
         "proe": {
-          "v": 1.1,
-          "rank": 7
+          "v": 1.3,
+          "rank": 9
         }
       },
       "usage": {
@@ -19753,8 +19753,8 @@
           "rank": 15
         },
         "proe": {
-          "v": -4.4,
-          "rank": 25
+          "v": -2.0,
+          "rank": 21
         }
       },
       "usage": {
@@ -21575,7 +21575,7 @@
           "rank": 19
         },
         "proe": {
-          "v": 0.7,
+          "v": 0.9,
           "rank": 11
         }
       },
@@ -23300,8 +23300,8 @@
           "rank": 11
         },
         "proe": {
-          "v": 4.0,
-          "rank": 6
+          "v": 5.4,
+          "rank": 5
         }
       },
       "usage": {
@@ -25183,7 +25183,7 @@
         },
         "proe": {
           "v": -2.8,
-          "rank": 22
+          "rank": 23
         }
       },
       "usage": {
@@ -26966,8 +26966,8 @@
           "rank": 24
         },
         "proe": {
-          "v": -1.0,
-          "rank": 18
+          "v": 0.3,
+          "rank": 13
         }
       },
       "usage": {
@@ -28659,7 +28659,7 @@
           "rank": 7
         },
         "proe": {
-          "v": 7.2,
+          "v": 8.5,
           "rank": 2
         }
       },
@@ -30473,8 +30473,8 @@
           "rank": 12
         },
         "proe": {
-          "v": 4.9,
-          "rank": 4
+          "v": 7.3,
+          "rank": 3
         }
       },
       "usage": {
@@ -33990,8 +33990,8 @@
           "rank": 10
         },
         "proe": {
-          "v": -0.1,
-          "rank": 17
+          "v": -0.9,
+          "rank": 18
         }
       },
       "usage": {
@@ -35726,8 +35726,8 @@
           "rank": 20
         },
         "proe": {
-          "v": -5.2,
-          "rank": 28
+          "v": -7.2,
+          "rank": 30
         }
       },
       "usage": {
@@ -37412,8 +37412,8 @@
           "rank": 17
         },
         "proe": {
-          "v": -4.9,
-          "rank": 26
+          "v": -4.0,
+          "rank": 24
         }
       },
       "usage": {
@@ -39338,7 +39338,7 @@
           "rank": 26
         },
         "proe": {
-          "v": 0.4,
+          "v": 0.2,
           "rank": 14
         }
       },
@@ -40980,8 +40980,8 @@
           "rank": 6
         },
         "proe": {
-          "v": 0.8,
-          "rank": 9
+          "v": 2.2,
+          "rank": 7
         }
       },
       "usage": {
@@ -42700,7 +42700,7 @@
           "rank": 25
         },
         "proe": {
-          "v": -4.9,
+          "v": -5.7,
           "rank": 27
         }
       },
@@ -44524,8 +44524,8 @@
           "rank": 21
         },
         "proe": {
-          "v": -3.5,
-          "rank": 24
+          "v": -4.2,
+          "rank": 25
         }
       },
       "usage": {
@@ -46203,8 +46203,8 @@
           "rank": 13
         },
         "proe": {
-          "v": -1.6,
-          "rank": 20
+          "v": -2.1,
+          "rank": 22
         }
       },
       "usage": {
@@ -47922,8 +47922,8 @@
           "rank": 8
         },
         "proe": {
-          "v": 4.7,
-          "rank": 5
+          "v": 5.2,
+          "rank": 6
         }
       },
       "usage": {
@@ -49757,8 +49757,8 @@
           "rank": 27
         },
         "proe": {
-          "v": -8.0,
-          "rank": 30
+          "v": -6.7,
+          "rank": 29
         }
       },
       "usage": {
@@ -51540,8 +51540,8 @@
           "rank": 29
         },
         "proe": {
-          "v": 0.6,
-          "rank": 12
+          "v": 1.6,
+          "rank": 8
         }
       },
       "usage": {
@@ -53219,7 +53219,7 @@
           "rank": 31
         },
         "proe": {
-          "v": -10.5,
+          "v": -11.2,
           "rank": 31
         }
       },
@@ -54963,8 +54963,8 @@
           "rank": 5
         },
         "proe": {
-          "v": -3.1,
-          "rank": 23
+          "v": -4.9,
+          "rank": 26
         }
       },
       "usage": {
@@ -56676,8 +56676,8 @@
           "rank": 4
         },
         "proe": {
-          "v": 0.6,
-          "rank": 13
+          "v": 0.0,
+          "rank": 15
         }
       },
       "usage": {

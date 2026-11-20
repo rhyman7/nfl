@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-20 (10:50 AM ET) — daily refresh, Week 11
+- Commit "Week 11 daily refresh (2026-11-20)". Through Week 10, schedule Week 11 (13 games; byes ATL, CLE, GB, LA, NE, SEA; TNF final: HOU 26, IND 3). Published.
+- Lines moved vs 11-19 publish (home spread / total): ARI@KC spread 15.5 → 16.5; TEN@DAL total 55.5 → 54.5; LV@DEN spread 10.0 → 10.5; PIT@PHI −4.5/37.5 → −3.5/38.5; MIN@SF spread 3.0 → 3.5; CIN@WAS spread −6.5 → −6.0.
+- Referees: 0 of 13 games assigned (blank in nflverse games.csv; still blank on Friday).
+- Fallback: PFR standings not fetched (no web-fetch tool in this run). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 10 (scripts/srs.py).
+- data/capped.json and data/epa.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-17). All data checks and headless page tests passed.
+
 ## 2026-11-19 (2:30 PM ET) — hand rebuild after PR #58, Week 11
 - Commit "Week 11 rebuild: drop traded players from old teams (2026-11-19)". Through Week 10, schedule Week 11. Rebuilt by hand after PR #58 (players who have since played for another team are left out of their old team's player and usage tables).
 - Left out: ARI Jacoby Brissett, Marvin Harrison Jr.; CLE Audric Estime; DAL Emari Demercado; HOU Jared Wayne; IND Keenan Allen, Josh Downs; KC Nikko Remigio; LV Kirk Cousins; WAS Kaytron Allen.
