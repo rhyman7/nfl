@@ -3,8 +3,8 @@
  "week": 11,
  "league": "nfl",
  "title": "NFL Week 11 Matchup Report",
- "dataGeneratedAt": "2026-11-19T19:26:17.398571+00:00",
- "generatedAt": "2026-11-20T11:35:40Z",
+ "dataGeneratedAt": "2026-11-20T15:52:03.868149+00:00",
+ "generatedAt": "2026-11-20T15:55:13Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,52 +19,31 @@
  ],
  "slate": {
   "best": [
+   14,
    15,
    16,
-   17,
-   18
+   17
   ],
   "td": [
-   19,
-   20
+   18,
+   19
   ],
   "floors": [
-   21,
-   22
+   20,
+   21
   ],
   "bye": [
-   23
+   22
   ]
  },
  "games": [
-  {
-   "id": "2026_11_IND_HOU",
-   "label": "IND @ HOU",
-   "file": "NFL_Week11_IND-HOU_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ],
-    "value": [
-     0
-    ]
-   },
-   "missing": []
-  },
   {
    "id": "2026_11_ARI_KC",
    "label": "ARI @ KC",
    "file": "NFL_Week11_ARI-KC_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -85,7 +64,7 @@
    "file": "NFL_Week11_BAL-CAR_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -106,7 +85,7 @@
    "file": "NFL_Week11_JAX-NYG_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -127,7 +106,7 @@
    "file": "NFL_Week11_MIA-BUF_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -148,7 +127,7 @@
    "file": "NFL_Week11_NO-CHI_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -169,7 +148,7 @@
    "file": "NFL_Week11_TB-DET_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -190,7 +169,7 @@
    "file": "NFL_Week11_TEN-DAL_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -211,7 +190,7 @@
    "file": "NFL_Week11_NYJ-LAC_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -232,7 +211,7 @@
    "file": "NFL_Week11_LV-DEN_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -253,7 +232,7 @@
    "file": "NFL_Week11_PIT-PHI_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -274,7 +253,7 @@
    "file": "NFL_Week11_MIN-SF_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -295,7 +274,7 @@
    "file": "NFL_Week11_CIN-WAS_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
