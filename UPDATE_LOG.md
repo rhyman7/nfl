@@ -4,6 +4,12 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-23 (5:05 PM ET) — hand update after PR #60, Week 11
+- Commit "Week 11 update: add red zone trips and points per trip (2026-11-23)". Through Week 10, schedule Week 11. Done by hand at Ryan's request after PR #60 so the new Finishing drives rows (RZ trips / G, Pts / RZ trip) show before the next daily run.
+- Only `rzTripsG` and `rzPts` were added to each team's `situ.off` / `situ.def` (from `scripts/situational.py` on the current nflverse play-by-play, through Week 10). Nothing else in data/data.json changed, `generatedAt` included; the existing Red zone TD %, trip counts and every other situational number matched the published file for all 32 teams.
+- A full rebuild was run but not published: with the same play counts, the current nflverse play-by-play gives different EPA and success-rate numbers for Weeks 1-10 than the published file (every team; up to 0.016 EPA / play and 2.8 points of success rate, ranks moving up to 7 spots; data/epa.json differs too). The published numbers had not moved since at least Nov 21, so nflverse looks to have revised its play-by-play today. Left for the next daily run and flagged to Ryan.
+- lineOpen, lines, referees, data/epa.json, data/capped.json and the week files untouched. Headless page checks passed; Print all still 26 pages for 13 games.
+
 ## 2026-11-23 (10:50 AM ET) — daily refresh, Week 11
 - Commit "Week 11 daily refresh (2026-11-23)". Through Week 10, schedule Week 11 (13 games; byes ATL, CLE, GB, LA, NE, SEA; 12 final, CIN@WAS is tonight). Published.
 - Lines moved vs 11-22 publish (home spread / total; closing lines for games now final): BAL@CAR spread 3.0 → 2.5; MIA@BUF total 44.5 → 45.5; TEN@DAL total 54.5 → 55.5; NYJ@LAC total 42.5 → 43.5; LV@DEN 10.5/40.5 → 11.5/41.5; MIN@SF 3.5/46.5 → 4.5/44.5. Week 12 file lines also refreshed.
