@@ -322,8 +322,8 @@ Built by `scripts/situational.py` (called from `build_from_nflverse.py`) into ea
 It downloads `snap_counts_<season>.csv` and `advstats_week_pass/def_<season>.csv` from the
 nflverse-data releases into `--src` when they aren't there.
 
-- **Head to head** gains three groups under the existing rows: Finishing drives (red zone TD %,
-  3rd down %), Big plays (explosive %, passes of 20+ yards, runs of 10+) and Pass rush vs
+- **Head to head** gains three groups under the existing rows: Finishing drives (red zone trips per
+  game, red zone TD %, points per red zone trip at 7 per TD and 3 per FG, 3rd down %), Big plays (explosive %, passes of 20+ yards, runs of 10+) and Pass rush vs
   protection (sack rate and Pro Football Reference pressure rate, per dropback). Same bars and the
   same 6-spot edge rule as the rows above.
 - **Pace and tendency** under Head to head: plays per game, seconds per play in neutral

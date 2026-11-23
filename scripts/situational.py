@@ -4,7 +4,10 @@ Called by build_from_nflverse.py. Everything is regular season through the lates
 
 Per team (data.json -> teams[name]):
     situ.off / situ.def   each value is {"v": number, "rank": 1..32}
+        rzTripsG      red zone trips per game: drives that ran a play inside the 20, per game played
+                      (defense: trips allowed)
         rzTd          red zone TD %: drives that ran a play inside the 20 and ended in a touchdown
+        rzPts         points per red zone trip, scored as 7 for a touchdown and 3 for a field goal
         third         3rd down conversion %
         explosive     explosive play %: passes of 20+ yards and runs of 10+ yards, per pass/run play
         expPass       passes of 20+ yards, per pass play
@@ -91,6 +94,8 @@ def build(src, season, through_week, ps, teams, notes, gone=frozenset()):
         dr = p[p.fixed_drive.notna() & p.yardline_100.notna()].groupby(["game_id", "posteam", "defteam", "fixed_drive"]).agg(
             minyl=("yardline_100", "min"), res=("fixed_drive_result", "last")).reset_index()
         rz = dr[dr.minyl <= 20].assign(td=lambda x: (x.res == "Touchdown").astype(float))
+        rz["pts"] = np.where(rz.res == "Touchdown", 7.0, np.where(rz.res == "Field goal", 3.0, 0.0))
+        gp_def = plays.groupby("defteam").game_id.nunique()
         third = plays[plays.down == 3]
 
         def third_rate(col):
@@ -114,7 +119,9 @@ def build(src, season, through_week, ps, teams, notes, gone=frozenset()):
             pr_def = ad.groupby("team").def_pressures.sum() / db.groupby("defteam").size() * 100
 
         off = {
+            "rzTripsG": (rz.groupby("posteam").size().reindex(gp.index, fill_value=0) / gp, True),
             "rzTd": (rz.groupby("posteam").td.mean() * 100, True),
+            "rzPts": (rz.groupby("posteam").pts.mean(), True, 2),
             "third": (third_rate("posteam"), True),
             "explosive": (plays.groupby("posteam").exp.mean() * 100, True),
             "expPass": (pa.groupby("posteam").exp.mean() * 100, True),
@@ -122,7 +129,9 @@ def build(src, season, through_week, ps, teams, notes, gone=frozenset()):
             "sackRate": (db.groupby("posteam").sack.mean() * 100, False),
         }
         dfn = {
+            "rzTripsG": (rz.groupby("defteam").size().reindex(gp_def.index, fill_value=0) / gp_def, False),
             "rzTd": (rz.groupby("defteam").td.mean() * 100, False),
+            "rzPts": (rz.groupby("defteam").pts.mean(), False, 2),
             "third": (third_rate("defteam"), False),
             "explosive": (plays.groupby("defteam").exp.mean() * 100, False),
             "expPass": (pa.groupby("defteam").exp.mean() * 100, False),
@@ -135,8 +144,8 @@ def build(src, season, through_week, ps, teams, notes, gone=frozenset()):
         else:
             notes.append("no pressure counts this run; pressure rate left out")
         rz_trips = rz.groupby("posteam").size()
-        po = {k: _pack(s, hi, teams) for k, (s, hi) in off.items()}
-        pd_ = {k: _pack(s, hi, teams) for k, (s, hi) in dfn.items()}
+        po = {k: _pack(v[0], v[1], teams, *v[2:]) for k, v in off.items()}
+        pd_ = {k: _pack(v[0], v[1], teams, *v[2:]) for k, v in dfn.items()}
 
         # pace: neutral situations, time between snaps within a drive
         neu = plays[(plays.score_differential.abs() <= 7) & (plays.qtr <= 3)].sort_values(["game_id", "play_id"])
