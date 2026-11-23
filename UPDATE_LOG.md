@@ -4,6 +4,15 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-23 (10:50 AM ET) — daily refresh, Week 11
+- Commit "Week 11 daily refresh (2026-11-23)". Through Week 10, schedule Week 11 (13 games; byes ATL, CLE, GB, LA, NE, SEA; 12 final, CIN@WAS is tonight). Published.
+- Lines moved vs 11-22 publish (home spread / total; closing lines for games now final): BAL@CAR spread 3.0 → 2.5; MIA@BUF total 44.5 → 45.5; TEN@DAL total 54.5 → 55.5; NYJ@LAC total 42.5 → 43.5; LV@DEN 10.5/40.5 → 11.5/41.5; MIN@SF 3.5/46.5 → 4.5/44.5. Week 12 file lines also refreshed.
+- Referees: 0 of 13 games assigned (still blank in nflverse games.csv on Monday; flagged).
+- Fallback: PFR standings not fetched (no web-fetch tool in this run). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 10 (scripts/srs.py).
+- origin/main had been force-updated with a rewritten history again since the earlier local clone; worked from a fresh clone of the current main.
+- data/capped.json and data/epa.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-17). All data checks and headless page tests passed (Weekly Edges prop tables hidden locally: they need the value board feed).
+
 ## 2026-11-22 (10:50 AM ET) — daily refresh, Week 11
 - Commit "Week 11 daily refresh (2026-11-22)". Through Week 10, schedule Week 11 (13 games; byes ATL, CLE, GB, LA, NE, SEA; TNF final: HOU 26, IND 3). Published.
 - Lines moved vs 11-21 publish (home spread / total): ARI@KC spread 16.5 → 15.5; BAL@CAR total 43.5 → 44.5; JAX@NYG total 46.5 → 45.5; NO@CHI total 48.5 → 47.5; TB@DET 5.5/45.5 → 3.5/48.5; MIN@SF spread 3.0 → 3.5; CIN@WAS total 53.5 → 54.5. Week 12 file lines also refreshed.
