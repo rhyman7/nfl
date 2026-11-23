@@ -486,7 +486,7 @@ function renderMatchupParts(g) {
       ${edgePanel(home, away)}
     </div>
     ${pacePanel(away, home)}
-    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side is better by at least one league standard deviation (so it counts how big the gap is, not just rank spots). Adj. rows are adjusted for the offenses and defenses each team has faced, as on the EPA page; the per-game rows are not, so a soft or hard schedule shows in them. Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> Red zone TD % is the share of drives that ran a play inside the 20 and ended in a touchdown. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
+    <p class="edge-key">Longer bar, better rank. Ranks are out of 32. The edge goes to whichever side is better by at least one league standard deviation (so it counts how big the gap is, not just rank spots). Adj. rows are adjusted for the offenses and defenses each team has faced, as on the EPA page; the per-game rows are not, so a soft or hard schedule shows in them. Rush Yds / Att is yards per rush attempt, gained by the offense and allowed by the defense; INT compares interceptions thrown by the offense with interceptions made by the defense. EPA / play (expected points added) and Success % use every pass and run play from nflverse play-by-play; for a defense, lower is better.${hasSitu() ? "<span class=\"edge-key-x\"> A red zone trip is a drive that ran a play inside the 20: RZ trips / G is how many a team makes (or allows) per game, Red zone TD % is the share that ended in a touchdown, and Pts / RZ trip is the points per trip at 7 for a touchdown and 3 for a field goal. Explosive % counts passes of 20+ yards and runs of 10+ per play; Pass 20+ % and Rush 10+ % split it by play type. Sack and pressure rates are per dropback (pressures are Pro Football Reference's count); for an offense lower is better, for a defense higher.</span>" : ""}</p>`;
   const cards = `<h3 class="section-title">Full team stats</h3>` + renderTeamCard(away, heroQb(g, g.away, g.awayQb)) + renderTeamCard(home, heroQb(g, g.home, g.homeQb));
   return { head: renderHero(g, away, home), edges: edges + renderBetting(away, home), cards };
 }
@@ -609,7 +609,9 @@ function hasAdj() { return Object.values(DATA.teams).every(t => t.adj && t.adj.o
 const sv = (side, key) => t => t.situ && t.situ[side][key] ? t.situ[side][key].v : null;
 const SITU_GROUPS = [
   ["Finishing drives", [
+    ["RZ trips / G", sv("off", "rzTripsG"), sv("def", "rzTripsG"), true, false, v => v.toFixed(1)],
     ["Red zone TD %", sv("off", "rzTd"), sv("def", "rzTd"), true, false, v => v.toFixed(1)],
+    ["Pts / RZ trip", sv("off", "rzPts"), sv("def", "rzPts"), true, false, v => v.toFixed(2)],
     ["3rd down %", sv("off", "third"), sv("def", "third"), true, false, v => v.toFixed(1)],
   ]],
   ["Big plays", [

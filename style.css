@@ -1090,8 +1090,9 @@ body.plog-open { overflow: hidden; }
 
   /* Matchup page: header + head to head + both cards on one landscape page */
   body.mprint:not(.print-single) .topbar { display: none; }
-  body.mprint:not(.print-single) .m-head,
-  body.mprint:not(.print-single) .m-edges { zoom: 0.64; }
+  body.mprint:not(.print-single) .m-head { zoom: 0.64; }
+  /* a touch smaller than the header so Head to Head, with the Finishing drives rows, stays on page one */
+  body.mprint:not(.print-single) .m-edges { zoom: 0.62; }
   body.mprint:not(.print-single) #teamCards,
   body.mprint:not(.print-single) .m-cards { width: 1960px; zoom: 0.48; }
   body.mprint:not(.print-single) .mh-week { margin-bottom: 4px; }
@@ -1107,7 +1108,7 @@ body.plog-open { overflow: hidden; }
   body.mprint:not(.print-single) .section-title { margin: 10px 0 6px; font-size: 1.25rem; }
   body.mprint:not(.print-single) .edge-panel { padding: 8px 14px 4px; }
   body.mprint:not(.print-single) .edge-panel h4 { margin-bottom: 4px; }
-  body.mprint:not(.print-single) .tape { padding: 2px 0; }
+  body.mprint:not(.print-single) .tape { padding: 1px 0; }
   body.mprint:not(.print-single) .tape-group { padding: 6px 0 2px; }
   body.mprint:not(.print-single) .pace-panel { margin-top: 8px; padding: 8px 14px 4px; }
   body.mprint:not(.print-single) .pace-panel th, body.mprint:not(.print-single) .pace-panel td { padding-top: 3px; padding-bottom: 3px; }

@@ -123,6 +123,13 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   - indoor games show only the roof, `Dome` (or `Roof closed` for a closed retractable roof);
   - outdoor games show the kickoff forecast itself (conditions, temperature, rain chance,
     wind), with **no "Forecast" label**.
+- Head to Head's **Finishing drives** group (Nov 23, 2026): **RZ trips / G**, Red zone TD %, **Pts / RZ trip**, 3rd down %
+  (`rzTripsG`, `rzTd`, `rzPts`, `third` in `situ.off` / `situ.def`, from `scripts/situational.py`). A red zone trip is a
+  drive that ran a play inside the 20; trips are per game played (defense: trips allowed, fewer is better) and points
+  are 7 for a touchdown and 3 for a field goal, missed kicks and everything else 0. Labels stay short
+  enough for one line in the 104px label column. The CFB site has the same four rows. Each row
+  is hidden until every team has the number. In print, Head to Head is sized (`.m-edges` zoom 0.62, 1px row padding)
+  so the first page still holds it with these rows; recheck the two-page count if a row is added.
 - Head to Head has a **Pass Yds / Comp** row under Pass Yds / G (`passYdsComp` on `offense` and `defense`: season passing yards before sacks ÷ completions, 2 decimals; hidden until every team has it).
 - Head to Head (matchup page and the EPA page's Head to head): league rank bars. The **Edge**
   column names the side with the **better league rank** on every row and says **Even only when
