@@ -3386,16 +3386,16 @@
      "at": "2026-11-22T19:59Z"
     },
     "CIN": {
-     "rk": 1,
+     "rk": 2,
      "name": "Chase Brown",
      "pos": "RB",
      "opp": "WAS",
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 76.3,
-     "proj": 109.5,
+     "proj": 104.4,
      "v": "board",
-     "at": "2026-11-22T19:59Z",
+     "at": "2026-11-23T01:41Z",
      "lad": {
       "fd": [
        [
@@ -3436,16 +3436,16 @@
      }
     },
     "WAS": {
-     "rk": 13,
+     "rk": 14,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "CIN",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 36.2,
-     "proj": 42.1,
+     "proj": 41.8,
      "v": "board",
-     "at": "2026-11-22T19:59Z",
+     "at": "2026-11-23T01:41Z",
      "lad": {
       "dk": [
        [
