@@ -4,12 +4,11 @@
  "league": "nfl",
  "title": "NFL Week 11 Matchup Report",
  "dataGeneratedAt": "2026-11-23T15:53:00.962918+00:00",
- "generatedAt": "2026-11-24T02:13:08Z",
+ "generatedAt": "2026-11-24T13:40:48Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
-  "epa": "epa.pdf",
-  "value": "value-board.pdf"
+  "epa": "epa.pdf"
  },
  "parts": [
   "Matchup Report",
@@ -27,10 +26,6 @@
   "td": [
    7,
    8
-  ],
-  "floors": [
-   9,
-   10
   ]
  },
  "games": [
@@ -48,12 +43,11 @@
     ],
     "epa": [
      12
-    ],
-    "value": [
-     0
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   }
  ]
 }
