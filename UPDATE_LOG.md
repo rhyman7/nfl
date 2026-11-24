@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-24 (10:50 AM ET) — new-week update, Week 12
+- Commit "Week 12 data update (through Week 11, 2026)". Through Week 11, schedule Week 12 (16 games, no byes; Thanksgiving: GB@LA, CHI@DET, PHI@DAL). Published.
+- Referees: 0 of 16 games assigned (blank in nflverse games.csv; normal this early).
+- Fallback: PFR standings and passing pages both failed to load (client error at the fetch proxy). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 11 (scripts/srs.py). QB check against PFR skipped.
+- This build picks up nflverse's revised play-by-play noted in the 11-23 hand update, so EPA / success-rate numbers for Weeks 1-10 shift slightly along with Week 11.
+- lineOpen set 2026-11-24 (home spread, + = home favored / total): 2026_12_GB_LA +2.5/43.5; 2026_12_CHI_DET -2.5/55.5; 2026_12_PHI_DAL +8.5/47.5; 2026_12_KC_BUF +3/47.5; 2026_12_DEN_PIT -3/38.5; 2026_12_ATL_MIN +7/42.5; 2026_12_BAL_HOU +6.5/46.5; 2026_12_NO_CIN +10/50.5; 2026_12_NYG_IND -6.5/41.5; 2026_12_NYJ_MIA -3.5/40.5; 2026_12_TEN_JAX +14.5/47.5; 2026_12_NE_LAC +1.5/35.5; 2026_12_SEA_SF +3/46.5; 2026_12_WAS_ARI -7.5/42.5; 2026_12_LV_CLE +4.5/41.5; 2026_12_CAR_TB +3/43.5.
+- All data checks and headless page tests passed.
+
 ## 2026-11-23 (5:05 PM ET) — hand update after PR #60, Week 11
 - Commit "Week 11 update: add red zone trips and points per trip (2026-11-23)". Through Week 10, schedule Week 11. Done by hand at Ryan's request after PR #60 so the new Finishing drives rows (RZ trips / G, Pts / RZ trip) show before the next daily run.
 - Only `rzTripsG` and `rzPts` were added to each team's `situ.off` / `situ.def` (from `scripts/situational.py` on the current nflverse play-by-play, through Week 10). Nothing else in data/data.json changed, `generatedAt` included; the existing Red zone TD %, trip counts and every other situational number matched the published file for all 32 teams.
