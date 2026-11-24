@@ -90,7 +90,7 @@ edge shows in its team color. Type is Archivo, loaded from Google Fonts.
 Receiving tables is clickable. Hovering (on a computer) shows a tooltip with that
 player's week-by-week stats for the table, the opponent, and full-PPR fantasy points;
 clicking or tapping opens a panel with the full game log (result, passing, rushing,
-receiving, fumbles lost, fantasy points). The tooltip's **Rnk** column is the opponent's rank against the player's position coming into that week (vs WR, TE, receiving RB, rushing RB, or pass defense for a quarterback), not its rank now; see CONVENTIONS.md. The logs live in `gameLogs` in
+receiving, fumbles lost, fantasy points). The tooltip's **Rnk** column is the opponent's rank against the player's position coming into that week (vs WR, TE, receiving RB, rushing RB, or pass defense for a quarterback), not its rank now; see CONVENTIONS.md. The last row is this week's opponent with its rank coming into this week. The logs live in `gameLogs` in
 `data/data.json`, keyed `ABBR|player_id`, and each player row carries a `log` key that
 points to its entry. Fantasy points are nflverse's `fantasy_points_ppr`.
 
