@@ -3271,7 +3271,10 @@
         -420
        ]
       ]
-     }
+     },
+     "y": 29,
+     "ly": 29,
+     "res": "miss"
     },
     "DAL": {
      "rk": 1,
@@ -3321,7 +3324,10 @@
         -550
        ]
       ]
-     }
+     },
+     "y": 91,
+     "ly": 67,
+     "res": "beat"
     },
     "LAC": {
      "rk": 6,
@@ -3371,7 +3377,10 @@
         -486
        ]
       ]
-     }
+     },
+     "y": 93,
+     "ly": 89,
+     "res": "beat"
     },
     "PHI": {
      "rk": 9,
@@ -3383,7 +3392,10 @@
      "avg": 34.7,
      "proj": 42.9,
      "v": "board",
-     "at": "2026-11-22T19:59Z"
+     "at": "2026-11-22T19:59Z",
+     "y": 3,
+     "ly": 3,
+     "res": "miss"
     },
     "CIN": {
      "rk": 1,
@@ -3433,7 +3445,10 @@
         -590
        ]
       ]
-     }
+     },
+     "y": 36,
+     "ly": 6,
+     "res": "miss"
     },
     "WAS": {
      "rk": 2,
@@ -3483,7 +3498,10 @@
         -360
        ]
       ]
-     }
+     },
+     "y": 122,
+     "ly": 122,
+     "res": "beat"
     },
     "KC": {
      "rk": 8,
@@ -3533,7 +3551,10 @@
         -450
        ]
       ]
-     }
+     },
+     "y": 38,
+     "ly": 38,
+     "res": "beat"
     },
     "MIN": {
      "rk": 4,
@@ -3583,7 +3604,10 @@
         -364
        ]
       ]
-     }
+     },
+     "y": 86,
+     "ly": 86,
+     "res": "beat"
     },
     "HOU": {
      "rk": 11,
@@ -3633,7 +3657,10 @@
         -330
        ]
       ]
-     }
+     },
+     "y": 13,
+     "ly": 13,
+     "res": "miss"
     },
     "DET": {
      "rk": 7,
@@ -3683,7 +3710,10 @@
         -339
        ]
       ]
-     }
+     },
+     "y": 93,
+     "ly": 93,
+     "res": "beat"
     },
     "PIT": {
      "rk": 8,
@@ -3733,7 +3763,10 @@
         -340
        ]
       ]
-     }
+     },
+     "y": 2,
+     "ly": 2,
+     "res": "miss"
     },
     "DEN": {
      "rk": 12,
@@ -3783,7 +3816,10 @@
         -377
        ]
       ]
-     }
+     },
+     "y": 61,
+     "ly": 61,
+     "res": "beat"
     },
     "SF": {
      "rk": 14,
@@ -3833,7 +3869,194 @@
         -450
        ]
       ]
-     }
+     },
+     "y": 15,
+     "ly": 8,
+     "res": "miss"
+    }
+   }
+  },
+  "12": {
+   "picks": {
+    "CHI": {
+     "rk": 3,
+     "name": "Colston Loveland",
+     "pos": "TE",
+     "opp": "DET",
+     "log": "CHI|00-0040126",
+     "kind": "rec",
+     "avg": 39.2,
+     "proj": 49.9,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "DET": {
+     "rk": 5,
+     "name": "Amon-Ra St. Brown",
+     "pos": "WR",
+     "opp": "CHI",
+     "log": "DET|00-0036963",
+     "kind": "rec",
+     "avg": 79.2,
+     "proj": 88.6,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "PHI": {
+     "rk": 12,
+     "name": "Makai Lemon",
+     "pos": "WR",
+     "opp": "DAL",
+     "log": "PHI|00-0040867",
+     "kind": "rec",
+     "avg": 31.5,
+     "proj": 42.8,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "DAL": {
+     "rk": 4,
+     "name": "Javonte Williams",
+     "pos": "RB",
+     "opp": "PHI",
+     "log": "DAL|00-0036997",
+     "kind": "scrim",
+     "avg": 83.1,
+     "proj": 100.0,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "DEN": {
+     "rk": 11,
+     "name": "Jaylen Waddle",
+     "pos": "WR",
+     "opp": "PIT",
+     "log": "DEN|00-0036613",
+     "kind": "rec",
+     "avg": 39.8,
+     "proj": 49.8,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "ATL": {
+     "rk": 8,
+     "name": "Kyle Pitts",
+     "pos": "TE",
+     "opp": "MIN",
+     "log": "ATL|00-0036970",
+     "kind": "rec",
+     "avg": 27.0,
+     "proj": 34.9,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "MIN": {
+     "rk": 9,
+     "name": "Justin Jefferson",
+     "pos": "WR",
+     "opp": "ATL",
+     "log": "MIN|00-0036322",
+     "kind": "rec",
+     "avg": 61.4,
+     "proj": 71.7,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "BAL": {
+     "rk": 13,
+     "name": "Mark Andrews",
+     "pos": "TE",
+     "opp": "HOU",
+     "log": "BAL|00-0034753",
+     "kind": "rec",
+     "avg": 30.3,
+     "proj": 33.5,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "CIN": {
+     "rk": 2,
+     "name": "Chase Brown",
+     "pos": "RB",
+     "opp": "NO",
+     "log": "CIN|00-0038597",
+     "kind": "scrim",
+     "avg": 72.3,
+     "proj": 99.7,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "MIA": {
+     "rk": 10,
+     "name": "Ollie Gordon II",
+     "pos": "RB",
+     "opp": "NYJ",
+     "log": "MIA|00-0040198",
+     "kind": "scrim",
+     "avg": 74.2,
+     "proj": 85.0,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "LAC": {
+     "rk": 7,
+     "name": "Omarion Hampton",
+     "pos": "RB",
+     "opp": "NE",
+     "log": "LAC|00-0040666",
+     "kind": "scrim",
+     "avg": 63.0,
+     "proj": 75.8,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "WAS": {
+     "rk": 15,
+     "name": "Antonio Williams",
+     "pos": "WR",
+     "opp": "ARI",
+     "log": "WAS|00-0041040",
+     "kind": "rec",
+     "avg": 44.8,
+     "proj": 50.7,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "ARI": {
+     "rk": 1,
+     "name": "Trey McBride",
+     "pos": "TE",
+     "opp": "WAS",
+     "log": "ARI|00-0037744",
+     "kind": "rec",
+     "avg": 62.6,
+     "proj": 73.1,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "LV": {
+     "rk": 14,
+     "name": "Ashton Jeanty",
+     "pos": "RB",
+     "opp": "CLE",
+     "log": "LV|00-0040122",
+     "kind": "scrim",
+     "avg": 87.8,
+     "proj": 93.9,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
+    },
+    "CLE": {
+     "rk": 6,
+     "name": "Quinshon Judkins",
+     "pos": "RB",
+     "opp": "LV",
+     "log": "CLE|00-0040784",
+     "kind": "scrim",
+     "avg": 65.8,
+     "proj": 77.3,
+     "v": "board",
+     "at": "2026-11-24T15:54Z"
     }
    }
   }

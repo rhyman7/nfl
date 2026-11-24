@@ -1,14 +1,15 @@
 {
  "season": 2026,
- "week": 11,
+ "week": 12,
  "league": "nfl",
- "title": "NFL Week 11 Matchup Report",
- "dataGeneratedAt": "2026-11-23T15:53:00.962918+00:00",
- "generatedAt": "2026-11-24T13:40:48Z",
+ "title": "NFL Week 12 Matchup Report",
+ "dataGeneratedAt": "2026-11-24T15:51:57.630418+00:00",
+ "generatedAt": "2026-11-24T15:54:48Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
-  "epa": "epa.pdf"
+  "epa": "epa.pdf",
+  "value": "value-board.pdf"
  },
  "parts": [
   "Matchup Report",
@@ -18,24 +19,284 @@
  ],
  "slate": {
   "best": [
-   3,
-   4,
-   5,
-   6
+   18,
+   19,
+   20,
+   21
   ],
   "td": [
-   7,
-   8
+   22,
+   23
+  ],
+  "floors": [
+   24,
+   25
+  ],
+  "bye": [
+   26,
+   27
   ]
  },
  "games": [
   {
-   "id": "2026_11_CIN_WAS",
-   "label": "CIN @ WAS",
-   "file": "NFL_Week11_CIN-WAS_packet",
+   "id": "2026_12_GB_LA",
+   "label": "GB @ LA",
+   "file": "NFL_Week12_GB-LA_packet",
    "pages": {
     "report": [
      2
+    ],
+    "matchup": [
+     0,
+     1
+    ],
+    "epa": [
+     0
+    ],
+    "value": [
+     0
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_CHI_DET",
+   "label": "CHI @ DET",
+   "file": "NFL_Week12_CHI-DET_packet",
+   "pages": {
+    "report": [
+     3
+    ],
+    "matchup": [
+     2,
+     3
+    ],
+    "epa": [
+     1
+    ],
+    "value": [
+     1
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_PHI_DAL",
+   "label": "PHI @ DAL",
+   "file": "NFL_Week12_PHI-DAL_packet",
+   "pages": {
+    "report": [
+     4
+    ],
+    "matchup": [
+     4,
+     5
+    ],
+    "epa": [
+     2
+    ],
+    "value": [
+     2
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_KC_BUF",
+   "label": "KC @ BUF",
+   "file": "NFL_Week12_KC-BUF_packet",
+   "pages": {
+    "report": [
+     5
+    ],
+    "matchup": [
+     6,
+     7
+    ],
+    "epa": [
+     3
+    ],
+    "value": [
+     3
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_DEN_PIT",
+   "label": "DEN @ PIT",
+   "file": "NFL_Week12_DEN-PIT_packet",
+   "pages": {
+    "report": [
+     6
+    ],
+    "matchup": [
+     8,
+     9
+    ],
+    "epa": [
+     4
+    ],
+    "value": [
+     4
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_ATL_MIN",
+   "label": "ATL @ MIN",
+   "file": "NFL_Week12_ATL-MIN_packet",
+   "pages": {
+    "report": [
+     7
+    ],
+    "matchup": [
+     10,
+     11
+    ],
+    "epa": [
+     5
+    ],
+    "value": [
+     5
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_BAL_HOU",
+   "label": "BAL @ HOU",
+   "file": "NFL_Week12_BAL-HOU_packet",
+   "pages": {
+    "report": [
+     8
+    ],
+    "matchup": [
+     12,
+     13
+    ],
+    "epa": [
+     6
+    ],
+    "value": [
+     6
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_NO_CIN",
+   "label": "NO @ CIN",
+   "file": "NFL_Week12_NO-CIN_packet",
+   "pages": {
+    "report": [
+     9
+    ],
+    "matchup": [
+     14,
+     15
+    ],
+    "epa": [
+     7
+    ],
+    "value": [
+     7
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_NYG_IND",
+   "label": "NYG @ IND",
+   "file": "NFL_Week12_NYG-IND_packet",
+   "pages": {
+    "report": [
+     10
+    ],
+    "matchup": [
+     16,
+     17
+    ],
+    "epa": [
+     8
+    ],
+    "value": [
+     8
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_NYJ_MIA",
+   "label": "NYJ @ MIA",
+   "file": "NFL_Week12_NYJ-MIA_packet",
+   "pages": {
+    "report": [
+     11
+    ],
+    "matchup": [
+     18,
+     19
+    ],
+    "epa": [
+     9
+    ],
+    "value": [
+     9
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_TEN_JAX",
+   "label": "TEN @ JAX",
+   "file": "NFL_Week12_TEN-JAX_packet",
+   "pages": {
+    "report": [
+     12
+    ],
+    "matchup": [
+     20,
+     21
+    ],
+    "epa": [
+     10
+    ],
+    "value": [
+     10
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_NE_LAC",
+   "label": "NE @ LAC",
+   "file": "NFL_Week12_NE-LAC_packet",
+   "pages": {
+    "report": [
+     13
+    ],
+    "matchup": [
+     22,
+     23
+    ],
+    "epa": [
+     11
+    ],
+    "value": [
+     11
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_SEA_SF",
+   "label": "SEA @ SF",
+   "file": "NFL_Week12_SEA-SF_packet",
+   "pages": {
+    "report": [
+     14
     ],
     "matchup": [
      24,
@@ -43,11 +304,75 @@
     ],
     "epa": [
      12
+    ],
+    "value": [
+     12
     ]
    },
-   "missing": [
-    "Value board"
-   ]
+   "missing": []
+  },
+  {
+   "id": "2026_12_WAS_ARI",
+   "label": "WAS @ ARI",
+   "file": "NFL_Week12_WAS-ARI_packet",
+   "pages": {
+    "report": [
+     15
+    ],
+    "matchup": [
+     26,
+     27
+    ],
+    "epa": [
+     13
+    ],
+    "value": [
+     13
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_LV_CLE",
+   "label": "LV @ CLE",
+   "file": "NFL_Week12_LV-CLE_packet",
+   "pages": {
+    "report": [
+     16
+    ],
+    "matchup": [
+     28,
+     29
+    ],
+    "epa": [
+     14
+    ],
+    "value": [
+     14
+    ]
+   },
+   "missing": []
+  },
+  {
+   "id": "2026_12_CAR_TB",
+   "label": "CAR @ TB",
+   "file": "NFL_Week12_CAR-TB_packet",
+   "pages": {
+    "report": [
+     17
+    ],
+    "matchup": [
+     30,
+     31
+    ],
+    "epa": [
+     15
+    ],
+    "value": [
+     15
+    ]
+   },
+   "missing": []
   }
  ]
 }
