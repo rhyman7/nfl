@@ -1177,11 +1177,28 @@ function rankInto(oppAbbr, week, rk) {
 }
 const RANK_WHO = { pass: "pass defense rank (pass yds/G)", rb: "rank vs RBs (rush yds/G)", recRb: "rank vs RBs (rec yds/G)", te: "rank vs TEs (rec yds/G)", wr: "rank vs WRs (rec yds/G)" };
 
-function tooltipHtml(name, kind, log, inj, pos) {
+// This week's game for a team (by abbr), for the popup's last row: { w, at, opp } or null on a bye.
+function nextGameOf(abbr) {
+  const team = Object.values(DATA.teams).find(t => t.abbr === abbr);
+  const sch = DATA.liveSchedule || DATA.schedule;
+  const g = team && sch && (sch.games || []).find(x => x.away === team.team || x.home === team.team);
+  if (!g) return null;
+  const away = g.away === team.team, opp = DATA.teams[away ? g.home : g.away];
+  return opp ? { w: sch.week, at: away && !g.neutral, opp: opp.abbr } : null;
+}
+// The popup's "this week" row: the coming opponent and its rank coming into this week (the number
+// the Defense vs position block shows now). Left out once the game is in the player's log.
+function nextRowHtml(nx, rk, log, span) {
+  if (!nx || !rk || !nx.w || log.some(e => e.w >= nx.w)) return "";
+  return `<tr class="ptip-next"><td>${nx.w}</td><td>${escapeHtml(oppText(nx))}</td><td class="num rnk">${rankInto(nx.opp, nx.w, rk) || "—"}</td><td colspan="${span}" class="ptip-next-note">This week</td></tr>`;
+}
+
+function tooltipHtml(name, kind, log, inj, pos, abbr) {
   const cols = LOG_GROUPS[kind] || [];
   const rk = logRankKind(kind, pos);
   const head = `<th>Wk</th><th>Opp</th>${rk ? `<th class="num" title="Opponent's ${RANK_WHO[rk]} coming into that week">Rnk</th>` : ""}${cols.map(([l]) => `<th class="num">${l}</th>`).join("")}<th class="num">FPts</th>`;
-  const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${rk ? `<td class="num rnk">${rankInto(e.opp, e.w, rk) || "—"}</td>` : ""}${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("");
+  const body = log.map(e => `<tr><td>${e.w}</td><td>${escapeHtml(oppText(e))}</td>${rk ? `<td class="num rnk">${rankInto(e.opp, e.w, rk) || "—"}</td>` : ""}${cols.map(([, f]) => `<td class="num">${f(e)}</td>`).join("")}<td class="num fp">${(e.fp || 0).toFixed(1)}</td></tr>`).join("")
+    + nextRowHtml(abbr ? nextGameOf(abbr) : null, rk, log, cols.length + 1);
   return `<div class="ptip-head"><b>${name}${inj ? injTag(inj) : ""}</b><span>${fpAvg(log)} FPts/G</span></div>
     ${inj && inj.note ? `<div class="ptip-inj">${escapeHtml(injSource() || "Injury report")}: ${escapeHtml(inj.note)}</div>` : ""}
     <table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>
@@ -1331,7 +1348,7 @@ function panelHtml(name, key, log, kind) {
     if (!log) return;
     if (!tip) { tip = document.createElement("div"); tip.className = "ptip no-print"; document.body.appendChild(tip); }
     const pi = playerIndex()[btn.dataset.log];
-    tip.innerHTML = tooltipHtml(escapeHtml(btn.dataset.name), btn.dataset.kind, log, pi && pi.inj, pi && pi.pos);
+    tip.innerHTML = tooltipHtml(escapeHtml(btn.dataset.name), btn.dataset.kind, log, pi && pi.inj, pi && pi.pos, btn.dataset.log.split("|")[0]);
     tip.hidden = false;
     const r = btn.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
     let left = r.left, top = r.bottom + 6;
