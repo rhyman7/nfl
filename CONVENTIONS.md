@@ -374,13 +374,21 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
 - **The data update is manual and done together**, not fully automated: a scheduled task
   runs daily at 10:50 AM ET (new-week update after the week's last game, otherwise a refresh
   of referees and lines). The README's "Weekly update (current)" section has the steps.
+- **The daily task's instructions are `scripts/tasks/daily_update.md`** (Nov 25, 2026). The
+  scheduled task's own prompt is a few lines: attach the repo, read that file, follow it. So a
+  change to what the task does is an ordinary pull request on that file; nobody retypes the
+  task. The task's prompt changes only when one of the three addresses it fetches changes
+  (Pro-Football-Reference's standings and passing pages, and the live `data/data.json`): in
+  scheduled runs WebFetch only opens an address written out in the task's prompt or returned
+  by a search, so those three are repeated there. The file's first lines say the same.
   Each run writes a dated entry at the top of **`UPDATE_LOG.md`** (newest first: which run,
   the commit, through-week and schedule week, fallbacks, line moves, and the week's opening
   lines on a new-week update) and commits it with the data. The log is the record a later
   run reads for a week's opening lines when an earlier run built but couldn't push. Before
   Nov 5, 2026 it was a Claude project doc (`claude/weekly-update-log.md`); don't write there.
 - **When a change touches the scheduled data-update tasks** (new or renamed pages, data
-  files or keys), check that the tasks' wording still matches the site, and update them.
+  files or keys), update `scripts/tasks/daily_update.md` in the same PR (its page list,
+  "data.json shape" and checks).
 - `data.json` keys are read by the pages. Adding a key is fine; renaming or removing one
   needs the pages (and the scheduled task's checks) updated in the same PR.
 - `lineOpen` is the line from the week's first build and is kept on reruns in the same week;
