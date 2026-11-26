@@ -59,6 +59,7 @@ async function loadData() {
   await loadEspnInjuries();
   try { initPlayerSearch(); } catch (e) { /* search is optional */ }
   try { initWeekNav(); } catch (e) { /* so is the week strip */ }
+  try { if (typeof phoneBarSearchReady === "function") phoneBarSearchReady(); } catch (e) { /* the search button is optional */ }
   return DATA;
 }
 
