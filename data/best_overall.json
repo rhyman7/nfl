@@ -3886,21 +3886,21 @@
      "log": "CHI|00-0040126",
      "kind": "rec",
      "avg": 39.2,
-     "proj": 50.3,
+     "proj": 50.4,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "DET": {
-     "rk": 5,
+     "rk": 6,
      "name": "Amon-Ra St. Brown",
      "pos": "WR",
      "opp": "CHI",
      "log": "DET|00-0036963",
      "kind": "rec",
      "avg": 79.2,
-     "proj": 90.1,
+     "proj": 88.4,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "PHI": {
      "rk": 13,
@@ -3910,9 +3910,9 @@
      "log": "PHI|00-0040867",
      "kind": "rec",
      "avg": 31.5,
-     "proj": 45.3,
+     "proj": 46.2,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "DAL": {
      "rk": 4,
@@ -3922,9 +3922,9 @@
      "log": "DAL|00-0036997",
      "kind": "scrim",
      "avg": 83.1,
-     "proj": 99.7,
+     "proj": 96.4,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "DEN": {
      "rk": 12,
@@ -3934,9 +3934,9 @@
      "log": "DEN|00-0036613",
      "kind": "rec",
      "avg": 39.8,
-     "proj": 49.6,
+     "proj": 49.8,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "fd": [
        [
@@ -3977,7 +3977,7 @@
      }
     },
     "ATL": {
-     "rk": 8,
+     "rk": 7,
      "name": "Kyle Pitts",
      "pos": "TE",
      "opp": "MIN",
@@ -3986,7 +3986,7 @@
      "avg": 27.0,
      "proj": 34.8,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "dk": [
        [
@@ -4027,16 +4027,16 @@
      }
     },
     "MIN": {
-     "rk": 7,
+     "rk": 9,
      "name": "Justin Jefferson",
      "pos": "WR",
      "opp": "ATL",
      "log": "MIN|00-0036322",
      "kind": "rec",
      "avg": 61.4,
-     "proj": 72.4,
+     "proj": 71.4,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "dk": [
        [
@@ -4077,7 +4077,7 @@
      }
     },
     "BAL": {
-     "rk": 10,
+     "rk": 11,
      "name": "Mark Andrews",
      "pos": "TE",
      "opp": "HOU",
@@ -4086,7 +4086,7 @@
      "avg": 30.3,
      "proj": 34.2,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "fd": [
        [
@@ -4116,9 +4116,9 @@
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 72.3,
-     "proj": 90.7,
+     "proj": 97.5,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "dk": [
        [
@@ -4159,16 +4159,16 @@
      }
     },
     "MIA": {
-     "rk": 6,
+     "rk": 5,
      "name": "Ollie Gordon II",
      "pos": "RB",
      "opp": "NYJ",
      "log": "MIA|00-0040198",
      "kind": "scrim",
      "avg": 74.2,
-     "proj": 86.8,
+     "proj": 88.7,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "dk": [
        [
@@ -4191,28 +4191,28 @@
      }
     },
     "LAC": {
-     "rk": 14,
+     "rk": 15,
      "name": "Omarion Hampton",
      "pos": "RB",
      "opp": "NE",
      "log": "LAC|00-0040666",
      "kind": "scrim",
      "avg": 63.0,
-     "proj": 70.3,
+     "proj": 67.6,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "WAS": {
-     "rk": 15,
+     "rk": 14,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "ARI",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 44.8,
-     "proj": 52.2,
+     "proj": 51.6,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "ARI": {
      "rk": 1,
@@ -4224,19 +4224,19 @@
      "avg": 62.6,
      "proj": 73.0,
      "v": "board",
-     "at": "2026-11-26T13:26Z"
+     "at": "2026-11-26T14:50Z"
     },
     "LV": {
-     "rk": 11,
+     "rk": 8,
      "name": "Ashton Jeanty",
      "pos": "RB",
      "opp": "CLE",
      "log": "LV|00-0040122",
      "kind": "scrim",
      "avg": 87.8,
-     "proj": 96.0,
+     "proj": 100.1,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "fd": [
        [
@@ -4247,20 +4247,20 @@
      }
     },
     "CLE": {
-     "rk": 9,
-     "name": "Quinshon Judkins",
-     "pos": "RB",
+     "rk": 10,
+     "name": "KC Concepcion",
+     "pos": "WR",
      "opp": "LV",
-     "log": "CLE|00-0040784",
-     "kind": "scrim",
-     "avg": 65.8,
-     "proj": 74.8,
+     "log": "CLE|00-0041547",
+     "kind": "rec",
+     "avg": 45.8,
+     "proj": 56.6,
      "v": "board",
-     "at": "2026-11-26T13:26Z",
+     "at": "2026-11-26T14:50Z",
      "lad": {
       "fd": [
        [
-        56.5,
+        47.5,
         -114
        ]
       ]
