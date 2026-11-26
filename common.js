@@ -93,7 +93,8 @@ function vbNorm(name) {
 }
 function boardGame(g) { return BOARD && weekMode() === "current" && g ? BOARD.games[g.id] || null : null; }
 function boardPlayer(abbr, name) { return BOARD ? BOARD.players[`${abbr}|${vbNorm(name)}`] || null : null; }
-function boardGameUrl(g) { return `${VB_ROOT}#matchups/${encodeURIComponent(g.id)}`; }
+// The board's game page (how the spread is built, every book's price), not its copy of this matchup.
+function boardGameUrl(g) { return `${VB_ROOT}#${encodeURIComponent(g.id)}`; }
 const PARLAY_URL = VB_ROOT + "parlays.html";
 // "DAL −7.6": the board's projected margin as a spread, favorite first.
 function boardSpreadText(g, bg) {
