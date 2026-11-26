@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 12 Matchup Report",
  "dataGeneratedAt": "2026-11-25T15:51:44.456513+00:00",
- "generatedAt": "2026-11-26T04:04:48Z",
+ "generatedAt": "2026-11-26T12:19:30Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -52,12 +52,11 @@
     ],
     "epa": [
      0
-    ],
-    "value": [
-     0
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_12_CHI_DET",
@@ -75,7 +74,7 @@
      1
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -96,7 +95,7 @@
      2
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -117,7 +116,7 @@
      3
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -138,7 +137,7 @@
      4
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -159,7 +158,7 @@
      5
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -180,7 +179,7 @@
      6
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -201,7 +200,7 @@
      7
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -222,7 +221,7 @@
      8
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -243,7 +242,7 @@
      9
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -264,7 +263,7 @@
      10
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -285,7 +284,7 @@
      11
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -306,7 +305,7 @@
      12
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
@@ -327,7 +326,7 @@
      13
     ],
     "value": [
-     13
+     12
     ]
    },
    "missing": []
@@ -348,7 +347,7 @@
      14
     ],
     "value": [
-     14
+     13
     ]
    },
    "missing": []
@@ -369,7 +368,7 @@
      15
     ],
     "value": [
-     15
+     14
     ]
    },
    "missing": []

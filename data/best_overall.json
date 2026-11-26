@@ -3888,7 +3888,7 @@
      "avg": 39.2,
      "proj": 50.3,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "DET": {
      "rk": 5,
@@ -3898,21 +3898,21 @@
      "log": "DET|00-0036963",
      "kind": "rec",
      "avg": 79.2,
-     "proj": 90.5,
+     "proj": 90.1,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "PHI": {
-     "rk": 12,
+     "rk": 13,
      "name": "Makai Lemon",
      "pos": "WR",
      "opp": "DAL",
      "log": "PHI|00-0040867",
      "kind": "rec",
      "avg": 31.5,
-     "proj": 41.2,
+     "proj": 45.3,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "DAL": {
      "rk": 4,
@@ -3922,21 +3922,21 @@
      "log": "DAL|00-0036997",
      "kind": "scrim",
      "avg": 83.1,
-     "proj": 98.6,
+     "proj": 99.7,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "DEN": {
-     "rk": 15,
+     "rk": 12,
      "name": "Jaylen Waddle",
      "pos": "WR",
      "opp": "PIT",
      "log": "DEN|00-0036613",
      "kind": "rec",
      "avg": 39.8,
-     "proj": 46.2,
+     "proj": 49.6,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "fd": [
        [
@@ -3977,7 +3977,7 @@
      }
     },
     "ATL": {
-     "rk": 7,
+     "rk": 8,
      "name": "Kyle Pitts",
      "pos": "TE",
      "opp": "MIN",
@@ -3986,7 +3986,7 @@
      "avg": 27.0,
      "proj": 34.8,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "dk": [
        [
@@ -4027,16 +4027,16 @@
      }
     },
     "MIN": {
-     "rk": 9,
+     "rk": 7,
      "name": "Justin Jefferson",
      "pos": "WR",
      "opp": "ATL",
      "log": "MIN|00-0036322",
      "kind": "rec",
      "avg": 61.4,
-     "proj": 71.2,
+     "proj": 72.4,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "dk": [
        [
@@ -4077,7 +4077,7 @@
      }
     },
     "BAL": {
-     "rk": 11,
+     "rk": 10,
      "name": "Mark Andrews",
      "pos": "TE",
      "opp": "HOU",
@@ -4086,7 +4086,7 @@
      "avg": 30.3,
      "proj": 34.2,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "fd": [
        [
@@ -4116,9 +4116,9 @@
      "log": "CIN|00-0038597",
      "kind": "scrim",
      "avg": 72.3,
-     "proj": 96.8,
+     "proj": 90.7,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "dk": [
        [
@@ -4166,9 +4166,9 @@
      "log": "MIA|00-0040198",
      "kind": "scrim",
      "avg": 74.2,
-     "proj": 87.1,
+     "proj": 86.8,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "dk": [
        [
@@ -4191,28 +4191,28 @@
      }
     },
     "LAC": {
-     "rk": 8,
+     "rk": 14,
      "name": "Omarion Hampton",
      "pos": "RB",
      "opp": "NE",
      "log": "LAC|00-0040666",
      "kind": "scrim",
      "avg": 63.0,
-     "proj": 75.5,
+     "proj": 70.3,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "WAS": {
-     "rk": 14,
+     "rk": 15,
      "name": "Antonio Williams",
      "pos": "WR",
      "opp": "ARI",
      "log": "WAS|00-0041040",
      "kind": "rec",
      "avg": 44.8,
-     "proj": 52.8,
+     "proj": 52.2,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "ARI": {
      "rk": 1,
@@ -4224,19 +4224,19 @@
      "avg": 62.6,
      "proj": 73.0,
      "v": "board",
-     "at": "2026-11-26T04:04Z"
+     "at": "2026-11-26T12:19Z"
     },
     "LV": {
-     "rk": 13,
+     "rk": 11,
      "name": "Ashton Jeanty",
      "pos": "RB",
      "opp": "CLE",
      "log": "LV|00-0040122",
      "kind": "scrim",
      "avg": 87.8,
-     "proj": 95.3,
+     "proj": 96.0,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "fd": [
        [
@@ -4247,16 +4247,16 @@
      }
     },
     "CLE": {
-     "rk": 10,
+     "rk": 9,
      "name": "Quinshon Judkins",
      "pos": "RB",
      "opp": "LV",
      "log": "CLE|00-0040784",
      "kind": "scrim",
      "avg": 65.8,
-     "proj": 73.2,
+     "proj": 74.8,
      "v": "board",
-     "at": "2026-11-26T04:04Z",
+     "at": "2026-11-26T12:19Z",
      "lad": {
       "fd": [
        [
