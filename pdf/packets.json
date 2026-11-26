@@ -3,8 +3,8 @@
  "week": 12,
  "league": "nfl",
  "title": "NFL Week 12 Matchup Report",
- "dataGeneratedAt": "2026-11-25T15:51:44.456513+00:00",
- "generatedAt": "2026-11-26T14:50:34Z",
+ "dataGeneratedAt": "2026-11-26T16:03:07.990893+00:00",
+ "generatedAt": "2026-11-26T16:07:18Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -19,52 +19,32 @@
  ],
  "slate": {
   "best": [
+   17,
    18,
    19,
-   20,
-   21
+   20
   ],
   "td": [
-   22,
-   23
+   21,
+   22
   ],
   "floors": [
-   24,
-   25
+   23,
+   24
   ],
   "bye": [
-   26,
-   27
+   25,
+   26
   ]
  },
  "games": [
-  {
-   "id": "2026_12_GB_LA",
-   "label": "GB @ LA",
-   "file": "NFL_Week12_GB-LA_packet",
-   "pages": {
-    "report": [
-     2
-    ],
-    "matchup": [
-     0,
-     1
-    ],
-    "epa": [
-     0
-    ]
-   },
-   "missing": [
-    "Value board"
-   ]
-  },
   {
    "id": "2026_12_CHI_DET",
    "label": "CHI @ DET",
    "file": "NFL_Week12_CHI-DET_packet",
    "pages": {
     "report": [
-     3
+     2
     ],
     "matchup": [
      2,
@@ -85,7 +65,7 @@
    "file": "NFL_Week12_PHI-DAL_packet",
    "pages": {
     "report": [
-     4
+     3
     ],
     "matchup": [
      4,
@@ -106,7 +86,7 @@
    "file": "NFL_Week12_KC-BUF_packet",
    "pages": {
     "report": [
-     5
+     4
     ],
     "matchup": [
      6,
@@ -127,7 +107,7 @@
    "file": "NFL_Week12_DEN-PIT_packet",
    "pages": {
     "report": [
-     6
+     5
     ],
     "matchup": [
      8,
@@ -148,7 +128,7 @@
    "file": "NFL_Week12_ATL-MIN_packet",
    "pages": {
     "report": [
-     7
+     6
     ],
     "matchup": [
      10,
@@ -169,7 +149,7 @@
    "file": "NFL_Week12_BAL-HOU_packet",
    "pages": {
     "report": [
-     8
+     7
     ],
     "matchup": [
      12,
@@ -190,7 +170,7 @@
    "file": "NFL_Week12_NO-CIN_packet",
    "pages": {
     "report": [
-     9
+     8
     ],
     "matchup": [
      14,
@@ -211,7 +191,7 @@
    "file": "NFL_Week12_NYG-IND_packet",
    "pages": {
     "report": [
-     10
+     9
     ],
     "matchup": [
      16,
@@ -232,7 +212,7 @@
    "file": "NFL_Week12_NYJ-MIA_packet",
    "pages": {
     "report": [
-     11
+     10
     ],
     "matchup": [
      18,
@@ -253,7 +233,7 @@
    "file": "NFL_Week12_TEN-JAX_packet",
    "pages": {
     "report": [
-     12
+     11
     ],
     "matchup": [
      20,
@@ -274,7 +254,7 @@
    "file": "NFL_Week12_NE-LAC_packet",
    "pages": {
     "report": [
-     13
+     12
     ],
     "matchup": [
      22,
@@ -295,7 +275,7 @@
    "file": "NFL_Week12_SEA-SF_packet",
    "pages": {
     "report": [
-     14
+     13
     ],
     "matchup": [
      24,
@@ -316,7 +296,7 @@
    "file": "NFL_Week12_WAS-ARI_packet",
    "pages": {
     "report": [
-     15
+     14
     ],
     "matchup": [
      26,
@@ -337,7 +317,7 @@
    "file": "NFL_Week12_LV-CLE_packet",
    "pages": {
     "report": [
-     16
+     15
     ],
     "matchup": [
      28,
@@ -358,7 +338,7 @@
    "file": "NFL_Week12_CAR-TB_packet",
    "pages": {
     "report": [
-     17
+     16
     ],
     "matchup": [
      30,
