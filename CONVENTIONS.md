@@ -198,6 +198,12 @@ has its own CONVENTIONS.md; the shared rules below are the same in both files.
   cards with usage). `print.html` is every game this week, two pages each (`?game=<id>` /
   `?games=<ids>` for some). **It has no button anymore, but don't remove it**: the Build
   matchup PDFs Action renders it into `pdf/matchups.pdf`, the packets' "Printed matchup".
+- The **EPA page's quarterback line is this week's starter**, not the team's dropbacks leader
+  (Nov 25, 2026): `SITE.qb` in `epa.js` takes the header's quarterback (`heroQb`: the books'
+  props, then the value board's feed, then nflverse) and looks him up in the team's `qbs` list in
+  `data/epa.json` (every passer, written by `scripts/epa_ratings.py`). Under 100 dropbacks the
+  count is shown; a starter with none reads "no dropbacks this season". The CFB build writes the
+  starter into its `data/epa.json` itself, so the CFB `SITE` has no `qb`.
 - The **EPA page always has both "Print all" and "Download PDF"** buttons (`epaPrintBtn`,
   `epaPdfBtn`). Print all is every game (one landscape page each), then the board and the
   ratings; Download PDF is `pdf/epa.pdf`.

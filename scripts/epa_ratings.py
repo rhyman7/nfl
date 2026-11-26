@@ -121,15 +121,21 @@ def build_epa(plays, games, rate_keys, *, hfa, alpha, k_margin, k_total, close_m
             if pf != pa and abs(pf - pa) <= close_margin:
                 r["cw" if pf > pa else "cl"] += 1
 
-    qb = {}
-    db = clean[clean["passer"].notna()]
-    for t, sub in db.groupby("off"):
-        name = sub["passer"].value_counts().idxmax()
-        s = sub[sub["passer"] == name]
-        qb[t] = {"name": str(name), "epa": round(float(s["epa"].mean()), 3), "db": int(len(s))}
+    def qb_row(name, s):
+        row = {"name": str(name), "epa": round(float(s["epa"].mean()), 3), "db": int(len(s))}
         c = s["cpoe"].mean() if "cpoe" in s else float("nan")
         if not math.isnan(c):
-            qb[t]["cpoe"] = round(float(c), 1)
+            row["cpoe"] = round(float(c), 1)
+        return row
+
+    # qb: the team's passer with the most dropbacks. qbs: every passer, most dropbacks first, so the
+    # page can show this week's starter with his own numbers when he is someone else (Nov 25, 2026).
+    qb, qbs = {}, {}
+    db = clean[clean["passer"].notna()]
+    for t, sub in db.groupby("off"):
+        names = sub["passer"].value_counts()
+        qbs[t] = [qb_row(n, sub[sub["passer"] == n]) for n in names.index]
+        qb[t] = qbs[t][0]
 
     def rnd(x, d):
         """Rounded, or None for a missing value (JSON has no NaN)."""
@@ -167,7 +173,7 @@ def build_epa(plays, games, rate_keys, *, hfa, alpha, k_margin, k_total, close_m
             "net": r3(fit["all"][1][t] - fit["all"][2][t]),
             "rk": {k: int(v[t]) for k, v in ranks.items()},
             "npr": rnd(npr.get(t), 1), "ppg": round(float(ppg[t]), 1),
-            "to": tm, "flags": flags, "qb": qb.get(t),
+            "to": tm, "flags": flags, "qb": qb.get(t), "qbs": qbs.get(t, []),
         }
 
     lg_pts = float((games["hs"].sum() + games["as_"].sum()) / (2 * len(games))) if len(games) else 0.0
