@@ -4,6 +4,14 @@ Written by the **NFL dashboard daily update** scheduled task (10:50 AM ET) at th
 entries first, and committed with the data it describes. Before Nov 5, 2026 this log lived in a Claude
 project doc; those entries were moved here unchanged.
 
+## 2026-11-26 (10:50 AM ET) — daily refresh, Week 12
+- Commit "Week 12 daily refresh (2026-11-26)". Through Week 11, schedule Week 12 (16 games, no byes; GB@LA final: LA 26, GB 13; Thanksgiving CHI@DET and PHI@DAL today). Published.
+- Lines moved vs 11-25 publish (home spread / total; GB@LA is now its closing line): GB@LA total 44.5 → 43.5; CHI@DET total 55.5 → 56.5; PHI@DAL total 47.5 → 49.5; KC@BUF total 46.5 → 45.5; DEN@PIT spread -3.5 → -4.5; BAL@HOU spread 7.0 → 6.5; NO@CIN total 50.5 → 49.5; NYG@IND spread -6.5 → -6.0; NYJ@MIA spread -3.5 → -4.5; TEN@JAX total 48.5 → 49.5; NE@LAC spread 1.5 → -1.5 (favorite flipped to NE); SEA@SF 3.0/45.5 → 2.5/44.5; WAS@ARI spread -7.0 → -6.5. Week 13+ file lines also refreshed.
+- Referees: 0 of 16 games assigned (still blank in nflverse games.csv, including the final GB@LA).
+- Fallback: PFR standings not fetched (no web-fetch tool in this run). Records from games.csv; SoS/SRS/OSRS/DSRS computed from final scores through Week 11 (scripts/srs.py).
+- data/capped.json and data/epa.json: only generatedAt changed, not committed.
+- lineOpen unchanged (set 2026-11-24). All data checks, scripts/smoke.py and the headless interaction tests passed.
+
 ## 2026-11-25 (10:50 AM ET) — daily refresh, Week 12
 - Commit "Week 12 daily refresh (2026-11-25)". Through Week 11, schedule Week 12 (16 games, no byes; GB@LA tonight, Thanksgiving CHI@DET and PHI@DAL). Published.
 - Lines moved vs 11-24 publish (home spread / total): GB@LA total 43.5 → 44.5; CHI@DET spread -2.5 → -1.5; KC@BUF total 47.5 → 46.5; DEN@PIT -3.0/38.5 → -3.5/36.5; ATL@MIN total 42.5 → 41.5; BAL@HOU 6.5/46.5 → 7.0/47.5; TEN@JAX total 47.5 → 48.5; SEA@SF total 46.5 → 45.5; WAS@ARI -7.5/42.5 → -7.0/41.5; LV@CLE total 41.5 → 40.5. Week 13 file lines also refreshed.
