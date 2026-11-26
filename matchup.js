@@ -46,6 +46,7 @@ async function init() {
   gameHeader.innerHTML = parts.head;
   document.getElementById("edges").innerHTML = parts.edges;
   document.getElementById("teamCards").innerHTML = parts.cards;
+  try { if (typeof initPhoneMatchup === "function") initPhoneMatchup(); } catch (e) { /* the full page still shows */ }
 
   if (typeof startLiveMatchup === "function") startLiveMatchup(g);
   // Fill the forecast and the current line into the header in place (live.js may be updating it too).
