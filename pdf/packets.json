@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 12 Matchup Report",
  "dataGeneratedAt": "2026-11-27T15:52:05.378418+00:00",
- "generatedAt": "2026-11-27T15:55:07Z",
+ "generatedAt": "2026-11-27T21:17:29Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -54,7 +54,7 @@
      4
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -75,7 +75,7 @@
      5
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -96,7 +96,7 @@
      6
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -117,7 +117,7 @@
      7
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -138,7 +138,7 @@
      8
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -159,7 +159,7 @@
      9
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -180,7 +180,7 @@
      10
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -201,7 +201,7 @@
      11
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -222,7 +222,7 @@
      12
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -243,7 +243,7 @@
      13
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -264,7 +264,7 @@
      14
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -285,7 +285,7 @@
      15
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
