@@ -4,7 +4,7 @@
  "league": "nfl",
  "title": "NFL Week 12 Matchup Report",
  "dataGeneratedAt": "2026-11-26T16:03:07.990893+00:00",
- "generatedAt": "2026-11-27T01:44:59Z",
+ "generatedAt": "2026-11-27T12:14:47Z",
  "files": {
   "report": "report.pdf",
   "matchup": "matchups.pdf",
@@ -73,12 +73,11 @@
     ],
     "epa": [
      2
-    ],
-    "value": [
-     0
     ]
    },
-   "missing": []
+   "missing": [
+    "Value board"
+   ]
   },
   {
    "id": "2026_12_KC_BUF",
@@ -96,7 +95,7 @@
      3
     ],
     "value": [
-     1
+     0
     ]
    },
    "missing": []
@@ -117,7 +116,7 @@
      4
     ],
     "value": [
-     2
+     1
     ]
    },
    "missing": []
@@ -138,7 +137,7 @@
      5
     ],
     "value": [
-     3
+     2
     ]
    },
    "missing": []
@@ -159,7 +158,7 @@
      6
     ],
     "value": [
-     4
+     3
     ]
    },
    "missing": []
@@ -180,7 +179,7 @@
      7
     ],
     "value": [
-     5
+     4
     ]
    },
    "missing": []
@@ -201,7 +200,7 @@
      8
     ],
     "value": [
-     6
+     5
     ]
    },
    "missing": []
@@ -222,7 +221,7 @@
      9
     ],
     "value": [
-     7
+     6
     ]
    },
    "missing": []
@@ -243,7 +242,7 @@
      10
     ],
     "value": [
-     8
+     7
     ]
    },
    "missing": []
@@ -264,7 +263,7 @@
      11
     ],
     "value": [
-     9
+     8
     ]
    },
    "missing": []
@@ -285,7 +284,7 @@
      12
     ],
     "value": [
-     10
+     9
     ]
    },
    "missing": []
@@ -306,7 +305,7 @@
      13
     ],
     "value": [
-     11
+     10
     ]
    },
    "missing": []
@@ -327,7 +326,7 @@
      14
     ],
     "value": [
-     12
+     11
     ]
    },
    "missing": []
@@ -348,7 +347,7 @@
      15
     ],
     "value": [
-     13
+     12
     ]
    },
    "missing": []
